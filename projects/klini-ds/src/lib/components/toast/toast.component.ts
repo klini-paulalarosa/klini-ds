@@ -1,72 +1,73 @@
-import {
-  Component, Input, Output, EventEmitter,
-  ChangeDetectionStrategy, booleanAttribute,
-} from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { Component, Input, ChangeDetectionStrategy, inject } from '@angular/core';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 
-export type ToastSeverity = 'success' | 'warn' | 'danger' | 'info';
+export type KliniToastSeverity = 'success' | 'warn' | 'error' | 'info' | 'secondary' | 'contrast';
 
-const TOAST_ICONS: Record<ToastSeverity, string> = {
-  success: 'pi-check-circle',
-  warn:    'pi-exclamation-triangle',
-  danger:  'pi-times-circle',
-  info:    'pi-info-circle',
-};
+export interface KliniToastMessage {
+  severity?: KliniToastSeverity;
+  summary?: string;
+  detail:   string;
+  life?:    number;
+  sticky?:  boolean;
+  key?:     string;
+}
 
+/**
+ * Wrapper sobre p-toast do PrimeNG.
+ *
+ * Uso:
+ *   1. Adicione <klini-toast /> (ou <klini-toast key="main" />) no template do componente raiz.
+ *   2. Injete KliniToastService e chame .show({ ... }) para exibir mensagens.
+ *
+ * Estilização 100% via KliniPrime theme preset.
+ */
 @Component({
   selector: 'klini-toast',
   standalone: true,
-  imports: [CommonModule],
+  imports: [ToastModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  providers: [MessageService],
   template: `
-    <div [class]="'klini-toast klini-toast--' + severity" role="alert">
-      <i [class]="'pi ' + severityIcon + ' klini-toast__icon'"></i>
-      <div class="klini-toast__body">
-        <p *ngIf="title" class="klini-toast__title">{{ title }}</p>
-        <p class="klini-toast__message">{{ message }}</p>
-      </div>
-      <button *ngIf="closable" type="button" class="klini-toast__close" (click)="closed.emit()" aria-label="Fechar">
-        <i class="pi pi-times"></i>
-      </button>
-    </div>
+    <p-toast
+      [key]="key"
+      [position]="position"
+      [life]="life"
+      [baseZIndex]="baseZIndex"
+      [styleClass]="styleClass"
+    />
   `,
-  styles: [`
-    .klini-toast {
-      display: flex; align-items: flex-start; gap: var(--klini-space-3);
-      padding: var(--klini-space-4); border-radius: var(--klini-radius-lg);
-      border-left: 4px solid; font-family: 'Plus Jakarta Sans', sans-serif;
-      min-width: 300px; max-width: 480px;
-      box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
-
-      &--success { background: var(--klini-feedback-success-bg); border-color: var(--klini-feedback-success-fg); }
-      &--warn    { background: var(--klini-feedback-warning-bg); border-color: var(--klini-feedback-warning-fg); }
-      &--danger  { background: var(--klini-feedback-danger-bg);  border-color: var(--klini-feedback-danger-fg); }
-      &--info    { background: var(--klini-feedback-info-bg);    border-color: var(--klini-feedback-info-fg); }
-
-      &__icon { font-size: var(--klini-size-icon-md); margin-top: 2px;
-        .klini-toast--success & { color: var(--klini-feedback-success-fg); }
-        .klini-toast--warn    & { color: var(--klini-feedback-warning-fg); }
-        .klini-toast--danger  & { color: var(--klini-feedback-danger-fg); }
-        .klini-toast--info    & { color: var(--klini-feedback-info-fg); }
-      }
-      &__body { flex: 1; display: flex; flex-direction: column; gap: var(--klini-space-1); }
-      &__title { font-weight: 700; font-size: var(--klini-font-size-body); color: var(--klini-text-primary); margin: 0; }
-      &__message { font-size: var(--klini-font-size-body-sm); color: var(--klini-text-secondary); margin: 0; }
-      &__close {
-        background: none; border: none; cursor: pointer; padding: 2px;
-        color: var(--klini-text-muted); line-height: 1;
-        &:hover { color: var(--klini-text-primary); }
-      }
-    }
-  `],
 })
 export class ToastComponent {
-  @Input({ required: true }) message = '';
-  @Input() title = '';
-  @Input() severity: ToastSeverity = 'info';
-  @Input({ transform: booleanAttribute }) closable = true;
+  @Input() key         = '';
+  @Input() position    = 'top-right';
+  @Input() life        = 4000;
+  @Input() baseZIndex  = 500;
+  @Input() styleClass  = '';
+}
 
-  @Output() closed = new EventEmitter<void>();
+/**
+ * Serviço auxiliar — injete nos componentes que precisam disparar toasts.
+ * Provê tipagem Klini sobre o MessageService do PrimeNG.
+ */
+export class KliniToastService {
+  private readonly ms = inject(MessageService);
 
-  get severityIcon(): string { return TOAST_ICONS[this.severity]; }
+  show(msg: KliniToastMessage): void {
+    this.ms.add({
+      severity: msg.severity ?? 'info',
+      summary:  msg.summary,
+      detail:   msg.detail,
+      life:     msg.life,
+      sticky:   msg.sticky,
+      key:      msg.key,
+    });
+  }
+
+  success(detail: string, summary = 'Sucesso')   { this.show({ severity: 'success', summary, detail }); }
+  error  (detail: string, summary = 'Erro')       { this.show({ severity: 'error',   summary, detail }); }
+  warn   (detail: string, summary = 'Atenção')    { this.show({ severity: 'warn',    summary, detail }); }
+  info   (detail: string, summary = 'Informação') { this.show({ severity: 'info',    summary, detail }); }
+
+  clear(key?: string): void { this.ms.clear(key); }
 }

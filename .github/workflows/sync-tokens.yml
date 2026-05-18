@@ -1,0 +1,73 @@
+name: Sync Tokens from Figma
+
+on:
+  # Disparo manual pelo GitHub UI (Actions → Sync Tokens → Run workflow)
+  workflow_dispatch:
+    inputs:
+      open_pr:
+        description: 'Abrir PR automaticamente com as mudanças?'
+        type: boolean
+        default: true
+
+  # Opcional: disparar automaticamente todo domingo às 9h (horário Brasília = 12h UTC)
+  # Descomente para ativar o sync semanal automático
+  # schedule:
+  #   - cron: '0 12 * * 0'
+
+jobs:
+  sync:
+    name: Sync Figma → SCSS tokens
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Run sync script
+        env:
+          FIGMA_TOKEN: ${{ secrets.FIGMA_TOKEN }}
+          FIGMA_FILE: gOsRuHIPm6Xo5zGEWDmnRW
+        run: node scripts/sync-tokens.mjs
+
+      - name: Check for changes
+        id: changes
+        run: |
+          if git diff --quiet projects/klini-ds/src/lib/tokens/; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+            echo "ℹ️ Nenhuma mudança nos tokens."
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+            echo "✅ Tokens foram atualizados!"
+            git diff --stat projects/klini-ds/src/lib/tokens/
+          fi
+
+      - name: Open PR with token changes
+        if: steps.changes.outputs.changed == 'true' && github.event.inputs.open_pr != 'false'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: chore/sync-tokens-${{ github.run_number }}
+          commit-message: "chore(tokens): sync design tokens from Figma"
+          title: "🎨 chore(tokens): sync design tokens from Figma"
+          body: |
+            ## Tokens atualizados do Figma
+
+            Este PR foi gerado automaticamente pelo workflow **Sync Tokens from Figma**.
+
+            ### O que mudou
+            Revise o diff nos arquivos abaixo para ver quais tokens foram adicionados, alterados ou removidos:
+            - `projects/klini-ds/src/lib/tokens/_primitive.scss`
+            - `projects/klini-ds/src/lib/tokens/_semantic.scss`
+            - `projects/klini-ds/src/lib/tokens/_status.scss`
+            - `projects/klini-ds/src/lib/tokens/_scale.scss`
+
+            ### Próximos passos
+            1. Revise o diff
+            2. Faça o merge (bump automático não incluso — use `npm run release:patch` após merge)
+          labels: tokens, automated
+          draft: false

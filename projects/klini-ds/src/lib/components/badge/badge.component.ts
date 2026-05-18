@@ -1,36 +1,29 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { BadgeModule } from 'primeng/badge';
 
-export type BadgeSeverity = 'primary' | 'secondary' | 'success' | 'warn' | 'danger' | 'info';
+export type KliniBadgeSeverity = 'primary' | 'secondary' | 'success' | 'warn' | 'danger' | 'info' | 'contrast';
 
+/**
+ * Wrapper sobre p-badge do PrimeNG.
+ * Estilização 100% via KliniPrime theme preset.
+ */
 @Component({
   selector: 'klini-badge',
   standalone: true,
-  imports: [CommonModule],
+  imports: [BadgeModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <span [class]="'klini-badge klini-badge--' + severity">
-      {{ value }}
-    </span>
+    <p-badge
+      [value]="value"
+      [severity]="severity"
+      [size]="size"
+      [styleClass]="styleClass"
+    />
   `,
-  styles: [`
-    .klini-badge {
-      display: inline-flex; align-items: center; justify-content: center;
-      min-width: 20px; height: 20px; padding: 0 var(--klini-space-1);
-      border-radius: var(--klini-radius-pill);
-      font-size: var(--klini-font-size-caption); font-weight: 700;
-      font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1;
-
-      &--primary  { background: var(--klini-action-primary);        color: var(--klini-color-white); }
-      &--secondary { background: var(--klini-color-ink-300);        color: var(--klini-text-primary); }
-      &--success  { background: var(--klini-feedback-success-fg);   color: var(--klini-color-white); }
-      &--warn     { background: var(--klini-feedback-warning-fg);   color: var(--klini-color-white); }
-      &--danger   { background: var(--klini-action-danger);         color: var(--klini-color-white); }
-      &--info     { background: var(--klini-feedback-info-fg);      color: var(--klini-color-white); }
-    }
-  `],
 })
 export class BadgeComponent {
   @Input({ required: true }) value: string | number = '';
-  @Input() severity: BadgeSeverity = 'primary';
+  @Input() severity: KliniBadgeSeverity = 'primary';
+  @Input() size: 'large' | 'xlarge' | undefined     = undefined;
+  @Input() styleClass = '';
 }

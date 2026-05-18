@@ -1,51 +1,59 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { StepperModule } from 'primeng/stepper';
 
-export interface StepperStep {
-  label: string;
+export interface KliniStep {
+  label:       string;
   description?: string;
-  icon?: string;
+  icon?:        string;
 }
 
-export type StepperOrientation = 'horizontal' | 'vertical';
-
+/**
+ * Wrapper sobre p-stepper do PrimeNG.
+ * Aceita um array simples de steps via @Input e renderiza via p-step-panels.
+ * Estilização 100% via KliniPrime theme preset.
+ */
 @Component({
   selector: 'klini-stepper',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, StepperModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <div [class]="'klini-stepper klini-stepper--' + orientation">
-      <div
-        *ngFor="let step of steps; let i = index; let last = last"
-        [class]="stepClass(i)"
-      >
-        <div class="klini-stepper__indicator">
-          <div class="klini-stepper__circle">
-            <i *ngIf="i < activeStep" class="pi pi-check"></i>
-            <span *ngIf="i >= activeStep">{{ i + 1 }}</span>
-          </div>
-          <div *ngIf="!last" class="klini-stepper__line"></div>
-        </div>
-        <div class="klini-stepper__content">
-          <span class="klini-stepper__label">{{ step.label }}</span>
-          <span *ngIf="step.description" class="klini-stepper__description">{{ step.description }}</span>
-        </div>
-      </div>
-    </div>
+    <p-stepper [value]="activeStep" [linear]="linear" [orientation]="orientation">
+      <p-step-panels>
+        <p-step-panel
+          *ngFor="let step of steps; let i = index"
+          [value]="i"
+          [header]="step.label"
+        >
+          <ng-template pTemplate="content" let-activateCallback="activateCallback">
+            <div class="klini-stepper__panel-content">
+              <p *ngIf="step.description" class="klini-stepper__description">
+                {{ step.description }}
+              </p>
+              <!-- Conteúdo projetado para o step ativo -->
+              <ng-container *ngIf="i === activeStep">
+                <ng-content />
+              </ng-container>
+            </div>
+          </ng-template>
+        </p-step-panel>
+      </p-step-panels>
+    </p-stepper>
   `,
-  styleUrl: './stepper.component.scss',
+  styles: [`
+    .klini-stepper__description {
+      color: var(--klini-text-secondary);
+      font-size: var(--klini-font-size-body-sm);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      margin: 0 0 var(--klini-space-4);
+    }
+    .klini-stepper__panel-content { padding: var(--klini-space-4) 0; }
+  `],
 })
 export class StepperComponent {
-  @Input({ required: true }) steps: StepperStep[] = [];
-  @Input() activeStep = 0;
-  @Input() orientation: StepperOrientation = 'horizontal';
-
-  stepClass(index: number): string {
-    return [
-      'klini-stepper__step',
-      index < this.activeStep  ? 'klini-stepper__step--completed' : '',
-      index === this.activeStep ? 'klini-stepper__step--active' : '',
-    ].filter(Boolean).join(' ');
-  }
+  @Input({ required: true }) steps: KliniStep[] = [];
+  @Input() activeStep  = 0;
+  @Input() orientation: 'horizontal' | 'vertical' = 'horizontal';
+  @Input() linear      = false;
 }

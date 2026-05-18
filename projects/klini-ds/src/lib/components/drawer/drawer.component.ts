@@ -2,48 +2,45 @@ import {
   Component, Input, Output, EventEmitter,
   ChangeDetectionStrategy, booleanAttribute,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { DrawerModule } from 'primeng/drawer';
 
-export type DrawerPosition = 'left' | 'right' | 'top' | 'bottom';
+export type KliniDrawerPosition = 'left' | 'right' | 'top' | 'bottom' | 'full';
 
+/**
+ * Wrapper sobre p-drawer do PrimeNG (ex p-sidebar).
+ * Estilização 100% via KliniPrime theme preset.
+ */
 @Component({
   selector: 'klini-drawer',
   standalone: true,
-  imports: [CommonModule],
+  imports: [DrawerModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <ng-container *ngIf="visible">
-      <div class="klini-drawer__scrim" (click)="closeOnScrim && close()"></div>
-      <div [class]="'klini-drawer klini-drawer--' + position" role="dialog" [attr.aria-label]="header">
-        <div *ngIf="header || showCloseBtn" class="klini-drawer__header">
-          <span class="klini-drawer__title">{{ header }}</span>
-          <button *ngIf="showCloseBtn" type="button" class="klini-drawer__close" (click)="close()" aria-label="Fechar">
-            <i class="pi pi-times"></i>
-          </button>
-        </div>
-        <div class="klini-drawer__body">
-          <ng-content />
-        </div>
-        <div class="klini-drawer__footer">
-          <ng-content select="[slot=footer]" />
-        </div>
-      </div>
-    </ng-container>
+    <p-drawer
+      [(visible)]="visible"
+      [header]="header"
+      [position]="position"
+      [modal]="modal"
+      [closeOnEscape]="closeOnEscape"
+      [styleClass]="styleClass"
+      (onHide)="closed.emit()"
+      (visibleChange)="visibleChange.emit($event)"
+    >
+      <ng-content />
+      <ng-template pTemplate="footer">
+        <ng-content select="[slot=footer]" />
+      </ng-template>
+    </p-drawer>
   `,
-  styleUrl: './drawer.component.scss',
 })
 export class DrawerComponent {
-  @Input() header = '';
-  @Input() position: DrawerPosition = 'right';
-  @Input({ transform: booleanAttribute }) visible = false;
-  @Input({ transform: booleanAttribute }) closeOnScrim = true;
-  @Input({ transform: booleanAttribute }) showCloseBtn = true;
+  @Input() header   = '';
+  @Input() position: KliniDrawerPosition = 'right';
+  @Input() styleClass = '';
+  @Input({ transform: booleanAttribute }) visible       = false;
+  @Input({ transform: booleanAttribute }) modal         = true;
+  @Input({ transform: booleanAttribute }) closeOnEscape = true;
 
   @Output() visibleChange = new EventEmitter<boolean>();
   @Output() closed        = new EventEmitter<void>();
-
-  close(): void {
-    this.visibleChange.emit(false);
-    this.closed.emit();
-  }
 }

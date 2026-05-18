@@ -4,13 +4,21 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
+import { InputTextModule } from 'primeng/inputtext';
+import { FloatLabelModule } from 'primeng/floatlabel';
+import { MessageModule } from 'primeng/message';
 
-export type InputSize = 'sm' | 'md' | 'lg';
+export type KliniInputSize = 'small' | 'large' | undefined;
 
+/**
+ * Wrapper sobre pInputText + p-floatlabel do PrimeNG.
+ * Implementa ControlValueAccessor para integração com Reactive/Template Forms.
+ * Estilização 100% via KliniPrime theme preset.
+ */
 @Component({
   selector: 'klini-input-text',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, InputTextModule, FloatLabelModule, MessageModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -18,31 +26,53 @@ export type InputSize = 'sm' | 'md' | 'lg';
     multi: true,
   }],
   template: `
-    <div [class]="wrapperClass">
-      <label *ngIf="label" [for]="inputId" class="klini-input__label">
-        {{ label }}
-        <span *ngIf="required" class="klini-input__required" aria-hidden="true"> *</span>
-      </label>
-      <div class="klini-input__control">
-        <i *ngIf="iconLeft" [class]="'pi ' + iconLeft + ' klini-input__icon klini-input__icon--left'"></i>
+    <div class="klini-input-wrapper">
+      <p-floatlabel *ngIf="floatLabel; else noFloat" [variant]="floatLabelVariant">
         <input
+          pInputText
           [id]="inputId"
           [type]="type"
+          [size]="size"
+          [disabled]="disabled"
+          [value]="value"
+          [attr.maxlength]="maxLength || null"
+          [invalid]="!!errorMessage"
+          (input)="onInput($event)"
+          (blur)="onTouched()"
+        />
+        <label [for]="inputId">{{ label }}</label>
+      </p-floatlabel>
+
+      <ng-template #noFloat>
+        <label *ngIf="label" [for]="inputId" class="klini-input-label">{{ label }}</label>
+        <input
+          pInputText
+          [id]="inputId"
+          [type]="type"
+          [size]="size"
           [placeholder]="placeholder"
           [disabled]="disabled"
           [value]="value"
           [attr.maxlength]="maxLength || null"
-          [class]="inputClass"
+          [invalid]="!!errorMessage"
           (input)="onInput($event)"
           (blur)="onTouched()"
         />
-        <i *ngIf="iconRight" [class]="'pi ' + iconRight + ' klini-input__icon klini-input__icon--right'"></i>
-      </div>
-      <span *ngIf="errorMessage" class="klini-input__error">{{ errorMessage }}</span>
-      <span *ngIf="hint && !errorMessage" class="klini-input__hint">{{ hint }}</span>
+      </ng-template>
+
+      <p-message *ngIf="errorMessage" severity="error" [text]="errorMessage" styleClass="klini-input-error" />
+      <small *ngIf="hint && !errorMessage" class="klini-input-hint">{{ hint }}</small>
     </div>
   `,
-  styleUrl: './input-text.component.scss',
+  styles: [`
+    .klini-input-wrapper { display: flex; flex-direction: column; gap: var(--klini-space-1); }
+    .klini-input-label {
+      font-size: var(--klini-font-size-body-sm); font-weight: 600;
+      color: var(--klini-field-label); font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+    .klini-input-hint { font-size: var(--klini-font-size-caption); color: var(--klini-text-muted); }
+    :host ::ng-deep .klini-input-error { margin-top: 0; }
+  `],
 })
 export class InputTextComponent implements ControlValueAccessor {
   private static idCounter = 0;
@@ -50,38 +80,20 @@ export class InputTextComponent implements ControlValueAccessor {
   @Input() label       = '';
   @Input() placeholder = '';
   @Input() type        = 'text';
-  @Input() size: InputSize = 'md';
-  @Input() hint        = '';
+  @Input() size: KliniInputSize = undefined;
+  @Input() hint         = '';
   @Input() errorMessage = '';
-  @Input() iconLeft    = '';
-  @Input() iconRight   = '';
   @Input() maxLength: number | null = null;
   @Input() inputId     = `klini-input-${++InputTextComponent.idCounter}`;
-  @Input({ transform: booleanAttribute }) required = false;
-  @Input({ transform: booleanAttribute }) disabled = false;
+  @Input() floatLabelVariant: 'in' | 'on' | 'over' = 'on';
+  @Input({ transform: booleanAttribute }) floatLabel = false;
+  @Input({ transform: booleanAttribute }) disabled   = false;
 
   @Output() valueChange = new EventEmitter<string>();
 
-  value = '';
+  value     = '';
   onChange  = (_: string) => {};
   onTouched = () => {};
-
-  get wrapperClass(): string {
-    return [
-      'klini-input',
-      `klini-input--${this.size}`,
-      this.errorMessage ? 'klini-input--error' : '',
-      this.disabled     ? 'klini-input--disabled' : '',
-    ].filter(Boolean).join(' ');
-  }
-
-  get inputClass(): string {
-    return [
-      'klini-input__field',
-      this.iconLeft  ? 'klini-input__field--icon-left'  : '',
-      this.iconRight ? 'klini-input__field--icon-right' : '',
-    ].filter(Boolean).join(' ');
-  }
 
   onInput(event: Event): void {
     const val = (event.target as HTMLInputElement).value;
@@ -90,8 +102,8 @@ export class InputTextComponent implements ControlValueAccessor {
     this.valueChange.emit(val);
   }
 
-  writeValue(val: string): void   { this.value = val ?? ''; }
-  registerOnChange(fn: (v: string) => void): void  { this.onChange = fn; }
+  writeValue(val: string): void { this.value = val ?? ''; }
+  registerOnChange(fn: (v: string) => void): void { this.onChange = fn; }
   registerOnTouched(fn: () => void): void { this.onTouched = fn; }
   setDisabledState(isDisabled: boolean): void { this.disabled = isDisabled; }
 }

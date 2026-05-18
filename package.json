@@ -7,7 +7,10 @@
     "build:watch": "ng build klini-ds --watch",
     "test": "ng test klini-ds",
     "lint": "ng lint klini-ds",
-    "release": "npm run build && npm publish dist/klini-ds"
+    "sync-tokens": "node scripts/sync-tokens.mjs",
+    "release:patch": "npm version patch --prefix projects/klini-ds && git push origin main --tags",
+    "release:minor": "npm version minor --prefix projects/klini-ds && git push origin main --tags",
+    "release:major": "npm version major --prefix projects/klini-ds && git push origin main --tags"
   },
   "dependencies": {
     "@angular/animations": "^18.2.0",

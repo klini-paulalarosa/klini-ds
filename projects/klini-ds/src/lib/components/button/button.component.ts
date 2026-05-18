@@ -2,54 +2,49 @@ import {
   Component, Input, Output, EventEmitter,
   ChangeDetectionStrategy, booleanAttribute,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { ButtonModule } from 'primeng/button';
 
-export type ButtonSeverity = 'primary' | 'secondary' | 'success' | 'warn' | 'danger';
-export type ButtonSize      = 'sm' | 'md' | 'lg';
-export type ButtonVariant   = 'filled' | 'outlined' | 'text';
+export type KliniButtonSeverity = 'primary' | 'secondary' | 'success' | 'warn' | 'danger' | 'info' | 'contrast';
+export type KliniButtonSize     = 'small' | 'large' | undefined;
+export type KliniButtonVariant  = 'outlined' | 'text' | 'link' | undefined;
 
+/**
+ * Wrapper sobre p-button do PrimeNG.
+ * O visual é 100% controlado pelo KliniPrime theme preset.
+ * Este componente apenas pré-configura defaults Klini e expõe a API tipada.
+ */
 @Component({
   selector: 'klini-button',
   standalone: true,
-  imports: [CommonModule],
+  imports: [ButtonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <button
+    <p-button
+      [label]="label"
+      [icon]="icon"
+      [iconPos]="iconPos"
+      [severity]="severity"
+      [size]="size"
+      [variant]="variant"
+      [disabled]="disabled"
+      [loading]="loading"
       [type]="type"
-      [disabled]="disabled || loading"
-      [class]="hostClass"
-      (click)="clicked.emit($event)"
-    >
-      <i *ngIf="loading" class="pi pi-spinner pi-spin klini-btn__icon"></i>
-      <i *ngIf="icon && !loading" [class]="'pi ' + icon + ' klini-btn__icon'"></i>
-      <span *ngIf="label" class="klini-btn__label">{{ label }}</span>
-      <ng-content />
-    </button>
+      [styleClass]="styleClass"
+      (onClick)="clicked.emit($event)"
+    />
   `,
-  styleUrl: './button.component.scss',
 })
 export class ButtonComponent {
   @Input() label     = '';
   @Input() icon      = '';
+  @Input() iconPos: 'left' | 'right' | 'top' | 'bottom' = 'left';
   @Input() type      = 'button';
-  @Input() severity: ButtonSeverity = 'primary';
-  @Input() size: ButtonSize         = 'md';
-  @Input() variant: ButtonVariant   = 'filled';
+  @Input() severity: KliniButtonSeverity  = 'primary';
+  @Input() size: KliniButtonSize          = undefined;
+  @Input() variant: KliniButtonVariant    = undefined;
+  @Input() styleClass = '';
   @Input({ transform: booleanAttribute }) disabled = false;
   @Input({ transform: booleanAttribute }) loading  = false;
-  @Input({ transform: booleanAttribute }) fullWidth = false;
 
   @Output() clicked = new EventEmitter<MouseEvent>();
-
-  get hostClass(): string {
-    return [
-      'klini-btn',
-      `klini-btn--${this.severity}`,
-      `klini-btn--${this.size}`,
-      `klini-btn--${this.variant}`,
-      this.fullWidth ? 'klini-btn--full' : '',
-      this.disabled  ? 'klini-btn--disabled' : '',
-      this.loading   ? 'klini-btn--loading' : '',
-    ].filter(Boolean).join(' ');
-  }
 }

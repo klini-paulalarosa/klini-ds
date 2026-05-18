@@ -1,4 +1,5 @@
 import { NgModule } from '@angular/core';
+import { MessageService } from 'primeng/api';
 
 import { ButtonComponent }     from './components/button/button.component';
 import { StatusPillComponent } from './components/status-pill/status-pill.component';
@@ -26,9 +27,14 @@ const COMPONENTS = [
   CalendarComponent,
 ];
 
-// Módulo de conveniência para projetos que ainda não usam standalone
+/**
+ * Módulo de conveniência — importa e re-exporta todos os componentes do @klini/ds.
+ * Para projetos que ainda usam NgModule em vez de standalone.
+ * Também provê MessageService necessário para p-toast.
+ */
 @NgModule({
-  imports:  COMPONENTS,
-  exports:  COMPONENTS,
+  imports:   COMPONENTS,
+  exports:   COMPONENTS,
+  providers: [MessageService],
 })
 export class KliniDsModule {}
