@@ -12,6 +12,9 @@ import { StepperComponent }    from './components/stepper/stepper.component';
 import { DrawerComponent }     from './components/drawer/drawer.component';
 import { InputTextComponent }  from './components/input-text/input-text.component';
 import { CalendarComponent }   from './components/calendar/calendar.component';
+import { MessageComponent }    from './components/message/message.component';
+import { CardComponent }       from './components/card/card.component';
+import { DividerComponent }    from './components/divider/divider.component';
 
 const COMPONENTS = [
   ButtonComponent,
@@ -25,6 +28,9 @@ const COMPONENTS = [
   DrawerComponent,
   InputTextComponent,
   CalendarComponent,
+  MessageComponent,
+  CardComponent,
+  DividerComponent,
 ];
 
 /**

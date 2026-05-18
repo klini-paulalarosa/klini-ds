@@ -53,3 +53,14 @@ export type { KliniInputSize } from './lib/components/input-text/input-text.comp
 
 // Calendar — wrapper p-datepicker com CVA
 export { CalendarComponent } from './lib/components/calendar/calendar.component';
+
+// Message — wrapper p-message (feedbacks contextuais inline)
+export { MessageComponent } from './lib/components/message/message.component';
+export type { KliniMessageSeverity } from './lib/components/message/message.component';
+
+// Card — wrapper genérico p-card (Base · Guia-Info · Nav-Row)
+export { CardComponent } from './lib/components/card/card.component';
+
+// Divider — wrapper p-divider (solid · dashed · dotted)
+export { DividerComponent } from './lib/components/divider/divider.component';
+export type { KliniDividerType, KliniDividerLayout, KliniDividerAlign } from './lib/components/divider/divider.component';

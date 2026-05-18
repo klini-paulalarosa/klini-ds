@@ -1,0 +1,36 @@
+// =============================================================================
+// Klini DS — Elevation & Focus Tokens
+// Estilos de efeito publicados no Figma DS (Motion & Elevation · 5 níveis)
+// Gerado com base nos effect styles do arquivo gOsRuHIPm6Xo5zGEWDmnRW
+// NÃO editar manualmente — sincronize pelo Figma (styles, não variables)
+// =============================================================================
+
+:root {
+  // ELEVATION — 5 níveis de sombra (base: ink #0F1B1A = rgba(15,27,26,x))
+  // elevation/xs — tooltips, dropdown menus, popovers pequenos
+  --klini-elevation-xs: 0 1px 2px rgba(15, 27, 26, 0.06);
+
+  // elevation/sm — cards, inputs com focus, raised states
+  --klini-elevation-sm: 0 2px 4px rgba(15, 27, 26, 0.08);
+
+  // elevation/md — dropdowns abertos, selects, popovers
+  --klini-elevation-md: 0 4px 8px rgba(15, 27, 26, 0.10);
+
+  // elevation/lg — menus principais, drawers, sidebars flutuantes
+  --klini-elevation-lg: 0 8px 16px rgba(15, 27, 26, 0.12);
+
+  // elevation/xl — modais, dialogs, overlays bloqueantes
+  --klini-elevation-xl: 0 16px 32px rgba(15, 27, 26, 0.16);
+
+  // FOCUS RINGS — WCAG 2.4.7 AA obrigatório
+  // focus/default — teal · todos os elementos interativos
+  --klini-focus-default: 0 0 0 3px rgba(37, 149, 145, 0.25);
+
+  // focus/error — coral · campos com erro de validação
+  --klini-focus-error: 0 0 0 3px rgba(224, 87, 89, 0.25);
+
+  // INTERACTION
+  // interaction/hover — elevation-sm + translateY(-1px) aplicado via CSS
+  --klini-interaction-hover-shadow: var(--klini-elevation-sm);
+  --klini-interaction-hover-transform: translateY(-1px);
+}
