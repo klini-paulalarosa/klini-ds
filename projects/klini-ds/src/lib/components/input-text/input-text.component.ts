@@ -36,7 +36,7 @@ export type KliniInputSize = 'small' | 'large' | undefined;
           [disabled]="disabled"
           [value]="value"
           [attr.maxlength]="maxLength || null"
-          [invalid]="!!errorMessage"
+          [class.p-invalid]="!!errorMessage"
           (input)="onInput($event)"
           (blur)="onTouched()"
         />
@@ -54,7 +54,7 @@ export type KliniInputSize = 'small' | 'large' | undefined;
           [disabled]="disabled"
           [value]="value"
           [attr.maxlength]="maxLength || null"
-          [invalid]="!!errorMessage"
+          [class.p-invalid]="!!errorMessage"
           (input)="onInput($event)"
           (blur)="onTouched()"
         />

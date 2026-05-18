@@ -1,18 +1,18 @@
 import { Component, Input, Output, EventEmitter, forwardRef, ChangeDetectionStrategy } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DatePickerModule } from 'primeng/datepicker';
 import { FloatLabelModule } from 'primeng/floatlabel';
 
 /**
- * Wrapper sobre p-datepicker do PrimeNG (ex p-calendar).
+ * Wrapper sobre p-datepicker do PrimeNG 18 (ex p-calendar).
  * Implementa ControlValueAccessor para Reactive/Template Forms.
  * Estilização 100% via KliniPrime theme preset.
  */
 @Component({
   selector: 'klini-calendar',
   standalone: true,
-  imports: [CommonModule, DatePickerModule, FloatLabelModule],
+  imports: [CommonModule, FormsModule, DatePickerModule, FloatLabelModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -32,10 +32,9 @@ import { FloatLabelModule } from 'primeng/floatlabel';
           [minDate]="minDate"
           [maxDate]="maxDate"
           [dateFormat]="dateFormat"
-          [locale]="locale"
           [disabled]="disabled"
           [inline]="inline"
-          [ngModel]="value"
+          [(ngModel)]="value"
           (ngModelChange)="onValueChange($event)"
           (onBlur)="onTouched()"
           styleClass="klini-datepicker"
@@ -55,10 +54,9 @@ import { FloatLabelModule } from 'primeng/floatlabel';
           [minDate]="minDate"
           [maxDate]="maxDate"
           [dateFormat]="dateFormat"
-          [locale]="locale"
           [disabled]="disabled"
           [inline]="inline"
-          [ngModel]="value"
+          [(ngModel)]="value"
           (ngModelChange)="onValueChange($event)"
           (onBlur)="onTouched()"
           styleClass="klini-datepicker"
@@ -78,10 +76,9 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 export class CalendarComponent implements ControlValueAccessor {
   private static idCounter = 0;
 
-  @Input() label      = '';
+  @Input() label       = '';
   @Input() placeholder = '';
   @Input() dateFormat  = 'dd/mm/yy';
-  @Input() locale      = 'pt-BR';
   @Input() selectionMode: 'single' | 'multiple' | 'range' = 'single';
   @Input() minDate: Date | undefined;
   @Input() maxDate: Date | undefined;

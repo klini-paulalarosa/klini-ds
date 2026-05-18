@@ -6,7 +6,7 @@ import { ButtonModule } from 'primeng/button';
 
 export type KliniButtonSeverity = 'primary' | 'secondary' | 'success' | 'warn' | 'danger' | 'info' | 'contrast';
 export type KliniButtonSize     = 'small' | 'large' | undefined;
-export type KliniButtonVariant  = 'outlined' | 'text' | 'link' | undefined;
+export type KliniButtonVariant  = 'outlined' | 'text' | undefined;
 
 /**
  * Wrapper sobre p-button do PrimeNG.

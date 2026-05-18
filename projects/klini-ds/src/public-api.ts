@@ -37,7 +37,7 @@ export type { KpiTrend } from './lib/components/kpi-card/kpi-card.component';
 
 // Toast — wrapper p-toast + KliniToastService
 export { ToastComponent, KliniToastService } from './lib/components/toast/toast.component';
-export type { KliniToastSeverity, KliniToastMessage } from './lib/components/toast/toast.component';
+export type { KliniToastSeverity, KliniToastMessage, KliniToastPosition } from './lib/components/toast/toast.component';
 
 // Stepper — wrapper p-stepper
 export { StepperComponent } from './lib/components/stepper/stepper.component';

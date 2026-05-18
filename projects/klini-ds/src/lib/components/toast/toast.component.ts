@@ -4,6 +4,11 @@ import { MessageService } from 'primeng/api';
 
 export type KliniToastSeverity = 'success' | 'warn' | 'error' | 'info' | 'secondary' | 'contrast';
 
+export type KliniToastPosition =
+  | 'top-right' | 'top-left' | 'top-center'
+  | 'bottom-right' | 'bottom-left' | 'bottom-center'
+  | 'center';
+
 export interface KliniToastMessage {
   severity?: KliniToastSeverity;
   summary?: string;
@@ -40,7 +45,7 @@ export interface KliniToastMessage {
 })
 export class ToastComponent {
   @Input() key         = '';
-  @Input() position    = 'top-right';
+  @Input() position: KliniToastPosition = 'top-right';
   @Input() life        = 4000;
   @Input() baseZIndex  = 500;
   @Input() styleClass  = '';

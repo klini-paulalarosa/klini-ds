@@ -1,7 +1,10 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { BadgeModule } from 'primeng/badge';
 
-export type KliniBadgeSeverity = 'primary' | 'secondary' | 'success' | 'warn' | 'danger' | 'info' | 'contrast';
+export type KliniBadgeSeverity =
+  | 'primary' | 'secondary' | 'success' | 'warn' | 'danger' | 'info' | 'contrast' | 'help';
+
+export type KliniBadgeSize = 'small' | 'large' | 'xlarge';
 
 /**
  * Wrapper sobre p-badge do PrimeNG.
@@ -24,6 +27,6 @@ export type KliniBadgeSeverity = 'primary' | 'secondary' | 'success' | 'warn' | 
 export class BadgeComponent {
   @Input({ required: true }) value: string | number = '';
   @Input() severity: KliniBadgeSeverity = 'primary';
-  @Input() size: 'large' | 'xlarge' | undefined     = undefined;
+  @Input() size: KliniBadgeSize         = 'large';
   @Input() styleClass = '';
 }

@@ -64,10 +64,10 @@ export type KpiTrend = 'up' | 'down' | 'neutral';
         display: flex; align-items: center; gap: var(--klini-space-1);
         font-size: var(--klini-font-size-body-sm); font-weight: 600;
         font-family: 'Plus Jakarta Sans', sans-serif;
-        &--up      { color: var(--klini-feedback-success-fg); }
-        &--down    { color: var(--klini-feedback-danger-fg);  }
-        &--neutral { color: var(--klini-text-muted); }
       }
+      .klini-kpi-card__trend--up      { color: var(--klini-feedback-success-fg); }
+      .klini-kpi-card__trend--down    { color: var(--klini-feedback-danger-fg);  }
+      .klini-kpi-card__trend--neutral { color: var(--klini-text-muted); }
       .klini-kpi-card__description {
         font-size: var(--klini-font-size-body-sm); color: var(--klini-text-muted);
         margin: 0; font-family: 'Plus Jakarta Sans', sans-serif;

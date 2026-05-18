@@ -9,8 +9,8 @@ export interface KliniStep {
 }
 
 /**
- * Wrapper sobre p-stepper do PrimeNG.
- * Aceita um array simples de steps via @Input e renderiza via p-step-panels.
+ * Wrapper sobre p-stepper do PrimeNG 18.
+ * Aceita um array simples de steps via @Input e renderiza via p-step-list / p-step-panels.
  * Estilização 100% via KliniPrime theme preset.
  */
 @Component({
@@ -19,26 +19,30 @@ export interface KliniStep {
   imports: [CommonModule, StepperModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
-    <p-stepper [value]="activeStep" [linear]="linear" [orientation]="orientation">
+    <p-stepper [value]="activeStep" [linear]="linear">
+
+      <p-step-list>
+        <p-step
+          *ngFor="let step of steps; let i = index"
+          [value]="i"
+        >{{ step.label }}</p-step>
+      </p-step-list>
+
       <p-step-panels>
         <p-step-panel
           *ngFor="let step of steps; let i = index"
           [value]="i"
-          [header]="step.label"
         >
-          <ng-template pTemplate="content" let-activateCallback="activateCallback">
+          <ng-template pTemplate="content">
             <div class="klini-stepper__panel-content">
               <p *ngIf="step.description" class="klini-stepper__description">
                 {{ step.description }}
               </p>
-              <!-- Conteúdo projetado para o step ativo -->
-              <ng-container *ngIf="i === activeStep">
-                <ng-content />
-              </ng-container>
             </div>
           </ng-template>
         </p-step-panel>
       </p-step-panels>
+
     </p-stepper>
   `,
   styles: [`
@@ -53,7 +57,6 @@ export interface KliniStep {
 })
 export class StepperComponent {
   @Input({ required: true }) steps: KliniStep[] = [];
-  @Input() activeStep  = 0;
-  @Input() orientation: 'horizontal' | 'vertical' = 'horizontal';
-  @Input() linear      = false;
+  @Input() activeStep = 0;
+  @Input() linear     = false;
 }
