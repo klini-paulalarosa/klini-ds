@@ -1,0 +1,44 @@
+{
+  "name": "@klini/ds",
+  "version": "0.1.0",
+  "description": "Klini Saúde Design System — biblioteca de componentes Angular + tokens de design",
+  "keywords": ["klini", "design-system", "angular", "primeng", "healthcare"],
+  "author": "Klini Saúde",
+  "license": "UNLICENSED",
+  "private": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "peerDependencies": {
+    "@angular/common": ">=18.0.0",
+    "@angular/core": ">=18.0.0",
+    "@angular/forms": ">=18.0.0",
+    "@angular/animations": ">=18.0.0",
+    "primeng": ">=18.0.0",
+    "@primeng/themes": ">=18.0.0",
+    "primeicons": ">=7.0.0"
+  },
+  "exports": {
+    ".": {
+      "types": "./index.d.ts",
+      "esm2022": "./esm2022/klini-ds.mjs",
+      "esm": "./esm2022/klini-ds.mjs",
+      "default": "./fesm2022/klini-ds.mjs"
+    },
+    "./styles": {
+      "sass": "./styles/index.scss",
+      "default": "./styles/tokens.css"
+    },
+    "./styles/tokens": {
+      "default": "./styles/tokens.css"
+    },
+    "./theme": {
+      "types": "./theme/index.d.ts",
+      "default": "./fesm2022/klini-ds.mjs"
+    }
+  },
+  "sideEffects": [
+    "*.css",
+    "*.scss"
+  ]
+}

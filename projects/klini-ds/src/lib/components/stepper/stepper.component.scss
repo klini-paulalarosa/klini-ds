@@ -1,0 +1,63 @@
+.klini-stepper {
+  display: flex;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+
+  &--horizontal { flex-direction: row; }
+  &--vertical   { flex-direction: column; }
+
+  &__step {
+    display: flex; flex: 1;
+    &--horizontal { flex-direction: column; align-items: center; }
+    &--vertical   { flex-direction: row; }
+  }
+
+  &__indicator {
+    display: flex; align-items: center;
+
+    .klini-stepper--horizontal & { flex-direction: column; }
+    .klini-stepper--vertical  & { flex-direction: column; align-items: center; margin-right: var(--klini-space-4); }
+  }
+
+  &__circle {
+    width: 32px; height: 32px; border-radius: var(--klini-radius-full);
+    display: flex; align-items: center; justify-content: center;
+    font-size: var(--klini-font-size-body-sm); font-weight: 700;
+    border: 2px solid var(--klini-border-default);
+    background: var(--klini-surface-raised);
+    color: var(--klini-text-muted);
+    flex-shrink: 0;
+    transition: background var(--klini-duration-base), border-color var(--klini-duration-base);
+
+    .klini-stepper__step--active &    { border-color: var(--klini-action-primary); color: var(--klini-action-primary); }
+    .klini-stepper__step--completed & { border-color: var(--klini-action-primary); background: var(--klini-action-primary); color: var(--klini-color-white); }
+  }
+
+  &__line {
+    background: var(--klini-border-default);
+
+    .klini-stepper--horizontal & { height: 2px; flex: 1; margin: 0 var(--klini-space-2); align-self: center; }
+    .klini-stepper--vertical  & { width: 2px; height: var(--klini-space-8); margin: var(--klini-space-2) auto; }
+
+    .klini-stepper__step--completed + .klini-stepper__step &,
+    .klini-stepper__step--completed & { background: var(--klini-action-primary); }
+  }
+
+  &__content {
+    display: flex; flex-direction: column; gap: 2px;
+    padding: var(--klini-space-2) 0;
+
+    .klini-stepper--horizontal & { align-items: center; }
+    .klini-stepper--vertical  & { padding-bottom: var(--klini-space-6); }
+  }
+
+  &__label {
+    font-size: var(--klini-font-size-body-sm); font-weight: 600;
+    color: var(--klini-text-secondary);
+    .klini-stepper__step--active &    { color: var(--klini-text-primary); }
+    .klini-stepper__step--completed & { color: var(--klini-action-primary); }
+  }
+
+  &__description {
+    font-size: var(--klini-font-size-caption); color: var(--klini-text-muted);
+  }
+}

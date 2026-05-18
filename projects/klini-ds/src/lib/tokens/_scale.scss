@@ -1,0 +1,87 @@
+// =============================================================================
+// Klini DS — Scale Tokens
+// Extraídos do Figma (coleção "05 · Scale")
+// Tamanhos de componentes, z-index, opacidade, breakpoints e grid
+// =============================================================================
+
+:root {
+  // ---------------------------------------------------------------------------
+  // COMPONENT SIZES
+  // ---------------------------------------------------------------------------
+  --klini-size-input-sm:  32px;
+  --klini-size-input-md:  40px;
+  --klini-size-input-lg:  48px;
+
+  --klini-size-button-sm: 32px;
+  --klini-size-button-md: 40px;
+  --klini-size-button-lg: 48px;
+
+  --klini-size-avatar-xs: 24px;
+  --klini-size-avatar-sm: 32px;
+  --klini-size-avatar-md: 40px;
+  --klini-size-avatar-lg: 56px;
+  --klini-size-avatar-xl: 80px;
+
+  --klini-size-icon-xs: 12px;
+  --klini-size-icon-sm: 16px;
+  --klini-size-icon-md: 24px;
+  --klini-size-icon-lg: 32px;
+  --klini-size-icon-xl: 48px;
+
+  --klini-size-touch-target: 44px;
+
+  // ---------------------------------------------------------------------------
+  // Z-INDEX
+  // ---------------------------------------------------------------------------
+  --klini-z-base:     0;
+  --klini-z-raised:   10;
+  --klini-z-dropdown: 100;
+  --klini-z-sticky:   200;
+  --klini-z-overlay:  300;
+  --klini-z-modal:    400;
+  --klini-z-toast:    500;
+  --klini-z-tooltip:  600;
+
+  // ---------------------------------------------------------------------------
+  // OPACITY
+  // ---------------------------------------------------------------------------
+  --klini-opacity-0:   0;
+  --klini-opacity-5:   0.05;
+  --klini-opacity-10:  0.1;
+  --klini-opacity-20:  0.2;
+  --klini-opacity-40:  0.4;
+  --klini-opacity-60:  0.6;
+  --klini-opacity-80:  0.8;
+  --klini-opacity-100: 1;
+
+  // ---------------------------------------------------------------------------
+  // BORDER WIDTH
+  // ---------------------------------------------------------------------------
+  --klini-border-width-hairline: 0.5px;
+  --klini-border-width-thin:     1px;
+  --klini-border-width-default:  1.5px;
+  --klini-border-width-thick:    2px;
+  --klini-border-width-bold:     3px;
+
+  // ---------------------------------------------------------------------------
+  // BREAKPOINTS (uso via JS ou media queries nativas)
+  // ---------------------------------------------------------------------------
+  --klini-screen-xs:  375px;
+  --klini-screen-sm:  640px;
+  --klini-screen-md:  768px;
+  --klini-screen-lg:  1024px;
+  --klini-screen-xl:  1280px;
+  --klini-screen-2xl: 1536px;
+
+  // ---------------------------------------------------------------------------
+  // GRID
+  // ---------------------------------------------------------------------------
+  --klini-grid-columns-mobile:  4;
+  --klini-grid-columns-tablet:  8;
+  --klini-grid-columns-desktop: 12;
+  --klini-grid-gutter-mobile:   16px;
+  --klini-grid-gutter-desktop:  24px;
+  --klini-grid-margin-mobile:   16px;
+  --klini-grid-margin-desktop:  64px;
+  --klini-grid-max-width:       1440px;
+}

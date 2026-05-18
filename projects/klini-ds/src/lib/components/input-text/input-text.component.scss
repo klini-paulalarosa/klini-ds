@@ -1,0 +1,58 @@
+.klini-input {
+  display: flex; flex-direction: column; gap: var(--klini-space-1);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+
+  &__label {
+    font-size: var(--klini-font-size-body-sm); font-weight: 600;
+    color: var(--klini-field-label);
+  }
+  &__required { color: var(--klini-action-danger); }
+
+  &__control { position: relative; }
+
+  &__icon {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    color: var(--klini-text-muted); pointer-events: none;
+    font-size: var(--klini-size-icon-sm);
+    &--left  { left: var(--klini-space-3); }
+    &--right { right: var(--klini-space-3); }
+  }
+
+  &__field {
+    width: 100%; box-sizing: border-box;
+    border: var(--klini-border-width-default) solid var(--klini-field-border);
+    border-radius: var(--klini-radius-lg);
+    background: var(--klini-field-bg);
+    color: var(--klini-field-value);
+    font-family: inherit; outline: none;
+    transition:
+      border-color var(--klini-duration-fast) var(--klini-easing-standard),
+      box-shadow   var(--klini-duration-fast) var(--klini-easing-standard);
+
+    &::placeholder { color: var(--klini-field-placeholder); }
+
+    &:hover:not(:disabled) { border-color: var(--klini-field-border-hover); }
+
+    &:focus {
+      border-color: var(--klini-field-border-focus);
+      box-shadow: 0 0 0 3px color-mix(in srgb, var(--klini-action-primary) 16%, transparent);
+    }
+
+    &--icon-left  { padding-left: calc(var(--klini-space-3) + var(--klini-size-icon-sm) + var(--klini-space-2)); }
+    &--icon-right { padding-right: calc(var(--klini-space-3) + var(--klini-size-icon-sm) + var(--klini-space-2)); }
+  }
+
+  // ── Sizes
+  &--sm &__field { height: var(--klini-size-input-sm); padding: 0 var(--klini-space-3); font-size: var(--klini-font-size-body-sm); }
+  &--md &__field { height: var(--klini-size-input-md); padding: 0 var(--klini-space-4); font-size: var(--klini-font-size-body); }
+  &--lg &__field { height: var(--klini-size-input-lg); padding: 0 var(--klini-space-4); font-size: var(--klini-font-size-body-lg); }
+
+  // ── States
+  &--error &__field { border-color: var(--klini-field-border-error); }
+  &--error &__field:focus { box-shadow: 0 0 0 3px color-mix(in srgb, var(--klini-action-danger) 16%, transparent); }
+
+  &--disabled &__field { background: var(--klini-field-bg-disabled); color: var(--klini-text-disabled); cursor: not-allowed; }
+
+  &__error { font-size: var(--klini-font-size-caption); color: var(--klini-feedback-danger-fg); font-weight: 500; }
+  &__hint  { font-size: var(--klini-font-size-caption); color: var(--klini-text-muted); }
+}

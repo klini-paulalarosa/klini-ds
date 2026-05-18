@@ -1,0 +1,10 @@
+// =============================================================================
+// Klini DS — Token entry point
+// Importar este arquivo no projeto: @use '@klini/ds/styles';
+// Ou importar individualmente conforme necessidade
+// =============================================================================
+
+@forward 'primitive';
+@forward 'semantic';
+@forward 'status';
+@forward 'scale';

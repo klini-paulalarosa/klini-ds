@@ -1,0 +1,20 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "lib": {
+    "entryFile": "src/public-api.ts",
+    "cssUrl": "inline"
+  },
+  "dest": "../../dist/klini-ds",
+  "assets": [
+    {
+      "glob": "**/*.scss",
+      "input": "src/lib/tokens",
+      "output": "styles"
+    },
+    {
+      "glob": "*.css",
+      "input": "src/lib/tokens",
+      "output": "styles"
+    }
+  ]
+}

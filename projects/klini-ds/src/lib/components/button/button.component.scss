@@ -1,0 +1,133 @@
+.klini-btn {
+  display:         inline-flex;
+  align-items:     center;
+  justify-content: center;
+  gap:             var(--klini-space-2);
+  border:          var(--klini-border-width-default) solid transparent;
+  border-radius:   var(--klini-radius-lg);
+  font-family:     'Plus Jakarta Sans', sans-serif;
+  font-weight:     600;
+  cursor:          pointer;
+  transition:
+    background-color var(--klini-duration-fast) var(--klini-easing-standard),
+    border-color     var(--klini-duration-fast) var(--klini-easing-standard),
+    color            var(--klini-duration-fast) var(--klini-easing-standard),
+    opacity          var(--klini-duration-fast) var(--klini-easing-standard);
+  white-space:     nowrap;
+  text-decoration: none;
+  outline-offset:  2px;
+
+  &:focus-visible {
+    outline: 2px solid var(--klini-action-primary);
+  }
+
+  // ── Sizes ────────────────────────────────────────────────────────────────
+  &--sm {
+    height:    var(--klini-size-button-sm);
+    padding:   0 var(--klini-space-3);
+    font-size: var(--klini-font-size-body-sm);
+
+    .klini-btn__icon { font-size: var(--klini-size-icon-sm); }
+  }
+
+  &--md {
+    height:    var(--klini-size-button-md);
+    padding:   0 var(--klini-space-4);
+    font-size: var(--klini-font-size-body);
+
+    .klini-btn__icon { font-size: var(--klini-size-icon-sm); }
+  }
+
+  &--lg {
+    height:    var(--klini-size-button-lg);
+    padding:   0 var(--klini-space-5);
+    font-size: var(--klini-font-size-body-lg);
+
+    .klini-btn__icon { font-size: var(--klini-size-icon-md); }
+  }
+
+  // ── Severity × Variant ────────────────────────────────────────────────────
+
+  // PRIMARY
+  &--primary.klini-btn--filled {
+    background: var(--klini-action-primary);
+    color:      var(--klini-text-on-brand);
+    &:hover:not(:disabled) { background: var(--klini-action-primary-hover); }
+    &:active:not(:disabled) { background: var(--klini-action-primary-active); }
+  }
+  &--primary.klini-btn--outlined {
+    border-color: var(--klini-action-primary);
+    color:        var(--klini-action-primary);
+    background:   transparent;
+    &:hover:not(:disabled) { background: var(--klini-surface-brand-soft); }
+  }
+  &--primary.klini-btn--text {
+    color: var(--klini-action-primary);
+    background: transparent;
+    &:hover:not(:disabled) { background: var(--klini-surface-brand-soft); }
+  }
+
+  // SECONDARY
+  &--secondary.klini-btn--filled {
+    background: var(--klini-surface-sunken);
+    color:      var(--klini-text-primary);
+    border-color: var(--klini-border-default);
+    &:hover:not(:disabled) { border-color: var(--klini-border-strong); }
+  }
+  &--secondary.klini-btn--outlined {
+    border-color: var(--klini-border-default);
+    color:        var(--klini-text-primary);
+    background:   transparent;
+    &:hover:not(:disabled) { border-color: var(--klini-border-strong); }
+  }
+  &--secondary.klini-btn--text {
+    color: var(--klini-text-secondary);
+    background: transparent;
+    &:hover:not(:disabled) { background: var(--klini-surface-sunken); }
+  }
+
+  // SUCCESS
+  &--success.klini-btn--filled {
+    background: var(--klini-feedback-success-fg);
+    color:      var(--klini-color-white);
+    &:hover:not(:disabled) { background: var(--klini-color-teal-800); }
+  }
+
+  // WARN
+  &--warn.klini-btn--filled {
+    background: var(--klini-feedback-warning-fg);
+    color:      var(--klini-color-white);
+    &:hover:not(:disabled) { background: var(--klini-color-orange-700); }
+  }
+  &--warn.klini-btn--outlined {
+    border-color: var(--klini-action-accent);
+    color:        var(--klini-action-accent);
+    background:   transparent;
+    &:hover:not(:disabled) { background: var(--klini-surface-warning-soft); }
+  }
+
+  // DANGER
+  &--danger.klini-btn--filled {
+    background: var(--klini-action-danger);
+    color:      var(--klini-color-white);
+    &:hover:not(:disabled) { background: var(--klini-action-danger-hover); }
+  }
+  &--danger.klini-btn--outlined {
+    border-color: var(--klini-action-danger);
+    color:        var(--klini-action-danger);
+    background:   transparent;
+    &:hover:not(:disabled) { background: var(--klini-surface-danger-soft); }
+  }
+
+  // ── States ────────────────────────────────────────────────────────────────
+  &--full { width: 100%; }
+
+  &--disabled,
+  &:disabled {
+    opacity: var(--klini-opacity-40);
+    cursor:  not-allowed;
+    pointer-events: none;
+  }
+
+  &--loading { cursor: wait; }
+}

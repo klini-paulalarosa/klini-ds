@@ -1,0 +1,47 @@
+// =============================================================================
+// Klini DS — Status Tokens
+// Extraídos do Figma (coleção "04 · Klini Status")
+// Status específicos do domínio de saúde (guias, autorizações)
+// =============================================================================
+
+:root {
+  // ---------------------------------------------------------------------------
+  // EM PROCESSO — guia em andamento / auditoria
+  // ---------------------------------------------------------------------------
+  --klini-status-em-processo-solid:    var(--klini-color-slate-500);
+  --klini-status-em-processo-bg:       var(--klini-color-slate-100);
+  --klini-status-em-processo-fg:       var(--klini-color-slate-700);
+  --klini-status-em-processo-on-solid: var(--klini-color-white);
+
+  // ---------------------------------------------------------------------------
+  // AUTORIZADA
+  // ---------------------------------------------------------------------------
+  --klini-status-autorizada-solid:    var(--klini-color-teal-100);
+  --klini-status-autorizada-bg:       var(--klini-color-teal-wash);
+  --klini-status-autorizada-fg:       var(--klini-color-teal-700);
+  --klini-status-autorizada-on-solid: var(--klini-color-white);
+
+  // ---------------------------------------------------------------------------
+  // PARCIALMENTE — autorização parcial
+  // ---------------------------------------------------------------------------
+  --klini-status-parcialmente-solid:    var(--klini-color-sea-100);
+  --klini-status-parcialmente-bg:       var(--klini-color-sea-wash);
+  --klini-status-parcialmente-fg:       var(--klini-color-sea-700);
+  --klini-status-parcialmente-on-solid: var(--klini-color-white);
+
+  // ---------------------------------------------------------------------------
+  // NEGADO
+  // ---------------------------------------------------------------------------
+  --klini-status-negado-solid:    var(--klini-color-coral-100);
+  --klini-status-negado-bg:       var(--klini-color-coral-wash);
+  --klini-status-negado-fg:       var(--klini-color-coral-700);
+  --klini-status-negado-on-solid: var(--klini-color-white);
+
+  // ---------------------------------------------------------------------------
+  // INATIVA
+  // ---------------------------------------------------------------------------
+  --klini-status-inativa-solid:    var(--klini-color-orange-100);
+  --klini-status-inativa-bg:       var(--klini-color-orange-wash);
+  --klini-status-inativa-fg:       var(--klini-color-orange-700);
+  --klini-status-inativa-on-solid: var(--klini-color-white);
+}
