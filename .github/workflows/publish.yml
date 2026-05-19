@@ -39,12 +39,12 @@ jobs:
           TAG=${GITHUB_REF#refs/tags/v}
           CURRENT=$(node -p "require('./dist/klini-ds/package.json').version")
           if [ "$CURRENT" != "$TAG" ]; then
-            npm version "$TAG" --no-git-tag-version --prefix dist/klini-ds
+            npm version "$TAG" --no-git-tag-version --prefix ./dist/klini-ds
           else
             echo "Versão já é $TAG, nenhuma alteração necessária."
           fi
 
       - name: Publish
-        run: npm publish dist/klini-ds --access restricted
+        run: npm publish ./dist/klini-ds --access restricted
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

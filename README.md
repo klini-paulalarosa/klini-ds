@@ -201,12 +201,6 @@ export class AppModule {}
 | Meter Group | `kln-meter-group` | `value[]` (MeterItem), `max`, `orientation` |
 | Progress Bar | `kln-progress-bar` | `value`, `mode`, `showValue`, `unit` |
 
-### Infográfico (componentes custom Klini)
-
-| Componente | Selector | Inputs principais |
-|---|---|---|
-| Adherence Heatmap | `kln-adherence-heatmap` | `weeks[]` (AdherenceWeek), `title`, `showLabels`, `legendLow`, `legendHigh` |
-| Zone Bar | `kln-zone-bar` | `value`, `unit`, `title`, `min`, `max`, `zones[]` (ZoneBarZone) |
 
 ---
 
@@ -239,62 +233,6 @@ chartData = {
     ],
   }],
 };
-```
-
----
-
-## kln-adherence-heatmap — Heatmap de Adesão
-
-Grid de semanas colorido pela escala sequential teal. Ideal para dashboards de adesão ao tratamento.
-
-```typescript
-import { KliniAdherenceHeatmapComponent } from '@klini/ds';
-import type { AdherenceWeek } from '@klini/ds';
-
-weeks: AdherenceWeek[] = [
-  { label: 'S1', value: 85 },
-  { label: 'S2', value: 60 },
-  { label: 'S3', value: 95 },
-  // ... até 12 semanas
-];
-```
-
-```html
-<kln-adherence-heatmap
-  title="ADESÃO · 12 SEMANAS"
-  [weeks]="weeks"
-  [showLabels]="true"
-  legendLow="Baixa"
-  legendHigh="Alta"
-/>
-```
-
----
-
-## kln-zone-bar — Barra de Zonas
-
-Indicador de valor atual em zonas coloridas (ex: pressão arterial, glicemia, IMC).
-
-```typescript
-import { KliniZoneBarComponent } from '@klini/ds';
-import type { ZoneBarZone } from '@klini/ds';
-
-zones: ZoneBarZone[] = [
-  { label: 'Normal',  max: 80,  color: 'var(--kln-chart-status-success)' },
-  { label: 'Atenção', max: 140, color: 'var(--kln-chart-status-warn)' },
-  { label: 'Alta',    max: 200, color: 'var(--kln-chart-status-danger)' },
-];
-```
-
-```html
-<kln-zone-bar
-  title="PRESSÃO ARTERIAL"
-  [value]="128"
-  unit="mmHg"
-  [min]="0"
-  [max]="200"
-  [zones]="zones"
-/>
 ```
 
 ---
@@ -373,7 +311,7 @@ git push origin main --tags
 
 | Versão | Destaques |
 |---|---|
-| **0.5.0** | Paleta gráficos atualizada (status semânticos: success/info/warn/danger/secondary · categorical 4 cores nomeadas · sequential 5 stops WASH→INK · diverging com neutral) · 2 novos componentes infográfico: `kln-adherence-heatmap`, `kln-zone-bar` |
+| **0.5.0** | Paleta gráficos atualizada (status semânticos: success/info/warn/danger/secondary · categorical 4 cores nomeadas · sequential 5 stops WASH→INK · diverging com neutral #eeeff0) · fix CI publish path |
 | **0.4.0** | 32 novos componentes: Checkbox, MultiSelect, Autocomplete, InputMask, Rating, SelectButton, Listbox, TreeSelect, CascadeSelect, FloatLabel, InputGroup, ButtonGroup, Toolbar, Panel, Fieldset, Splitter, ScrollPanel, Image, AvatarGroup, Messages, Popover, SpeedDial, ProgressSpinner, Menubar, TabMenu, Steps, SplitButton, Timeline, DataView, Carousel, Tree, OrderList, VirtualScroller |
 | **0.3.0** | Seletores renomeados para `kln-*` · Data Visualization (Chart, Knob, MeterGroup, Slider, Select) · Paleta de cores para gráficos |
 | **0.2.1** | Corrige CI de publish + ESLint |

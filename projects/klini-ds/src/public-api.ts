@@ -182,10 +182,3 @@ export { KliniOrderListComponent } from './lib/components/order-list/order-list.
 
 export { KliniVirtualScrollerComponent } from './lib/components/virtual-scroller/virtual-scroller.component';
 
-// ── Components v0.5 — Data Visualization (Infográfico) ───────────────────────
-
-export { KliniAdherenceHeatmapComponent } from './lib/components/adherence-heatmap/adherence-heatmap.component';
-export type { AdherenceWeek } from './lib/components/adherence-heatmap/adherence-heatmap.component';
-
-export { KliniZoneBarComponent } from './lib/components/zone-bar/zone-bar.component';
-export type { ZoneBarZone } from './lib/components/zone-bar/zone-bar.component';
