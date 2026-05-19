@@ -1,3 +1,29 @@
+/**
+ * kln-dialog
+ *
+ * Uso declarativo (padrão):
+ *   <kln-dialog [(visible)]="show" header="Título">...</kln-dialog>
+ *
+ * Uso programático via DialogService (quando não é possível usar [(visible)]):
+ *   import { DialogService, DynamicDialogRef } from '@klini/ds';
+ *
+ *   constructor(private dialog: DialogService) {}
+ *
+ *   open() {
+ *     const ref: DynamicDialogRef = this.dialog.open(MeuComponent, {
+ *       header: 'Título',
+ *       width:  '500px',
+ *       data:   { pacienteId: 123 },
+ *     });
+ *     ref.onClose.subscribe(result => { ... });
+ *   }
+ *
+ *   // No componente filho: injete DynamicDialogRef para fechar/retornar valor
+ *   constructor(private ref: DynamicDialogRef) {}
+ *   confirm() { this.ref.close({ aceito: true }); }
+ *
+ *   Providers: adicione DialogService em providers do módulo/componente pai.
+ */
 import {
   ChangeDetectionStrategy,
   Component,

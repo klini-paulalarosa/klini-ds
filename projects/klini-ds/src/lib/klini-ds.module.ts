@@ -1,5 +1,11 @@
 import { NgModule } from '@angular/core';
 import { MessageService, ConfirmationService } from 'primeng/api';
+import { DialogService } from 'primeng/dynamicdialog';
+import { KeyFilterModule }      from 'primeng/keyfilter';
+import { AutoFocusModule }      from 'primeng/autofocus';
+import { RippleModule }         from 'primeng/ripple';
+import { StyleClassModule }     from 'primeng/styleclass';
+import { AnimateOnScrollModule } from 'primeng/animateonscroll';
 
 // Existing components
 import { ButtonComponent }           from './components/button/button.component';
@@ -108,13 +114,23 @@ const COMPONENTS = [
   KliniTreeComponent, KliniOrderListComponent, KliniVirtualScrollerComponent,
 ];
 
+const DIRECTIVE_MODULES = [
+  KeyFilterModule,
+  AutoFocusModule,
+  RippleModule,
+  StyleClassModule,
+  AnimateOnScrollModule,
+  // DynamicDialog é standalone no PrimeNG 18 — DialogService vai em providers
+];
+
 /**
- * Módulo de conveniência — importa e re-exporta todos os componentes do @klini/ds.
+ * Módulo de conveniência — importa e re-exporta todos os componentes e
+ * módulos de diretivas do @klini/ds.
  * Para projetos que ainda usam NgModule em vez de standalone.
  */
 @NgModule({
-  imports:   COMPONENTS,
-  exports:   COMPONENTS,
-  providers: [MessageService, ConfirmationService],
+  imports:   [...COMPONENTS, ...DIRECTIVE_MODULES],
+  exports:   [...COMPONENTS, ...DIRECTIVE_MODULES],
+  providers: [MessageService, ConfirmationService, DialogService],
 })
 export class KliniDsModule {}

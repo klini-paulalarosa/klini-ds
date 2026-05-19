@@ -6,6 +6,18 @@
 // ── Theme ────────────────────────────────────────────────────────────────────
 export { KliniPrime } from './lib/theme/klini-prime';
 
+// ── Directives & Utilities (re-exports PrimeNG) ───────────────────────────────
+// Diretivas de comportamento — sem visual próprio, modificam componentes existentes.
+// Ver JSDoc em src/lib/directives/index.ts para exemplos completos.
+export {
+  KeyFilter, KeyFilterModule,
+  AutoFocus, AutoFocusModule,
+  Ripple, RippleModule,
+  StyleClass, StyleClassModule,
+  AnimateOnScroll, AnimateOnScrollModule,
+  DialogService, DynamicDialogRef, DynamicDialogConfig,
+} from './lib/directives/index';
+
 // ── Module (conveniência para projetos NgModule) ──────────────────────────────
 export { KliniDsModule } from './lib/klini-ds.module';
 

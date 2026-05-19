@@ -1,3 +1,15 @@
+/**
+ * kln-button
+ *
+ * Diretiva companion (import de '@klini/ds'):
+ *
+ * pRipple — adiciona efeito ripple no click
+ *   <kln-button label="Salvar" pRipple />
+ *   Requer que RippleModule esteja importado (já incluso em KliniDsModule).
+ *
+ * pAnimateOnScroll — anima o botão ao entrar no viewport
+ *   <kln-button label="CTA" pAnimateOnScroll enterClass="fadein" />
+ */
 import {
   Component, Input, Output, EventEmitter,
   ChangeDetectionStrategy, booleanAttribute,

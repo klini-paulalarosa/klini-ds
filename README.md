@@ -477,6 +477,78 @@ zones: MeterItem[] = [
 
 ---
 
+---
+
+## Diretivas & Utilitários
+
+Diretivas de comportamento — sem visual próprio, modificam componentes existentes.
+Todas importadas diretamente de `@klini/ds` (re-exports do PrimeNG).
+
+| Diretiva | Atributo | Componente host | O que faz |
+|---|---|---|---|
+| KeyFilter | `pKeyFilter` | `kln-input-text` e outros inputs | Filtra teclas permitidas (`num`, `alpha`, `alphanum`, `email`, `money`…) |
+| AutoFocus | `pAutoFocus` | `kln-input-text` e outros inputs | Coloca foco inicial no elemento |
+| Ripple | `pRipple` | `kln-button` e elementos clicáveis | Efeito ripple no click |
+| StyleClass | `pStyleClass` | qualquer elemento | Toggle de CSS class com animação |
+| AnimateOnScroll | `pAnimateOnScroll` | `kln-card`, seções, blocos | Anima elemento ao entrar no viewport |
+| DialogService | service | injetado no componente TS | Abre `kln-dialog` programaticamente |
+
+### Exemplos
+
+```typescript
+// Standalone — importe as diretivas que precisar
+import { KeyFilter, AutoFocus, Ripple, AnimateOnScroll } from '@klini/ds';
+import { DialogService, DynamicDialogRef }               from '@klini/ds';
+
+// NgModule — KliniDsModule já inclui tudo (KeyFilter, AutoFocus, Ripple, StyleClass, AnimateOnScroll)
+import { KliniDsModule } from '@klini/ds';
+```
+
+```html
+<!-- Filtro de teclado — só aceita números -->
+<kln-input-text pKeyFilter="num" label="Telefone" />
+
+<!-- Foco automático no campo -->
+<kln-input-text pAutoFocus [autofocus]="true" label="Busca" />
+
+<!-- Ripple no botão -->
+<kln-button label="Salvar" pRipple />
+
+<!-- Card animado no scroll -->
+<kln-card pAnimateOnScroll enterClass="fadeinup" leaveClass="fadeout">...</kln-card>
+
+<!-- Toggle de conteúdo com animação -->
+<button pStyleClass="@next" enterFromClass="hidden" leaveToClass="hidden">
+  Mostrar filtros
+</button>
+<div class="hidden">...</div>
+```
+
+```typescript
+// Dialog programático via DialogService
+import { DialogService, DynamicDialogRef } from '@klini/ds';
+
+@Component({ providers: [DialogService] })
+export class MinhaPage {
+  constructor(private dialog: DialogService) {}
+
+  abrirDetalhe() {
+    const ref: DynamicDialogRef = this.dialog.open(DetalheComponent, {
+      header: 'Detalhe do paciente',
+      width:  '600px',
+      data:   { pacienteId: 42 },
+    });
+    ref.onClose.subscribe(result => console.log('fechou:', result));
+  }
+}
+
+// Dentro do DetalheComponent — fechar e retornar valor
+constructor(private ref: DynamicDialogRef) {}
+confirmar() { this.ref.close({ aceito: true }); }
+```
+
+---
+
 ## Publicar nova versão
 
 ```bash

@@ -1,3 +1,20 @@
+/**
+ * kln-card
+ *
+ * Diretiva companion (import de '@klini/ds'):
+ *
+ * pAnimateOnScroll — anima o card ao entrar no viewport (scroll reveal)
+ *   <kln-card pAnimateOnScroll enterClass="fadein" leaveClass="fadeout" />
+ *   <kln-card pAnimateOnScroll enterClass="fadeinleft" />
+ *
+ *   Classes disponíveis: fadein | fadeout | fadeinleft | fadeinright |
+ *   fadeinup | fadeindown | zoomin | zoomindown | zoominleft | zoominright
+ *
+ * pStyleClass — toggle de classes com animação
+ *   <button pStyleClass="#meu-card" enterClass="fadein" leaveToClass="fadeout">
+ *     Mostrar/Ocultar
+ *   </button>
+ */
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CardModule } from 'primeng/card';
 import { CommonModule } from '@angular/common';
