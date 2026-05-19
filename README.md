@@ -196,7 +196,7 @@ export class AppModule {}
 
 | Componente | Selector | Inputs principais |
 |---|---|---|
-| Chart | `kln-chart` | `type`, `data`, `options`, `width`, `height`, `stacked` |
+| Chart | `kln-chart` | `type`, `data`, `preset`, `options`, `stacked`, `width`, `height` |
 | Knob (Progress Ring) | `kln-knob` | `min`, `max`, `size`, `showValue`, `valueColor` |
 | Meter Group | `kln-meter-group` | `value[]` (MeterItem), `max`, `orientation`, `indicatorValue`, `indicatorUnit` |
 | Progress Bar | `kln-progress-bar` | `value`, `mode`, `showValue`, `unit` |
@@ -204,103 +204,162 @@ export class AppModule {}
 
 ---
 
-## kln-chart — Tipos de gráfico
+## kln-chart — Presets e paleta completa
 
-O `kln-chart` suporta todos os tipos Chart.js via input `[type]`:
+O `kln-chart` cobre todos os tipos Chart.js via `[type]` + `[preset]`. O preset aplica
+automaticamente as opções de grid, legenda, tooltip e cores de texto do DS — zero configuração manual.
+
+### Todos os presets disponíveis
 
 ```html
-<kln-chart type="bar"       [data]="data" />
-<kln-chart type="line"      [data]="data" />
-<kln-chart type="pie"       [data]="data" />
-<kln-chart type="doughnut"  [data]="data" />
-<kln-chart type="radar"     [data]="data" />
-<kln-chart type="scatter"   [data]="data" />
-<kln-chart type="polarArea" [data]="data" />
-<kln-chart type="bubble"    [data]="data" />
+<!-- Bar vertical -->
+<kln-chart type="bar" preset="bar" [data]="data" />
+
+<!-- Bar horizontal -->
+<kln-chart type="bar" preset="bar-horizontal" [data]="data" />
+
+<!-- Bar empilhado (Adherence Heatmap) -->
+<kln-chart type="bar" preset="bar-stacked" [data]="data" />
+
+<!-- Bar empilhado horizontal -->
+<kln-chart type="bar" preset="bar-stacked-horizontal" [data]="data" />
+
+<!-- Line -->
+<kln-chart type="line" preset="line" [data]="data" />
+
+<!-- Area (line com fill nos datasets) -->
+<kln-chart type="line" preset="area" [data]="data" />
+
+<!-- Pie -->
+<kln-chart type="pie" preset="pie" [data]="data" />
+
+<!-- Doughnut — Progress Ring -->
+<kln-chart type="doughnut" preset="doughnut" [data]="data" />
+
+<!-- Polar Area -->
+<kln-chart type="polarArea" preset="polar-area" [data]="data" />
+
+<!-- Radar -->
+<kln-chart type="radar" preset="radar" [data]="data" />
+
+<!-- Scatter -->
+<kln-chart type="scatter" preset="scatter" [data]="data" />
+
+<!-- Bubble -->
+<kln-chart type="bubble" preset="bubble" [data]="data" />
 ```
 
-Exemplo com paleta de cores do DS:
+### Cores do DS em datasets — `KliniChartTokens`
+
+Chart.js renderiza em `<canvas>` — CSS variables não chegam automaticamente.
+Use `KliniChartTokens` para resolver os tokens do DS em runtime:
 
 ```typescript
+import { KliniChartTokens } from '@klini/ds';
+
+// Categorical (4 séries da marca)
+backgroundColor: KliniChartTokens.categorical
+// → ['#259591', '#6aa7ae', '#cd7925', '#e05759']
+
+// Status semânticos
+backgroundColor: [
+  KliniChartTokens.status.success,   // aprovado
+  KliniChartTokens.status.danger,    // negado
+  KliniChartTokens.status.secondary, // em processo
+]
+
+// Sequential teal (intensidade / heatmap)
+backgroundColor: KliniChartTokens.sequential
+// → 5 cores: WASH → 33 → 100 → DEEP → INK
+```
+
+### Exemplo completo — Doughnut com tokens de status
+
+```typescript
+import { KliniChartTokens } from '@klini/ds';
+
 chartData = {
   labels: ['Autorizado', 'Negado', 'Em processo'],
   datasets: [{
     data: [60, 15, 25],
     backgroundColor: [
-      'var(--kln-chart-status-success)',
-      'var(--kln-chart-status-danger)',
-      'var(--kln-chart-status-secondary)',
+      KliniChartTokens.status.success,
+      KliniChartTokens.status.danger,
+      KliniChartTokens.status.secondary,
     ],
+    borderWidth: 0,
   }],
 };
 ```
 
-### Padrão Adherence Heatmap — `type="bar"` stacked
+```html
+<kln-chart type="doughnut" preset="doughnut" [data]="chartData" height="280px" />
+```
 
-Padrão nativo do DS para visualizar adesão ao tratamento por semana. Zero dependência extra.
+### Override parcial de opções
+
+O `[options]` é mesclado **por cima** do preset — só sobrescreva o que precisar:
+
+```html
+<kln-chart
+  type="line"
+  preset="line"
+  [data]="data"
+  [options]="{ plugins: { legend: { display: false } } }"
+/>
+```
+
+### Padrão Adherence Heatmap
 
 ```typescript
+import { KliniChartTokens } from '@klini/ds';
+
 adherenceData = {
   labels: ['S1','S2','S3','S4','S5','S6','S7','S8','S9','S10','S11','S12'],
-  datasets: [
-    {
-      label: 'Adesão',
-      data: [85, 60, 95, 70, 80, 40, 90, 75, 55, 88, 65, 92],
-      backgroundColor: (ctx: { raw: number }) => {
-        const v = ctx.raw;
-        if (v >= 80) return 'var(--kln-chart-seq-100)';
-        if (v >= 60) return 'var(--kln-chart-seq-33)';
-        return 'var(--kln-chart-seq-wash)';
-      },
-      stack: 'adherence',
+  datasets: [{
+    label: 'Adesão',
+    data: [85, 60, 95, 70, 80, 40, 90, 75, 55, 88, 65, 92],
+    backgroundColor: (ctx: { raw: number }) => {
+      const seq = KliniChartTokens.sequential;
+      if (ctx.raw >= 80) return seq[2]; // seq-100
+      if (ctx.raw >= 60) return seq[1]; // seq-33
+      return seq[0];                    // seq-wash
     },
-  ],
-};
-
-adherenceOptions = {
-  indexAxis: 'x',
-  scales: { x: { stacked: true }, y: { stacked: true, max: 100 } },
-  plugins: { legend: { display: false } },
+    stack: 'adherence',
+  }],
 };
 ```
 
 ```html
-<kln-chart type="bar" [stacked]="true" [data]="adherenceData" [options]="adherenceOptions" />
+<kln-chart type="bar" preset="bar-stacked" [data]="adherenceData"
+           [options]="{ plugins: { legend: { display: false } } }" />
 ```
 
-> **Upgrade opcional — heatmap visual com células coloridas (`type="matrix"`):**  
-> Instale `chartjs-chart-matrix` e registre `MatrixController, MatrixElement` antes de usar.  
-> O DS não garante suporte a plugins externos — documentação no [chartjs-chart-matrix](https://github.com/kurkle/chartjs-chart-matrix).
+> **Upgrade opcional — heatmap visual com células (`type="matrix"`):**  
+> Instale `chartjs-chart-matrix` e registre `MatrixController, MatrixElement`.  
+> Use `[type]="$any('matrix')"` no template. O DS não garante suporte a plugins externos.
 
 ---
 
 ## kln-meter-group — Variante WithIndicator (Zone Bar)
 
-Padrão para indicadores de zona com valor atual: pressão arterial, glicemia, IMC.
-Usa `[indicatorValue]` para exibir um ponteiro triangular sobre a barra.
-
 ```typescript
 import { MeterItem } from 'primeng/metergroup';
+import { KliniChartTokens } from '@klini/ds';
 
 zones: MeterItem[] = [
-  { label: 'Normal',  value: 40, color: 'var(--kln-chart-status-success)' },
-  { label: 'Atenção', value: 35, color: 'var(--kln-chart-status-warn)' },
-  { label: 'Alta',    value: 25, color: 'var(--kln-chart-status-danger)' },
+  { label: 'Normal',  value: 40, color: KliniChartTokens.status.success },
+  { label: 'Atenção', value: 35, color: KliniChartTokens.status.warn    },
+  { label: 'Alta',    value: 25, color: KliniChartTokens.status.danger  },
 ];
-// max: 200 (pressão) · indicatorValue: 128 (valor atual do paciente)
 ```
 
 ```html
 <!-- Padrão — sem indicador -->
 <kln-meter-group [value]="zones" [max]="100" />
 
-<!-- WithIndicator — ponteiro na posição do valor atual -->
-<kln-meter-group
-  [value]="zones"
-  [max]="200"
-  [indicatorValue]="128"
-  indicatorUnit="mmHg"
-/>
+<!-- WithIndicator — ponteiro posicionado no valor atual -->
+<kln-meter-group [value]="zones" [max]="200" [indicatorValue]="128" indicatorUnit="mmHg" />
 ```
 
 ---
@@ -379,7 +438,7 @@ git push origin main --tags
 
 | Versão | Destaques |
 |---|---|
-| **0.5.0** | Paleta gráficos atualizada (status semânticos success/info/warn/danger/secondary · categorical 4 nomeadas · sequential WASH→INK · diverging neutral) · `kln-chart` add input `stacked` + padrão adherence heatmap documentado · `kln-meter-group` variante WithIndicator (`indicatorValue`) para zone bar · fix CI `npm publish ./dist/klini-ds` |
+| **0.5.0** | Sistema de charts completo: `KliniChartTokens` (resolver CSS vars para canvas) · `KliniChartPresets` (12 variantes pré-configuradas: bar/bar-horizontal/bar-stacked/line/area/pie/doughnut/polar-area/radar/scatter/bubble) · input `[preset]` no `kln-chart` · paleta semântica (success/info/warn/danger/secondary) · `kln-meter-group` WithIndicator · fix CI publish path |
 | **0.4.0** | 32 novos componentes: Checkbox, MultiSelect, Autocomplete, InputMask, Rating, SelectButton, Listbox, TreeSelect, CascadeSelect, FloatLabel, InputGroup, ButtonGroup, Toolbar, Panel, Fieldset, Splitter, ScrollPanel, Image, AvatarGroup, Messages, Popover, SpeedDial, ProgressSpinner, Menubar, TabMenu, Steps, SplitButton, Timeline, DataView, Carousel, Tree, OrderList, VirtualScroller |
 | **0.3.0** | Seletores renomeados para `kln-*` · Data Visualization (Chart, Knob, MeterGroup, Slider, Select) · Paleta de cores para gráficos |
 | **0.2.1** | Corrige CI de publish + ESLint |

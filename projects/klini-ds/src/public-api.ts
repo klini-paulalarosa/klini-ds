@@ -100,6 +100,10 @@ export { KliniEmptyStateComponent } from './lib/components/empty-state/empty-sta
 export { KliniChartComponent } from './lib/components/chart/chart.component';
 export type { KliniChartType } from './lib/components/chart/chart.component';
 
+export { KliniChartTokens } from './lib/components/chart/chart.tokens';
+export { KliniChartPresets, getChartPreset } from './lib/components/chart/chart.presets';
+export type { KliniChartPreset } from './lib/components/chart/chart.presets';
+
 export { KliniKnobComponent } from './lib/components/knob/knob.component';
 
 export { KliniMeterGroupComponent } from './lib/components/meter-group/meter-group.component';
