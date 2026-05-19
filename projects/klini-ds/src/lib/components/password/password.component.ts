@@ -6,7 +6,6 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { PasswordModule } from 'primeng/password';
@@ -15,7 +14,7 @@ import { MessageModule } from 'primeng/message';
 @Component({
   selector: 'klini-password',
   standalone: true,
-  imports: [CommonModule, FormsModule, PasswordModule, MessageModule],
+  imports: [FormsModule, PasswordModule, MessageModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
@@ -26,8 +25,11 @@ import { MessageModule } from 'primeng/message';
   ],
   template: `
     <div class="klini-password-wrapper">
-      <label *ngIf="label" class="klini-password-label">{{ label }}</label>
+      @if (label) {
+        <label [for]="inputId" class="klini-password-label">{{ label }}</label>
+      }
       <p-password
+        [inputId]="inputId"
         [(ngModel)]="value"
         [feedback]="feedback"
         [toggleMask]="toggleMask"
@@ -38,8 +40,12 @@ import { MessageModule } from 'primeng/message';
         (ngModelChange)="onValueChange($event)"
         (onBlur)="onTouched()"
       />
-      <p-message *ngIf="errorMessage" severity="error" [text]="errorMessage" />
-      <small *ngIf="hint && !errorMessage" class="klini-password-hint">{{ hint }}</small>
+      @if (errorMessage) {
+        <p-message severity="error" [text]="errorMessage" />
+      }
+      @if (hint && !errorMessage) {
+        <small class="klini-password-hint">{{ hint }}</small>
+      }
     </div>
   `,
   styles: [
@@ -63,8 +69,11 @@ import { MessageModule } from 'primeng/message';
   ],
 })
 export class KliniPasswordComponent implements ControlValueAccessor {
+  private static idCounter = 0;
+
   @Input() label = '';
   @Input() placeholder = '';
+  @Input() inputId = `klini-password-${++KliniPasswordComponent.idCounter}`;
   @Input() feedback = false;
   @Input() toggleMask = true;
   @Input() errorMessage = '';
@@ -76,7 +85,9 @@ export class KliniPasswordComponent implements ControlValueAccessor {
 
   value = '';
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   private onChange: (v: string) => void = () => {};
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onTouched: () => void = () => {};
 
   onValueChange(v: string): void {

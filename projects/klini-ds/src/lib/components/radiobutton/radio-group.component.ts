@@ -6,7 +6,6 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { RadioButtonModule } from 'primeng/radiobutton';
@@ -14,6 +13,7 @@ import { MessageModule } from 'primeng/message';
 
 export interface KliniRadioOption {
   label: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value: any;
   disabled?: boolean;
 }
@@ -21,7 +21,7 @@ export interface KliniRadioOption {
 @Component({
   selector: 'klini-radio-group',
   standalone: true,
-  imports: [CommonModule, FormsModule, RadioButtonModule, MessageModule],
+  imports: [FormsModule, RadioButtonModule, MessageModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
@@ -35,22 +35,25 @@ export interface KliniRadioOption {
       class="klini-radio-group"
       [class.klini-radio-group--row]="layout === 'row'"
     >
-      <div *ngFor="let opt of options; let i = index" class="klini-radio-option">
-        <p-radioButton
-          [name]="name"
-          [value]="opt.value"
-          [(ngModel)]="value"
-          [inputId]="name + '_' + i"
-          [disabled]="disabled || !!opt.disabled"
-          (ngModelChange)="onValueChange($event)"
+      @for (opt of options; track $index) {
+        <div class="klini-radio-option">
+          <p-radioButton
+            [name]="name"
+            [value]="opt.value"
+            [(ngModel)]="value"
+            [inputId]="name + '_' + $index"
+            [disabled]="disabled || !!opt.disabled"
+            (ngModelChange)="onValueChange($event)"
+          />
+          <label [for]="name + '_' + $index" class="klini-radio-label">{{ opt.label }}</label>
+        </div>
+      }
+      @if (errorMessage) {
+        <p-message
+          severity="error"
+          [text]="errorMessage"
         />
-        <label [for]="name + '_' + i" class="klini-radio-label">{{ opt.label }}</label>
-      </div>
-      <p-message
-        *ngIf="errorMessage"
-        severity="error"
-        [text]="errorMessage"
-      />
+      }
     </div>
   `,
   styles: [
@@ -86,23 +89,30 @@ export class KliniRadioGroupComponent implements ControlValueAccessor {
   @Input() errorMessage = '';
   @Input() disabled = false;
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Output() valueChange = new EventEmitter<any>();
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value: any = null;
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-explicit-any
   private onChange: (v: any) => void = () => {};
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onTouched: () => void = () => {};
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onValueChange(v: any): void {
     this.value = v;
     this.onChange(v);
     this.valueChange.emit(v);
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   writeValue(v: any): void {
     this.value = v;
   }
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   registerOnChange(fn: (v: any) => void): void {
     this.onChange = fn;
   }

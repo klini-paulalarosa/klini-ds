@@ -30,8 +30,23 @@
             "tsConfig": "projects/klini-ds/tsconfig.spec.json",
             "karmaConfig": "projects/klini-ds/karma.conf.js"
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/klini-ds/**/*.ts",
+              "projects/klini-ds/**/*.html"
+            ],
+            "eslintConfig": "projects/klini-ds/eslint.config.js"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   }
 }

@@ -1,5 +1,4 @@
 import { Component, Input, Output, EventEmitter, forwardRef, ChangeDetectionStrategy } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { DatePickerModule } from 'primeng/datepicker';
 import { FloatLabelModule } from 'primeng/floatlabel';
@@ -12,7 +11,7 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 @Component({
   selector: 'klini-calendar',
   standalone: true,
-  imports: [CommonModule, FormsModule, DatePickerModule, FloatLabelModule],
+  imports: [FormsModule, DatePickerModule, FloatLabelModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -21,7 +20,31 @@ import { FloatLabelModule } from 'primeng/floatlabel';
   }],
   template: `
     <div class="klini-calendar-wrapper">
-      <p-floatlabel *ngIf="floatLabel; else noFloat">
+      @if (floatLabel) {
+        <p-floatlabel>
+          <p-datepicker
+            [inputId]="inputId"
+            [placeholder]="placeholder"
+            [showIcon]="showIcon"
+            [showTime]="showTime"
+            [showSeconds]="showSeconds"
+            [selectionMode]="selectionMode"
+            [minDate]="minDate"
+            [maxDate]="maxDate"
+            [dateFormat]="dateFormat"
+            [disabled]="disabled"
+            [inline]="inline"
+            [(ngModel)]="value"
+            (ngModelChange)="onValueChange($event)"
+            (onBlur)="onTouched()"
+            styleClass="klini-datepicker"
+          />
+          <label [for]="inputId">{{ label }}</label>
+        </p-floatlabel>
+      } @else {
+        @if (label) {
+          <label [for]="inputId" class="klini-calendar__label">{{ label }}</label>
+        }
         <p-datepicker
           [inputId]="inputId"
           [placeholder]="placeholder"
@@ -39,29 +62,7 @@ import { FloatLabelModule } from 'primeng/floatlabel';
           (onBlur)="onTouched()"
           styleClass="klini-datepicker"
         />
-        <label [for]="inputId">{{ label }}</label>
-      </p-floatlabel>
-
-      <ng-template #noFloat>
-        <label *ngIf="label" [for]="inputId" class="klini-calendar__label">{{ label }}</label>
-        <p-datepicker
-          [inputId]="inputId"
-          [placeholder]="placeholder"
-          [showIcon]="showIcon"
-          [showTime]="showTime"
-          [showSeconds]="showSeconds"
-          [selectionMode]="selectionMode"
-          [minDate]="minDate"
-          [maxDate]="maxDate"
-          [dateFormat]="dateFormat"
-          [disabled]="disabled"
-          [inline]="inline"
-          [(ngModel)]="value"
-          (ngModelChange)="onValueChange($event)"
-          (onBlur)="onTouched()"
-          styleClass="klini-datepicker"
-        />
-      </ng-template>
+      }
     </div>
   `,
   styles: [`
@@ -93,7 +94,9 @@ export class CalendarComponent implements ControlValueAccessor {
   @Output() valueChange = new EventEmitter<Date | Date[] | null>();
 
   value: Date | Date[] | null = null;
-  onChange  = (_: Date | Date[] | null) => {};
+  // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
+  onChange  = (_val: Date | Date[] | null) => {};
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onTouched = () => {};
 
   onValueChange(val: Date | Date[] | null): void {

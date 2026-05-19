@@ -28,7 +28,7 @@ import { ProgressBarModule } from 'primeng/progressbar';
   ],
 })
 export class KliniProgressBarComponent {
-  @Input() value: number = 0;
+  @Input() value = 0;
   @Input() mode: 'determinate' | 'indeterminate' = 'determinate';
   @Input() showValue = true;
   @Input() unit = '%';

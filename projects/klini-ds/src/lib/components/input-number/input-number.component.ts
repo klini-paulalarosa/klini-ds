@@ -6,7 +6,6 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { InputNumberModule } from 'primeng/inputnumber';
@@ -15,7 +14,7 @@ import { MessageModule } from 'primeng/message';
 @Component({
   selector: 'klini-input-number',
   standalone: true,
-  imports: [CommonModule, FormsModule, InputNumberModule, MessageModule],
+  imports: [FormsModule, InputNumberModule, MessageModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [
     {
@@ -26,8 +25,11 @@ import { MessageModule } from 'primeng/message';
   ],
   template: `
     <div class="klini-input-number-wrapper">
-      <label *ngIf="label" class="klini-input-number-label">{{ label }}</label>
+      @if (label) {
+        <label [for]="inputId" class="klini-input-number-label">{{ label }}</label>
+      }
       <p-inputnumber
+        [inputId]="inputId"
         [(ngModel)]="value"
         [min]="min"
         [max]="max"
@@ -44,8 +46,12 @@ import { MessageModule } from 'primeng/message';
         (ngModelChange)="onValueChange($event)"
         (onBlur)="onTouched()"
       />
-      <p-message *ngIf="errorMessage" severity="error" [text]="errorMessage" />
-      <small *ngIf="hint && !errorMessage" class="klini-input-number-hint">{{ hint }}</small>
+      @if (errorMessage) {
+        <p-message severity="error" [text]="errorMessage" />
+      }
+      @if (hint && !errorMessage) {
+        <small class="klini-input-number-hint">{{ hint }}</small>
+      }
     </div>
   `,
   styles: [
@@ -69,8 +75,11 @@ import { MessageModule } from 'primeng/message';
   ],
 })
 export class KliniInputNumberComponent implements ControlValueAccessor {
+  private static idCounter = 0;
+
   @Input() label = '';
   @Input() placeholder = '';
+  @Input() inputId = `klini-input-number-${++KliniInputNumberComponent.idCounter}`;
   @Input() min: number | undefined = undefined;
   @Input() max: number | undefined = undefined;
   @Input() step = 1;
@@ -88,7 +97,9 @@ export class KliniInputNumberComponent implements ControlValueAccessor {
 
   value: number | null = null;
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   private onChange: (v: number | null) => void = () => {};
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onTouched: () => void = () => {};
 
   onValueChange(v: number | null): void {

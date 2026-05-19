@@ -5,7 +5,7 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { FileUploadModule } from 'primeng/fileupload';
+import { FileUploadModule, FileUploadHandlerEvent, FileSelectEvent, FileUploadErrorEvent } from 'primeng/fileupload';
 
 @Component({
   selector: 'klini-file-upload',
@@ -40,7 +40,7 @@ export class KliniFileUploadComponent {
   @Input() cancelLabel = 'Cancelar';
   @Input() styleClass = '';
 
-  @Output() uploaded = new EventEmitter<any>();
-  @Output() selected = new EventEmitter<any>();
-  @Output() uploadError = new EventEmitter<any>();
+  @Output() uploaded = new EventEmitter<FileUploadHandlerEvent>();
+  @Output() selected = new EventEmitter<FileSelectEvent>();
+  @Output() uploadError = new EventEmitter<FileUploadErrorEvent>();
 }

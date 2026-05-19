@@ -1,6 +1,5 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { CardModule } from 'primeng/card';
-import { CommonModule } from '@angular/common';
 
 export type KpiTrend = 'up' | 'down' | 'neutral';
 
@@ -11,27 +10,35 @@ export type KpiTrend = 'up' | 'down' | 'neutral';
 @Component({
   selector: 'klini-kpi-card',
   standalone: true,
-  imports: [CardModule, CommonModule],
+  imports: [CardModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <p-card styleClass="klini-kpi-card">
       <ng-template pTemplate="header">
         <div class="klini-kpi-card__header">
           <span class="klini-kpi-card__label">{{ label }}</span>
-          <i *ngIf="icon" [class]="'pi ' + icon + ' klini-kpi-card__icon'"></i>
+          @if (icon) {
+            <i [class]="'pi ' + icon + ' klini-kpi-card__icon'"></i>
+          }
         </div>
       </ng-template>
 
       <div class="klini-kpi-card__body">
         <span class="klini-kpi-card__value">{{ value }}</span>
-        <div *ngIf="trend" [class]="'klini-kpi-card__trend klini-kpi-card__trend--' + trend">
-          <i [class]="trendIcon"></i>
-          <span *ngIf="trendLabel">{{ trendLabel }}</span>
-        </div>
+        @if (trend) {
+          <div [class]="'klini-kpi-card__trend klini-kpi-card__trend--' + trend">
+            <i [class]="trendIcon"></i>
+            @if (trendLabel) {
+              <span>{{ trendLabel }}</span>
+            }
+          </div>
+        }
       </div>
 
       <ng-template pTemplate="footer">
-        <p *ngIf="description" class="klini-kpi-card__description">{{ description }}</p>
+        @if (description) {
+          <p class="klini-kpi-card__description">{{ description }}</p>
+        }
         <ng-content select="[slot=footer]" />
       </ng-template>
     </p-card>

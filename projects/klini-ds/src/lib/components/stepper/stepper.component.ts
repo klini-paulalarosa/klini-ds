@@ -1,5 +1,4 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { StepperModule } from 'primeng/stepper';
 
 export interface KliniStep {
@@ -16,31 +15,31 @@ export interface KliniStep {
 @Component({
   selector: 'klini-stepper',
   standalone: true,
-  imports: [CommonModule, StepperModule],
+  imports: [StepperModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <p-stepper [value]="activeStep" [linear]="linear">
 
       <p-step-list>
-        <p-step
-          *ngFor="let step of steps; let i = index"
-          [value]="i"
-        >{{ step.label }}</p-step>
+        @for (step of steps; track $index) {
+          <p-step [value]="$index">{{ step.label }}</p-step>
+        }
       </p-step-list>
 
       <p-step-panels>
-        <p-step-panel
-          *ngFor="let step of steps; let i = index"
-          [value]="i"
-        >
-          <ng-template pTemplate="content">
-            <div class="klini-stepper__panel-content">
-              <p *ngIf="step.description" class="klini-stepper__description">
-                {{ step.description }}
-              </p>
-            </div>
-          </ng-template>
-        </p-step-panel>
+        @for (step of steps; track $index) {
+          <p-step-panel [value]="$index">
+            <ng-template pTemplate="content">
+              <div class="klini-stepper__panel-content">
+                @if (step.description) {
+                  <p class="klini-stepper__description">
+                    {{ step.description }}
+                  </p>
+                }
+              </div>
+            </ng-template>
+          </p-step-panel>
+        }
       </p-step-panels>
 
     </p-stepper>

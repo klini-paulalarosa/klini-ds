@@ -19,7 +19,7 @@ export class KliniConfirmService {
     key?: string;
     accept?: () => void;
     reject?: () => void;
-    [key: string]: any;
+    [key: string]: unknown;
   }): void {
     this.cs.confirm(options);
   }
@@ -30,7 +30,7 @@ export class KliniConfirmService {
     key?: string;
     accept?: () => void;
     reject?: () => void;
-    [key: string]: any;
+    [key: string]: unknown;
   }): void {
     this.cs.confirm({
       message: options.message ?? 'Tem certeza que deseja excluir este item?',

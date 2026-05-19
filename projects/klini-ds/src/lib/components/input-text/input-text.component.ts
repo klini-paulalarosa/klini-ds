@@ -2,7 +2,6 @@ import {
   Component, Input, Output, EventEmitter, forwardRef,
   ChangeDetectionStrategy, booleanAttribute,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule } from '@angular/forms';
 import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
@@ -18,7 +17,7 @@ export type KliniInputSize = 'small' | 'large' | undefined;
 @Component({
   selector: 'klini-input-text',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, InputTextModule, FloatLabelModule, MessageModule],
+  imports: [ReactiveFormsModule, InputTextModule, FloatLabelModule, MessageModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [{
     provide: NG_VALUE_ACCESSOR,
@@ -27,24 +26,26 @@ export type KliniInputSize = 'small' | 'large' | undefined;
   }],
   template: `
     <div class="klini-input-wrapper">
-      <p-floatlabel *ngIf="floatLabel; else noFloat" [variant]="floatLabelVariant">
-        <input
-          pInputText
-          [id]="inputId"
-          [type]="type"
-          [size]="size"
-          [disabled]="disabled"
-          [value]="value"
-          [attr.maxlength]="maxLength || null"
-          [class.p-invalid]="!!errorMessage"
-          (input)="onInput($event)"
-          (blur)="onTouched()"
-        />
-        <label [for]="inputId">{{ label }}</label>
-      </p-floatlabel>
-
-      <ng-template #noFloat>
-        <label *ngIf="label" [for]="inputId" class="klini-input-label">{{ label }}</label>
+      @if (floatLabel) {
+        <p-floatlabel [variant]="floatLabelVariant">
+          <input
+            pInputText
+            [id]="inputId"
+            [type]="type"
+            [size]="size"
+            [disabled]="disabled"
+            [value]="value"
+            [attr.maxlength]="maxLength || null"
+            [class.p-invalid]="!!errorMessage"
+            (input)="onInput($event)"
+            (blur)="onTouched()"
+          />
+          <label [for]="inputId">{{ label }}</label>
+        </p-floatlabel>
+      } @else {
+        @if (label) {
+          <label [for]="inputId" class="klini-input-label">{{ label }}</label>
+        }
         <input
           pInputText
           [id]="inputId"
@@ -58,10 +59,13 @@ export type KliniInputSize = 'small' | 'large' | undefined;
           (input)="onInput($event)"
           (blur)="onTouched()"
         />
-      </ng-template>
-
-      <p-message *ngIf="errorMessage" severity="error" [text]="errorMessage" styleClass="klini-input-error" />
-      <small *ngIf="hint && !errorMessage" class="klini-input-hint">{{ hint }}</small>
+      }
+      @if (errorMessage) {
+        <p-message severity="error" [text]="errorMessage" styleClass="klini-input-error" />
+      }
+      @if (hint && !errorMessage) {
+        <small class="klini-input-hint">{{ hint }}</small>
+      }
     </div>
   `,
   styles: [`
@@ -92,7 +96,9 @@ export class InputTextComponent implements ControlValueAccessor {
   @Output() valueChange = new EventEmitter<string>();
 
   value     = '';
-  onChange  = (_: string) => {};
+  // eslint-disable-next-line @typescript-eslint/no-empty-function, @typescript-eslint/no-unused-vars
+  onChange  = (_val: string) => {};
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onTouched = () => {};
 
   onInput(event: Event): void {

@@ -14,7 +14,9 @@ import { CommonModule } from '@angular/common';
     <div class="klini-empty-state" [ngClass]="styleClass">
       <i [class]="'pi ' + icon + ' klini-empty-state__icon'"></i>
       <p class="klini-empty-state__title">{{ title }}</p>
-      <p *ngIf="description" class="klini-empty-state__description">{{ description }}</p>
+      @if (description) {
+        <p class="klini-empty-state__description">{{ description }}</p>
+      }
       <div class="klini-empty-state__actions">
         <ng-content />
       </div>

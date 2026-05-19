@@ -3,7 +3,6 @@ import {
   Component,
   Input,
 } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table';
 
 export interface KliniTableColumn {
@@ -16,7 +15,7 @@ export interface KliniTableColumn {
 @Component({
   selector: 'klini-table',
   standalone: true,
-  imports: [CommonModule, TableModule],
+  imports: [TableModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <p-table
@@ -30,19 +29,24 @@ export interface KliniTableColumn {
     >
       <ng-template pTemplate="header" let-columns>
         <tr>
-          <th
-            *ngFor="let col of columns"
-            [pSortableColumn]="col.sortable ? col.field : null"
-            [style.width]="col.width || null"
-          >
-            {{ col.header }}
-            <p-sortIcon *ngIf="col.sortable" [field]="col.field" />
-          </th>
+          @for (col of columns; track col.field) {
+            <th
+              [pSortableColumn]="col.sortable ? col.field : null"
+              [style.width]="col.width || null"
+            >
+              {{ col.header }}
+              @if (col.sortable) {
+                <p-sortIcon [field]="col.field" />
+              }
+            </th>
+          }
         </tr>
       </ng-template>
       <ng-template pTemplate="body" let-row let-columns="columns">
         <tr>
-          <td *ngFor="let col of columns">{{ row[col.field] }}</td>
+          @for (col of columns; track col.field) {
+            <td>{{ $any(row)[col.field] }}</td>
+          }
         </tr>
       </ng-template>
       <ng-template pTemplate="emptymessage">
@@ -70,7 +74,7 @@ export interface KliniTableColumn {
   ],
 })
 export class KliniTableComponent {
-  @Input() value: any[] = [];
+  @Input() value: Record<string, unknown>[] = [];
   @Input() columns: KliniTableColumn[] = [];
   @Input() loading = false;
   @Input() paginator = false;

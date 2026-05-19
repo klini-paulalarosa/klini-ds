@@ -42,7 +42,9 @@ export class KliniToggleComponent implements ControlValueAccessor {
 
   value = false;
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   private onChange: (v: boolean) => void = () => {};
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onTouched: () => void = () => {};
 
   onValueChange(v: boolean): void {

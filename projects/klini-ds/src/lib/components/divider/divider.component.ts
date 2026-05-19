@@ -49,5 +49,5 @@ export class DividerComponent {
   @Input() styleClass = '';
 
   /** @internal — detecta se há conteúdo projetado para habilitar o align */
-  get hasContent(): boolean { return true; }
+  readonly hasContent = true;
 }

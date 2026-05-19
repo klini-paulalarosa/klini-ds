@@ -26,9 +26,12 @@ import { MessageModule } from 'primeng/message';
   ],
   template: `
     <div class="klini-textarea-wrapper">
-      <label *ngIf="label" class="klini-textarea-label">{{ label }}</label>
+      @if (label) {
+        <label [for]="inputId" class="klini-textarea-label">{{ label }}</label>
+      }
       <textarea
         pTextarea
+        [id]="inputId"
         [rows]="rows"
         [autoResize]="autoResize"
         [disabled]="disabled"
@@ -40,8 +43,12 @@ import { MessageModule } from 'primeng/message';
         (blur)="onTouched()"
         [ngClass]="styleClass"
       ></textarea>
-      <p-message *ngIf="errorMessage" severity="error" [text]="errorMessage" />
-      <small *ngIf="hint && !errorMessage" class="klini-textarea-hint">{{ hint }}</small>
+      @if (errorMessage) {
+        <p-message severity="error" [text]="errorMessage" />
+      }
+      @if (hint && !errorMessage) {
+        <small class="klini-textarea-hint">{{ hint }}</small>
+      }
     </div>
   `,
   styles: [
@@ -65,8 +72,11 @@ import { MessageModule } from 'primeng/message';
   ],
 })
 export class KliniTextareaComponent implements ControlValueAccessor {
+  private static idCounter = 0;
+
   @Input() label = '';
   @Input() placeholder = '';
+  @Input() inputId = `klini-textarea-${++KliniTextareaComponent.idCounter}`;
   @Input() rows = 4;
   @Input() autoResize = false;
   @Input() maxLength: number | null = null;
@@ -79,7 +89,9 @@ export class KliniTextareaComponent implements ControlValueAccessor {
 
   value = '';
 
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   private onChange: (v: string) => void = () => {};
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   onTouched: () => void = () => {};
 
   onValueChange(v: string): void {

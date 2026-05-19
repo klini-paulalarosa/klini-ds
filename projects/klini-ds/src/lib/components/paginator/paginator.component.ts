@@ -5,7 +5,9 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { PaginatorModule } from 'primeng/paginator';
+import { PaginatorModule, PaginatorState } from 'primeng/paginator';
+
+interface PaginatorPageEvent { first: number; rows: number; page: number; pageCount: number; }
 
 @Component({
   selector: 'klini-paginator',
@@ -20,7 +22,7 @@ import { PaginatorModule } from 'primeng/paginator';
       [rowsPerPageOptions]="rowsPerPageOptions"
       [showJumpToPageDropdown]="showJumpToPage"
       [styleClass]="styleClass"
-      (onPageChange)="onPage($event)"
+      (onPageChange)="onPage($any($event))"
     />
   `,
 })
@@ -32,11 +34,16 @@ export class KliniPaginatorComponent {
   @Input() showJumpToPage = false;
   @Input() styleClass = '';
 
-  @Output() pageChange = new EventEmitter<any>();
+  @Output() pageChange = new EventEmitter<PaginatorPageEvent>();
   @Output() firstChange = new EventEmitter<number>();
 
-  onPage(e: any): void {
-    this.firstChange.emit(e.first);
-    this.pageChange.emit(e);
+  onPage(e: PaginatorState): void {
+    this.firstChange.emit(e.first ?? 0);
+    this.pageChange.emit({
+      first: e.first ?? 0,
+      rows: e.rows ?? this.rows,
+      page: e.page ?? 0,
+      pageCount: e.pageCount ?? 0,
+    });
   }
 }
