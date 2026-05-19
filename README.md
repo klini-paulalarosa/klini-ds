@@ -3,7 +3,7 @@
 Biblioteca de componentes Angular + tokens de design para o Klini Saúde.  
 Distribuída via **GitHub Packages** (privado).
 
-**Versão atual:** `0.3.0` · [Changelog](#versões)
+**Versão atual:** `0.4.0` · [Changelog](#versões)
 
 ---
 
@@ -95,7 +95,9 @@ export class AppModule {}
 | Tag | `kln-tag` | `value`, `severity` |
 | Chip | `kln-chip` | `label`, `removable`, `selected` |
 | Avatar | `kln-avatar` | `image`, `label`, `icon`, `size`, `shape` |
+| Avatar Group | `kln-avatar-group` | slot padrão com `<kln-avatar>` filhos |
 | Status Pill | `kln-status-pill` | `status` (autorizada \| negado \| em-processo \| parcialmente \| inativa) |
+| Image | `kln-image` | `src`, `alt`, `width`, `height`, `preview` |
 
 ### Feedback & Notificações
 
@@ -103,7 +105,11 @@ export class AppModule {}
 |---|---|---|
 | Toast | `kln-toast` | service `KliniToastService` — `show({ severity, summary, detail })` |
 | Message | `kln-message` | `text`, `severity`, `closable` |
+| Messages | `kln-messages` | `value[]` (ToastMessageOptions), `closable` |
 | Confirm Dialog | `kln-confirm-dialog` | service `KliniConfirmService` — `confirm({ message, accept })` |
+| Popover | `kln-popover` | `appendTo`, slot padrão para conteúdo |
+| Speed Dial | `kln-speed-dial` | `items[]`, `direction`, `transitionDelay`, `type` |
+| Progress Spinner | `kln-progress-spinner` | `strokeWidth`, `fill`, `animationDuration` |
 
 ### Cards & Layout
 
@@ -114,6 +120,19 @@ export class AppModule {}
 | Divider | `kln-divider` | `type` (solid \| dashed \| dotted), `layout`, `align` |
 | Empty State | `kln-empty-state` | `title`, `description`, `icon` |
 | Skeleton | `kln-skeleton` | `width`, `height`, `shape`, `animation` |
+| Panel | `kln-panel` | `header`, `toggleable`, `collapsed` |
+| Fieldset | `kln-fieldset` | `legend`, `toggleable`, `collapsed` |
+| Splitter | `kln-splitter` | `layout`, `stateKey`, slot `<p-splitter-panel>` |
+| Scroll Panel | `kln-scroll-panel` | `style`, `styleClass` |
+| Toolbar | `kln-toolbar` | slots `[start]`, `[center]`, `[end]` |
+
+### Layout de Formulário
+
+| Componente | Selector | Inputs principais |
+|---|---|---|
+| Float Label | `kln-float-label` | `label`, `for` — envolve qualquer campo |
+| Input Group | `kln-input-group` | slots `[prefix]`, `[suffix]` — envolve campos com addons |
+| Button Group | `kln-button-group` | slot padrão com `<kln-button>` filhos |
 
 ### Formulários
 
@@ -121,13 +140,22 @@ export class AppModule {}
 |---|---|---|---|
 | Input Text | `kln-input-text` | `label`, `placeholder`, `size`, `errorMessage`, `hint` | ✅ |
 | Input Number | `kln-input-number` | `label`, `min`, `max`, `step`, `prefix`, `suffix`, `mode` | ✅ |
+| Input Mask | `kln-input-mask` | `label`, `mask`, `placeholder`, `slotChar`, `errorMessage` | ✅ |
 | Textarea | `kln-textarea` | `label`, `rows`, `autoResize`, `maxLength`, `errorMessage` | ✅ |
 | Password | `kln-password` | `label`, `feedback`, `toggleMask`, `errorMessage` | ✅ |
 | Select | `kln-select` | `label`, `options`, `placeholder`, `filter`, `errorMessage` | ✅ |
+| Multi Select | `kln-multiselect` | `label`, `options`, `placeholder`, `filter`, `display`, `errorMessage` | ✅ |
+| Autocomplete | `kln-autocomplete` | `label`, `suggestions[]`, `dropdown`, `multiple`, `errorMessage` | ✅ |
+| Cascade Select | `kln-cascade-select` | `label`, `options`, `optionLabel`, `optionGroupLabel`, `optionGroupChildren` | ✅ |
+| Listbox | `kln-listbox` | `options`, `multiple`, `filter`, `optionLabel`, `optionValue` | ✅ |
+| Select Button | `kln-select-button` | `options`, `multiple`, `optionLabel`, `optionValue` | ✅ |
 | Radio Group | `kln-radio-group` | `name`, `options`, `layout` (column \| row) | ✅ |
+| Checkbox | `kln-checkbox` | `label`, `binary`, `disabled` | ✅ |
 | Toggle | `kln-toggle` | `disabled` | ✅ |
+| Rating | `kln-rating` | `stars`, `disabled` | ✅ |
 | Slider | `kln-slider` | `min`, `max`, `step`, `range`, `orientation` | ✅ |
 | Calendar | `kln-calendar` | `label`, `dateFormat`, `selectionMode`, `showIcon`, `floatLabel` | ✅ |
+| Tree Select | `kln-tree-select` | `label`, `options` (TreeNode[]), `selectionMode`, `placeholder`, `display` | ✅ |
 | File Upload | `kln-file-upload` | `url`, `multiple`, `accept`, `maxFileSize`, `auto` | — |
 
 ### Navegação & Overlay
@@ -135,10 +163,14 @@ export class AppModule {}
 | Componente | Selector | Inputs principais |
 |---|---|---|
 | Tabs | `kln-tabs` | `activeTab` + `p-tab-list` / `p-tab-panel` internamente |
+| Tab Menu | `kln-tab-menu` | `model[]` (MenuItem), `activeItem` |
 | Stepper | `kln-stepper` | `steps[]`, `activeStep`, `linear` |
+| Steps | `kln-steps` | `model[]` (MenuItem), `activeIndex`, `readonly` |
 | Accordion | `kln-accordion` | `activeValue`, `multiple` |
 | Breadcrumb | `kln-breadcrumb` | `items[]`, `home` |
 | Menu | `kln-menu` | `items[]`, `popup` |
+| Menubar | `kln-menubar` | `model[]` (MenuItem), `autoDisplay` |
+| Split Button | `kln-split-button` | `label`, `icon`, `model[]` (MenuItem), `severity` |
 | Drawer | `kln-drawer` | `visible`, `header`, `position`, `modal` |
 | Dialog | `kln-dialog` | `visible`, `header`, `modal`, slot `[kliniDialogFooter]` |
 | Paginator | `kln-paginator` | `totalRecords`, `rows`, `rowsPerPageOptions` |
@@ -149,7 +181,18 @@ export class AppModule {}
 |---|---|---|
 | Table | `kln-table` | `value[]`, `columns[]`, `loading`, `paginator`, `pageSize` |
 
-### Data Visualization *(v0.3)*
+### Data & Listas
+
+| Componente | Selector | Inputs principais |
+|---|---|---|
+| Timeline | `kln-timeline` | `value[]` (KliniTimelineEvent), `layout`, `align` |
+| DataView | `kln-dataview` | `value[]`, `layout` (list \| grid), `paginator`, `rows` |
+| Carousel | `kln-carousel` | `value[]`, `numVisible`, `numScroll`, `circular`, `autoplayInterval` |
+| Tree | `kln-tree` | `value[]` (TreeNode), `selectionMode`, `loading`, `filter` |
+| Order List | `kln-order-list` | `value[]`, `header`, `filterBy`, `dragdrop` |
+| Virtual Scroller | `kln-virtual-scroller` | `items[]`, `itemSize`, `scrollHeight` |
+
+### Data Visualization
 
 | Componente | Selector | Inputs principais |
 |---|---|---|
@@ -220,6 +263,8 @@ chartData = {
 --kln-chart-status-autorizada
 --kln-chart-status-negada
 --kln-chart-status-em-processo
+--kln-chart-status-parcial
+--kln-chart-status-inativa
 ```
 
 ---
@@ -243,6 +288,7 @@ git push origin main --tags
 
 | Versão | Destaques |
 |---|---|
+| **0.4.0** | 32 novos componentes: Checkbox, MultiSelect, Autocomplete, InputMask, Rating, SelectButton, Listbox, TreeSelect, CascadeSelect, FloatLabel, InputGroup, ButtonGroup, Toolbar, Panel, Fieldset, Splitter, ScrollPanel, Image, AvatarGroup, Messages, Popover, SpeedDial, ProgressSpinner, Menubar, TabMenu, Steps, SplitButton, Timeline, DataView, Carousel, Tree, OrderList, VirtualScroller |
 | **0.3.0** | Seletores renomeados para `kln-*` · Data Visualization (Chart, Knob, MeterGroup, Slider, Select) · Paleta de cores para gráficos |
 | **0.2.1** | Corrige CI de publish + ESLint |
 | **0.2.0** | 18 novos componentes · Tokens de elevação/focus |

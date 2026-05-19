@@ -44,6 +44,41 @@ import { KliniMeterGroupComponent } from './components/meter-group/meter-group.c
 import { KliniSliderComponent }     from './components/slider/slider.component';
 import { KliniSelectComponent }     from './components/select/select.component';
 
+// v0.4 — Forms, Layout, Feedback & Overlay, Navigation, Data & Content
+import { KliniCheckboxComponent }       from './components/checkbox/checkbox.component';
+import { KliniFloatLabelComponent }     from './components/float-label/float-label.component';
+import { KliniMultiSelectComponent }    from './components/multiselect/multiselect.component';
+import { KliniAutoCompleteComponent }   from './components/autocomplete/autocomplete.component';
+import { KliniInputMaskComponent }      from './components/input-mask/input-mask.component';
+import { KliniRatingComponent }         from './components/rating/rating.component';
+import { KliniSelectButtonComponent }   from './components/select-button/select-button.component';
+import { KliniListboxComponent }        from './components/listbox/listbox.component';
+import { KliniTreeSelectComponent }     from './components/tree-select/tree-select.component';
+import { KliniCascadeSelectComponent }  from './components/cascade-select/cascade-select.component';
+import { KliniInputGroupComponent }     from './components/input-group/input-group.component';
+import { KliniButtonGroupComponent }    from './components/button-group/button-group.component';
+import { KliniToolbarComponent }        from './components/toolbar/toolbar.component';
+import { KliniPanelComponent }          from './components/panel/panel.component';
+import { KliniFieldsetComponent }       from './components/fieldset/fieldset.component';
+import { KliniSplitterComponent }       from './components/splitter/splitter.component';
+import { KliniScrollPanelComponent }    from './components/scroll-panel/scroll-panel.component';
+import { KliniImageComponent }          from './components/image/image.component';
+import { KliniAvatarGroupComponent }    from './components/avatar-group/avatar-group.component';
+import { KliniMessagesComponent }       from './components/messages/messages.component';
+import { KliniPopoverComponent }        from './components/popover/popover.component';
+import { KliniSpeedDialComponent }      from './components/speed-dial/speed-dial.component';
+import { KliniProgressSpinnerComponent } from './components/progress-spinner/progress-spinner.component';
+import { KliniMenubarComponent }        from './components/menubar/menubar.component';
+import { KliniTabMenuComponent }        from './components/tab-menu/tab-menu.component';
+import { KliniStepsComponent }          from './components/steps/steps.component';
+import { KliniSplitButtonComponent }    from './components/split-button/split-button.component';
+import { KliniTimelineComponent }       from './components/timeline/timeline.component';
+import { KliniDataViewComponent }       from './components/dataview/dataview.component';
+import { KliniCarouselComponent }       from './components/carousel/carousel.component';
+import { KliniTreeComponent }           from './components/tree/tree.component';
+import { KliniOrderListComponent }      from './components/order-list/order-list.component';
+import { KliniVirtualScrollerComponent } from './components/virtual-scroller/virtual-scroller.component';
+
 const COMPONENTS = [
   // Core (v0.1)
   ButtonComponent, StatusPillComponent, TagComponent, BadgeComponent, ChipComponent,
@@ -59,6 +94,18 @@ const COMPONENTS = [
   // Data Visualization (v0.3)
   KliniChartComponent, KliniKnobComponent, KliniMeterGroupComponent,
   KliniSliderComponent, KliniSelectComponent,
+  // v0.4 — Forms, Layout, Feedback & Overlay, Navigation, Data & Content
+  KliniCheckboxComponent, KliniFloatLabelComponent, KliniMultiSelectComponent,
+  KliniAutoCompleteComponent, KliniInputMaskComponent, KliniRatingComponent,
+  KliniSelectButtonComponent, KliniListboxComponent, KliniTreeSelectComponent,
+  KliniCascadeSelectComponent, KliniInputGroupComponent, KliniButtonGroupComponent,
+  KliniToolbarComponent, KliniPanelComponent, KliniFieldsetComponent,
+  KliniSplitterComponent, KliniScrollPanelComponent, KliniImageComponent,
+  KliniAvatarGroupComponent, KliniMessagesComponent, KliniPopoverComponent,
+  KliniSpeedDialComponent, KliniProgressSpinnerComponent, KliniMenubarComponent,
+  KliniTabMenuComponent, KliniStepsComponent, KliniSplitButtonComponent,
+  KliniTimelineComponent, KliniDataViewComponent, KliniCarouselComponent,
+  KliniTreeComponent, KliniOrderListComponent, KliniVirtualScrollerComponent,
 ];
 
 /**

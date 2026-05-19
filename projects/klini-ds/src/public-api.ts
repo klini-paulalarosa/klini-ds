@@ -112,3 +112,72 @@ export type { KliniSelectOption } from './lib/components/select/select.component
 // ── Tooltip (diretiva PrimeNG — use pTooltip diretamente) ────────────────────
 // import { TooltipModule } from 'primeng/tooltip';
 // <button pTooltip="Texto" tooltipPosition="top">...</button>
+
+// ── Components v0.4 ──────────────────────────────────────────────────────────
+
+export { KliniCheckboxComponent } from './lib/components/checkbox/checkbox.component';
+
+export { KliniFloatLabelComponent } from './lib/components/float-label/float-label.component';
+
+export { KliniMultiSelectComponent } from './lib/components/multiselect/multiselect.component';
+
+export { KliniAutoCompleteComponent } from './lib/components/autocomplete/autocomplete.component';
+
+export { KliniInputMaskComponent } from './lib/components/input-mask/input-mask.component';
+
+export { KliniRatingComponent } from './lib/components/rating/rating.component';
+
+export { KliniSelectButtonComponent } from './lib/components/select-button/select-button.component';
+
+export { KliniListboxComponent } from './lib/components/listbox/listbox.component';
+
+export { KliniTreeSelectComponent } from './lib/components/tree-select/tree-select.component';
+
+export { KliniCascadeSelectComponent } from './lib/components/cascade-select/cascade-select.component';
+
+export { KliniInputGroupComponent } from './lib/components/input-group/input-group.component';
+
+export { KliniButtonGroupComponent } from './lib/components/button-group/button-group.component';
+
+export { KliniToolbarComponent } from './lib/components/toolbar/toolbar.component';
+
+export { KliniPanelComponent } from './lib/components/panel/panel.component';
+
+export { KliniFieldsetComponent } from './lib/components/fieldset/fieldset.component';
+
+export { KliniSplitterComponent } from './lib/components/splitter/splitter.component';
+
+export { KliniScrollPanelComponent } from './lib/components/scroll-panel/scroll-panel.component';
+
+export { KliniImageComponent } from './lib/components/image/image.component';
+
+export { KliniAvatarGroupComponent } from './lib/components/avatar-group/avatar-group.component';
+
+export { KliniMessagesComponent } from './lib/components/messages/messages.component';
+
+export { KliniPopoverComponent } from './lib/components/popover/popover.component';
+
+export { KliniSpeedDialComponent } from './lib/components/speed-dial/speed-dial.component';
+
+export { KliniProgressSpinnerComponent } from './lib/components/progress-spinner/progress-spinner.component';
+
+export { KliniMenubarComponent } from './lib/components/menubar/menubar.component';
+
+export { KliniTabMenuComponent } from './lib/components/tab-menu/tab-menu.component';
+
+export { KliniStepsComponent } from './lib/components/steps/steps.component';
+
+export { KliniSplitButtonComponent } from './lib/components/split-button/split-button.component';
+
+export { KliniTimelineComponent } from './lib/components/timeline/timeline.component';
+export type { KliniTimelineEvent } from './lib/components/timeline/timeline.component';
+
+export { KliniDataViewComponent } from './lib/components/dataview/dataview.component';
+
+export { KliniCarouselComponent } from './lib/components/carousel/carousel.component';
+
+export { KliniTreeComponent } from './lib/components/tree/tree.component';
+
+export { KliniOrderListComponent } from './lib/components/order-list/order-list.component';
+
+export { KliniVirtualScrollerComponent } from './lib/components/virtual-scroller/virtual-scroller.component';
