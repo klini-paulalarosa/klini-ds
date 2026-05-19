@@ -3,6 +3,8 @@
 Biblioteca de componentes Angular + tokens de design para o Klini Saúde.  
 Distribuída via **GitHub Packages** (privado).
 
+**Versão atual:** `0.3.0` · [Changelog](#versões)
+
 ---
 
 ## Instalação
@@ -32,12 +34,6 @@ No `styles.scss` global do projeto:
 @use '@klini/ds/styles';
 ```
 
-Ou apenas os tokens que precisar:
-
-```scss
-@use '@klini/ds/styles/tokens';  // CSS custom properties
-```
-
 ### 2. Configurar tema PrimeNG
 
 No `app.config.ts`:
@@ -48,7 +44,6 @@ import { KliniPrime } from '@klini/ds';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    // ...
     providePrimeNG({
       theme: {
         preset: KliniPrime,
@@ -64,19 +59,19 @@ export const appConfig: ApplicationConfig = {
 **Standalone (recomendado):**
 
 ```typescript
-import { ButtonComponent, StatusPillComponent } from '@klini/ds';
+import { KliniButtonComponent, KliniChartComponent } from '@klini/ds';
 
 @Component({
-  imports: [ButtonComponent, StatusPillComponent],
+  imports: [KliniButtonComponent, KliniChartComponent],
   template: `
-    <klini-button label="Salvar" severity="primary" />
-    <klini-status-pill status="autorizada" />
+    <kln-button label="Salvar" severity="primary" />
+    <kln-chart type="bar" [data]="chartData" />
   `,
 })
 export class MinhaPage {}
 ```
 
-**NgModule (compatibilidade):**
+**NgModule:**
 
 ```typescript
 import { KliniDsModule } from '@klini/ds';
@@ -89,67 +84,172 @@ export class AppModule {}
 
 ## Componentes
 
+> **Prefixo padrão: `kln-`** · Ex: `<kln-button>`, `<kln-chart>`
+
+### Elementos visuais
+
 | Componente | Selector | Inputs principais |
 |---|---|---|
-| Button | `klini-button` | `label`, `severity`, `size`, `variant`, `disabled`, `loading` |
-| Status Pill | `klini-status-pill` | `status` (em-processo\|autorizada\|parcialmente\|negado\|inativa) |
-| Tag | `klini-tag` | `value`, `severity` |
-| Badge | `klini-badge` | `value`, `severity` |
-| Chip | `klini-chip` | `label`, `removable`, `selected` |
-| KPI Card | `klini-kpi-card` | `label`, `value`, `trend`, `trendLabel` |
-| Toast | `klini-toast` | `message`, `title`, `severity`, `closable` |
-| Stepper | `klini-stepper` | `steps`, `activeStep`, `orientation` |
-| Drawer | `klini-drawer` | `header`, `visible`, `position` |
-| InputText | `klini-input-text` | `label`, `placeholder`, `size`, `errorMessage` |
-| Calendar | `klini-calendar` | `label` (wrapper para p-datepicker) |
+| Button | `kln-button` | `label`, `severity`, `size`, `variant`, `disabled`, `loading` |
+| Badge | `kln-badge` | `value`, `severity`, `size` |
+| Tag | `kln-tag` | `value`, `severity` |
+| Chip | `kln-chip` | `label`, `removable`, `selected` |
+| Avatar | `kln-avatar` | `image`, `label`, `icon`, `size`, `shape` |
+| Status Pill | `kln-status-pill` | `status` (autorizada \| negado \| em-processo \| parcialmente \| inativa) |
+
+### Feedback & Notificações
+
+| Componente | Selector | Inputs principais |
+|---|---|---|
+| Toast | `kln-toast` | service `KliniToastService` — `show({ severity, summary, detail })` |
+| Message | `kln-message` | `text`, `severity`, `closable` |
+| Confirm Dialog | `kln-confirm-dialog` | service `KliniConfirmService` — `confirm({ message, accept })` |
+
+### Cards & Layout
+
+| Componente | Selector | Inputs principais |
+|---|---|---|
+| Card | `kln-card` | slots `[kliniCardHeader]`, `[kliniCardFooter]` |
+| KPI Card | `kln-kpi-card` | `label`, `value`, `trend`, `trendLabel`, `icon`, `description` |
+| Divider | `kln-divider` | `type` (solid \| dashed \| dotted), `layout`, `align` |
+| Empty State | `kln-empty-state` | `title`, `description`, `icon` |
+| Skeleton | `kln-skeleton` | `width`, `height`, `shape`, `animation` |
+
+### Formulários
+
+| Componente | Selector | Inputs principais | CVA |
+|---|---|---|---|
+| Input Text | `kln-input-text` | `label`, `placeholder`, `size`, `errorMessage`, `hint` | ✅ |
+| Input Number | `kln-input-number` | `label`, `min`, `max`, `step`, `prefix`, `suffix`, `mode` | ✅ |
+| Textarea | `kln-textarea` | `label`, `rows`, `autoResize`, `maxLength`, `errorMessage` | ✅ |
+| Password | `kln-password` | `label`, `feedback`, `toggleMask`, `errorMessage` | ✅ |
+| Select | `kln-select` | `label`, `options`, `placeholder`, `filter`, `errorMessage` | ✅ |
+| Radio Group | `kln-radio-group` | `name`, `options`, `layout` (column \| row) | ✅ |
+| Toggle | `kln-toggle` | `disabled` | ✅ |
+| Slider | `kln-slider` | `min`, `max`, `step`, `range`, `orientation` | ✅ |
+| Calendar | `kln-calendar` | `label`, `dateFormat`, `selectionMode`, `showIcon`, `floatLabel` | ✅ |
+| File Upload | `kln-file-upload` | `url`, `multiple`, `accept`, `maxFileSize`, `auto` | — |
+
+### Navegação & Overlay
+
+| Componente | Selector | Inputs principais |
+|---|---|---|
+| Tabs | `kln-tabs` | `activeTab` + `p-tab-list` / `p-tab-panel` internamente |
+| Stepper | `kln-stepper` | `steps[]`, `activeStep`, `linear` |
+| Accordion | `kln-accordion` | `activeValue`, `multiple` |
+| Breadcrumb | `kln-breadcrumb` | `items[]`, `home` |
+| Menu | `kln-menu` | `items[]`, `popup` |
+| Drawer | `kln-drawer` | `visible`, `header`, `position`, `modal` |
+| Dialog | `kln-dialog` | `visible`, `header`, `modal`, slot `[kliniDialogFooter]` |
+| Paginator | `kln-paginator` | `totalRecords`, `rows`, `rowsPerPageOptions` |
+
+### Tabela
+
+| Componente | Selector | Inputs principais |
+|---|---|---|
+| Table | `kln-table` | `value[]`, `columns[]`, `loading`, `paginator`, `pageSize` |
+
+### Data Visualization *(v0.3)*
+
+| Componente | Selector | Inputs principais |
+|---|---|---|
+| Chart | `kln-chart` | `type`, `data`, `options`, `width`, `height` |
+| Knob (Progress Ring) | `kln-knob` | `min`, `max`, `size`, `showValue`, `valueColor` |
+| Meter Group | `kln-meter-group` | `value[]` (MeterItem), `max`, `orientation` |
+| Progress Bar | `kln-progress-bar` | `value`, `mode`, `showValue`, `unit` |
+
+---
+
+## kln-chart — Tipos de gráfico
+
+O `kln-chart` suporta todos os tipos Chart.js via input `[type]`:
+
+```html
+<kln-chart type="bar"       [data]="data" />
+<kln-chart type="line"      [data]="data" />
+<kln-chart type="pie"       [data]="data" />
+<kln-chart type="doughnut"  [data]="data" />
+<kln-chart type="radar"     [data]="data" />
+<kln-chart type="scatter"   [data]="data" />
+<kln-chart type="polarArea" [data]="data" />
+<kln-chart type="bubble"    [data]="data" />
+```
+
+Exemplo com paleta de cores do DS:
+
+```typescript
+chartData = {
+  labels: ['Autorizado', 'Negado', 'Em processo'],
+  datasets: [{
+    data: [60, 15, 25],
+    backgroundColor: [
+      'var(--kln-chart-status-autorizada)',
+      'var(--kln-chart-status-negada)',
+      'var(--kln-chart-status-em-processo)',
+    ],
+  }],
+};
+```
 
 ---
 
 ## Tokens CSS
 
-Todos os tokens estão disponíveis como CSS custom properties:
-
 ```css
-/* Primitivos */
---klini-color-teal-500    /* #259591 — cor principal */
---klini-space-4           /* 16px */
---klini-radius-lg         /* 8px */
+/* Cores primitivas */
+--klini-color-teal-500     /* #259591 — cor principal */
+--klini-space-4            /* 16px */
+--klini-radius-lg          /* 8px */
 
 /* Semânticos */
---klini-action-primary    /* referencia teal-500 */
---klini-text-primary      /* ink-900 */
---klini-surface-page      /* ink-50 */
+--klini-action-primary
+--klini-text-primary
+--klini-surface-page
 
-/* Status */
---klini-status-autorizada-solid
---klini-status-negado-bg
+/* Elevação */
+--klini-elevation-sm
+--klini-elevation-md
+--klini-elevation-lg
+--klini-focus-default
+--klini-focus-error
+
+/* Paleta para gráficos */
+--kln-chart-cat-1          /* teal principal */
+--kln-chart-cat-2          /* amber */
+--kln-chart-cat-3          /* coral */
+--kln-chart-status-autorizada
+--kln-chart-status-negada
+--kln-chart-status-em-processo
 ```
 
 ---
 
-## Publicar uma nova versão
+## Publicar nova versão
 
 ```bash
-# 1. Atualize a versão no package.json
-npm version patch   # 0.1.0 → 0.1.1
-npm version minor   # 0.1.0 → 0.2.0
-npm version major   # 0.1.0 → 1.0.0
+# 1. Atualize a versão na biblioteca
+# em projects/klini-ds/package.json: "version": "0.x.y"
 
-# 2. Push da tag — o GitHub Action publica automaticamente
+# 2. Commit + tag — o GitHub Action publica automaticamente
+git add .
+git commit -m "chore(release): bump para 0.x.y"
+git tag -a v0.x.y -m "Release v0.x.y"
 git push origin main --tags
 ```
 
 ---
 
-## Atualizar tokens do Figma
+## Versões
 
-Sempre que o DS for atualizado no Figma, rode o script de sync (Fase 2 — a implementar):
+| Versão | Destaques |
+|---|---|
+| **0.3.0** | Seletores renomeados para `kln-*` · Data Visualization (Chart, Knob, MeterGroup, Slider, Select) · Paleta de cores para gráficos |
+| **0.2.1** | Corrige CI de publish + ESLint |
+| **0.2.0** | 18 novos componentes · Tokens de elevação/focus |
+| **0.1.0** | Versão inicial — 14 componentes base |
 
-```bash
-npm run sync-tokens
-```
-
-Isso atualizará os arquivos `src/lib/tokens/*.scss` com os valores mais recentes.
+> **Breaking change v0.3.0:** todos os seletores mudaram de `klini-*` para `kln-*`.  
+> Substitua `<klini-button>` → `<kln-button>` etc. nos seus templates.
 
 ---
 
@@ -157,7 +257,8 @@ Isso atualizará os arquivos `src/lib/tokens/*.scss` com os valores mais recente
 
 ```bash
 npm install
-npm run build:watch   # build incremental
+npm run build        # build da biblioteca
+npm run lint         # checar qualidade do código
 ```
 
-Projeto: [Figma DS](https://www.figma.com/design/gOsRuHIPm6Xo5zGEWDmnRW/Klini-Sa%C3%BAde-%E2%80%94-Design-System)
+Figma: [Klini DS](https://www.figma.com/design/gOsRuHIPm6Xo5zGEWDmnRW/Klini-Sa%C3%BAde-%E2%80%94-Design-System)
