@@ -45,6 +45,10 @@ jobs:
           fi
 
       - name: Publish
-        run: npm publish ./dist/klini-ds --access restricted
+        run: |
+          OUTPUT=$(npm publish ./dist/klini-ds --access restricted 2>&1) && echo "$OUTPUT" && exit 0
+          echo "$OUTPUT"
+          echo "$OUTPUT" | grep -q "previously published" && echo "Versão já publicada — ignorando." && exit 0
+          exit 1
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
