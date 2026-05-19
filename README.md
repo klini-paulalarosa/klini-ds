@@ -196,9 +196,9 @@ export class AppModule {}
 
 | Componente | Selector | Inputs principais |
 |---|---|---|
-| Chart | `kln-chart` | `type`, `data`, `options`, `width`, `height` |
+| Chart | `kln-chart` | `type`, `data`, `options`, `width`, `height`, `stacked` |
 | Knob (Progress Ring) | `kln-knob` | `min`, `max`, `size`, `showValue`, `valueColor` |
-| Meter Group | `kln-meter-group` | `value[]` (MeterItem), `max`, `orientation` |
+| Meter Group | `kln-meter-group` | `value[]` (MeterItem), `max`, `orientation`, `indicatorValue`, `indicatorUnit` |
 | Progress Bar | `kln-progress-bar` | `value`, `mode`, `showValue`, `unit` |
 
 
@@ -227,12 +227,80 @@ chartData = {
   datasets: [{
     data: [60, 15, 25],
     backgroundColor: [
-      'var(--kln-chart-status-autorizada)',
-      'var(--kln-chart-status-negada)',
-      'var(--kln-chart-status-em-processo)',
+      'var(--kln-chart-status-success)',
+      'var(--kln-chart-status-danger)',
+      'var(--kln-chart-status-secondary)',
     ],
   }],
 };
+```
+
+### Padrão Adherence Heatmap — `type="bar"` stacked
+
+Padrão nativo do DS para visualizar adesão ao tratamento por semana. Zero dependência extra.
+
+```typescript
+adherenceData = {
+  labels: ['S1','S2','S3','S4','S5','S6','S7','S8','S9','S10','S11','S12'],
+  datasets: [
+    {
+      label: 'Adesão',
+      data: [85, 60, 95, 70, 80, 40, 90, 75, 55, 88, 65, 92],
+      backgroundColor: (ctx: { raw: number }) => {
+        const v = ctx.raw;
+        if (v >= 80) return 'var(--kln-chart-seq-100)';
+        if (v >= 60) return 'var(--kln-chart-seq-33)';
+        return 'var(--kln-chart-seq-wash)';
+      },
+      stack: 'adherence',
+    },
+  ],
+};
+
+adherenceOptions = {
+  indexAxis: 'x',
+  scales: { x: { stacked: true }, y: { stacked: true, max: 100 } },
+  plugins: { legend: { display: false } },
+};
+```
+
+```html
+<kln-chart type="bar" [stacked]="true" [data]="adherenceData" [options]="adherenceOptions" />
+```
+
+> **Upgrade opcional — heatmap visual com células coloridas (`type="matrix"`):**  
+> Instale `chartjs-chart-matrix` e registre `MatrixController, MatrixElement` antes de usar.  
+> O DS não garante suporte a plugins externos — documentação no [chartjs-chart-matrix](https://github.com/kurkle/chartjs-chart-matrix).
+
+---
+
+## kln-meter-group — Variante WithIndicator (Zone Bar)
+
+Padrão para indicadores de zona com valor atual: pressão arterial, glicemia, IMC.
+Usa `[indicatorValue]` para exibir um ponteiro triangular sobre a barra.
+
+```typescript
+import { MeterItem } from 'primeng/metergroup';
+
+zones: MeterItem[] = [
+  { label: 'Normal',  value: 40, color: 'var(--kln-chart-status-success)' },
+  { label: 'Atenção', value: 35, color: 'var(--kln-chart-status-warn)' },
+  { label: 'Alta',    value: 25, color: 'var(--kln-chart-status-danger)' },
+];
+// max: 200 (pressão) · indicatorValue: 128 (valor atual do paciente)
+```
+
+```html
+<!-- Padrão — sem indicador -->
+<kln-meter-group [value]="zones" [max]="100" />
+
+<!-- WithIndicator — ponteiro na posição do valor atual -->
+<kln-meter-group
+  [value]="zones"
+  [max]="200"
+  [indicatorValue]="128"
+  indicatorUnit="mmHg"
+/>
 ```
 
 ---
@@ -311,7 +379,7 @@ git push origin main --tags
 
 | Versão | Destaques |
 |---|---|
-| **0.5.0** | Paleta gráficos atualizada (status semânticos: success/info/warn/danger/secondary · categorical 4 cores nomeadas · sequential 5 stops WASH→INK · diverging com neutral #eeeff0) · fix CI publish path |
+| **0.5.0** | Paleta gráficos atualizada (status semânticos success/info/warn/danger/secondary · categorical 4 nomeadas · sequential WASH→INK · diverging neutral) · `kln-chart` add input `stacked` + padrão adherence heatmap documentado · `kln-meter-group` variante WithIndicator (`indicatorValue`) para zone bar · fix CI `npm publish ./dist/klini-ds` |
 | **0.4.0** | 32 novos componentes: Checkbox, MultiSelect, Autocomplete, InputMask, Rating, SelectButton, Listbox, TreeSelect, CascadeSelect, FloatLabel, InputGroup, ButtonGroup, Toolbar, Panel, Fieldset, Splitter, ScrollPanel, Image, AvatarGroup, Messages, Popover, SpeedDial, ProgressSpinner, Menubar, TabMenu, Steps, SplitButton, Timeline, DataView, Carousel, Tree, OrderList, VirtualScroller |
 | **0.3.0** | Seletores renomeados para `kln-*` · Data Visualization (Chart, Knob, MeterGroup, Slider, Select) · Paleta de cores para gráficos |
 | **0.2.1** | Corrige CI de publish + ESLint |
