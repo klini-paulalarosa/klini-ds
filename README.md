@@ -201,6 +201,13 @@ export class AppModule {}
 | Meter Group | `kln-meter-group` | `value[]` (MeterItem), `max`, `orientation` |
 | Progress Bar | `kln-progress-bar` | `value`, `mode`, `showValue`, `unit` |
 
+### Infográfico (componentes custom Klini)
+
+| Componente | Selector | Inputs principais |
+|---|---|---|
+| Adherence Heatmap | `kln-adherence-heatmap` | `weeks[]` (AdherenceWeek), `title`, `showLabels`, `legendLow`, `legendHigh` |
+| Zone Bar | `kln-zone-bar` | `value`, `unit`, `title`, `min`, `max`, `zones[]` (ZoneBarZone) |
+
 ---
 
 ## kln-chart — Tipos de gráfico
@@ -236,6 +243,62 @@ chartData = {
 
 ---
 
+## kln-adherence-heatmap — Heatmap de Adesão
+
+Grid de semanas colorido pela escala sequential teal. Ideal para dashboards de adesão ao tratamento.
+
+```typescript
+import { KliniAdherenceHeatmapComponent } from '@klini/ds';
+import type { AdherenceWeek } from '@klini/ds';
+
+weeks: AdherenceWeek[] = [
+  { label: 'S1', value: 85 },
+  { label: 'S2', value: 60 },
+  { label: 'S3', value: 95 },
+  // ... até 12 semanas
+];
+```
+
+```html
+<kln-adherence-heatmap
+  title="ADESÃO · 12 SEMANAS"
+  [weeks]="weeks"
+  [showLabels]="true"
+  legendLow="Baixa"
+  legendHigh="Alta"
+/>
+```
+
+---
+
+## kln-zone-bar — Barra de Zonas
+
+Indicador de valor atual em zonas coloridas (ex: pressão arterial, glicemia, IMC).
+
+```typescript
+import { KliniZoneBarComponent } from '@klini/ds';
+import type { ZoneBarZone } from '@klini/ds';
+
+zones: ZoneBarZone[] = [
+  { label: 'Normal',  max: 80,  color: 'var(--kln-chart-status-success)' },
+  { label: 'Atenção', max: 140, color: 'var(--kln-chart-status-warn)' },
+  { label: 'Alta',    max: 200, color: 'var(--kln-chart-status-danger)' },
+];
+```
+
+```html
+<kln-zone-bar
+  title="PRESSÃO ARTERIAL"
+  [value]="128"
+  unit="mmHg"
+  [min]="0"
+  [max]="200"
+  [zones]="zones"
+/>
+```
+
+---
+
 ## Tokens CSS
 
 ```css
@@ -256,10 +319,32 @@ chartData = {
 --klini-focus-default
 --klini-focus-error
 
-/* Paleta para gráficos */
---kln-chart-cat-1          /* teal principal */
---kln-chart-cat-2          /* amber */
---kln-chart-cat-3          /* coral */
+/* Paleta para gráficos — Categorical (4 séries da marca) */
+--kln-chart-cat-teal       /* #259591 — teal principal */
+--kln-chart-cat-sea        /* #6aa7ae — teal claro */
+--kln-chart-cat-orange     /* #cd7925 — âmbar */
+--kln-chart-cat-coral      /* #e05759 — coral */
+
+/* Sequential — Teal Scale (5 stops nomeados) */
+--kln-chart-seq-wash       /* mais claro */
+--kln-chart-seq-33
+--kln-chart-seq-100        /* teal completo */
+--kln-chart-seq-deep
+--kln-chart-seq-ink        /* mais escuro */
+
+/* Diverging */
+--kln-chart-div-warm       /* #e05759 — polo quente */
+--kln-chart-div-neutral    /* #eeeff0 — ponto médio */
+--kln-chart-div-cool       /* #6aa7ae — polo frio */
+
+/* Status semânticos (Klini App) */
+--kln-chart-status-success    /* aprovado / adesão ok */
+--kln-chart-status-info       /* informativo / parcial */
+--kln-chart-status-warn       /* atenção / inativo */
+--kln-chart-status-danger     /* negado / crítico */
+--kln-chart-status-secondary  /* em processo / neutro */
+
+/* Aliases legados (backward compat) */
 --kln-chart-status-autorizada
 --kln-chart-status-negada
 --kln-chart-status-em-processo
@@ -288,6 +373,7 @@ git push origin main --tags
 
 | Versão | Destaques |
 |---|---|
+| **0.5.0** | Paleta gráficos atualizada (status semânticos: success/info/warn/danger/secondary · categorical 4 cores nomeadas · sequential 5 stops WASH→INK · diverging com neutral) · 2 novos componentes infográfico: `kln-adherence-heatmap`, `kln-zone-bar` |
 | **0.4.0** | 32 novos componentes: Checkbox, MultiSelect, Autocomplete, InputMask, Rating, SelectButton, Listbox, TreeSelect, CascadeSelect, FloatLabel, InputGroup, ButtonGroup, Toolbar, Panel, Fieldset, Splitter, ScrollPanel, Image, AvatarGroup, Messages, Popover, SpeedDial, ProgressSpinner, Menubar, TabMenu, Steps, SplitButton, Timeline, DataView, Carousel, Tree, OrderList, VirtualScroller |
 | **0.3.0** | Seletores renomeados para `kln-*` · Data Visualization (Chart, Knob, MeterGroup, Slider, Select) · Paleta de cores para gráficos |
 | **0.2.1** | Corrige CI de publish + ESLint |

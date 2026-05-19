@@ -79,6 +79,10 @@ import { KliniTreeComponent }           from './components/tree/tree.component';
 import { KliniOrderListComponent }      from './components/order-list/order-list.component';
 import { KliniVirtualScrollerComponent } from './components/virtual-scroller/virtual-scroller.component';
 
+// v0.5 — Data Visualization Infográfico (custom)
+import { KliniAdherenceHeatmapComponent } from './components/adherence-heatmap/adherence-heatmap.component';
+import { KliniZoneBarComponent }           from './components/zone-bar/zone-bar.component';
+
 const COMPONENTS = [
   // Core (v0.1)
   ButtonComponent, StatusPillComponent, TagComponent, BadgeComponent, ChipComponent,
@@ -106,6 +110,8 @@ const COMPONENTS = [
   KliniTabMenuComponent, KliniStepsComponent, KliniSplitButtonComponent,
   KliniTimelineComponent, KliniDataViewComponent, KliniCarouselComponent,
   KliniTreeComponent, KliniOrderListComponent, KliniVirtualScrollerComponent,
+  // v0.5 — Data Visualization Infográfico
+  KliniAdherenceHeatmapComponent, KliniZoneBarComponent,
 ];
 
 /**

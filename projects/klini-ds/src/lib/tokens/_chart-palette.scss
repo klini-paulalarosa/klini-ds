@@ -1,10 +1,38 @@
 // =============================================================================
 // Klini DS — Chart Color Palette
-// Paletas para Data Visualization (extraídas do Figma DS)
+// Paletas para Data Visualization (extraídas do Figma DS — v0.5.0)
 // =============================================================================
 
 :root {
-  // Sequential — Teal Scale (primary brand)
+  // ---------------------------------------------------------------------------
+  // CATEGORICAL — 4 séries · Famílias da marca
+  // ---------------------------------------------------------------------------
+  // Uso: séries categoricamente distintas (especialidades, departamentos, regiões)
+  --kln-chart-cat-teal:   #259591;   // TEAL   — primária da marca
+  --kln-chart-cat-sea:    #6aa7ae;   // SEA    — teal claro
+  --kln-chart-cat-orange: #cd7925;   // ORANGE — âmbar
+  --kln-chart-cat-coral:  #e05759;   // CORAL  — vermelho rosado
+
+  // Aliases numéricos (backward compat)
+  --kln-chart-cat-1: var(--kln-chart-cat-teal);
+  --kln-chart-cat-2: var(--kln-chart-cat-sea);
+  --kln-chart-cat-3: var(--kln-chart-cat-orange);
+  --kln-chart-cat-4: var(--kln-chart-cat-coral);
+  // legados v0.3 — mantidos por compatibilidade
+  --kln-chart-cat-5: #90a4ae;
+  --kln-chart-cat-6: #5c7a7a;
+
+  // ---------------------------------------------------------------------------
+  // SEQUENTIAL — Teal Scale · 5 stops nomeados
+  // ---------------------------------------------------------------------------
+  // Uso: heatmaps, escalas de severidade, adesão (claro=menor → escuro=maior)
+  --kln-chart-seq-wash:  #e0f2f1;   // WASH  — quase branco teal
+  --kln-chart-seq-33:    #80cbc4;   // 33    — 33% intensidade
+  --kln-chart-seq-100:   #259591;   // 100   — teal completo (brand)
+  --kln-chart-seq-deep:  #00796b;   // DEEP  — escuro
+  --kln-chart-seq-ink:   #004d40;   // INK   — mais escuro
+
+  // Aliases numéricos expandidos (backward compat)
   --kln-chart-seq-1: #e0f2f1;
   --kln-chart-seq-2: #b2dfdb;
   --kln-chart-seq-3: #80cbc4;
@@ -14,27 +42,36 @@
   --kln-chart-seq-7: #00796b;
   --kln-chart-seq-8: #004d40;
 
-  // Diverging — Warm ↔ Cool
+  // ---------------------------------------------------------------------------
+  // DIVERGING — Warm ↔ Neutro ↔ Cool
+  // ---------------------------------------------------------------------------
+  // Uso: contraste positivo-negativo, mapas de calor bipolar
+  --kln-chart-div-warm:    #e05759;   // CORAL — polo quente
+  --kln-chart-div-neutral: #eeeff0;   // NEUTRO — ponto médio
+  --kln-chart-div-cool:    #6aa7ae;   // SEA   — polo frio
+
+  // Aliases escalonados (backward compat)
   --kln-chart-div-warm-3: #ef5350;
   --kln-chart-div-warm-2: #ff8a65;
   --kln-chart-div-warm-1: #ffcc80;
-  --kln-chart-div-neutral: #f5f5f5;
   --kln-chart-div-cool-1: #80deea;
   --kln-chart-div-cool-2: #4db6ac;
   --kln-chart-div-cool-3: #259591;
 
-  // Categorical — multi-series charts
-  --kln-chart-cat-1: #259591;  // teal primary
-  --kln-chart-cat-2: #cd7925;  // amber
-  --kln-chart-cat-3: #e05759;  // coral
-  --kln-chart-cat-4: #6aa7ae;  // teal light
-  --kln-chart-cat-5: #90a4ae;  // slate
-  --kln-chart-cat-6: #5c7a7a;  // teal muted
+  // ---------------------------------------------------------------------------
+  // STATUS — Klini App · 5 estados semânticos
+  // ---------------------------------------------------------------------------
+  // Uso: indicadores de estado de autorização e saúde do paciente
+  --kln-chart-status-success:   #259591;  // TEAL    — aprovado / adesão ok
+  --kln-chart-status-info:      #6aa7ae;  // SEA     — informativo / parcial
+  --kln-chart-status-warn:      #cd7925;  // ORANGE  — atenção / inativo
+  --kln-chart-status-danger:    #e05759;  // CORAL   — negado / crítico
+  --kln-chart-status-secondary: #90a4ae;  // SLATE   — em processo / neutro
 
-  // Status (Klini App aligned)
-  --kln-chart-status-autorizada:   #259591;
-  --kln-chart-status-parcial:      #6aa7ae;
-  --kln-chart-status-negada:       #e05759;
-  --kln-chart-status-inativa:      #cd7925;
-  --kln-chart-status-em-processo:  #90a4ae;
+  // Aliases legados v0.3 — mantidos por compatibilidade
+  --kln-chart-status-autorizada:  var(--kln-chart-status-success);
+  --kln-chart-status-parcial:     var(--kln-chart-status-info);
+  --kln-chart-status-negada:      var(--kln-chart-status-danger);
+  --kln-chart-status-inativa:     var(--kln-chart-status-warn);
+  --kln-chart-status-em-processo: var(--kln-chart-status-secondary);
 }
