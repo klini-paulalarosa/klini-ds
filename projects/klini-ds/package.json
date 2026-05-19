@@ -1,6 +1,6 @@
 {
   "name": "@klini/ds",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Klini Saúde Design System — biblioteca de componentes Angular + tokens de design",
   "keywords": ["klini", "design-system", "angular", "primeng", "healthcare"],
   "author": "Klini Saúde",
