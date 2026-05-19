@@ -12,7 +12,7 @@ type PrimeTagSeverity = 'secondary' | 'success' | 'info' | 'warn' | 'danger' | '
  * PrimeNG Tag não tem severity 'primary' — undefined usa o estilo padrão (primary visual).
  */
 @Component({
-  selector: 'klini-tag',
+  selector: 'kln-tag',
   standalone: true,
   imports: [TagModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

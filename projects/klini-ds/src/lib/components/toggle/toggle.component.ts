@@ -12,7 +12,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ToggleSwitchModule } from 'primeng/toggleswitch';
 
 @Component({
-  selector: 'klini-toggle',
+  selector: 'kln-toggle',
   standalone: true,
   imports: [CommonModule, FormsModule, ToggleSwitchModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

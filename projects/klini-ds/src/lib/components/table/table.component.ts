@@ -13,7 +13,7 @@ export interface KliniTableColumn {
 }
 
 @Component({
-  selector: 'klini-table',
+  selector: 'kln-table',
   standalone: true,
   imports: [TableModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

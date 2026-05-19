@@ -19,7 +19,7 @@ export interface KliniRadioOption {
 }
 
 @Component({
-  selector: 'klini-radio-group',
+  selector: 'kln-radio-group',
   standalone: true,
   imports: [FormsModule, RadioButtonModule, MessageModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

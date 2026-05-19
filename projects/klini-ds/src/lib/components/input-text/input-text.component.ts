@@ -15,7 +15,7 @@ export type KliniInputSize = 'small' | 'large' | undefined;
  * Estilização 100% via KliniPrime theme preset.
  */
 @Component({
-  selector: 'klini-input-text',
+  selector: 'kln-input-text',
   standalone: true,
   imports: [ReactiveFormsModule, InputTextModule, FloatLabelModule, MessageModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

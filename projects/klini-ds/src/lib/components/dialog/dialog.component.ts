@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { DialogModule } from 'primeng/dialog';
 
 @Component({
-  selector: 'klini-dialog',
+  selector: 'kln-dialog',
   standalone: true,
   imports: [CommonModule, DialogModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

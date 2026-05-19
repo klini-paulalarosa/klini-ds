@@ -16,7 +16,7 @@ export interface KliniAccordionItem {
 }
 
 @Component({
-  selector: 'klini-accordion',
+  selector: 'kln-accordion',
   standalone: true,
   imports: [CommonModule, AccordionModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

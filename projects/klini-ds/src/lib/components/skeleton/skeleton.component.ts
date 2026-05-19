@@ -6,7 +6,7 @@ import {
 import { SkeletonModule } from 'primeng/skeleton';
 
 @Component({
-  selector: 'klini-skeleton',
+  selector: 'kln-skeleton',
   standalone: true,
   imports: [SkeletonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

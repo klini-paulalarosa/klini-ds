@@ -95,6 +95,20 @@ export { KliniBreadcrumbComponent } from './lib/components/breadcrumb/breadcrumb
 
 export { KliniEmptyStateComponent } from './lib/components/empty-state/empty-state.component';
 
+// ── Components v0.3 — Data Visualization ─────────────────────────────────────
+
+export { KliniChartComponent } from './lib/components/chart/chart.component';
+export type { KliniChartType } from './lib/components/chart/chart.component';
+
+export { KliniKnobComponent } from './lib/components/knob/knob.component';
+
+export { KliniMeterGroupComponent } from './lib/components/meter-group/meter-group.component';
+
+export { KliniSliderComponent } from './lib/components/slider/slider.component';
+
+export { KliniSelectComponent } from './lib/components/select/select.component';
+export type { KliniSelectOption } from './lib/components/select/select.component';
+
 // ── Tooltip (diretiva PrimeNG — use pTooltip diretamente) ────────────────────
 // import { TooltipModule } from 'primeng/tooltip';
 // <button pTooltip="Texto" tooltipPosition="top">...</button>

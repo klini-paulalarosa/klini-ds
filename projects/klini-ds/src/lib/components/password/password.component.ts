@@ -12,7 +12,7 @@ import { PasswordModule } from 'primeng/password';
 import { MessageModule } from 'primeng/message';
 
 @Component({
-  selector: 'klini-password',
+  selector: 'kln-password',
   standalone: true,
   imports: [FormsModule, PasswordModule, MessageModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

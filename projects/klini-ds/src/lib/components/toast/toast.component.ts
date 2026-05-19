@@ -28,7 +28,7 @@ export interface KliniToastMessage {
  * Estilização 100% via KliniPrime theme preset.
  */
 @Component({
-  selector: 'klini-toast',
+  selector: 'kln-toast',
   standalone: true,
   imports: [ToastModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

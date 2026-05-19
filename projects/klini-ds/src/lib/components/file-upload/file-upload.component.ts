@@ -8,7 +8,7 @@ import {
 import { FileUploadModule, FileUploadHandlerEvent, FileSelectEvent, FileUploadErrorEvent } from 'primeng/fileupload';
 
 @Component({
-  selector: 'klini-file-upload',
+  selector: 'kln-file-upload',
   standalone: true,
   imports: [FileUploadModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

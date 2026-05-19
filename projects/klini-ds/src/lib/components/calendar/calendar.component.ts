@@ -9,7 +9,7 @@ import { FloatLabelModule } from 'primeng/floatlabel';
  * Estilização 100% via KliniPrime theme preset.
  */
 @Component({
-  selector: 'klini-calendar',
+  selector: 'kln-calendar',
   standalone: true,
   imports: [FormsModule, DatePickerModule, FloatLabelModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -11,7 +11,7 @@ export type KliniBadgeSize = 'small' | 'large' | 'xlarge';
  * Estilização 100% via KliniPrime theme preset.
  */
 @Component({
-  selector: 'klini-badge',
+  selector: 'kln-badge',
   standalone: true,
   imports: [BadgeModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

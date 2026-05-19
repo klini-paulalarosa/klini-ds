@@ -7,7 +7,7 @@ import { MenuModule } from 'primeng/menu';
 import { MenuItem } from 'primeng/api';
 
 @Component({
-  selector: 'klini-menu',
+  selector: 'kln-menu',
   standalone: true,
   imports: [MenuModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -17,7 +17,7 @@ export type KliniDividerAlign  = 'left' | 'center' | 'right' | 'top' | 'bottom';
  *   <klini-divider layout="vertical" />
  */
 @Component({
-  selector: 'klini-divider',
+  selector: 'kln-divider',
   standalone: true,
   imports: [DividerModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -30,7 +30,7 @@ const STATUS_MAP: Record<StatusPillValue, StatusConfig> = {
  * Usa CSS custom properties dos tokens de status para sobrescrever as cores do tema.
  */
 @Component({
-  selector: 'klini-status-pill',
+  selector: 'kln-status-pill',
   standalone: true,
   imports: [TagModule, CommonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

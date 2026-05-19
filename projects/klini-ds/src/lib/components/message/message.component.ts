@@ -11,7 +11,7 @@ export type KliniMessageSeverity = 'success' | 'info' | 'warn' | 'error' | 'seco
  * Estilização 100% via KliniPrime theme preset.
  */
 @Component({
-  selector: 'klini-message',
+  selector: 'kln-message',
   standalone: true,
   imports: [MessageModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

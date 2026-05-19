@@ -1,0 +1,40 @@
+// =============================================================================
+// Klini DS — Chart Color Palette
+// Paletas para Data Visualization (extraídas do Figma DS)
+// =============================================================================
+
+:root {
+  // Sequential — Teal Scale (primary brand)
+  --kln-chart-seq-1: #e0f2f1;
+  --kln-chart-seq-2: #b2dfdb;
+  --kln-chart-seq-3: #80cbc4;
+  --kln-chart-seq-4: #4db6ac;
+  --kln-chart-seq-5: #26a69a;
+  --kln-chart-seq-6: #259591;
+  --kln-chart-seq-7: #00796b;
+  --kln-chart-seq-8: #004d40;
+
+  // Diverging — Warm ↔ Cool
+  --kln-chart-div-warm-3: #ef5350;
+  --kln-chart-div-warm-2: #ff8a65;
+  --kln-chart-div-warm-1: #ffcc80;
+  --kln-chart-div-neutral: #f5f5f5;
+  --kln-chart-div-cool-1: #80deea;
+  --kln-chart-div-cool-2: #4db6ac;
+  --kln-chart-div-cool-3: #259591;
+
+  // Categorical — multi-series charts
+  --kln-chart-cat-1: #259591;  // teal primary
+  --kln-chart-cat-2: #cd7925;  // amber
+  --kln-chart-cat-3: #e05759;  // coral
+  --kln-chart-cat-4: #6aa7ae;  // teal light
+  --kln-chart-cat-5: #90a4ae;  // slate
+  --kln-chart-cat-6: #5c7a7a;  // teal muted
+
+  // Status (Klini App aligned)
+  --kln-chart-status-autorizada:   #259591;
+  --kln-chart-status-parcial:      #6aa7ae;
+  --kln-chart-status-negada:       #e05759;
+  --kln-chart-status-inativa:      #cd7925;
+  --kln-chart-status-em-processo:  #90a4ae;
+}

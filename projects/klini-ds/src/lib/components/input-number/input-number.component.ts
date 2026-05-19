@@ -12,7 +12,7 @@ import { InputNumberModule } from 'primeng/inputnumber';
 import { MessageModule } from 'primeng/message';
 
 @Component({
-  selector: 'klini-input-number',
+  selector: 'kln-input-number',
   standalone: true,
   imports: [FormsModule, InputNumberModule, MessageModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

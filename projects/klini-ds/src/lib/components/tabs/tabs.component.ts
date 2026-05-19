@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
 import { TabsModule } from 'primeng/tabs';
 
 @Component({
-  selector: 'klini-tabs',
+  selector: 'kln-tabs',
   standalone: true,
   imports: [CommonModule, TabsModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

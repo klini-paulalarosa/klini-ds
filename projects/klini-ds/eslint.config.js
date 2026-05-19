@@ -11,7 +11,7 @@ module.exports = defineConfig([
         "error",
         {
           type: "attribute",
-          prefix: "klini",
+          prefix: ["klini", "kln"],
           style: "camelCase",
         },
       ],
@@ -19,7 +19,7 @@ module.exports = defineConfig([
         "error",
         {
           type: "element",
-          prefix: "klini",
+          prefix: ["klini", "kln"],
           style: "kebab-case",
         },
       ],

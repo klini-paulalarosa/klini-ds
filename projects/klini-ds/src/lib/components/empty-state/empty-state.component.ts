@@ -6,7 +6,7 @@ import {
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'klini-empty-state',
+  selector: 'kln-empty-state',
   standalone: true,
   imports: [CommonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

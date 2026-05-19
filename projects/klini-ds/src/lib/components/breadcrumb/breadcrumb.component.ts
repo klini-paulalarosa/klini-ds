@@ -7,7 +7,7 @@ import { BreadcrumbModule } from 'primeng/breadcrumb';
 import { MenuItem } from 'primeng/api';
 
 @Component({
-  selector: 'klini-breadcrumb',
+  selector: 'kln-breadcrumb',
   standalone: true,
   imports: [BreadcrumbModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

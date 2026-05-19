@@ -22,7 +22,7 @@ import { CommonModule } from '@angular/common';
  *   </klini-card>
  */
 @Component({
-  selector: 'klini-card',
+  selector: 'kln-card',
   standalone: true,
   imports: [CardModule, CommonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

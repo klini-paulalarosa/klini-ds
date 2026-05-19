@@ -13,7 +13,7 @@ import { TextareaModule } from 'primeng/textarea';
 import { MessageModule } from 'primeng/message';
 
 @Component({
-  selector: 'klini-textarea',
+  selector: 'kln-textarea',
   standalone: true,
   imports: [CommonModule, FormsModule, TextareaModule, MessageModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

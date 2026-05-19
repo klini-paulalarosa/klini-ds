@@ -44,7 +44,7 @@ export class KliniConfirmService {
 }
 
 @Component({
-  selector: 'klini-confirm-dialog',
+  selector: 'kln-confirm-dialog',
   standalone: true,
   imports: [ConfirmDialogModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -8,7 +8,7 @@ export type KpiTrend = 'up' | 'down' | 'neutral';
  * Layout e tipografia são definidos pelos tokens Klini via tema.
  */
 @Component({
-  selector: 'klini-kpi-card',
+  selector: 'kln-kpi-card',
   standalone: true,
   imports: [CardModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

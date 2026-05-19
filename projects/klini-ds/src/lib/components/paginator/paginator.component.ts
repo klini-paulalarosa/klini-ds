@@ -10,7 +10,7 @@ import { PaginatorModule, PaginatorState } from 'primeng/paginator';
 interface PaginatorPageEvent { first: number; rows: number; page: number; pageCount: number; }
 
 @Component({
-  selector: 'klini-paginator',
+  selector: 'kln-paginator',
   standalone: true,
   imports: [PaginatorModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

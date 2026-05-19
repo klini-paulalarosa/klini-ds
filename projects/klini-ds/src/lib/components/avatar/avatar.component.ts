@@ -7,7 +7,7 @@ import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 
 @Component({
-  selector: 'klini-avatar',
+  selector: 'kln-avatar',
   standalone: true,
   imports: [AvatarModule, AvatarGroupModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

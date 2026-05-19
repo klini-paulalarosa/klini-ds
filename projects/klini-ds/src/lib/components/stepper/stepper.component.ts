@@ -13,7 +13,7 @@ export interface KliniStep {
  * Estilização 100% via KliniPrime theme preset.
  */
 @Component({
-  selector: 'klini-stepper',
+  selector: 'kln-stepper',
   standalone: true,
   imports: [StepperModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

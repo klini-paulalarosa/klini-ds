@@ -6,7 +6,7 @@ import {
 import { ProgressBarModule } from 'primeng/progressbar';
 
 @Component({
-  selector: 'klini-progress-bar',
+  selector: 'kln-progress-bar',
   standalone: true,
   imports: [ProgressBarModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

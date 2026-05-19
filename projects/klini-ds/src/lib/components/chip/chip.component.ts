@@ -9,7 +9,7 @@ import { ChipModule } from 'primeng/chip';
  * Estilização 100% via KliniPrime theme preset.
  */
 @Component({
-  selector: 'klini-chip',
+  selector: 'kln-chip',
   standalone: true,
   imports: [ChipModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

@@ -11,7 +11,7 @@ export type KliniDrawerPosition = 'left' | 'right' | 'top' | 'bottom' | 'full';
  * Estilização 100% via KliniPrime theme preset.
  */
 @Component({
-  selector: 'klini-drawer',
+  selector: 'kln-drawer',
   standalone: true,
   imports: [DrawerModule],
   changeDetection: ChangeDetectionStrategy.OnPush,

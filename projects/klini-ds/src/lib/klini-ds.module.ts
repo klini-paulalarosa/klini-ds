@@ -37,6 +37,13 @@ import { KliniFileUploadComponent }  from './components/file-upload/file-upload.
 import { KliniBreadcrumbComponent }  from './components/breadcrumb/breadcrumb.component';
 import { KliniEmptyStateComponent }  from './components/empty-state/empty-state.component';
 
+// v0.3 — Data Visualization
+import { KliniChartComponent }      from './components/chart/chart.component';
+import { KliniKnobComponent }       from './components/knob/knob.component';
+import { KliniMeterGroupComponent } from './components/meter-group/meter-group.component';
+import { KliniSliderComponent }     from './components/slider/slider.component';
+import { KliniSelectComponent }     from './components/select/select.component';
+
 const COMPONENTS = [
   // Core (v0.1)
   ButtonComponent, StatusPillComponent, TagComponent, BadgeComponent, ChipComponent,
@@ -49,6 +56,9 @@ const COMPONENTS = [
   KliniPasswordComponent, KliniInputNumberComponent, KliniPaginatorComponent,
   KliniConfirmDialogComponent, KliniFileUploadComponent, KliniBreadcrumbComponent,
   KliniEmptyStateComponent,
+  // Data Visualization (v0.3)
+  KliniChartComponent, KliniKnobComponent, KliniMeterGroupComponent,
+  KliniSliderComponent, KliniSelectComponent,
 ];
 
 /**

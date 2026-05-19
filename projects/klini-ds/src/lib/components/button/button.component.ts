@@ -14,7 +14,7 @@ export type KliniButtonVariant  = 'outlined' | 'text' | undefined;
  * Este componente apenas pré-configura defaults Klini e expõe a API tipada.
  */
 @Component({
-  selector: 'klini-button',
+  selector: 'kln-button',
   standalone: true,
   imports: [ButtonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
