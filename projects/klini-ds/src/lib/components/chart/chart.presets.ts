@@ -25,7 +25,9 @@ export type KliniChartPreset =
   | 'polar-area'
   | 'radar'
   | 'scatter'
-  | 'bubble';
+  | 'bubble'
+  | 'mixed'
+  | 'time-series';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyObj = Record<string, any>;
@@ -183,6 +185,30 @@ export const KliniChartPresets: Record<KliniChartPreset, () => AnyObj> = {
     elements: { point: { hoverRadius: 4 } },
     plugins:  basePlugins(),
     scales:   { x: xAxis(true), y: yAxis() },
+  }),
+
+  /** Mixed chart — combina bar e line no mesmo gráfico (defina type por dataset via KliniChartData.mixed) */
+  'mixed': () => ({
+    responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
+    elements: { line: { tension: 0.4, borderWidth: 2 }, point: { radius: 3, hoverRadius: 5 } },
+    plugins:  basePlugins(),
+    scales:   { x: xAxis(false), y: yAxis() },
+  }),
+
+  /** Time Series — eixo X com datas/strings, use KliniChartData.timeSeries para o dataset */
+  'time-series': () => ({
+    responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
+    elements: { line: { tension: 0.4, borderWidth: 2 }, point: { radius: 3, hoverRadius: 5 } },
+    plugins:  basePlugins(),
+    scales:   {
+      x: {
+        type:   'category',
+        grid:   { display: false },
+        ticks:  { color: T.textSecondary, font: { size: 11 }, maxRotation: 0 },
+        border: { color: T.surfaceBorder },
+      },
+      y: yAxis(),
+    },
   }),
 };
 

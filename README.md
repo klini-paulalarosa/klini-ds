@@ -209,44 +209,32 @@ export class AppModule {}
 O `kln-chart` cobre todos os tipos Chart.js via `[type]` + `[preset]`. O preset aplica
 automaticamente as opções de grid, legenda, tooltip e cores de texto do DS — zero configuração manual.
 
-### Todos os presets disponíveis
+### Todos os presets disponíveis (14 variantes)
 
 ```html
-<!-- Bar vertical -->
-<kln-chart type="bar" preset="bar" [data]="data" />
+<!-- ── Bar ─────────────────────────────────────────── -->
+<kln-chart type="bar" preset="bar"                      [data]="data" />
+<kln-chart type="bar" preset="bar-horizontal"           [data]="data" />
+<kln-chart type="bar" preset="bar-stacked"              [data]="data" />
+<kln-chart type="bar" preset="bar-stacked-horizontal"   [data]="data" />
 
-<!-- Bar horizontal -->
-<kln-chart type="bar" preset="bar-horizontal" [data]="data" />
+<!-- ── Line / Area ──────────────────────────────────── -->
+<kln-chart type="line" preset="line"        [data]="data" />
+<kln-chart type="line" preset="area"        [data]="data" />
+<kln-chart type="line" preset="time-series" [data]="data" />
 
-<!-- Bar empilhado (Adherence Heatmap) -->
-<kln-chart type="bar" preset="bar-stacked" [data]="data" />
+<!-- ── Mixed (bar + line no mesmo gráfico) ──────────── -->
+<kln-chart type="bar" preset="mixed" [data]="data" />
 
-<!-- Bar empilhado horizontal -->
-<kln-chart type="bar" preset="bar-stacked-horizontal" [data]="data" />
-
-<!-- Line -->
-<kln-chart type="line" preset="line" [data]="data" />
-
-<!-- Area (line com fill nos datasets) -->
-<kln-chart type="line" preset="area" [data]="data" />
-
-<!-- Pie -->
-<kln-chart type="pie" preset="pie" [data]="data" />
-
-<!-- Doughnut — Progress Ring -->
-<kln-chart type="doughnut" preset="doughnut" [data]="data" />
-
-<!-- Polar Area -->
+<!-- ── Radiais ──────────────────────────────────────── -->
+<kln-chart type="pie"      preset="pie"        [data]="data" />
+<kln-chart type="doughnut" preset="doughnut"   [data]="data" />
 <kln-chart type="polarArea" preset="polar-area" [data]="data" />
+<kln-chart type="radar"    preset="radar"      [data]="data" />
 
-<!-- Radar -->
-<kln-chart type="radar" preset="radar" [data]="data" />
-
-<!-- Scatter -->
+<!-- ── Dispersão ────────────────────────────────────── -->
 <kln-chart type="scatter" preset="scatter" [data]="data" />
-
-<!-- Bubble -->
-<kln-chart type="bubble" preset="bubble" [data]="data" />
+<kln-chart type="bubble"  preset="bubble"  [data]="data" />
 ```
 
 ### Cores do DS em datasets — `KliniChartTokens`
@@ -271,6 +259,76 @@ backgroundColor: [
 // Sequential teal (intensidade / heatmap)
 backgroundColor: KliniChartTokens.sequential
 // → 5 cores: WASH → 33 → 100 → DEEP → INK
+```
+
+### `KliniChartData` — construtor de dados sem conhecer Chart.js
+
+```typescript
+import { KliniChartData } from '@klini/ds';
+
+// Bar / Line / Area — múltiplas séries (cores aplicadas automaticamente)
+data = KliniChartData.cartesian(
+  ['Jan', 'Fev', 'Mar', 'Abr'],
+  [
+    { label: 'Cardio',   data: [40, 55, 48, 62] },
+    { label: 'Ortoped',  data: [30, 42, 38, 45] },
+    { label: 'Pediatria',data: [25, 30, 28, 35] },
+  ],
+);
+
+// Pie / Doughnut / Polar — cores de status automáticas
+data = KliniChartData.status(
+  ['Autorizado', 'Negado', 'Em processo', 'Parcial', 'Inativo'],
+  [60, 15, 10, 8, 7],
+);
+
+// Pie com paleta categorical
+data = KliniChartData.radial(
+  ['Região Norte', 'Sul', 'Leste', 'Oeste'],
+  [35, 28, 22, 15],
+);
+
+// Mixed (bar + line)
+data = KliniChartData.mixed(
+  ['Jan', 'Fev', 'Mar'],
+  [
+    { label: 'Consultas', data: [120, 145, 130], type: 'bar' },
+    { label: 'Meta',      data: [130, 130, 130], type: 'line' },
+  ],
+);
+
+// Time Series
+data = KliniChartData.timeSeries([
+  { label: 'Adesão %', points: [
+    { x: '2024-01', y: 82 },
+    { x: '2024-02', y: 78 },
+    { x: '2024-03', y: 85 },
+  ]},
+]);
+
+// Scatter
+data = KliniChartData.scatter([
+  { label: 'Grupo A', points: [{ x: 10, y: 20 }, { x: 15, y: 32 }] },
+]);
+
+// Radar
+data = KliniChartData.radar(
+  ['Adesão', 'Satisfação', 'Retorno', 'NPS', 'Cobertura'],
+  [
+    { label: 'Klini',     data: [82, 74, 90, 68, 85] },
+    { label: 'Mercado',   data: [65, 60, 72, 55, 70] },
+  ],
+);
+```
+
+### `autoColors` — cores DS sem nenhum código extra
+
+```html
+<!-- Dados sem nenhuma cor → DS aplica paleta categorical automaticamente -->
+<kln-chart type="bar" preset="bar" [data]="rawData" [autoColors]="true" />
+
+<!-- Para pie/doughnut, aplica as 4 cores categoricals nos segmentos -->
+<kln-chart type="doughnut" preset="doughnut" [data]="rawData" [autoColors]="true" />
 ```
 
 ### Exemplo completo — Doughnut com tokens de status
@@ -438,7 +496,7 @@ git push origin main --tags
 
 | Versão | Destaques |
 |---|---|
-| **0.5.0** | Sistema de charts completo: `KliniChartTokens` (resolver CSS vars para canvas) · `KliniChartPresets` (12 variantes pré-configuradas: bar/bar-horizontal/bar-stacked/line/area/pie/doughnut/polar-area/radar/scatter/bubble) · input `[preset]` no `kln-chart` · paleta semântica (success/info/warn/danger/secondary) · `kln-meter-group` WithIndicator · fix CI publish path |
+| **0.5.0** | Sistema de charts completo: `KliniChartData` (fábricas cartesian/radial/status/mixed/timeSeries/scatter/bubble/radar) · `KliniChartTokens` (resolve CSS vars para canvas) · `KliniChartPresets` (14 variantes: bar/bar-horizontal/bar-stacked/bar-stacked-horizontal/line/area/mixed/time-series/pie/doughnut/polar-area/radar/scatter/bubble) · `[preset]` e `[autoColors]` no `kln-chart` · paleta semântica (success/info/warn/danger/secondary) · `kln-meter-group` WithIndicator · fix CI publish path |
 | **0.4.0** | 32 novos componentes: Checkbox, MultiSelect, Autocomplete, InputMask, Rating, SelectButton, Listbox, TreeSelect, CascadeSelect, FloatLabel, InputGroup, ButtonGroup, Toolbar, Panel, Fieldset, Splitter, ScrollPanel, Image, AvatarGroup, Messages, Popover, SpeedDial, ProgressSpinner, Menubar, TabMenu, Steps, SplitButton, Timeline, DataView, Carousel, Tree, OrderList, VirtualScroller |
 | **0.3.0** | Seletores renomeados para `kln-*` · Data Visualization (Chart, Knob, MeterGroup, Slider, Select) · Paleta de cores para gráficos |
 | **0.2.1** | Corrige CI de publish + ESLint |

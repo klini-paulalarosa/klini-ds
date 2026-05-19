@@ -1,27 +1,33 @@
 /**
  * kln-chart — wrapper PrimeNG p-chart (Chart.js)
  *
- * Uso básico — sem preset (dev controla tudo):
- *   <kln-chart type="bar" [data]="data" [options]="opts" />
+ * ─── Uso mínimo (sem nenhum conhecimento de Chart.js) ───────────────────────
  *
- * Uso com preset — opções DS aplicadas automaticamente:
- *   <kln-chart type="line" preset="line" [data]="data" />
+ *   import { KliniChartData } from '@klini/ds';
  *
- * Presets disponíveis:
+ *   data = KliniChartData.cartesian(['Jan','Fev','Mar'], [
+ *     { label: 'Cardio',  data: [40, 55, 48] },
+ *     { label: 'Ortoped', data: [30, 42, 38] },
+ *   ]);
+ *
+ *   <kln-chart type="bar" preset="bar" [data]="data" />
+ *
+ * ─── Presets disponíveis ────────────────────────────────────────────────────
  *   bar | bar-horizontal | bar-stacked | bar-stacked-horizontal
- *   line | area | pie | doughnut | polar-area | radar | scatter | bubble
+ *   line | area | mixed | time-series
+ *   pie | doughnut | polar-area | radar | scatter | bubble
  *
- * Cores do DS em datasets — use KliniChartTokens para resolver tokens em runtime:
- *   import { KliniChartTokens } from '@klini/ds';
- *   backgroundColor: KliniChartTokens.categorical          // 4 cores da marca
- *   backgroundColor: KliniChartTokens.status.success       // verde teal
- *   backgroundColor: KliniChartTokens.sequential           // escala teal 5 stops
+ * ─── Cores automáticas via autoColors ───────────────────────────────────────
+ *   <kln-chart type="bar" preset="bar" [data]="rawData" [autoColors]="true" />
+ *   Datasets sem cor recebem a paleta categorical do DS automaticamente.
  *
- * Plugin externo (ex: matrix para heatmap visual com células):
- *   Instale: npm install chartjs-chart-matrix
- *   Registre: Chart.register(MatrixController, MatrixElement)
- *   Use: <kln-chart [type]="$any('matrix')" [data]="data" />
- *   O DS não garante suporte a plugins externos.
+ * ─── Cores manuais via KliniChartTokens ────────────────────────────────────
+ *   backgroundColor: KliniChartTokens.categorical
+ *   backgroundColor: KliniChartTokens.status.success
+ *
+ * ─── Plugin externo (ex: matrix) ───────────────────────────────────────────
+ *   Chart.register(MatrixController, MatrixElement);
+ *   <kln-chart [type]="$any('matrix')" [data]="data" />
  */
 import {
   ChangeDetectionStrategy,
@@ -30,10 +36,8 @@ import {
   OnChanges,
 } from '@angular/core';
 import { ChartModule } from 'primeng/chart';
-import {
-  KliniChartPreset,
-  getChartPreset,
-} from './chart.presets';
+import { KliniChartPreset, getChartPreset } from './chart.presets';
+import { KliniChartTokens } from './chart.tokens';
 
 export type KliniChartType =
   | 'bar'
@@ -46,7 +50,9 @@ export type KliniChartType =
   | 'bubble';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-type ChartOptions = Record<string, any>;
+type AnyObj = Record<string, any>;
+
+const RADIAL_TYPES: string[] = ['pie', 'doughnut', 'polarArea'];
 
 @Component({
   selector: 'kln-chart',
@@ -56,7 +62,7 @@ type ChartOptions = Record<string, any>;
   template: `
     <p-chart
       [type]="$any(type)"
-      [data]="data"
+      [data]="resolvedData"
       [options]="resolvedOptions"
       [width]="width"
       [height]="height"
@@ -71,26 +77,28 @@ export class KliniChartComponent implements OnChanges {
   /** Tipo Chart.js. Para plugins externos, use [type]="$any('matrix')" no template consumidor. */
   @Input({ required: true }) type: KliniChartType = 'bar';
 
-  /** Dataset Chart.js */
-  @Input({ required: true }) data: ChartOptions = {};
+  /** Dataset Chart.js. Use KliniChartData.cartesian/radial/timeSeries/etc. para construir. */
+  @Input({ required: true }) data: AnyObj = {};
 
   /**
-   * Preset de opções do DS — aplica automaticamente grid, legenda, tooltips e
-   * cores de texto alinhados aos tokens do Klini.
-   * Quando informado, as [options] passadas são MESCLADAS por cima do preset
-   * (options do dev têm prioridade).
+   * Preset de opções do DS — aplica grid, legenda, tooltip e eixos automaticamente.
+   * [options] passadas pelo dev são mescladas por cima (prioridade do dev).
    */
   @Input() preset: KliniChartPreset | null = null;
 
-  /**
-   * Opções Chart.js customizadas. Se [preset] estiver ativo, estas opções
-   * são mescladas por cima do preset (prioridade do dev).
-   * Se [preset] for null, são usadas diretamente.
-   */
-  @Input() options: ChartOptions = {};
+  /** Opções Chart.js customizadas. Mescladas por cima do preset quando [preset] está ativo. */
+  @Input() options: AnyObj = {};
 
   /**
-   * Atalho para bar chart empilhado (compatibilidade v0.3+).
+   * Quando true, aplica a paleta categorical do DS automaticamente
+   * nos datasets que não tiverem backgroundColor/borderColor definidos.
+   * Para pie/doughnut, aplica as 4 cores a todos os segmentos.
+   * Não muta o objeto original de [data].
+   */
+  @Input() autoColors = false;
+
+  /**
+   * Atalho para bar-stacked (compat v0.3+).
    * Equivalente a [preset]="'bar-stacked'".
    */
   @Input() stacked = false;
@@ -100,22 +108,66 @@ export class KliniChartComponent implements OnChanges {
   @Input() responsive = true;
   @Input() styleClass = '';
 
-  resolvedOptions: ChartOptions = {};
+  resolvedData: AnyObj = {};
+  resolvedOptions: AnyObj = {};
 
   ngOnChanges(): void {
     this.resolvedOptions = this.buildOptions();
+    this.resolvedData    = this.buildData();
   }
 
-  private buildOptions(): ChartOptions {
-    // 1. Determina preset efetivo (input [preset] tem prioridade, [stacked] é atalho)
+  // ─── Options ──────────────────────────────────────────────────────────────
+
+  private buildOptions(): AnyObj {
     const effectivePreset: KliniChartPreset | null =
       this.preset ?? (this.stacked ? 'bar-stacked' : null);
-
-    // 2. Parte base: preset (se houver) ou objeto vazio
-    const base: ChartOptions = effectivePreset ? getChartPreset(effectivePreset) : {};
-
-    // 3. Mescla superficial — options do dev sobrepõem o preset em cada chave de topo
-    //    Para override profundo (ex: só trocar cor do grid) o dev usa spread no objeto
+    const base = effectivePreset ? getChartPreset(effectivePreset) : {};
     return { ...base, ...this.options };
+  }
+
+  // ─── Data + autoColors ────────────────────────────────────────────────────
+
+  private buildData(): AnyObj {
+    if (!this.autoColors) return this.data;
+    const datasets: AnyObj[] = this.data['datasets'] ?? [];
+    if (!datasets.length)   return this.data;
+
+    const palette = KliniChartTokens.categorical;
+    const isRadial = RADIAL_TYPES.includes(this.type);
+
+    const colored = datasets.map((ds: AnyObj, i: number) => {
+      const hasColor = ds['backgroundColor'] || ds['borderColor'];
+      if (hasColor) return ds;
+
+      if (isRadial) {
+        // pie/doughnut: aplica array de cores a todos os segmentos
+        return {
+          ...ds,
+          backgroundColor: palette,
+          borderColor:     palette.map(c => this.hexAlpha(c, 0.8)),
+          borderWidth:     1,
+          hoverOffset:     6,
+        };
+      }
+
+      const color = palette[i % palette.length];
+      const isLineType = ds['type'] === 'line' || this.type === 'line';
+      return {
+        ...ds,
+        backgroundColor: isLineType ? this.hexAlpha(color, 0.15) : color,
+        borderColor:     color,
+        borderWidth:     isLineType ? 2 : 0,
+      };
+    });
+
+    return { ...this.data, datasets: colored };
+  }
+
+  private hexAlpha(hex: string, alpha: number): string {
+    const h = hex.replace('#', '');
+    const r = parseInt(h.substring(0, 2), 16);
+    const g = parseInt(h.substring(2, 4), 16);
+    const b = parseInt(h.substring(4, 6), 16);
+    return `rgba(${r},${g},${b},${alpha})`;
   }
 }

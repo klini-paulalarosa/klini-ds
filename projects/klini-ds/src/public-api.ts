@@ -103,6 +103,9 @@ export type { KliniChartType } from './lib/components/chart/chart.component';
 export { KliniChartTokens } from './lib/components/chart/chart.tokens';
 export { KliniChartPresets, getChartPreset } from './lib/components/chart/chart.presets';
 export type { KliniChartPreset } from './lib/components/chart/chart.presets';
+export { KliniChartData } from './lib/components/chart/chart.data';
+export type { KliniCartesianSeries, KliniPointSeries, KliniTimeSeries }
+  from './lib/components/chart/chart.data';
 
 export { KliniKnobComponent } from './lib/components/knob/knob.component';
 
