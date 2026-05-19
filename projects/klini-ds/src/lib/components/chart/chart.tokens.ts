@@ -7,7 +7,7 @@
  * passadas como strings para os datasets e options.
  *
  * Uso em componentes consumidores:
- *   import { KliniChartTokens } from '@klini/ds';
+ *   import { KliniChartTokens } from '@klini-saude/ds';
  *   backgroundColor: KliniChartTokens.categorical   // string[]
  *   borderColor: KliniChartTokens.status.success    // string
  */

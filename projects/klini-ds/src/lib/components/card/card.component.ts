@@ -1,7 +1,7 @@
 /**
  * kln-card
  *
- * Diretiva companion (import de '@klini/ds'):
+ * Diretiva companion (import de '@klini-saude/ds'):
  *
  * pAnimateOnScroll — anima o card ao entrar no viewport (scroll reveal)
  *   <kln-card pAnimateOnScroll enterClass="fadein" leaveClass="fadeout" />

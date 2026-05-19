@@ -125,7 +125,7 @@ const DIRECTIVE_MODULES = [
 
 /**
  * Módulo de conveniência — importa e re-exporta todos os componentes e
- * módulos de diretivas do @klini/ds.
+ * módulos de diretivas do @klini-saude/ds.
  * Para projetos que ainda usam NgModule em vez de standalone.
  */
 @NgModule({

@@ -5,7 +5,7 @@
  * Aplica automaticamente as cores do DS quando nenhuma cor é informada.
  *
  * Uso:
- *   import { KliniChartData } from '@klini/ds';
+ *   import { KliniChartData } from '@klini-saude/ds';
  *
  *   // Bar / Line / Area — múltiplas séries
  *   data = KliniChartData.cartesian(['Jan','Fev','Mar'], [

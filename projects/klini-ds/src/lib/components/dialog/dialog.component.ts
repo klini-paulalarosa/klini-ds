@@ -5,7 +5,7 @@
  *   <kln-dialog [(visible)]="show" header="Título">...</kln-dialog>
  *
  * Uso programático via DialogService (quando não é possível usar [(visible)]):
- *   import { DialogService, DynamicDialogRef } from '@klini/ds';
+ *   import { DialogService, DynamicDialogRef } from '@klini-saude/ds';
  *
  *   constructor(private dialog: DialogService) {}
  *

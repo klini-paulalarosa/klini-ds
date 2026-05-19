@@ -1,7 +1,7 @@
 /**
  * kln-button
  *
- * Diretiva companion (import de '@klini/ds'):
+ * Diretiva companion (import de '@klini-saude/ds'):
  *
  * pRipple — adiciona efeito ripple no click
  *   <kln-button label="Salvar" pRipple />

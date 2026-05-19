@@ -1,5 +1,5 @@
 {
-  "name": "@klini/ds",
+  "name": "@klini-saude/ds",
   "version": "0.5.0",
   "description": "Klini Saúde Design System — biblioteca de componentes Angular + tokens de design",
   "keywords": ["klini", "design-system", "angular", "primeng", "healthcare"],

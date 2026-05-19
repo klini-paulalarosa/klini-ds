@@ -3,7 +3,7 @@
  *
  * ─── Uso mínimo (sem nenhum conhecimento de Chart.js) ───────────────────────
  *
- *   import { KliniChartData } from '@klini/ds';
+ *   import { KliniChartData } from '@klini-saude/ds';
  *
  *   data = KliniChartData.cartesian(['Jan','Fev','Mar'], [
  *     { label: 'Cardio',  data: [40, 55, 48] },

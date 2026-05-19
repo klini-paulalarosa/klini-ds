@@ -8,7 +8,7 @@
  *   <kln-chart type="line" preset="line" [data]="data" />
  *
  * Uso direto para customização:
- *   import { KliniChartPresets } from '@klini/ds';
+ *   import { KliniChartPresets } from '@klini-saude/ds';
  *   options = { ...KliniChartPresets.line(), plugins: { legend: { display: false } } };
  */
 import { KliniChartTokens as T } from './chart.tokens';

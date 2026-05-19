@@ -1,4 +1,4 @@
-# @klini/ds — Klini Design System
+# @klini-saude/ds — Klini Design System
 
 Biblioteca de componentes Angular + tokens de design para o Klini Saúde.  
 Distribuída via **GitHub Packages** (privado).
@@ -12,14 +12,14 @@ Distribuída via **GitHub Packages** (privado).
 Configure o registry no `.npmrc` do projeto consumidor:
 
 ```
-@klini:registry=https://npm.pkg.github.com
+@klini-saude:registry=https://npm.pkg.github.com
 //npm.pkg.github.com/:_authToken=SEU_TOKEN_AQUI
 ```
 
 Instale a biblioteca:
 
 ```bash
-npm install @klini/ds
+npm install @klini-saude/ds
 ```
 
 ---
@@ -31,7 +31,7 @@ npm install @klini/ds
 No `styles.scss` global do projeto:
 
 ```scss
-@use '@klini/ds/styles';
+@use '@klini-saude/ds/styles';
 ```
 
 ### 2. Configurar tema PrimeNG
@@ -40,7 +40,7 @@ No `app.config.ts`:
 
 ```typescript
 import { providePrimeNG } from 'primeng/config';
-import { KliniPrime } from '@klini/ds';
+import { KliniPrime } from '@klini-saude/ds';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -59,7 +59,7 @@ export const appConfig: ApplicationConfig = {
 **Standalone (recomendado):**
 
 ```typescript
-import { KliniButtonComponent, KliniChartComponent } from '@klini/ds';
+import { KliniButtonComponent, KliniChartComponent } from '@klini-saude/ds';
 
 @Component({
   imports: [KliniButtonComponent, KliniChartComponent],
@@ -74,7 +74,7 @@ export class MinhaPage {}
 **NgModule:**
 
 ```typescript
-import { KliniDsModule } from '@klini/ds';
+import { KliniDsModule } from '@klini-saude/ds';
 
 @NgModule({ imports: [KliniDsModule] })
 export class AppModule {}
@@ -243,7 +243,7 @@ Chart.js renderiza em `<canvas>` — CSS variables não chegam automaticamente.
 Use `KliniChartTokens` para resolver os tokens do DS em runtime:
 
 ```typescript
-import { KliniChartTokens } from '@klini/ds';
+import { KliniChartTokens } from '@klini-saude/ds';
 
 // Categorical (4 séries da marca)
 backgroundColor: KliniChartTokens.categorical
@@ -264,7 +264,7 @@ backgroundColor: KliniChartTokens.sequential
 ### `KliniChartData` — construtor de dados sem conhecer Chart.js
 
 ```typescript
-import { KliniChartData } from '@klini/ds';
+import { KliniChartData } from '@klini-saude/ds';
 
 // Bar / Line / Area — múltiplas séries (cores aplicadas automaticamente)
 data = KliniChartData.cartesian(
@@ -334,7 +334,7 @@ data = KliniChartData.radar(
 ### Exemplo completo — Doughnut com tokens de status
 
 ```typescript
-import { KliniChartTokens } from '@klini/ds';
+import { KliniChartTokens } from '@klini-saude/ds';
 
 chartData = {
   labels: ['Autorizado', 'Negado', 'Em processo'],
@@ -370,7 +370,7 @@ O `[options]` é mesclado **por cima** do preset — só sobrescreva o que preci
 ### Padrão Adherence Heatmap
 
 ```typescript
-import { KliniChartTokens } from '@klini/ds';
+import { KliniChartTokens } from '@klini-saude/ds';
 
 adherenceData = {
   labels: ['S1','S2','S3','S4','S5','S6','S7','S8','S9','S10','S11','S12'],
@@ -403,7 +403,7 @@ adherenceData = {
 
 ```typescript
 import { MeterItem } from 'primeng/metergroup';
-import { KliniChartTokens } from '@klini/ds';
+import { KliniChartTokens } from '@klini-saude/ds';
 
 zones: MeterItem[] = [
   { label: 'Normal',  value: 40, color: KliniChartTokens.status.success },
@@ -482,7 +482,7 @@ zones: MeterItem[] = [
 ## Diretivas & Utilitários
 
 Diretivas de comportamento — sem visual próprio, modificam componentes existentes.
-Todas importadas diretamente de `@klini/ds` (re-exports do PrimeNG).
+Todas importadas diretamente de `@klini-saude/ds` (re-exports do PrimeNG).
 
 | Diretiva | Atributo | Componente host | O que faz |
 |---|---|---|---|
@@ -497,11 +497,11 @@ Todas importadas diretamente de `@klini/ds` (re-exports do PrimeNG).
 
 ```typescript
 // Standalone — importe as diretivas que precisar
-import { KeyFilter, AutoFocus, Ripple, AnimateOnScroll } from '@klini/ds';
-import { DialogService, DynamicDialogRef }               from '@klini/ds';
+import { KeyFilter, AutoFocus, Ripple, AnimateOnScroll } from '@klini-saude/ds';
+import { DialogService, DynamicDialogRef }               from '@klini-saude/ds';
 
 // NgModule — KliniDsModule já inclui tudo (KeyFilter, AutoFocus, Ripple, StyleClass, AnimateOnScroll)
-import { KliniDsModule } from '@klini/ds';
+import { KliniDsModule } from '@klini-saude/ds';
 ```
 
 ```html
@@ -526,7 +526,7 @@ import { KliniDsModule } from '@klini/ds';
 
 ```typescript
 // Dialog programático via DialogService
-import { DialogService, DynamicDialogRef } from '@klini/ds';
+import { DialogService, DynamicDialogRef } from '@klini-saude/ds';
 
 @Component({ providers: [DialogService] })
 export class MinhaPage {

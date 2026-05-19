@@ -1,13 +1,13 @@
 /**
- * @klini/ds — Diretivas & Utilitários PrimeNG
+ * @klini-saude/ds — Diretivas & Utilitários PrimeNG
  *
  * Diretivas de comportamento: sem visual próprio, modificam componentes existentes.
- * Importe diretamente de '@klini/ds' — sem precisar conhecer os paths do PrimeNG.
+ * Importe diretamente de '@klini-saude/ds' — sem precisar conhecer os paths do PrimeNG.
  *
  * ─── p-keyfilter ─────────────────────────────────────────────────────────────
  *   Filtra teclas permitidas em inputs. Use em conjunto com kln-input-text.
  *
- *   import { KeyFilter } from '@klini/ds';
+ *   import { KeyFilter } from '@klini-saude/ds';
  *   <kln-input-text pKeyFilter="num" label="Apenas números" />
  *   <kln-input-text [pKeyFilter]="regexCustom" label="Custom" />
  *
@@ -16,19 +16,19 @@
  * ─── p-autofocus ─────────────────────────────────────────────────────────────
  *   Coloca foco inicial no elemento. Use em campos de formulário.
  *
- *   import { AutoFocus } from '@klini/ds';
+ *   import { AutoFocus } from '@klini-saude/ds';
  *   <kln-input-text pAutoFocus [autofocus]="true" label="Nome" />
  *
  * ─── p-ripple ────────────────────────────────────────────────────────────────
  *   Efeito ripple em click. Use em kln-button e elementos clicáveis.
  *
- *   import { Ripple } from '@klini/ds';
+ *   import { Ripple } from '@klini-saude/ds';
  *   <kln-button label="Clique" pRipple />
  *
  * ─── p-styleclass ────────────────────────────────────────────────────────────
  *   Adiciona/remove CSS class com animação ao clicar. Útil para show/hide.
  *
- *   import { StyleClass } from '@klini/ds';
+ *   import { StyleClass } from '@klini-saude/ds';
  *   <button pStyleClass="@next" enterFromClass="hidden" leaveToClass="hidden">
  *     Toggle
  *   </button>
@@ -36,7 +36,7 @@
  * ─── p-animateonscroll ───────────────────────────────────────────────────────
  *   Anima elemento quando entra no viewport. Use em kln-card, seções.
  *
- *   import { AnimateOnScroll } from '@klini/ds';
+ *   import { AnimateOnScroll } from '@klini-saude/ds';
  *   <kln-card pAnimateOnScroll enterClass="fadein" leaveClass="fadeout" />
  *
  *   Classes PrimeNG disponíveis: fadein | fadeout | fadeinleft | fadeinright |
@@ -46,7 +46,7 @@
  *   Abre kln-dialog / p-dialog programaticamente via serviço.
  *   Usar quando não é possível usar [visible] declarativo.
  *
- *   import { DialogService, DynamicDialogRef } from '@klini/ds';
+ *   import { DialogService, DynamicDialogRef } from '@klini-saude/ds';
  *
  *   constructor(private dialog: DialogService) {}
  *

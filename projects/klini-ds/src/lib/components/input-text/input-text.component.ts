@@ -1,7 +1,7 @@
 /**
  * kln-input-text
  *
- * Diretivas companion (import de '@klini/ds'):
+ * Diretivas companion (import de '@klini-saude/ds'):
  *
  * pKeyFilter — filtra teclas permitidas no input
  *   <kln-input-text pKeyFilter="num" />          — só números

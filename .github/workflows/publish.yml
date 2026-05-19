@@ -7,7 +7,7 @@ on:
 
 jobs:
   publish:
-    name: Publish @klini/ds
+    name: Publish @klini-saude/ds
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: '24'
           registry-url: 'https://npm.pkg.github.com'
-          scope: '@klini'
+          scope: '@klini-saude'
           cache: 'npm'
 
       - name: Install dependencies
