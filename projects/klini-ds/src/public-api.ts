@@ -201,3 +201,42 @@ export { KliniOrderListComponent } from './lib/components/order-list/order-list.
 
 export { KliniVirtualScrollerComponent } from './lib/components/virtual-scroller/virtual-scroller.component';
 
+// ── Components v1.0 — Full PrimeNG coverage ──────────────────────────────────
+
+export { KliniToggleButtonComponent } from './lib/components/toggle-button/toggle-button.component';
+
+export { KliniIconFieldComponent } from './lib/components/icon-field/icon-field.component';
+
+export { KliniInputOtpComponent } from './lib/components/input-otp/input-otp.component';
+
+export { KliniColorPickerComponent } from './lib/components/color-picker/color-picker.component';
+
+export { KliniEditorComponent } from './lib/components/editor/editor.component';
+
+export { KliniIftaLabelComponent } from './lib/components/ifta-label/ifta-label.component';
+
+export { KliniContextMenuComponent } from './lib/components/context-menu/context-menu.component';
+
+export { KliniMegaMenuComponent } from './lib/components/mega-menu/mega-menu.component';
+
+export { KliniTieredMenuComponent } from './lib/components/tiered-menu/tiered-menu.component';
+
+export { KliniPanelMenuComponent } from './lib/components/panel-menu/panel-menu.component';
+
+export { KliniScrollTopComponent } from './lib/components/scroll-top/scroll-top.component';
+
+export { KliniConfirmPopupComponent } from './lib/components/confirm-popup/confirm-popup.component';
+
+export { KliniBlockUiComponent } from './lib/components/block-ui/block-ui.component';
+
+export { KliniPickListComponent } from './lib/components/pick-list/pick-list.component';
+
+export { KliniTreeTableComponent } from './lib/components/tree-table/tree-table.component';
+
+export { KliniInplaceComponent } from './lib/components/inplace/inplace.component';
+
+export { KliniGalleriaComponent } from './lib/components/galleria/galleria.component';
+
+export { KliniImageCompareComponent } from './lib/components/image-compare/image-compare.component';
+
+export { KliniOverlayBadgeComponent } from './lib/components/overlay-badge/overlay-badge.component';

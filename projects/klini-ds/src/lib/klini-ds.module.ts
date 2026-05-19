@@ -50,6 +50,27 @@ import { KliniMeterGroupComponent } from './components/meter-group/meter-group.c
 import { KliniSliderComponent }     from './components/slider/slider.component';
 import { KliniSelectComponent }     from './components/select/select.component';
 
+// v1.0 — Full PrimeNG coverage
+import { KliniToggleButtonComponent }  from './components/toggle-button/toggle-button.component';
+import { KliniIconFieldComponent }     from './components/icon-field/icon-field.component';
+import { KliniInputOtpComponent }      from './components/input-otp/input-otp.component';
+import { KliniColorPickerComponent }   from './components/color-picker/color-picker.component';
+import { KliniEditorComponent }        from './components/editor/editor.component';
+import { KliniIftaLabelComponent }     from './components/ifta-label/ifta-label.component';
+import { KliniContextMenuComponent }   from './components/context-menu/context-menu.component';
+import { KliniMegaMenuComponent }      from './components/mega-menu/mega-menu.component';
+import { KliniTieredMenuComponent }    from './components/tiered-menu/tiered-menu.component';
+import { KliniPanelMenuComponent }     from './components/panel-menu/panel-menu.component';
+import { KliniScrollTopComponent }     from './components/scroll-top/scroll-top.component';
+import { KliniConfirmPopupComponent }  from './components/confirm-popup/confirm-popup.component';
+import { KliniBlockUiComponent }       from './components/block-ui/block-ui.component';
+import { KliniPickListComponent }      from './components/pick-list/pick-list.component';
+import { KliniTreeTableComponent }     from './components/tree-table/tree-table.component';
+import { KliniInplaceComponent }       from './components/inplace/inplace.component';
+import { KliniGalleriaComponent }      from './components/galleria/galleria.component';
+import { KliniImageCompareComponent }  from './components/image-compare/image-compare.component';
+import { KliniOverlayBadgeComponent }  from './components/overlay-badge/overlay-badge.component';
+
 // v0.4 — Forms, Layout, Feedback & Overlay, Navigation, Data & Content
 import { KliniCheckboxComponent }       from './components/checkbox/checkbox.component';
 import { KliniFloatLabelComponent }     from './components/float-label/float-label.component';
@@ -112,6 +133,14 @@ const COMPONENTS = [
   KliniTabMenuComponent, KliniStepsComponent, KliniSplitButtonComponent,
   KliniTimelineComponent, KliniDataViewComponent, KliniCarouselComponent,
   KliniTreeComponent, KliniOrderListComponent, KliniVirtualScrollerComponent,
+  // v1.0 — Full PrimeNG coverage
+  KliniToggleButtonComponent, KliniIconFieldComponent, KliniInputOtpComponent,
+  KliniColorPickerComponent, KliniEditorComponent, KliniIftaLabelComponent,
+  KliniContextMenuComponent, KliniMegaMenuComponent, KliniTieredMenuComponent,
+  KliniPanelMenuComponent, KliniScrollTopComponent, KliniConfirmPopupComponent,
+  KliniBlockUiComponent, KliniPickListComponent, KliniTreeTableComponent,
+  KliniInplaceComponent, KliniGalleriaComponent, KliniImageCompareComponent,
+  KliniOverlayBadgeComponent,
 ];
 
 const DIRECTIVE_MODULES = [

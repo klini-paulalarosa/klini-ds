@@ -18,8 +18,14 @@ export type KliniChartPreset =
   | 'bar-horizontal'
   | 'bar-stacked'
   | 'bar-stacked-horizontal'
+  | 'bar-grouped'
+  | 'bar-stacked-100'
+  | 'bar-negative'
   | 'line'
+  | 'line-stepped'
+  | 'line-dual-axis'
   | 'area'
+  | 'sparkline'
   | 'pie'
   | 'doughnut'
   | 'polar-area'
@@ -27,7 +33,8 @@ export type KliniChartPreset =
   | 'scatter'
   | 'bubble'
   | 'mixed'
-  | 'time-series';
+  | 'time-series'
+  | 'time-series-brush';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyObj = Record<string, any>;
@@ -200,6 +207,92 @@ export const KliniChartPresets: Record<KliniChartPreset, () => AnyObj> = {
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     elements: { line: { tension: 0.4, borderWidth: 2 }, point: { radius: 3, hoverRadius: 5 } },
     plugins:  basePlugins(),
+    scales:   {
+      x: {
+        type:   'category',
+        grid:   { display: false },
+        ticks:  { color: T.textSecondary, font: { size: 11 }, maxRotation: 0 },
+        border: { color: T.surfaceBorder },
+      },
+      y: yAxis(),
+    },
+  }),
+
+  /** Bar grouped — múltiplas séries lado a lado por categoria (padrão do bar, explícito para clareza) */
+  'bar-grouped': () => ({
+    responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
+    plugins: basePlugins(),
+    scales:  { x: xAxis(false), y: yAxis() },
+  }),
+
+  /** Bar 100% stacked — composição proporcional (%) entre categorias */
+  'bar-stacked-100': () => ({
+    responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
+    plugins: {
+      ...basePlugins(),
+      tooltip: {
+        ...tooltipBlock(),
+        callbacks: {
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          label: (ctx: any) => ` ${ctx.dataset.label}: ${ctx.parsed.y.toFixed(1)}%`,
+        },
+      },
+    },
+    scales: {
+      x: { ...xAxis(false), stacked: true },
+      y: { ...yAxis(), stacked: true, max: 100, ticks: { color: T.textSecondary, font: { size: 11 }, callback: (v: number) => `${v}%` } },
+    },
+  }),
+
+  /** Bar com valores negativos — crescimento/variação com baseline em zero */
+  'bar-negative': () => ({
+    responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
+    plugins: basePlugins(),
+    scales:  {
+      x: xAxis(false),
+      y: { ...yAxis(), suggestedMin: undefined, beginAtZero: false },
+    },
+  }),
+
+  /** Line stepped — valores que mudam em degraus discretos */
+  'line-stepped': () => ({
+    responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
+    elements: { line: { tension: 0, stepped: true, borderWidth: 2 }, point: { radius: 3, hoverRadius: 5 } },
+    plugins:  basePlugins(),
+    scales:   { x: xAxis(false), y: yAxis() },
+  }),
+
+  /** Line dual Y-axis — duas métricas com escalas diferentes (y e y1) */
+  'line-dual-axis': () => ({
+    responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
+    elements: { line: { tension: 0.4, borderWidth: 2 }, point: { radius: 3, hoverRadius: 5 } },
+    plugins:  basePlugins(),
+    scales:   {
+      x:  xAxis(false),
+      y:  { ...yAxis(), position: 'left' },
+      y1: { ...yAxis(), position: 'right', grid: { drawOnChartArea: false } },
+    },
+  }),
+
+  /** Sparkline — mini-line para KPI cards, sem eixos nem legenda */
+  'sparkline': () => ({
+    responsive: true, maintainAspectRatio: false, animation: { duration: 200 },
+    elements: { line: { tension: 0.4, borderWidth: 2 }, point: { radius: 0, hoverRadius: 3 } },
+    plugins:  {
+      legend:  { display: false },
+      tooltip: { ...tooltipBlock(), enabled: false },
+    },
+    scales: {
+      x: { display: false },
+      y: { display: false },
+    },
+  }),
+
+  /** Time Series + Brush — dataset longo com seleção de período visual */
+  'time-series-brush': () => ({
+    responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
+    elements: { line: { tension: 0.4, borderWidth: 2 }, point: { radius: 0, hoverRadius: 4 } },
+    plugins:  { ...basePlugins(), zoom: { zoom: { wheel: { enabled: true }, pinch: { enabled: true }, mode: 'x' }, pan: { enabled: true, mode: 'x' } } },
     scales:   {
       x: {
         type:   'category',
