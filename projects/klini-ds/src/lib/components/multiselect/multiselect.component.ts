@@ -39,7 +39,7 @@ import { MessageModule } from 'primeng/message';
   `,
   styles: [`
     .kln-multiselect-wrapper { display: flex; flex-direction: column; gap: var(--klini-space-1); }
-    .kln-multiselect-label { font-size: var(--klini-font-size-body-sm); font-weight: 600; color: var(--klini-field-label); font-family: 'Plus Jakarta Sans', sans-serif; }
+    .kln-multiselect-label { font-size: var(--klini-font-size-body-sm); font-weight: 600; color: var(--klini-field-label); font-family: 'Objective', system-ui, -apple-system, sans-serif; }
     .kln-multiselect-hint { font-size: var(--klini-font-size-caption); color: var(--klini-text-muted); }
   `],
 })

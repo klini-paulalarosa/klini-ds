@@ -62,7 +62,7 @@ import { MessageModule } from 'primeng/message';
         font-size: var(--klini-font-size-body-sm);
         font-weight: 600;
         color: var(--klini-field-label);
-        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: 'Objective', system-ui, -apple-system, sans-serif;
       }
       .klini-textarea-hint {
         font-size: var(--klini-font-size-caption);

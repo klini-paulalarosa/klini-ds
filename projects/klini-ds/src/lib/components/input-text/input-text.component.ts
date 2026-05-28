@@ -87,7 +87,7 @@ export type KliniInputSize = 'small' | 'large' | undefined;
     .klini-input-wrapper { display: flex; flex-direction: column; gap: var(--klini-space-1); }
     .klini-input-label {
       font-size: var(--klini-font-size-body-sm); font-weight: 600;
-      color: var(--klini-field-label); font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--klini-field-label); font-family: 'Objective', system-ui, -apple-system, sans-serif;
     }
     .klini-input-hint { font-size: var(--klini-font-size-caption); color: var(--klini-text-muted); }
     :host ::ng-deep .klini-input-error { margin-top: 0; }

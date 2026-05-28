@@ -58,26 +58,26 @@ export type KpiTrend = 'up' | 'down' | 'neutral';
       }
       .klini-kpi-card__label {
         font-size: var(--klini-font-size-body-sm); font-weight: 500;
-        color: var(--klini-text-secondary); font-family: 'Plus Jakarta Sans', sans-serif;
+        color: var(--klini-text-secondary); font-family: 'Objective', system-ui, -apple-system, sans-serif;
       }
       .klini-kpi-card__icon { font-size: var(--klini-size-icon-md); color: var(--klini-text-muted); }
       .klini-kpi-card__body { display: flex; align-items: baseline; gap: var(--klini-space-3); }
       .klini-kpi-card__value {
         font-size: var(--klini-font-size-h2); font-weight: 700;
         color: var(--klini-text-primary); line-height: 1;
-        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: 'Objective', system-ui, -apple-system, sans-serif;
       }
       .klini-kpi-card__trend {
         display: flex; align-items: center; gap: var(--klini-space-1);
         font-size: var(--klini-font-size-body-sm); font-weight: 600;
-        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: 'Objective', system-ui, -apple-system, sans-serif;
       }
       .klini-kpi-card__trend--up      { color: var(--klini-feedback-success-fg); }
       .klini-kpi-card__trend--down    { color: var(--klini-feedback-danger-fg);  }
       .klini-kpi-card__trend--neutral { color: var(--klini-text-muted); }
       .klini-kpi-card__description {
         font-size: var(--klini-font-size-body-sm); color: var(--klini-text-muted);
-        margin: 0; font-family: 'Plus Jakarta Sans', sans-serif;
+        margin: 0; font-family: 'Objective', system-ui, -apple-system, sans-serif;
       }
     }
   `],

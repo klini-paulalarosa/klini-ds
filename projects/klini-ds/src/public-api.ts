@@ -240,3 +240,24 @@ export { KliniGalleriaComponent } from './lib/components/galleria/galleria.compo
 export { KliniImageCompareComponent } from './lib/components/image-compare/image-compare.component';
 
 export { KliniOverlayBadgeComponent } from './lib/components/overlay-badge/overlay-badge.component';
+
+// ── Components v1.1 — Portal Templates ───────────────────────────────────────
+// Componentes de layout e templates para os Portais Klini
+// (Beneficiário · Médico · Corretor · TI)
+
+export { KliniPortalHeaderComponent }
+  from './lib/components/portal-header/portal-header.component';
+
+export { KliniPortalFooterComponent }
+  from './lib/components/portal-footer/portal-footer.component';
+
+export { KliniPortalShellComponent }
+  from './lib/components/portal-shell/portal-shell.component';
+
+export { KliniPortalLoginComponent }
+  from './lib/components/portal-login/portal-login.component';
+export type { KliniPortalLoginPayload }
+  from './lib/components/portal-login/portal-login.component';
+
+export { KliniServiceTileComponent }
+  from './lib/components/service-tile/service-tile.component';

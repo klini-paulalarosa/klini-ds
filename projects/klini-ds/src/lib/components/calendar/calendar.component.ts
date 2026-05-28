@@ -69,7 +69,7 @@ import { FloatLabelModule } from 'primeng/floatlabel';
     .klini-calendar-wrapper { display: flex; flex-direction: column; gap: var(--klini-space-1); }
     .klini-calendar__label {
       font-size: var(--klini-font-size-body-sm); font-weight: 600;
-      color: var(--klini-field-label); font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--klini-field-label); font-family: 'Objective', system-ui, -apple-system, sans-serif;
     }
     :host ::ng-deep .klini-datepicker { width: 100%; }
   `],

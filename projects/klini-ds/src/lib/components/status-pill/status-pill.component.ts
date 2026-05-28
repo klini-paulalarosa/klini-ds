@@ -44,7 +44,7 @@ const STATUS_MAP: Record<StatusPillValue, StatusConfig> = {
   `,
   styles: [`
     :host ::ng-deep {
-      .klini-status-pill { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 600; }
+      .klini-status-pill { font-family: 'Objective', system-ui, -apple-system, sans-serif; font-weight: 600; }
 
       .klini-status--em-processo  { background: var(--klini-status-em-processo-bg)  !important; color: var(--klini-status-em-processo-fg)  !important; }
       .klini-status--autorizada   { background: var(--klini-status-autorizada-bg)   !important; color: var(--klini-status-autorizada-fg)   !important; }

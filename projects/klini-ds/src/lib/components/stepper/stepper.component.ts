@@ -48,7 +48,7 @@ export interface KliniStep {
     .klini-stepper__description {
       color: var(--klini-text-secondary);
       font-size: var(--klini-font-size-body-sm);
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Objective', system-ui, -apple-system, sans-serif;
       margin: 0 0 var(--klini-space-4);
     }
     .klini-stepper__panel-content { padding: var(--klini-space-4) 0; }

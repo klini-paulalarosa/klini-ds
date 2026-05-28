@@ -63,7 +63,7 @@ import { DialogModule } from 'primeng/dialog';
       :host ::ng-deep .klini-dialog {
         border-radius: var(--klini-radius-xl);
         box-shadow: var(--klini-elevation-xl);
-        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: 'Objective', system-ui, -apple-system, sans-serif;
       }
     `,
   ],

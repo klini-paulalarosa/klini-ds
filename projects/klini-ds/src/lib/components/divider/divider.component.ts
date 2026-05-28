@@ -36,7 +36,7 @@ export type KliniDividerAlign  = 'left' | 'center' | 'right' | 'top' | 'bottom';
     :host ::ng-deep .p-divider .p-divider-content {
       font-size: var(--klini-font-size-body-sm);
       color: var(--klini-text-muted);
-      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-family: 'Objective', system-ui, -apple-system, sans-serif;
       background: var(--klini-surface-base);
       padding: 0 var(--klini-space-3);
     }

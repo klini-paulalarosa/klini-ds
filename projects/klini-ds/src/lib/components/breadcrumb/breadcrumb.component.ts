@@ -22,7 +22,7 @@ import { MenuItem } from 'primeng/api';
       :host ::ng-deep .p-breadcrumb {
         background: transparent;
         border: none;
-        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: 'Objective', system-ui, -apple-system, sans-serif;
         font-size: var(--klini-font-size-body-sm);
       }
     `,

@@ -71,6 +71,13 @@ import { KliniGalleriaComponent }      from './components/galleria/galleria.comp
 import { KliniImageCompareComponent }  from './components/image-compare/image-compare.component';
 import { KliniOverlayBadgeComponent }  from './components/overlay-badge/overlay-badge.component';
 
+// v1.1 — Portal Templates
+import { KliniPortalHeaderComponent }  from './components/portal-header/portal-header.component';
+import { KliniPortalFooterComponent }  from './components/portal-footer/portal-footer.component';
+import { KliniPortalShellComponent }   from './components/portal-shell/portal-shell.component';
+import { KliniPortalLoginComponent }   from './components/portal-login/portal-login.component';
+import { KliniServiceTileComponent }   from './components/service-tile/service-tile.component';
+
 // v0.4 — Forms, Layout, Feedback & Overlay, Navigation, Data & Content
 import { KliniCheckboxComponent }       from './components/checkbox/checkbox.component';
 import { KliniFloatLabelComponent }     from './components/float-label/float-label.component';
@@ -141,6 +148,9 @@ const COMPONENTS = [
   KliniBlockUiComponent, KliniPickListComponent, KliniTreeTableComponent,
   KliniInplaceComponent, KliniGalleriaComponent, KliniImageCompareComponent,
   KliniOverlayBadgeComponent,
+  // v1.1 — Portal Templates
+  KliniPortalHeaderComponent, KliniPortalFooterComponent, KliniPortalShellComponent,
+  KliniPortalLoginComponent, KliniServiceTileComponent,
 ];
 
 const DIRECTIVE_MODULES = [

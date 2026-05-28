@@ -68,7 +68,7 @@ export interface KliniTableColumn {
         text-align: center;
         color: var(--klini-text-muted);
         padding: var(--klini-space-6) 0;
-        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: 'Objective', system-ui, -apple-system, sans-serif;
       }
     `,
   ],

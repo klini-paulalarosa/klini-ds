@@ -42,13 +42,13 @@ import { CommonModule } from '@angular/common';
         font-weight: 600;
         color: var(--klini-text-primary);
         margin: 0;
-        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: 'Objective', system-ui, -apple-system, sans-serif;
       }
       .klini-empty-state__description {
         font-size: var(--klini-font-size-body-sm);
         color: var(--klini-text-muted);
         margin: 0;
-        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: 'Objective', system-ui, -apple-system, sans-serif;
       }
       .klini-empty-state__actions {
         margin-top: var(--klini-space-2);

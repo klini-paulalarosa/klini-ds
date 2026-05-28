@@ -106,13 +106,25 @@ Presets disponíveis: `bar`, `bar-horizontal`, `bar-stacked`, `bar-stacked-horiz
 
 ---
 
+## Tipografia
+
+| Fonte | Papel | Pesos | Uso |
+|-------|-------|-------|-----|
+| **Objective** | Primária | ExtraBold 800 · SemiBold 600 · Regular 400 | TODA a interface: headings, labels, botões, overlines, display |
+| **Merriweather** | Secundária | Regular 400 | Apenas editorial/marketing — NÃO em UI de produto |
+
+Fonte: Guia de Marca Klini (PDF) + Figma `gOsRuHIPm6Xo5zGEWDmnRW`.
+Nota: o Figma Cover mostra o label "Plus Jakarta Sans" na specimen section, mas o guia de marca e a Paula confirmam que as fontes são Objective + Merriweather apenas.
+
+---
+
 ## Paleta de cores principal
 
 ```
-Teal    #259591  --klini-color-teal-100    (primary, brand)
-Sea     #6AA7AE  --klini-color-sea-100     (complementar)
-Orange  #CD7925  --klini-color-orange-100  (acento quente)
-Coral   #E05759  --klini-color-coral-100   (danger/negado)
+Teal    #259591  --klini-color-teal-500    (primary, brand)     PANTONE 2461C
+Sea     #6AA7AE  --klini-color-sea-500     (complementar)       PANTONE 549C
+Orange  #CD7925  --klini-color-orange-500  (acento quente)      PANTONE 7565C
+Coral   #E05759  --klini-color-coral-500   (danger/negado)      PANTONE 7625C
 ```
 
 Tokens chart: `--kln-chart-cat-teal/sea/orange/coral` · Escala sequential: `--kln-chart-seq-wash` → `--kln-chart-seq-ink`
@@ -135,6 +147,9 @@ Tokens chart: `--kln-chart-cat-teal/sea/orange/coral` · Escala sequential: `--k
 ## Referências rápidas
 
 - Figma: `https://figma.com/design/gOsRuHIPm6Xo5zGEWDmnRW/` — 10 páginas (Cover, Brand, Foundations, Data Visualization, Components, Documentation, Showcase, Templates, Templates·Mobile, Directives & Utilities)
+  - ⚠️ **MCP access**: o token do Figma MCP só expõe **Cover** e **Brand** — as outras 8 páginas existem mas não são acessíveis via `get_metadata`/`get_design_context`. Limitação de permissão do token, não bug.
+- Instagram: `@klinisaude` · Site: `klinisaude.com.br`
+- Logo mínimo: **60px** digital / 2,1cm impresso · Proteção: **2× altura do ícone**
 - PrimeNG docs: `https://primeng.org`
 - GitHub Packages: `https://github.com/orgs/klini-saude/packages`
 - README completo: `./README.md` (instalação, uso, exemplos)

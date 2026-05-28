@@ -76,7 +76,7 @@ export interface KliniRadioOption {
       .klini-radio-label {
         font-size: var(--klini-font-size-body-sm);
         color: var(--klini-text-primary);
-        font-family: 'Plus Jakarta Sans', sans-serif;
+        font-family: 'Objective', system-ui, -apple-system, sans-serif;
         cursor: pointer;
       }
     `,

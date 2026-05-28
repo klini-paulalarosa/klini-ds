@@ -37,7 +37,7 @@ import { MessageModule } from 'primeng/message';
   `,
   styles: [`
     .kln-input-mask-wrapper { display: flex; flex-direction: column; gap: var(--klini-space-1); }
-    .kln-input-mask-label { font-size: var(--klini-font-size-body-sm); font-weight: 600; color: var(--klini-field-label); font-family: 'Plus Jakarta Sans', sans-serif; }
+    .kln-input-mask-label { font-size: var(--klini-font-size-body-sm); font-weight: 600; color: var(--klini-field-label); font-family: 'Objective', system-ui, -apple-system, sans-serif; }
     .kln-input-mask-hint { font-size: var(--klini-font-size-caption); color: var(--klini-text-muted); }
   `],
 })
