@@ -1,3 +1,6 @@
+# MCP config — contém tokens, nunca commitar
+.mcp.json
+
 # Dependencies
 node_modules/
 .pnp
