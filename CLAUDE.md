@@ -141,6 +141,77 @@ Tokens chart: `--kln-chart-cat-teal/sea/orange/coral` · Escala sequential: `--k
 | v0.4 | Checkbox, FloatLabel, MultiSelect, AutoComplete, InputMask, Rating, SelectButton, Listbox, TreeSelect, CascadeSelect, InputGroup, ButtonGroup, Toolbar, Panel, Fieldset, Splitter, ScrollPanel, Image, AvatarGroup, Messages, Popover, SpeedDial, ProgressSpinner, Menubar, TabMenu, Steps, SplitButton, Timeline, DataView, Carousel, Tree, OrderList, VirtualScroller |
 | v0.5 | Directives re-exports (KeyFilter, AutoFocus, Ripple, StyleClass, AnimateOnScroll, DialogService) + KliniChartData/Presets/Tokens |
 | **v1.0** | ToggleButton, IconField, InputOtp, ColorPicker, Editor, IftaLabel, ContextMenu, MegaMenu, TieredMenu, PanelMenu, ScrollTop, ConfirmPopup, BlockUI, PickList, TreeTable, Inplace, Galleria, ImageCompare, OverlayBadge + 7 chart presets avançados |
+| **v1.1** | Portal Templates: PortalHeader, PortalFooter, PortalShell, PortalLogin, ServiceTile · Fix fonte Objective em 21 componentes |
+
+---
+
+## Portais Klini — templates de layout
+
+Fonte Figma: `HQ0rZENIkdivRbUxHSlaK9` (Portais Klini) — 5 páginas
+
+| Portal | Telas Figma | Perfis |
+|--------|-------------|--------|
+| Beneficiário | 18 screens (Home, Carências, Atendimentos, Consultas, Token, Requisições, Busca Rede, Coparticipação, Utilização, Boletos, Nova Consulta…) | Titular + dependentes |
+| Médico — Gestor | 6 screens (Fechamentos, Relatório horas, Horas ajustes, Atendimentos) | CMK por unidade |
+| Médico — Não-gestor | 5 screens (Login, Alterar senha, Home produtividade, Modal nota fiscal) | Médico PJ |
+| Corretor | 10 screens (Login, Propostas, Relatórios comissão, Modal nota) | Gestor comercial |
+| TI Suporte | a definir | Suporte interno |
+
+### Componentes de portal (v1.1)
+
+| Componente | Seletor | Base PrimeNG | Uso |
+|---|---|---|---|
+| `KliniPortalHeaderComponent` | `kln-portal-header` | `p-toolbar` | Header c/ barra gradiente + saudação + avatar |
+| `KliniPortalFooterComponent` | `kln-portal-footer` | `p-toolbar` | Rodapé: logo klini saúde + ANS |
+| `KliniPortalShellComponent`  | `kln-portal-shell`  | —           | Layout completo (header + ng-content + footer) |
+| `KliniPortalLoginComponent`  | `kln-portal-login`  | `p-card`    | Tela de login (CPF + senha + primeiro acesso) |
+| `KliniServiceTileComponent`  | `kln-service-tile`  | `p-button`  | Tile ícone+label para grid de serviços |
+
+### Exemplo — Portal do Beneficiário
+
+```html
+<kln-portal-shell
+  userName="PAULA ROSA"
+  planLabel="plano klini start pj"
+  (avatarClick)="openMenu($event)"
+>
+  <section class="portal-section">
+    <h2>Dados do plano</h2>
+    <!-- kln-card com info do plano -->
+  </section>
+
+  <section class="portal-section">
+    <h2>Serviços</h2>
+    <div class="services-grid">
+      <kln-service-tile icon="pi-shield"    label="Carências"    (tileClick)="goTo('carencias')" />
+      <kln-service-tile icon="pi-clock"     label="Atendimentos" (tileClick)="goTo('atendimentos')" />
+      <kln-service-tile icon="pi-calendar"  label="Consultas"    (tileClick)="goTo('consultas')" />
+      <kln-service-tile icon="pi-key"       label="Token"        (tileClick)="goTo('token')" />
+      <kln-service-tile icon="pi-file-text" label="Requisições"  (tileClick)="goTo('requisicoes')" />
+      <kln-service-tile icon="pi-search"    label="Busca Rede"   (tileClick)="goTo('busca-rede')" />
+    </div>
+  </section>
+</kln-portal-shell>
+```
+
+### Exemplo — Tela de login
+
+```html
+<kln-portal-login
+  (loginSubmit)="onLogin($event)"
+  (firstAccessClick)="goToFirstAccess()"
+  (forgotPasswordClick)="goToForgot()"
+/>
+
+<!-- Portal Corretor (matrícula em vez de CPF) -->
+<kln-portal-login
+  loginLabel="Matrícula"
+  loginMask="99999999"
+  loginPlaceholder="00000000"
+  [showFirstAccess]="false"
+  (loginSubmit)="onLogin($event)"
+/>
+```
 
 ---
 
