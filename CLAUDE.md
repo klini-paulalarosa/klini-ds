@@ -26,9 +26,11 @@ Pacote npm: `@klini-saude/ds` · Versão atual: **1.0.0**
 ## Git
 
 ```
-origin      → github.com/klini-paulalarosa/klini-ds      (pessoal)
+origin      → github.com/klini-paulalarosa/klini-ds      (pessoal — FALLBACK principal)
 klini-saude → github.com/klini-saude/design-system        (org oficial)
 ```
+
+> **Fallback**: se `klini-saude/design-system` estiver inacessível, usar `klini-paulalarosa/klini-ds` — os dois são espelhos exatos. Todo push vai para os dois remotes.
 
 Fluxo padrão:
 ```bash
