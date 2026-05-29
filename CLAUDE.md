@@ -82,7 +82,7 @@ import { PrimeNgModule } from 'primeng/<modulo>';
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `<p-<nome> [input]="input" (output)="outputChange.emit($event)" />`,
 })
-export class Klini<Nome>Component {
+export class Kln<Nome>Component {
   @Input() input = '';
   @Output() outputChange = new EventEmitter<string>();
 }
