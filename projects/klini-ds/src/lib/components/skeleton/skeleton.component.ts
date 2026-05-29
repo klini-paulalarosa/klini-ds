@@ -20,7 +20,7 @@ import { SkeletonModule } from 'primeng/skeleton';
     />
   `,
 })
-export class KliniSkeletonComponent {
+export class KlnSkeletonComponent {
   @Input() width = '100%';
   @Input() height = '1rem';
   @Input() shape: 'rectangle' | 'circle' = 'rectangle';

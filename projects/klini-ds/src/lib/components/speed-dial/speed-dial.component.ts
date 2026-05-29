@@ -20,7 +20,7 @@ import { MenuItem } from 'primeng/api';
   `,
   styles: [`:host { display: block; position: relative; }`],
 })
-export class KliniSpeedDialComponent {
+export class KlnSpeedDialComponent {
   @Input({ required: true }) items: MenuItem[] = [];
   @Input() direction: 'up' | 'down' | 'left' | 'right' = 'up';
   @Input() type: 'linear' | 'circle' | 'semi-circle' | 'quarter-circle' = 'linear';

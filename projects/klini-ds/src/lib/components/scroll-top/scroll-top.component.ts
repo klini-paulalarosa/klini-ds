@@ -19,7 +19,7 @@ import { ScrollTop } from 'primeng/scrolltop';
     />
   `,
 })
-export class KliniScrollTopComponent {
+export class KlnScrollTopComponent {
   @Input() target: 'window' | 'parent' = 'window';
   @Input() threshold = 400;
   @Input() icon = 'pi pi-arrow-up';

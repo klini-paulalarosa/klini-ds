@@ -5,7 +5,7 @@
  *
  * pRipple — adiciona efeito ripple no click
  *   <kln-button label="Salvar" pRipple />
- *   Requer que RippleModule esteja importado (já incluso em KliniDsModule).
+ *   Requer que RippleModule esteja importado (já incluso em KlnDsModule).
  *
  * pAnimateOnScroll — anima o botão ao entrar no viewport
  *   <kln-button label="CTA" pAnimateOnScroll enterClass="fadein" />
@@ -16,13 +16,13 @@ import {
 } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 
-export type KliniButtonSeverity = 'primary' | 'secondary' | 'success' | 'warn' | 'danger' | 'info' | 'contrast';
-export type KliniButtonSize     = 'small' | 'large' | undefined;
-export type KliniButtonVariant  = 'outlined' | 'text' | undefined;
+export type KlnButtonSeverity = 'primary' | 'secondary' | 'success' | 'warn' | 'danger' | 'info' | 'contrast';
+export type KlnButtonSize     = 'small' | 'large' | undefined;
+export type KlnButtonVariant  = 'outlined' | 'text' | undefined;
 
 /**
  * Wrapper sobre p-button do PrimeNG.
- * O visual é 100% controlado pelo KliniPrime theme preset.
+ * O visual é 100% controlado pelo KlnPrime theme preset.
  * Este componente apenas pré-configura defaults Klini e expõe a API tipada.
  */
 @Component({
@@ -51,9 +51,9 @@ export class ButtonComponent {
   @Input() icon      = '';
   @Input() iconPos: 'left' | 'right' | 'top' | 'bottom' = 'left';
   @Input() type      = 'button';
-  @Input() severity: KliniButtonSeverity  = 'primary';
-  @Input() size: KliniButtonSize          = undefined;
-  @Input() variant: KliniButtonVariant    = undefined;
+  @Input() severity: KlnButtonSeverity  = 'primary';
+  @Input() size: KlnButtonSize          = undefined;
+  @Input() variant: KlnButtonVariant    = undefined;
   @Input() styleClass = '';
   @Input({ transform: booleanAttribute }) disabled = false;
   @Input({ transform: booleanAttribute }) loading  = false;

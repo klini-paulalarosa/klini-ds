@@ -8,7 +8,7 @@ import { ListboxModule } from 'primeng/listbox';
   standalone: true,
   imports: [FormsModule, ListboxModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => KliniListboxComponent), multi: true }],
+  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => KlnListboxComponent), multi: true }],
   template: `
     <p-listbox
       [(ngModel)]="value"
@@ -25,7 +25,7 @@ import { ListboxModule } from 'primeng/listbox';
   `,
   styles: [`:host { display: block; }`],
 })
-export class KliniListboxComponent implements ControlValueAccessor {
+export class KlnListboxComponent implements ControlValueAccessor {
   @Input() options: unknown[] = [];
   @Input() optionLabel = 'label';
   @Input() optionValue = 'value';

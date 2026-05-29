@@ -24,7 +24,7 @@ import { ColorPicker } from 'primeng/colorpicker';
     />
   `,
 })
-export class KliniColorPickerComponent {
+export class KlnColorPickerComponent {
   @Input() value: string | null = null;
   @Input() format: 'hex' | 'rgb' | 'hsb' = 'hex';
   @Input() inline = false;

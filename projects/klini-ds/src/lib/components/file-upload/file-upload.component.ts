@@ -29,7 +29,7 @@ import { FileUploadModule, FileUploadHandlerEvent, FileSelectEvent, FileUploadEr
     />
   `,
 })
-export class KliniFileUploadComponent {
+export class KlnFileUploadComponent {
   @Input() url = '';
   @Input() multiple = false;
   @Input() accept = '';

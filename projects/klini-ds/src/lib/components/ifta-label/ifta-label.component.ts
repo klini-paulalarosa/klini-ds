@@ -15,4 +15,4 @@ import { IftaLabel } from 'primeng/iftalabel';
     </p-iftalabel>
   `,
 })
-export class KliniIftaLabelComponent {}
+export class KlnIftaLabelComponent {}

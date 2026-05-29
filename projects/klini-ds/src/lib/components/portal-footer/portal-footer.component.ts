@@ -47,7 +47,7 @@ import { ToolbarModule } from 'primeng/toolbar';
       .kln-portal-footer__toolbar {
         background: #ffffff;
         border: none;
-        border-top: 1px solid var(--klini-border-default, #E5E7EB);
+        border-top: 1px solid var(--kln-border-default, #E5E7EB);
         border-radius: 0;
         padding: 0.875rem 1.5rem;
         box-shadow: none;
@@ -64,7 +64,7 @@ import { ToolbarModule } from 'primeng/toolbar';
       font-family: 'Objective', system-ui, -apple-system, sans-serif;
       font-size: 1rem;
       font-weight: 700;
-      color: var(--klini-color-teal-500, #259591);
+      color: var(--kln-color-teal-500, #259591);
       letter-spacing: -0.01em;
     }
 
@@ -72,7 +72,7 @@ import { ToolbarModule } from 'primeng/toolbar';
       font-family: 'Objective', system-ui, -apple-system, sans-serif;
       font-size: 0.625rem;
       font-weight: 600;
-      color: var(--klini-color-teal-500, #259591);
+      color: var(--kln-color-teal-500, #259591);
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
@@ -81,14 +81,14 @@ import { ToolbarModule } from 'primeng/toolbar';
       font-family: 'Objective', system-ui, -apple-system, sans-serif;
       font-size: 0.75rem;
       font-weight: 400;
-      color: var(--klini-text-muted, #9CA3AF);
-      border: 1px solid var(--klini-border-default, #E5E7EB);
+      color: var(--kln-text-muted, #9CA3AF);
+      border: 1px solid var(--kln-border-default, #E5E7EB);
       border-radius: 4px;
       padding: 0.25rem 0.625rem;
     }
   `],
 })
-export class KliniPortalFooterComponent {
+export class KlnPortalFooterComponent {
   /** Número de registro na ANS. Default: 42.202-9 */
   @Input() ansNumber = '42.202-9';
 }

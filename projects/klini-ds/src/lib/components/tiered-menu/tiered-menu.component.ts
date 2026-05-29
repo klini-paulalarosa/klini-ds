@@ -18,7 +18,7 @@ import { TieredMenu } from 'primeng/tieredmenu';
     />
   `,
 })
-export class KliniTieredMenuComponent {
+export class KlnTieredMenuComponent {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Input() model: any[] = [];
   @Input() popup = false;

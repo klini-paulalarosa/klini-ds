@@ -9,7 +9,7 @@ import { MessageModule } from 'primeng/message';
   standalone: true,
   imports: [FormsModule, MultiSelectModule, MessageModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => KliniMultiSelectComponent), multi: true }],
+  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => KlnMultiSelectComponent), multi: true }],
   template: `
     <div class="kln-multiselect-wrapper">
       @if (label) {
@@ -38,12 +38,12 @@ import { MessageModule } from 'primeng/message';
     </div>
   `,
   styles: [`
-    .kln-multiselect-wrapper { display: flex; flex-direction: column; gap: var(--klini-space-1); }
-    .kln-multiselect-label { font-size: var(--klini-font-size-body-sm); font-weight: 600; color: var(--klini-field-label); font-family: 'Objective', system-ui, -apple-system, sans-serif; }
-    .kln-multiselect-hint { font-size: var(--klini-font-size-caption); color: var(--klini-text-muted); }
+    .kln-multiselect-wrapper { display: flex; flex-direction: column; gap: var(--kln-space-1); }
+    .kln-multiselect-label { font-size: var(--kln-font-size-body-sm); font-weight: 600; color: var(--kln-field-label); font-family: 'Objective', system-ui, -apple-system, sans-serif; }
+    .kln-multiselect-hint { font-size: var(--kln-font-size-caption); color: var(--kln-text-muted); }
   `],
 })
-export class KliniMultiSelectComponent implements ControlValueAccessor {
+export class KlnMultiSelectComponent implements ControlValueAccessor {
   private static idCounter = 0;
 
   @Input() label = '';
@@ -57,7 +57,7 @@ export class KliniMultiSelectComponent implements ControlValueAccessor {
   @Input() errorMessage = '';
   @Input() hint = '';
   @Input() styleClass = '';
-  @Input() inputId = `kln-multiselect-${++KliniMultiSelectComponent.idCounter}`;
+  @Input() inputId = `kln-multiselect-${++KlnMultiSelectComponent.idCounter}`;
 
   @Output() valueChange = new EventEmitter<unknown[]>();
 

@@ -46,11 +46,11 @@ const STATUS_MAP: Record<StatusPillValue, StatusConfig> = {
     :host ::ng-deep {
       .klini-status-pill { font-family: 'Objective', system-ui, -apple-system, sans-serif; font-weight: 600; }
 
-      .klini-status--em-processo  { background: var(--klini-status-em-processo-bg)  !important; color: var(--klini-status-em-processo-fg)  !important; }
-      .klini-status--autorizada   { background: var(--klini-status-autorizada-bg)   !important; color: var(--klini-status-autorizada-fg)   !important; }
-      .klini-status--parcialmente { background: var(--klini-status-parcialmente-bg) !important; color: var(--klini-status-parcialmente-fg) !important; }
-      .klini-status--negado       { background: var(--klini-status-negado-bg)       !important; color: var(--klini-status-negado-fg)       !important; }
-      .klini-status--inativa      { background: var(--klini-status-inativa-bg)      !important; color: var(--klini-status-inativa-fg)      !important; }
+      .klini-status--em-processo  { background: var(--kln-status-em-processo-bg)  !important; color: var(--kln-status-em-processo-fg)  !important; }
+      .klini-status--autorizada   { background: var(--kln-status-autorizada-bg)   !important; color: var(--kln-status-autorizada-fg)   !important; }
+      .klini-status--parcialmente { background: var(--kln-status-parcialmente-bg) !important; color: var(--kln-status-parcialmente-fg) !important; }
+      .klini-status--negado       { background: var(--kln-status-negado-bg)       !important; color: var(--kln-status-negado-fg)       !important; }
+      .klini-status--inativa      { background: var(--kln-status-inativa-bg)      !important; color: var(--kln-status-inativa-fg)      !important; }
     }
   `],
 })

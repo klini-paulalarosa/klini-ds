@@ -20,7 +20,7 @@ import { MessageModule } from 'primeng/message';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => KliniTextareaComponent),
+      useExisting: forwardRef(() => KlnTextareaComponent),
       multi: true,
     },
   ],
@@ -56,27 +56,27 @@ import { MessageModule } from 'primeng/message';
       .klini-textarea-wrapper {
         display: flex;
         flex-direction: column;
-        gap: var(--klini-space-1);
+        gap: var(--kln-space-1);
       }
       .klini-textarea-label {
-        font-size: var(--klini-font-size-body-sm);
+        font-size: var(--kln-font-size-body-sm);
         font-weight: 600;
-        color: var(--klini-field-label);
+        color: var(--kln-field-label);
         font-family: 'Objective', system-ui, -apple-system, sans-serif;
       }
       .klini-textarea-hint {
-        font-size: var(--klini-font-size-caption);
-        color: var(--klini-text-muted);
+        font-size: var(--kln-font-size-caption);
+        color: var(--kln-text-muted);
       }
     `,
   ],
 })
-export class KliniTextareaComponent implements ControlValueAccessor {
+export class KlnTextareaComponent implements ControlValueAccessor {
   private static idCounter = 0;
 
   @Input() label = '';
   @Input() placeholder = '';
-  @Input() inputId = `klini-textarea-${++KliniTextareaComponent.idCounter}`;
+  @Input() inputId = `klini-textarea-${++KlnTextareaComponent.idCounter}`;
   @Input() rows = 4;
   @Input() autoResize = false;
   @Input() maxLength: number | null = null;

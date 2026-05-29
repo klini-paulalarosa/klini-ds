@@ -23,7 +23,7 @@ import { TreeTableModule } from 'primeng/treetable';
     </p-treetable>
   `,
 })
-export class KliniTreeTableComponent {
+export class KlnTreeTableComponent {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Input() value: any[] = [];
   @Input() rows = 10;

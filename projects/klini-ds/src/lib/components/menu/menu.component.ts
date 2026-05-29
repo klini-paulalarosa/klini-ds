@@ -15,7 +15,7 @@ import { MenuItem } from 'primeng/api';
     <p-menu [model]="items" [popup]="popup" [styleClass]="styleClass" />
   `,
 })
-export class KliniMenuComponent {
+export class KlnMenuComponent {
   @Input() items: MenuItem[] = [];
   @Input() popup = false;
   @Input() styleClass = '';

@@ -23,7 +23,7 @@ import { Editor } from 'primeng/editor';
     />
   `,
 })
-export class KliniEditorComponent {
+export class KlnEditorComponent {
   @Input() value = '';
   @Input() placeholder = '';
   @Input() readonly = false;

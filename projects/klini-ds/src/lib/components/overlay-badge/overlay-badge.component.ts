@@ -20,7 +20,7 @@ import { OverlayBadge } from 'primeng/overlaybadge';
     </p-overlaybadge>
   `,
 })
-export class KliniOverlayBadgeComponent {
+export class KlnOverlayBadgeComponent {
   @Input() value = '';
   @Input() severity: 'success' | 'info' | 'warn' | 'danger' | 'secondary' | 'contrast' | null = null;
   @Input() styleClass = '';

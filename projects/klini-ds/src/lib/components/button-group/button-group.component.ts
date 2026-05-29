@@ -9,4 +9,4 @@ import { ButtonGroupModule } from 'primeng/buttongroup';
   template: `<p-buttongroup><ng-content /></p-buttongroup>`,
   styles: [`:host { display: inline-flex; }`],
 })
-export class KliniButtonGroupComponent {}
+export class KlnButtonGroupComponent {}

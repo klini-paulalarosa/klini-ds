@@ -8,7 +8,7 @@ import { CheckboxModule } from 'primeng/checkbox';
   standalone: true,
   imports: [FormsModule, CheckboxModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => KliniCheckboxComponent), multi: true }],
+  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => KlnCheckboxComponent), multi: true }],
   template: `
     <div class="kln-checkbox-wrapper">
       <p-checkbox
@@ -27,18 +27,18 @@ import { CheckboxModule } from 'primeng/checkbox';
   `,
   styles: [`
     :host { display: inline-block; }
-    .kln-checkbox-wrapper { display: inline-flex; align-items: center; gap: var(--klini-space-2); }
-    .kln-checkbox-label { font-size: var(--klini-font-size-body-sm); color: var(--klini-text-primary); font-family: 'Objective', system-ui, -apple-system, sans-serif; cursor: pointer; }
+    .kln-checkbox-wrapper { display: inline-flex; align-items: center; gap: var(--kln-space-2); }
+    .kln-checkbox-label { font-size: var(--kln-font-size-body-sm); color: var(--kln-text-primary); font-family: 'Objective', system-ui, -apple-system, sans-serif; cursor: pointer; }
   `],
 })
-export class KliniCheckboxComponent implements ControlValueAccessor {
+export class KlnCheckboxComponent implements ControlValueAccessor {
   private static idCounter = 0;
 
   @Input() label = '';
   @Input() binary = true;
   @Input() disabled = false;
   @Input() styleClass = '';
-  @Input() inputId = `kln-checkbox-${++KliniCheckboxComponent.idCounter}`;
+  @Input() inputId = `kln-checkbox-${++KlnCheckboxComponent.idCounter}`;
 
   @Output() valueChange = new EventEmitter<boolean>();
   value = false;

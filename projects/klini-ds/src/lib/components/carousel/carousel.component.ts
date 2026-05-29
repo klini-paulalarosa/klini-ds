@@ -21,7 +21,7 @@ import { CarouselModule } from 'primeng/carousel';
   `,
   styles: [`:host { display: block; }`],
 })
-export class KliniCarouselComponent {
+export class KlnCarouselComponent {
   @Input({ required: true }) value: unknown[] = [];
   @Input() numVisible = 3;
   @Input() numScroll = 1;

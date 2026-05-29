@@ -11,7 +11,7 @@ import { ButtonModule } from 'primeng/button';
 import { PasswordModule } from 'primeng/password';
 import { InputMaskModule } from 'primeng/inputmask';
 
-export interface KliniPortalLoginPayload {
+export interface KlnPortalLoginPayload {
   cpf: string;
   password: string;
 }
@@ -137,7 +137,7 @@ export interface KliniPortalLoginPayload {
       align-items: center;
       justify-content: center;
       min-height: 100vh;
-      background: var(--klini-surface-page, #FAFAFA);
+      background: var(--kln-surface-page, #FAFAFA);
       padding: 2rem 1rem;
       gap: 2rem;
     }
@@ -154,7 +154,7 @@ export interface KliniPortalLoginPayload {
       font-family: 'Objective', system-ui, -apple-system, sans-serif;
       font-size: 2.25rem;
       font-weight: 700;
-      color: var(--klini-color-teal-500, #259591);
+      color: var(--kln-color-teal-500, #259591);
       letter-spacing: -0.02em;
     }
 
@@ -162,7 +162,7 @@ export interface KliniPortalLoginPayload {
       font-family: 'Objective', system-ui, -apple-system, sans-serif;
       font-size: 0.75rem;
       font-weight: 600;
-      color: var(--klini-color-teal-500, #259591);
+      color: var(--kln-color-teal-500, #259591);
       letter-spacing: 0.12em;
       text-transform: uppercase;
       margin-top: -0.25rem;
@@ -174,7 +174,7 @@ export interface KliniPortalLoginPayload {
         width: 100%;
         max-width: 420px;
         border-radius: 8px;
-        border: 1px solid var(--klini-border-subtle, #E5E7EB);
+        border: 1px solid var(--kln-border-subtle, #E5E7EB);
         box-shadow: 0px 2px 8px 0px rgba(15, 27, 26, 0.06);
 
         .p-card-body { padding: 1.75rem; }
@@ -199,7 +199,7 @@ export interface KliniPortalLoginPayload {
       font-family: 'Objective', system-ui, -apple-system, sans-serif;
       font-size: 0.875rem;
       font-weight: 600;
-      color: var(--klini-text-primary, #111827);
+      color: var(--kln-text-primary, #111827);
     }
 
     :host ::ng-deep {
@@ -209,10 +209,10 @@ export interface KliniPortalLoginPayload {
         input {
           width: 100% !important;
           border-radius: 6px;
-          border-color: var(--klini-border-default, #D1D5DB);
+          border-color: var(--kln-border-default, #D1D5DB);
 
           &:focus {
-            border-color: var(--klini-color-teal-500, #259591);
+            border-color: var(--kln-color-teal-500, #259591);
             box-shadow: 0 0 0 2px rgba(37, 149, 145, 0.15);
           }
         }
@@ -233,19 +233,19 @@ export interface KliniPortalLoginPayload {
 
     :host ::ng-deep {
       .kln-portal-login__link.p-button {
-        color: var(--klini-color-teal-500, #259591) !important;
+        color: var(--kln-color-teal-500, #259591) !important;
         font-size: 0.8125rem;
         font-weight: 600;
         font-family: 'Objective', system-ui, -apple-system, sans-serif;
         padding: 0;
         height: auto;
 
-        &:hover { color: var(--klini-color-teal-700, #1a706d) !important; }
+        &:hover { color: var(--kln-color-teal-700, #1a706d) !important; }
       }
 
       .kln-portal-login__first-access.p-button {
-        border-color: var(--klini-color-teal-500, #259591) !important;
-        color: var(--klini-color-teal-500, #259591) !important;
+        border-color: var(--kln-color-teal-500, #259591) !important;
+        color: var(--kln-color-teal-500, #259591) !important;
         background: transparent !important;
 
         &:hover { background: rgba(37, 149, 145, 0.06) !important; }
@@ -253,7 +253,7 @@ export interface KliniPortalLoginPayload {
     }
   `],
 })
-export class KliniPortalLoginComponent {
+export class KlnPortalLoginComponent {
   /** Texto exibido como logotipo acima do card (apenas para leitores de tela / aria-label) */
   @Input() logoText = 'klini saúde';
 
@@ -270,7 +270,7 @@ export class KliniPortalLoginComponent {
   @Input() showFirstAccess = true;
 
   /** Clique em "Acessar" com CPF e senha preenchidos */
-  @Output() loginSubmit = new EventEmitter<KliniPortalLoginPayload>();
+  @Output() loginSubmit = new EventEmitter<KlnPortalLoginPayload>();
 
   /** Clique em "Primeiro acesso" */
   @Output() firstAccessClick = new EventEmitter<void>();

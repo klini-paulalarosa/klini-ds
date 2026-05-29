@@ -26,7 +26,7 @@ interface PaginatorPageEvent { first: number; rows: number; page: number; pageCo
     />
   `,
 })
-export class KliniPaginatorComponent {
+export class KlnPaginatorComponent {
   @Input() totalRecords = 0;
   @Input() rows = 10;
   @Input() first = 0;

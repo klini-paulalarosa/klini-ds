@@ -1,5 +1,5 @@
 /**
- * KliniChartTokens
+ * KlnChartTokens
  *
  * Resolve os CSS custom properties do DS em runtime para uso com Chart.js.
  * Chart.js renderiza em <canvas> — CSS variables não funcionam diretamente
@@ -7,11 +7,11 @@
  * passadas como strings para os datasets e options.
  *
  * Uso em componentes consumidores:
- *   import { KliniChartTokens } from '@klini-saude/ds';
- *   backgroundColor: KliniChartTokens.categorical   // string[]
- *   borderColor: KliniChartTokens.status.success    // string
+ *   import { KlnChartTokens } from '@klini-saude/ds';
+ *   backgroundColor: KlnChartTokens.categorical   // string[]
+ *   borderColor: KlnChartTokens.status.success    // string
  */
-export class KliniChartTokens {
+export class KlnChartTokens {
 
   /** Lê um CSS custom property do :root. Retorna fallback se não encontrar. */
   static resolve(token: string, fallback = ''): string {
@@ -70,18 +70,18 @@ export class KliniChartTokens {
   // ─── Texto e superfície (para eixos e grid do chart) ─────────────────────
 
   static get textPrimary(): string {
-    return this.resolve('--klini-text-primary', '#111827');
+    return this.resolve('--kln-text-primary', '#111827');
   }
 
   static get textSecondary(): string {
-    return this.resolve('--klini-text-secondary', '#6b7280');
+    return this.resolve('--kln-text-secondary', '#6b7280');
   }
 
   static get surfaceBorder(): string {
-    return this.resolve('--klini-color-gray-200', '#e5e7eb');
+    return this.resolve('--kln-color-gray-200', '#e5e7eb');
   }
 
   static get surfacePage(): string {
-    return this.resolve('--klini-surface-page', '#ffffff');
+    return this.resolve('--kln-surface-page', '#ffffff');
   }
 }

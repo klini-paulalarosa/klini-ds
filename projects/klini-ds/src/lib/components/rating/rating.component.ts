@@ -8,7 +8,7 @@ import { RatingModule } from 'primeng/rating';
   standalone: true,
   imports: [FormsModule, RatingModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => KliniRatingComponent), multi: true }],
+  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => KlnRatingComponent), multi: true }],
   template: `
     <p-rating
       [(ngModel)]="value"
@@ -20,7 +20,7 @@ import { RatingModule } from 'primeng/rating';
   `,
   styles: [`:host { display: inline-block; }`],
 })
-export class KliniRatingComponent implements ControlValueAccessor {
+export class KlnRatingComponent implements ControlValueAccessor {
   @Input() stars = 5;
   @Input() disabled = false;
   @Input() readonly = false;

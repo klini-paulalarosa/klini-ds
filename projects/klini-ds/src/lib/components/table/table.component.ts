@@ -5,7 +5,7 @@ import {
 } from '@angular/core';
 import { TableModule } from 'primeng/table';
 
-export interface KliniTableColumn {
+export interface KlnTableColumn {
   field: string;
   header: string;
   sortable?: boolean;
@@ -66,16 +66,16 @@ export interface KliniTableColumn {
       }
       .klini-table__empty {
         text-align: center;
-        color: var(--klini-text-muted);
-        padding: var(--klini-space-6) 0;
+        color: var(--kln-text-muted);
+        padding: var(--kln-space-6) 0;
         font-family: 'Objective', system-ui, -apple-system, sans-serif;
       }
     `,
   ],
 })
-export class KliniTableComponent {
+export class KlnTableComponent {
   @Input() value: Record<string, unknown>[] = [];
-  @Input() columns: KliniTableColumn[] = [];
+  @Input() columns: KlnTableColumn[] = [];
   @Input() loading = false;
   @Input() paginator = false;
   @Input() pageSize = 10;

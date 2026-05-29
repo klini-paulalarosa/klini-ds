@@ -1,7 +1,7 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { StepperModule } from 'primeng/stepper';
 
-export interface KliniStep {
+export interface KlnStep {
   label:       string;
   description?: string;
   icon?:        string;
@@ -10,7 +10,7 @@ export interface KliniStep {
 /**
  * Wrapper sobre p-stepper do PrimeNG 18.
  * Aceita um array simples de steps via @Input e renderiza via p-step-list / p-step-panels.
- * Estilização 100% via KliniPrime theme preset.
+ * Estilização 100% via KlnPrime theme preset.
  */
 @Component({
   selector: 'kln-stepper',
@@ -46,16 +46,16 @@ export interface KliniStep {
   `,
   styles: [`
     .klini-stepper__description {
-      color: var(--klini-text-secondary);
-      font-size: var(--klini-font-size-body-sm);
+      color: var(--kln-text-secondary);
+      font-size: var(--kln-font-size-body-sm);
       font-family: 'Objective', system-ui, -apple-system, sans-serif;
-      margin: 0 0 var(--klini-space-4);
+      margin: 0 0 var(--kln-space-4);
     }
-    .klini-stepper__panel-content { padding: var(--klini-space-4) 0; }
+    .klini-stepper__panel-content { padding: var(--kln-space-4) 0; }
   `],
 })
 export class StepperComponent {
-  @Input({ required: true }) steps: KliniStep[] = [];
+  @Input({ required: true }) steps: KlnStep[] = [];
   @Input() activeStep = 0;
   @Input() linear     = false;
 }

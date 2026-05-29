@@ -79,8 +79,8 @@ import { AvatarModule } from 'primeng/avatar';
       height: 4px;
       background: linear-gradient(
         to right,
-        var(--klini-color-orange-500, #CD7925) 0%,
-        var(--klini-color-teal-500,   #259591) 100%
+        var(--kln-color-orange-500, #CD7925) 0%,
+        var(--kln-color-teal-500,   #259591) 100%
       );
     }
 
@@ -107,7 +107,7 @@ import { AvatarModule } from 'primeng/avatar';
       font-family: 'Objective', system-ui, -apple-system, sans-serif;
       font-size: 0.875rem;
       font-weight: 400;
-      color: var(--klini-text-secondary, #4B5563);
+      color: var(--kln-text-secondary, #4B5563);
       line-height: 1.4;
     }
 
@@ -115,7 +115,7 @@ import { AvatarModule } from 'primeng/avatar';
       font-family: 'Objective', system-ui, -apple-system, sans-serif;
       font-size: 1.25rem;
       font-weight: 700;
-      color: var(--klini-text-primary, #111827);
+      color: var(--kln-text-primary, #111827);
       line-height: 1.2;
       text-transform: uppercase;
     }
@@ -124,7 +124,7 @@ import { AvatarModule } from 'primeng/avatar';
       font-family: 'Objective', system-ui, -apple-system, sans-serif;
       font-size: 0.75rem;
       font-weight: 400;
-      color: var(--klini-text-muted, #9CA3AF);
+      color: var(--kln-text-muted, #9CA3AF);
       line-height: 1.4;
       margin-top: 0.125rem;
     }
@@ -137,7 +137,7 @@ import { AvatarModule } from 'primeng/avatar';
     :host ::ng-deep {
       .kln-portal-header__avatar-btn {
         background: transparent !important;
-        border: 1.5px solid var(--klini-border-default, #E5E7EB) !important;
+        border: 1.5px solid var(--kln-border-default, #E5E7EB) !important;
         border-radius: 50% !important;
         padding: 0 !important;
         width: 2.5rem;
@@ -148,7 +148,7 @@ import { AvatarModule } from 'primeng/avatar';
         justify-content: center;
 
         &:hover {
-          background: var(--klini-surface-hover, #F9FAFB) !important;
+          background: var(--kln-surface-hover, #F9FAFB) !important;
         }
 
         .p-button-label { display: none; }
@@ -158,7 +158,7 @@ import { AvatarModule } from 'primeng/avatar';
         width: 2.25rem;
         height: 2.25rem;
         background: transparent;
-        color: var(--klini-text-secondary, #4B5563);
+        color: var(--kln-text-secondary, #4B5563);
         font-size: 0.875rem;
         font-family: 'Objective', system-ui, -apple-system, sans-serif;
       }
@@ -166,11 +166,11 @@ import { AvatarModule } from 'primeng/avatar';
 
     .kln-portal-header__divider {
       height: 1px;
-      background: var(--klini-border-default, #E5E7EB);
+      background: var(--kln-border-default, #E5E7EB);
     }
   `],
 })
-export class KliniPortalHeaderComponent {
+export class KlnPortalHeaderComponent {
   /** Nome completo do usuário (exibido em maiúsculas) */
   @Input({ required: true }) userName = '';
 

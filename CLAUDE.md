@@ -5,8 +5,8 @@
 ## O que é este projeto
 
 Biblioteca Angular de componentes para o **Klini App** (saúde).
-Wrappers 100% PrimeNG v18 sobre o tema `KliniPrime` (preset Aura).
-Pacote npm: `@klini-saude/ds` · Versão atual: **1.0.0**
+Wrappers 100% PrimeNG v18 sobre o tema `KlnPrime` (preset Aura).
+Pacote npm: `@klini-saude/ds` · Versão atual: **2.0.0**
 
 ---
 
@@ -100,9 +100,9 @@ Três camadas — carregue os arquivos quando precisar de detalhes:
 
 | Camada | Arquivo | Para que serve |
 |--------|---------|----------------|
-| `KliniChartData` | `components/chart/chart.data.ts` | Fábricas de datasets (sem conhecer Chart.js) |
-| `KliniChartPresets` | `components/chart/chart.presets.ts` | 21 presets com tokens DS |
-| `KliniChartTokens` | `components/chart/chart.tokens.ts` | Resolve CSS vars para canvas |
+| `KlnChartData` | `components/chart/chart.data.ts` | Fábricas de datasets (sem conhecer Chart.js) |
+| `KlnChartPresets` | `components/chart/chart.presets.ts` | 21 presets com tokens DS |
+| `KlnChartTokens` | `components/chart/chart.tokens.ts` | Resolve CSS vars para canvas |
 
 Presets disponíveis: `bar`, `bar-horizontal`, `bar-stacked`, `bar-stacked-horizontal`, `bar-grouped`, `bar-stacked-100`, `bar-negative`, `line`, `line-stepped`, `line-dual-axis`, `area`, `sparkline`, `pie`, `doughnut`, `polar-area`, `radar`, `scatter`, `bubble`, `mixed`, `time-series`, `time-series-brush`
 
@@ -123,10 +123,10 @@ Nota: o Figma Cover mostra o label "Plus Jakarta Sans" na specimen section, mas 
 ## Paleta de cores principal
 
 ```
-Teal    #259591  --klini-color-teal-500    (primary, brand)     PANTONE 2461C
-Sea     #6AA7AE  --klini-color-sea-500     (complementar)       PANTONE 549C
-Orange  #CD7925  --klini-color-orange-500  (acento quente)      PANTONE 7565C
-Coral   #E05759  --klini-color-coral-500   (danger/negado)      PANTONE 7625C
+Teal    #259591  --kln-color-teal-500    (primary, brand)     PANTONE 2461C
+Sea     #6AA7AE  --kln-color-sea-500     (complementar)       PANTONE 549C
+Orange  #CD7925  --kln-color-orange-500  (acento quente)      PANTONE 7565C
+Coral   #E05759  --kln-color-coral-500   (danger/negado)      PANTONE 7625C
 ```
 
 Tokens chart: `--kln-chart-cat-teal/sea/orange/coral` · Escala sequential: `--kln-chart-seq-wash` → `--kln-chart-seq-ink`
@@ -141,8 +141,8 @@ Tokens chart: `--kln-chart-cat-teal/sea/orange/coral` · Escala sequential: `--k
 | v0.2 | RadioGroup, Tabs, Menu, Table, Dialog, Toggle, Accordion, Avatar, Skeleton, ProgressBar, Textarea, Password, InputNumber, Paginator, ConfirmDialog, FileUpload, Breadcrumb, EmptyState |
 | v0.3 | Chart, Knob, MeterGroup, Slider, Select + sistema de paleta |
 | v0.4 | Checkbox, FloatLabel, MultiSelect, AutoComplete, InputMask, Rating, SelectButton, Listbox, TreeSelect, CascadeSelect, InputGroup, ButtonGroup, Toolbar, Panel, Fieldset, Splitter, ScrollPanel, Image, AvatarGroup, Messages, Popover, SpeedDial, ProgressSpinner, Menubar, TabMenu, Steps, SplitButton, Timeline, DataView, Carousel, Tree, OrderList, VirtualScroller |
-| v0.5 | Directives re-exports (KeyFilter, AutoFocus, Ripple, StyleClass, AnimateOnScroll, DialogService) + KliniChartData/Presets/Tokens |
-| **v1.0** | ToggleButton, IconField, InputOtp, ColorPicker, Editor, IftaLabel, ContextMenu, MegaMenu, TieredMenu, PanelMenu, ScrollTop, ConfirmPopup, BlockUI, PickList, TreeTable, Inplace, Galleria, ImageCompare, OverlayBadge + 7 chart presets avançados |
+| v0.5 | Directives re-exports (KeyFilter, AutoFocus, Ripple, StyleClass, AnimateOnScroll, DialogService) + KlnChartData/Presets/Tokens |
+| v1.0 | ToggleButton, IconField, InputOtp, ColorPicker, Editor, IftaLabel, ContextMenu, MegaMenu, TieredMenu, PanelMenu, ScrollTop, ConfirmPopup, BlockUI, PickList, TreeTable, Inplace, Galleria, ImageCompare, OverlayBadge + 7 chart presets avançados |
 | **v1.1** | Portal Templates: PortalHeader, PortalFooter, PortalShell, PortalLogin, ServiceTile · Fix fonte Objective em 21 componentes |
 
 ---
@@ -163,11 +163,11 @@ Fonte Figma: `HQ0rZENIkdivRbUxHSlaK9` (Portais Klini) — 5 páginas
 
 | Componente | Seletor | Base PrimeNG | Uso |
 |---|---|---|---|
-| `KliniPortalHeaderComponent` | `kln-portal-header` | `p-toolbar` | Header c/ barra gradiente + saudação + avatar |
-| `KliniPortalFooterComponent` | `kln-portal-footer` | `p-toolbar` | Rodapé: logo klini saúde + ANS |
-| `KliniPortalShellComponent`  | `kln-portal-shell`  | —           | Layout completo (header + ng-content + footer) |
-| `KliniPortalLoginComponent`  | `kln-portal-login`  | `p-card`    | Tela de login (CPF + senha + primeiro acesso) |
-| `KliniServiceTileComponent`  | `kln-service-tile`  | `p-button`  | Tile ícone+label para grid de serviços |
+| `KlnPortalHeaderComponent` | `kln-portal-header` | `p-toolbar` | Header c/ barra gradiente + saudação + avatar |
+| `KlnPortalFooterComponent` | `kln-portal-footer` | `p-toolbar` | Rodapé: logo klini saúde + ANS |
+| `KlnPortalShellComponent`  | `kln-portal-shell`  | —           | Layout completo (header + ng-content + footer) |
+| `KlnPortalLoginComponent`  | `kln-portal-login`  | `p-card`    | Tela de login (CPF + senha + primeiro acesso) |
+| `KlnServiceTileComponent`  | `kln-service-tile`  | `p-button`  | Tile ícone+label para grid de serviços |
 
 ### Exemplo — Portal do Beneficiário
 

@@ -17,7 +17,7 @@ import { ToastMessageOptions } from 'primeng/api';
   `,
   styles: [`:host { display: block; }`],
 })
-export class KliniMessagesComponent {
+export class KlnMessagesComponent {
   @Input() value: ToastMessageOptions[] = [];
   @Input() closable = true;
   @Input() enableService = false;

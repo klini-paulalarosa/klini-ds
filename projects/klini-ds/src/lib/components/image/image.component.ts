@@ -18,7 +18,7 @@ import { ImageModule } from 'primeng/image';
   `,
   styles: [`:host { display: inline-block; }`],
 })
-export class KliniImageComponent {
+export class KlnImageComponent {
   @Input() src = '';
   @Input() alt = '';
   @Input() width = '';

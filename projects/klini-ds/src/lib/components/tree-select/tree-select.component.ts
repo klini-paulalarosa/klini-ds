@@ -9,7 +9,7 @@ import { TreeNode } from 'primeng/api';
   standalone: true,
   imports: [FormsModule, TreeSelectModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => KliniTreeSelectComponent), multi: true }],
+  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => KlnTreeSelectComponent), multi: true }],
   template: `
     <p-treeselect
       [(ngModel)]="value"
@@ -25,7 +25,7 @@ import { TreeNode } from 'primeng/api';
   `,
   styles: [`:host { display: block; }`],
 })
-export class KliniTreeSelectComponent implements ControlValueAccessor {
+export class KlnTreeSelectComponent implements ControlValueAccessor {
   @Input() options: TreeNode[] = [];
   @Input() placeholder = 'Selecione...';
   @Input() selectionMode: 'single' | 'multiple' | 'checkbox' = 'single';

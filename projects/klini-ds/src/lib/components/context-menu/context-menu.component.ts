@@ -19,7 +19,7 @@ import { ContextMenu } from 'primeng/contextmenu';
     />
   `,
 })
-export class KliniContextMenuComponent {
+export class KlnContextMenuComponent {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Input() model: any[] = [];
   @Input() global = false;

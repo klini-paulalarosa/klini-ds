@@ -25,7 +25,7 @@ import { InputOtp } from 'primeng/inputotp';
     />
   `,
 })
-export class KliniInputOtpComponent {
+export class KlnInputOtpComponent {
   @Input() value: string | null = null;
   @Input() length = 6;
   @Input() mask = false;

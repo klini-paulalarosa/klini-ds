@@ -29,34 +29,34 @@ import { CommonModule } from '@angular/common';
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: var(--klini-space-8) var(--klini-space-4);
+        padding: var(--kln-space-8) var(--kln-space-4);
         text-align: center;
-        gap: var(--klini-space-3);
+        gap: var(--kln-space-3);
       }
       .klini-empty-state__icon {
         font-size: 2.5rem;
-        color: var(--klini-text-muted);
+        color: var(--kln-text-muted);
       }
       .klini-empty-state__title {
-        font-size: var(--klini-font-size-body-lg);
+        font-size: var(--kln-font-size-body-lg);
         font-weight: 600;
-        color: var(--klini-text-primary);
+        color: var(--kln-text-primary);
         margin: 0;
         font-family: 'Objective', system-ui, -apple-system, sans-serif;
       }
       .klini-empty-state__description {
-        font-size: var(--klini-font-size-body-sm);
-        color: var(--klini-text-muted);
+        font-size: var(--kln-font-size-body-sm);
+        color: var(--kln-text-muted);
         margin: 0;
         font-family: 'Objective', system-ui, -apple-system, sans-serif;
       }
       .klini-empty-state__actions {
-        margin-top: var(--klini-space-2);
+        margin-top: var(--kln-space-2);
       }
     `,
   ],
 })
-export class KliniEmptyStateComponent {
+export class KlnEmptyStateComponent {
   @Input() title = 'Nenhum resultado encontrado';
   @Input() description = '';
   @Input() icon = 'pi-inbox';

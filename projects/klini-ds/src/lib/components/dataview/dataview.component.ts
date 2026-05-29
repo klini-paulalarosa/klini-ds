@@ -20,7 +20,7 @@ import { DataViewModule } from 'primeng/dataview';
   `,
   styles: [`:host { display: block; }`],
 })
-export class KliniDataViewComponent {
+export class KlnDataViewComponent {
   @Input({ required: true }) value: unknown[] = [];
   @Input() layout: 'list' | 'grid' = 'list';
   @Input() paginator = false;

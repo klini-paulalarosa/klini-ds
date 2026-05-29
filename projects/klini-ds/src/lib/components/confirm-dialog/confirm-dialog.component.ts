@@ -9,7 +9,7 @@ import { ConfirmationService } from 'primeng/api';
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class KliniConfirmService {
+export class KlnConfirmService {
   private cs = inject(ConfirmationService);
 
   confirm(options: {
@@ -48,7 +48,7 @@ export class KliniConfirmService {
   standalone: true,
   imports: [ConfirmDialogModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [ConfirmationService, KliniConfirmService],
+  providers: [ConfirmationService, KlnConfirmService],
   template: `
     <p-confirmdialog
       [key]="key || undefined"
@@ -58,13 +58,13 @@ export class KliniConfirmService {
   styles: [
     `
       :host ::ng-deep .klini-confirm-dialog {
-        border-radius: var(--klini-radius-xl);
-        box-shadow: var(--klini-elevation-xl);
+        border-radius: var(--kln-radius-xl);
+        box-shadow: var(--kln-elevation-xl);
       }
     `,
   ],
 })
-export class KliniConfirmDialogComponent {
+export class KlnConfirmDialogComponent {
   @Input() key = '';
   @Input() styleClass = '';
 }

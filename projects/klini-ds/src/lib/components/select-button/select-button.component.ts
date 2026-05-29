@@ -8,7 +8,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
   standalone: true,
   imports: [FormsModule, SelectButtonModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => KliniSelectButtonComponent), multi: true }],
+  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => KlnSelectButtonComponent), multi: true }],
   template: `
     <p-selectbutton
       [(ngModel)]="value"
@@ -23,7 +23,7 @@ import { SelectButtonModule } from 'primeng/selectbutton';
   `,
   styles: [`:host { display: inline-block; }`],
 })
-export class KliniSelectButtonComponent implements ControlValueAccessor {
+export class KlnSelectButtonComponent implements ControlValueAccessor {
   @Input() options: unknown[] = [];
   @Input() optionLabel = 'label';
   @Input() optionValue = 'value';

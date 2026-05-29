@@ -18,7 +18,7 @@ import { PanelMenu } from 'primeng/panelmenu';
     />
   `,
 })
-export class KliniPanelMenuComponent {
+export class KlnPanelMenuComponent {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Input() model: any[] = [];
   @Input() multiple = true;

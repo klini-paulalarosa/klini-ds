@@ -1,14 +1,14 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { TagModule } from 'primeng/tag';
 
-export type KliniTagSeverity =
+export type KlnTagSeverity =
   | 'primary' | 'secondary' | 'success' | 'warn' | 'danger' | 'info' | 'contrast';
 
 type PrimeTagSeverity = 'secondary' | 'success' | 'info' | 'warn' | 'danger' | 'contrast' | undefined;
 
 /**
  * Wrapper sobre p-tag do PrimeNG.
- * Estilização 100% via KliniPrime theme preset.
+ * Estilização 100% via KlnPrime theme preset.
  * PrimeNG Tag não tem severity 'primary' — undefined usa o estilo padrão (primary visual).
  */
 @Component({
@@ -28,7 +28,7 @@ type PrimeTagSeverity = 'secondary' | 'success' | 'info' | 'warn' | 'danger' | '
 })
 export class TagComponent {
   @Input({ required: true }) value    = '';
-  @Input() severity: KliniTagSeverity = 'primary';
+  @Input() severity: KlnTagSeverity = 'primary';
   @Input() icon       = '';
   @Input() rounded    = false;
   @Input() styleClass = '';

@@ -12,7 +12,7 @@ import { SliderChangeEvent } from 'primeng/slider';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => KliniSliderComponent),
+    useExisting: forwardRef(() => KlnSliderComponent),
     multi: true,
   }],
   template: `
@@ -30,7 +30,7 @@ import { SliderChangeEvent } from 'primeng/slider';
   `,
   styles: [`:host { display: block; }`],
 })
-export class KliniSliderComponent implements ControlValueAccessor {
+export class KlnSliderComponent implements ControlValueAccessor {
   @Input() min = 0;
   @Input() max = 100;
   @Input() step = 1;

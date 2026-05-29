@@ -13,7 +13,7 @@ import { PopoverModule } from 'primeng/popover';
   `,
   styles: [`:host { display: contents; }`],
 })
-export class KliniPopoverComponent {
+export class KlnPopoverComponent {
   @Input() styleClass = '';
   @Input() appendTo: string | HTMLElement = 'body';
   @Input() dismissable = true;

@@ -17,7 +17,7 @@ import { MenuItem } from 'primeng/api';
   `,
   styles: [`:host { display: block; }`],
 })
-export class KliniStepsComponent {
+export class KlnStepsComponent {
   @Input({ required: true }) items: MenuItem[] = [];
   @Input() activeIndex = 0;
   @Input() readonly = true;

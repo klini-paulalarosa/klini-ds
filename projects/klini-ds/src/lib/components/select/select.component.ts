@@ -6,7 +6,7 @@ import { SelectModule } from 'primeng/select';
 import { MessageModule } from 'primeng/message';
 import { CommonModule } from '@angular/common';
 
-export interface KliniSelectOption {
+export interface KlnSelectOption {
   label: string;
   value: unknown;
   disabled?: boolean;
@@ -19,7 +19,7 @@ export interface KliniSelectOption {
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => KliniSelectComponent),
+    useExisting: forwardRef(() => KlnSelectComponent),
     multi: true,
   }],
   template: `
@@ -50,17 +50,17 @@ export interface KliniSelectOption {
     </div>
   `,
   styles: [`
-    .kln-select-wrapper { display: flex; flex-direction: column; gap: var(--klini-space-1); }
-    .kln-select-label { font-size: var(--klini-font-size-body-sm); font-weight: 600; color: var(--klini-field-label); font-family: 'Objective', system-ui, -apple-system, sans-serif; }
-    .kln-select-hint { font-size: var(--klini-font-size-caption); color: var(--klini-text-muted); }
+    .kln-select-wrapper { display: flex; flex-direction: column; gap: var(--kln-space-1); }
+    .kln-select-label { font-size: var(--kln-font-size-body-sm); font-weight: 600; color: var(--kln-field-label); font-family: 'Objective', system-ui, -apple-system, sans-serif; }
+    .kln-select-hint { font-size: var(--kln-font-size-caption); color: var(--kln-text-muted); }
   `],
 })
-export class KliniSelectComponent implements ControlValueAccessor {
+export class KlnSelectComponent implements ControlValueAccessor {
   private static idCounter = 0;
 
   @Input() label = '';
   @Input() placeholder = 'Selecione...';
-  @Input() options: KliniSelectOption[] | unknown[] = [];
+  @Input() options: KlnSelectOption[] | unknown[] = [];
   @Input() optionLabel = 'label';
   @Input() optionValue = 'value';
   @Input() filter = false;
@@ -69,7 +69,7 @@ export class KliniSelectComponent implements ControlValueAccessor {
   @Input() hint = '';
   @Input() disabled = false;
   @Input() styleClass = '';
-  @Input() inputId = `kln-select-${++KliniSelectComponent.idCounter}`;
+  @Input() inputId = `kln-select-${++KlnSelectComponent.idCounter}`;
 
   @Output() valueChange = new EventEmitter<unknown>();
 

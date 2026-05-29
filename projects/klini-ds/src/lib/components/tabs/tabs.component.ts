@@ -30,7 +30,7 @@ import { TabsModule } from 'primeng/tabs';
     `,
   ],
 })
-export class KliniTabsComponent {
+export class KlnTabsComponent {
   @Input() activeTab: string | number = 0;
   @Input() styleClass = '';
 

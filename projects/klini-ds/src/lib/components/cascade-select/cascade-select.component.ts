@@ -8,7 +8,7 @@ import { CascadeSelectModule } from 'primeng/cascadeselect';
   standalone: true,
   imports: [FormsModule, CascadeSelectModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => KliniCascadeSelectComponent), multi: true }],
+  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => KlnCascadeSelectComponent), multi: true }],
   template: `
     <p-cascadeselect
       [(ngModel)]="value"
@@ -26,7 +26,7 @@ import { CascadeSelectModule } from 'primeng/cascadeselect';
   `,
   styles: [`:host { display: block; }`],
 })
-export class KliniCascadeSelectComponent implements ControlValueAccessor {
+export class KlnCascadeSelectComponent implements ControlValueAccessor {
   @Input() options: unknown[] = [];
   @Input() optionLabel = 'label';
   @Input() optionValue = 'value';

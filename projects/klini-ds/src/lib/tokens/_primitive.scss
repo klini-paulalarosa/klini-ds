@@ -8,164 +8,164 @@
   // ---------------------------------------------------------------------------
   // TEAL — escala de referência (nomenclatura legada, usada pelos tokens semânticos)
   // ---------------------------------------------------------------------------
-  --klini-color-teal-100:  #259591;
-  --klini-color-teal-66:   #51AAA7;
-  --klini-color-teal-33:   #7CBFBD;
-  --klini-color-teal-0:    #A8D5D3;
-  --klini-color-teal-wash: #D3EAE9;
+  --kln-color-teal-100:  #259591;
+  --kln-color-teal-66:   #51AAA7;
+  --kln-color-teal-33:   #7CBFBD;
+  --kln-color-teal-0:    #A8D5D3;
+  --kln-color-teal-wash: #D3EAE9;
 
   // TEAL — escala numérica expandida (50–900)
-  --klini-color-teal-50:  #E8F4F3;
-  --klini-color-teal-200: #A8D5D3;
-  --klini-color-teal-300: #7CBFBD;
-  --klini-color-teal-400: #51AAA7;
-  --klini-color-teal-500: #259591;
-  --klini-color-teal-600: #1F7E7B;
-  --klini-color-teal-700: #196766;
-  --klini-color-teal-800: #134F4E;
-  --klini-color-teal-900: #0E3837;
+  --kln-color-teal-50:  #E8F4F3;
+  --kln-color-teal-200: #A8D5D3;
+  --kln-color-teal-300: #7CBFBD;
+  --kln-color-teal-400: #51AAA7;
+  --kln-color-teal-500: #259591;
+  --kln-color-teal-600: #1F7E7B;
+  --kln-color-teal-700: #196766;
+  --kln-color-teal-800: #134F4E;
+  --kln-color-teal-900: #0E3837;
 
   // ---------------------------------------------------------------------------
   // SEA — azul-esverdeado complementar
   // ---------------------------------------------------------------------------
-  --klini-color-sea-100:  #6AA7AE;
-  --klini-color-sea-66:   #88B9BE;
-  --klini-color-sea-33:   #A6CACE;
-  --klini-color-sea-0:    #C3DCDF;
-  --klini-color-sea-wash: #E1EDEF;
+  --kln-color-sea-100:  #6AA7AE;
+  --kln-color-sea-66:   #88B9BE;
+  --kln-color-sea-33:   #A6CACE;
+  --kln-color-sea-0:    #C3DCDF;
+  --kln-color-sea-wash: #E1EDEF;
 
-  --klini-color-sea-200: #A6CACE;
-  --klini-color-sea-300: #88B9BE;
-  --klini-color-sea-400: #7AB0B6;
-  --klini-color-sea-500: #6AA7AE;
-  --klini-color-sea-600: #558A91;
-  --klini-color-sea-700: #406E74;
+  --kln-color-sea-200: #A6CACE;
+  --kln-color-sea-300: #88B9BE;
+  --kln-color-sea-400: #7AB0B6;
+  --kln-color-sea-500: #6AA7AE;
+  --kln-color-sea-600: #558A91;
+  --kln-color-sea-700: #406E74;
 
   // ---------------------------------------------------------------------------
   // ORANGE — acento quente
   // ---------------------------------------------------------------------------
-  --klini-color-orange-100:  #CD7925;
-  --klini-color-orange-66:   #D79451;
-  --klini-color-orange-33:   #E1AF7C;
-  --klini-color-orange-0:    #EBC9A8;
-  --klini-color-orange-wash: #F5E4D3;
+  --kln-color-orange-100:  #CD7925;
+  --kln-color-orange-66:   #D79451;
+  --kln-color-orange-33:   #E1AF7C;
+  --kln-color-orange-0:    #EBC9A8;
+  --kln-color-orange-wash: #F5E4D3;
 
-  --klini-color-orange-200: #EBC9A8;
-  --klini-color-orange-300: #E1AF7C;
-  --klini-color-orange-400: #D79451;
-  --klini-color-orange-500: #CD7925;
-  --klini-color-orange-600: #A8631E;
-  --klini-color-orange-700: #834D17;
+  --kln-color-orange-200: #EBC9A8;
+  --kln-color-orange-300: #E1AF7C;
+  --kln-color-orange-400: #D79451;
+  --kln-color-orange-500: #CD7925;
+  --kln-color-orange-600: #A8631E;
+  --kln-color-orange-700: #834D17;
 
   // ---------------------------------------------------------------------------
   // CORAL — vermelho de feedback / danger
   // ---------------------------------------------------------------------------
-  --klini-color-coral-100:  #E05759;
-  --klini-color-coral-66:   #E6797A;
-  --klini-color-coral-33:   #EC9A9B;
-  --klini-color-coral-0:    #F3BCBD;
-  --klini-color-coral-wash: #F9DDDE;
+  --kln-color-coral-100:  #E05759;
+  --kln-color-coral-66:   #E6797A;
+  --kln-color-coral-33:   #EC9A9B;
+  --kln-color-coral-0:    #F3BCBD;
+  --kln-color-coral-wash: #F9DDDE;
 
-  --klini-color-coral-200: #F3BCBD;
-  --klini-color-coral-300: #EC9A9B;
-  --klini-color-coral-400: #E6797A;
-  --klini-color-coral-500: #E05759;
-  --klini-color-coral-600: #C24648;
-  --klini-color-coral-700: #A33638;
+  --kln-color-coral-200: #F3BCBD;
+  --kln-color-coral-300: #EC9A9B;
+  --kln-color-coral-400: #E6797A;
+  --kln-color-coral-500: #E05759;
+  --kln-color-coral-600: #C24648;
+  --kln-color-coral-700: #A33638;
 
   // ---------------------------------------------------------------------------
   // INK — neutros escuros para textos e fundos
   // ---------------------------------------------------------------------------
-  --klini-color-ink-50:  #F7F8F8;
-  --klini-color-ink-100: #EEEFF0;
-  --klini-color-ink-200: #E2E4E4;
-  --klini-color-ink-300: #C4C8C7;
-  --klini-color-ink-400: #9BA3A2;
-  --klini-color-ink-500: #6B7370;
-  --klini-color-ink-600: #4A5655;
-  --klini-color-ink-700: #344140;
-  --klini-color-ink-800: #1F2D2C;
-  --klini-color-ink-900: #0F1B1A;
+  --kln-color-ink-50:  #F7F8F8;
+  --kln-color-ink-100: #EEEFF0;
+  --kln-color-ink-200: #E2E4E4;
+  --kln-color-ink-300: #C4C8C7;
+  --kln-color-ink-400: #9BA3A2;
+  --kln-color-ink-500: #6B7370;
+  --kln-color-ink-600: #4A5655;
+  --kln-color-ink-700: #344140;
+  --kln-color-ink-800: #1F2D2C;
+  --kln-color-ink-900: #0F1B1A;
 
   // ---------------------------------------------------------------------------
   // SLATE — neutros frios (ex: status em processo)
   // ---------------------------------------------------------------------------
-  --klini-color-slate-100: #ECEFF1;
-  --klini-color-slate-300: #B0BEC5;
-  --klini-color-slate-500: #90A4AE;
-  --klini-color-slate-700: #546E7A;
-  --klini-color-slate-900: #37474F;
+  --kln-color-slate-100: #ECEFF1;
+  --kln-color-slate-300: #B0BEC5;
+  --kln-color-slate-500: #90A4AE;
+  --kln-color-slate-700: #546E7A;
+  --kln-color-slate-900: #37474F;
 
   // ---------------------------------------------------------------------------
   // BASE
   // ---------------------------------------------------------------------------
-  --klini-color-white: #FFFFFF;
-  --klini-color-black: #000000;
+  --kln-color-white: #FFFFFF;
+  --kln-color-black: #000000;
 
   // ---------------------------------------------------------------------------
   // SPACING — escala baseada em 4px
   // ---------------------------------------------------------------------------
-  --klini-space-0:  0px;
-  --klini-space-1:  4px;
-  --klini-space-2:  8px;
-  --klini-space-3:  12px;
-  --klini-space-4:  16px;
-  --klini-space-5:  20px;
-  --klini-space-6:  24px;
-  --klini-space-7:  28px;
-  --klini-space-8:  32px;
-  --klini-space-10: 40px;
-  --klini-space-12: 48px;
-  --klini-space-14: 56px;
-  --klini-space-16: 64px;
-  --klini-space-20: 80px;
-  --klini-space-24: 96px;
+  --kln-space-0:  0px;
+  --kln-space-1:  4px;
+  --kln-space-2:  8px;
+  --kln-space-3:  12px;
+  --kln-space-4:  16px;
+  --kln-space-5:  20px;
+  --kln-space-6:  24px;
+  --kln-space-7:  28px;
+  --kln-space-8:  32px;
+  --kln-space-10: 40px;
+  --kln-space-12: 48px;
+  --kln-space-14: 56px;
+  --kln-space-16: 64px;
+  --kln-space-20: 80px;
+  --kln-space-24: 96px;
 
   // ---------------------------------------------------------------------------
   // BORDER RADIUS
   // ---------------------------------------------------------------------------
-  --klini-radius-none: 0px;
-  --klini-radius-xs:   2px;
-  --klini-radius-sm:   4px;
-  --klini-radius-md:   6px;
-  --klini-radius-lg:   8px;
-  --klini-radius-xl:   12px;
-  --klini-radius-2xl:  16px;
-  --klini-radius-3xl:  20px;
-  --klini-radius-4xl:  24px;
-  --klini-radius-pill: 9999px;
-  --klini-radius-full: 9999px;
+  --kln-radius-none: 0px;
+  --kln-radius-xs:   2px;
+  --kln-radius-sm:   4px;
+  --kln-radius-md:   6px;
+  --kln-radius-lg:   8px;
+  --kln-radius-xl:   12px;
+  --kln-radius-2xl:  16px;
+  --kln-radius-3xl:  20px;
+  --kln-radius-4xl:  24px;
+  --kln-radius-pill: 9999px;
+  --kln-radius-full: 9999px;
 
   // ---------------------------------------------------------------------------
   // TYPOGRAPHY — font sizes
   // ---------------------------------------------------------------------------
-  --klini-font-size-caption:    11px;
-  --klini-font-size-body-sm:    13px;
-  --klini-font-size-body:       14px;
-  --klini-font-size-body-lg:    16px;
-  --klini-font-size-h6:         16px;
-  --klini-font-size-h5:         18px;
-  --klini-font-size-h4:         20px;
-  --klini-font-size-h3:         24px;
-  --klini-font-size-h2:         32px;
-  --klini-font-size-h1:         44px;
-  --klini-font-size-display-sm: 56px;
-  --klini-font-size-display-md: 72px;
-  --klini-font-size-display-lg: 96px;
+  --kln-font-size-caption:    11px;
+  --kln-font-size-body-sm:    13px;
+  --kln-font-size-body:       14px;
+  --kln-font-size-body-lg:    16px;
+  --kln-font-size-h6:         16px;
+  --kln-font-size-h5:         18px;
+  --kln-font-size-h4:         20px;
+  --kln-font-size-h3:         24px;
+  --kln-font-size-h2:         32px;
+  --kln-font-size-h1:         44px;
+  --kln-font-size-display-sm: 56px;
+  --kln-font-size-display-md: 72px;
+  --kln-font-size-display-lg: 96px;
 
   // ---------------------------------------------------------------------------
   // MOTION — duration
   // ---------------------------------------------------------------------------
-  --klini-duration-instant: 0ms;
-  --klini-duration-fast:    120ms;
-  --klini-duration-base:    200ms;
-  --klini-duration-slow:    320ms;
-  --klini-duration-slower:  480ms;
+  --kln-duration-instant: 0ms;
+  --kln-duration-fast:    120ms;
+  --kln-duration-base:    200ms;
+  --kln-duration-slow:    320ms;
+  --kln-duration-slower:  480ms;
 
   // MOTION — easing
-  --klini-easing-standard:  cubic-bezier(0.2, 0, 0, 1);
-  --klini-easing-emphasized: cubic-bezier(0.3, 0, 0, 1);
-  --klini-easing-out:       cubic-bezier(0, 0, 0.2, 1);
-  --klini-easing-in:        cubic-bezier(0.4, 0, 1, 1);
-  --klini-easing-inout:     cubic-bezier(0.4, 0, 0.2, 1);
+  --kln-easing-standard:  cubic-bezier(0.2, 0, 0, 1);
+  --kln-easing-emphasized: cubic-bezier(0.3, 0, 0, 1);
+  --kln-easing-out:       cubic-bezier(0, 0, 0.2, 1);
+  --kln-easing-in:        cubic-bezier(0.4, 0, 1, 1);
+  --kln-easing-inout:     cubic-bezier(0.4, 0, 0.2, 1);
 }

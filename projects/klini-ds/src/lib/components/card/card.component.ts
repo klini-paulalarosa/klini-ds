@@ -24,7 +24,7 @@ import { CommonModule } from '@angular/common';
  * Usos no Klini App: Base · Guia-Info · Nav-Row.
  *
  * Para cards de métricas use klini-kpi-card.
- * Estilização 100% via KliniPrime theme preset + tokens de elevação.
+ * Estilização 100% via KlnPrime theme preset + tokens de elevação.
  *
  * Uso básico:
  *   <klini-card header="Título" subheader="Subtítulo">
@@ -62,18 +62,18 @@ import { CommonModule } from '@angular/common';
   `,
   styles: [`
     :host ::ng-deep .klini-card {
-      border-radius: var(--klini-radius-lg);
-      box-shadow: var(--klini-elevation-sm);
-      transition: box-shadow 150ms var(--klini-easing-inout),
-                  transform   150ms var(--klini-easing-inout);
+      border-radius: var(--kln-radius-lg);
+      box-shadow: var(--kln-elevation-sm);
+      transition: box-shadow 150ms var(--kln-easing-inout),
+                  transform   150ms var(--kln-easing-inout);
     }
 
     :host ::ng-deep .klini-card:where([kliniInteractive]) {
       cursor: pointer;
     }
     :host ::ng-deep .klini-card:where([kliniInteractive]):hover {
-      box-shadow: var(--klini-elevation-md);
-      transform: var(--klini-interaction-hover-transform);
+      box-shadow: var(--kln-elevation-md);
+      transform: var(--kln-interaction-hover-transform);
     }
   `],
 })

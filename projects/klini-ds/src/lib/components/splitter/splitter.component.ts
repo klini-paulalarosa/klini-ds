@@ -18,7 +18,7 @@ import { SplitterModule } from 'primeng/splitter';
   `,
   styles: [`:host { display: block; }`],
 })
-export class KliniSplitterComponent {
+export class KlnSplitterComponent {
   @Input() layout: 'horizontal' | 'vertical' = 'horizontal';
   @Input() gutterSize = 4;
   @Input() stateKey = '';

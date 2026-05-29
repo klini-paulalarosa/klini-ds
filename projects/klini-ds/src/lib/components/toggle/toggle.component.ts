@@ -19,7 +19,7 @@ import { ToggleSwitchModule } from 'primeng/toggleswitch';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => KliniToggleComponent),
+      useExisting: forwardRef(() => KlnToggleComponent),
       multi: true,
     },
   ],
@@ -32,7 +32,7 @@ import { ToggleSwitchModule } from 'primeng/toggleswitch';
     />
   `,
 })
-export class KliniToggleComponent implements ControlValueAccessor {
+export class KlnToggleComponent implements ControlValueAccessor {
   @Input() disabled = false;
   @Input() onLabel = '';
   @Input() offLabel = '';

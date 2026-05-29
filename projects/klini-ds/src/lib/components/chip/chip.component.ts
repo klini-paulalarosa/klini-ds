@@ -6,7 +6,7 @@ import { ChipModule } from 'primeng/chip';
 
 /**
  * Wrapper sobre p-chip do PrimeNG.
- * Estilização 100% via KliniPrime theme preset.
+ * Estilização 100% via KlnPrime theme preset.
  */
 @Component({
   selector: 'kln-chip',

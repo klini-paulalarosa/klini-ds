@@ -5,8 +5,8 @@ import {
   Input,
   Output,
 } from '@angular/core';
-import { KliniPortalHeaderComponent } from '../portal-header/portal-header.component';
-import { KliniPortalFooterComponent } from '../portal-footer/portal-footer.component';
+import { KlnPortalHeaderComponent } from '../portal-header/portal-header.component';
+import { KlnPortalFooterComponent } from '../portal-footer/portal-footer.component';
 
 /**
  * kln-portal-shell
@@ -44,7 +44,7 @@ import { KliniPortalFooterComponent } from '../portal-footer/portal-footer.compo
 @Component({
   selector: 'kln-portal-shell',
   standalone: true,
-  imports: [KliniPortalHeaderComponent, KliniPortalFooterComponent],
+  imports: [KlnPortalHeaderComponent, KlnPortalFooterComponent],
   changeDetection: ChangeDetectionStrategy.OnPush,
   template: `
     <div class="kln-portal-shell">
@@ -68,7 +68,7 @@ import { KliniPortalFooterComponent } from '../portal-footer/portal-footer.compo
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      background: var(--klini-surface-page, #FAFAFA);
+      background: var(--kln-surface-page, #FAFAFA);
     }
 
     .kln-portal-shell__content {
@@ -85,7 +85,7 @@ import { KliniPortalFooterComponent } from '../portal-footer/portal-footer.compo
     }
   `],
 })
-export class KliniPortalShellComponent {
+export class KlnPortalShellComponent {
   /** Repassado para kln-portal-header */
   @Input({ required: true }) userName = '';
 

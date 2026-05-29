@@ -21,6 +21,6 @@ import { ImageCompareModule } from 'primeng/imagecompare';
     </p-imagecompare>
   `,
 })
-export class KliniImageCompareComponent {
+export class KlnImageCompareComponent {
   @Input() styleClass = '';
 }

@@ -16,7 +16,7 @@ import { BlockUI } from 'primeng/blockui';
     </p-blockui>
   `,
 })
-export class KliniBlockUiComponent {
+export class KlnBlockUiComponent {
   @Input() blocked = false;
   @Input() styleClass = '';
 }

@@ -11,7 +11,7 @@ import { KnobModule } from 'primeng/knob';
   changeDetection: ChangeDetectionStrategy.OnPush,
   providers: [{
     provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => KliniKnobComponent),
+    useExisting: forwardRef(() => KlnKnobComponent),
     multi: true,
   }],
   template: `
@@ -24,9 +24,9 @@ import { KnobModule } from 'primeng/knob';
       [readonly]="readonly"
       [disabled]="disabled"
       [showValue]="showValue"
-      [valueColor]="valueColor || 'var(--klini-primary)'"
-      [rangeColor]="rangeColor || 'var(--klini-surface-border)'"
-      [textColor]="textColor || 'var(--klini-text-primary)'"
+      [valueColor]="valueColor || 'var(--kln-primary)'"
+      [rangeColor]="rangeColor || 'var(--kln-surface-border)'"
+      [textColor]="textColor || 'var(--kln-text-primary)'"
       [strokeWidth]="strokeWidth"
       [styleClass]="'kln-knob ' + styleClass"
       (onChange)="onValueChange($event)"
@@ -34,7 +34,7 @@ import { KnobModule } from 'primeng/knob';
   `,
   styles: [`:host { display: inline-block; }`],
 })
-export class KliniKnobComponent implements ControlValueAccessor {
+export class KlnKnobComponent implements ControlValueAccessor {
   @Input() min = 0;
   @Input() max = 100;
   @Input() step = 1;

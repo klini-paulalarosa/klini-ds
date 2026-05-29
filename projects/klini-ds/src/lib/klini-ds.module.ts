@@ -24,94 +24,94 @@ import { CardComponent }             from './components/card/card.component';
 import { DividerComponent }          from './components/divider/divider.component';
 
 // New components
-import { KliniRadioGroupComponent }  from './components/radiobutton/radio-group.component';
-import { KliniTabsComponent }        from './components/tabs/tabs.component';
-import { KliniMenuComponent }        from './components/menu/menu.component';
-import { KliniTableComponent }       from './components/table/table.component';
-import { KliniDialogComponent }      from './components/dialog/dialog.component';
-import { KliniToggleComponent }      from './components/toggle/toggle.component';
-import { KliniAccordionComponent }   from './components/accordion/accordion.component';
-import { KliniAvatarComponent }      from './components/avatar/avatar.component';
-import { KliniSkeletonComponent }    from './components/skeleton/skeleton.component';
-import { KliniProgressBarComponent } from './components/progress-bar/progress-bar.component';
-import { KliniTextareaComponent }    from './components/textarea/textarea.component';
-import { KliniPasswordComponent }    from './components/password/password.component';
-import { KliniInputNumberComponent } from './components/input-number/input-number.component';
-import { KliniPaginatorComponent }   from './components/paginator/paginator.component';
-import { KliniConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
-import { KliniFileUploadComponent }  from './components/file-upload/file-upload.component';
-import { KliniBreadcrumbComponent }  from './components/breadcrumb/breadcrumb.component';
-import { KliniEmptyStateComponent }  from './components/empty-state/empty-state.component';
+import { KlnRadioGroupComponent }  from './components/radiobutton/radio-group.component';
+import { KlnTabsComponent }        from './components/tabs/tabs.component';
+import { KlnMenuComponent }        from './components/menu/menu.component';
+import { KlnTableComponent }       from './components/table/table.component';
+import { KlnDialogComponent }      from './components/dialog/dialog.component';
+import { KlnToggleComponent }      from './components/toggle/toggle.component';
+import { KlnAccordionComponent }   from './components/accordion/accordion.component';
+import { KlnAvatarComponent }      from './components/avatar/avatar.component';
+import { KlnSkeletonComponent }    from './components/skeleton/skeleton.component';
+import { KlnProgressBarComponent } from './components/progress-bar/progress-bar.component';
+import { KlnTextareaComponent }    from './components/textarea/textarea.component';
+import { KlnPasswordComponent }    from './components/password/password.component';
+import { KlnInputNumberComponent } from './components/input-number/input-number.component';
+import { KlnPaginatorComponent }   from './components/paginator/paginator.component';
+import { KlnConfirmDialogComponent } from './components/confirm-dialog/confirm-dialog.component';
+import { KlnFileUploadComponent }  from './components/file-upload/file-upload.component';
+import { KlnBreadcrumbComponent }  from './components/breadcrumb/breadcrumb.component';
+import { KlnEmptyStateComponent }  from './components/empty-state/empty-state.component';
 
 // v0.3 — Data Visualization
-import { KliniChartComponent }      from './components/chart/chart.component';
-import { KliniKnobComponent }       from './components/knob/knob.component';
-import { KliniMeterGroupComponent } from './components/meter-group/meter-group.component';
-import { KliniSliderComponent }     from './components/slider/slider.component';
-import { KliniSelectComponent }     from './components/select/select.component';
+import { KlnChartComponent }      from './components/chart/chart.component';
+import { KlnKnobComponent }       from './components/knob/knob.component';
+import { KlnMeterGroupComponent } from './components/meter-group/meter-group.component';
+import { KlnSliderComponent }     from './components/slider/slider.component';
+import { KlnSelectComponent }     from './components/select/select.component';
 
 // v1.0 — Full PrimeNG coverage
-import { KliniToggleButtonComponent }  from './components/toggle-button/toggle-button.component';
-import { KliniIconFieldComponent }     from './components/icon-field/icon-field.component';
-import { KliniInputOtpComponent }      from './components/input-otp/input-otp.component';
-import { KliniColorPickerComponent }   from './components/color-picker/color-picker.component';
-import { KliniEditorComponent }        from './components/editor/editor.component';
-import { KliniIftaLabelComponent }     from './components/ifta-label/ifta-label.component';
-import { KliniContextMenuComponent }   from './components/context-menu/context-menu.component';
-import { KliniMegaMenuComponent }      from './components/mega-menu/mega-menu.component';
-import { KliniTieredMenuComponent }    from './components/tiered-menu/tiered-menu.component';
-import { KliniPanelMenuComponent }     from './components/panel-menu/panel-menu.component';
-import { KliniScrollTopComponent }     from './components/scroll-top/scroll-top.component';
-import { KliniConfirmPopupComponent }  from './components/confirm-popup/confirm-popup.component';
-import { KliniBlockUiComponent }       from './components/block-ui/block-ui.component';
-import { KliniPickListComponent }      from './components/pick-list/pick-list.component';
-import { KliniTreeTableComponent }     from './components/tree-table/tree-table.component';
-import { KliniInplaceComponent }       from './components/inplace/inplace.component';
-import { KliniGalleriaComponent }      from './components/galleria/galleria.component';
-import { KliniImageCompareComponent }  from './components/image-compare/image-compare.component';
-import { KliniOverlayBadgeComponent }  from './components/overlay-badge/overlay-badge.component';
+import { KlnToggleButtonComponent }  from './components/toggle-button/toggle-button.component';
+import { KlnIconFieldComponent }     from './components/icon-field/icon-field.component';
+import { KlnInputOtpComponent }      from './components/input-otp/input-otp.component';
+import { KlnColorPickerComponent }   from './components/color-picker/color-picker.component';
+import { KlnEditorComponent }        from './components/editor/editor.component';
+import { KlnIftaLabelComponent }     from './components/ifta-label/ifta-label.component';
+import { KlnContextMenuComponent }   from './components/context-menu/context-menu.component';
+import { KlnMegaMenuComponent }      from './components/mega-menu/mega-menu.component';
+import { KlnTieredMenuComponent }    from './components/tiered-menu/tiered-menu.component';
+import { KlnPanelMenuComponent }     from './components/panel-menu/panel-menu.component';
+import { KlnScrollTopComponent }     from './components/scroll-top/scroll-top.component';
+import { KlnConfirmPopupComponent }  from './components/confirm-popup/confirm-popup.component';
+import { KlnBlockUiComponent }       from './components/block-ui/block-ui.component';
+import { KlnPickListComponent }      from './components/pick-list/pick-list.component';
+import { KlnTreeTableComponent }     from './components/tree-table/tree-table.component';
+import { KlnInplaceComponent }       from './components/inplace/inplace.component';
+import { KlnGalleriaComponent }      from './components/galleria/galleria.component';
+import { KlnImageCompareComponent }  from './components/image-compare/image-compare.component';
+import { KlnOverlayBadgeComponent }  from './components/overlay-badge/overlay-badge.component';
 
 // v1.1 — Portal Templates
-import { KliniPortalHeaderComponent }  from './components/portal-header/portal-header.component';
-import { KliniPortalFooterComponent }  from './components/portal-footer/portal-footer.component';
-import { KliniPortalShellComponent }   from './components/portal-shell/portal-shell.component';
-import { KliniPortalLoginComponent }   from './components/portal-login/portal-login.component';
-import { KliniServiceTileComponent }   from './components/service-tile/service-tile.component';
+import { KlnPortalHeaderComponent }  from './components/portal-header/portal-header.component';
+import { KlnPortalFooterComponent }  from './components/portal-footer/portal-footer.component';
+import { KlnPortalShellComponent }   from './components/portal-shell/portal-shell.component';
+import { KlnPortalLoginComponent }   from './components/portal-login/portal-login.component';
+import { KlnServiceTileComponent }   from './components/service-tile/service-tile.component';
 
 // v0.4 — Forms, Layout, Feedback & Overlay, Navigation, Data & Content
-import { KliniCheckboxComponent }       from './components/checkbox/checkbox.component';
-import { KliniFloatLabelComponent }     from './components/float-label/float-label.component';
-import { KliniMultiSelectComponent }    from './components/multiselect/multiselect.component';
-import { KliniAutoCompleteComponent }   from './components/autocomplete/autocomplete.component';
-import { KliniInputMaskComponent }      from './components/input-mask/input-mask.component';
-import { KliniRatingComponent }         from './components/rating/rating.component';
-import { KliniSelectButtonComponent }   from './components/select-button/select-button.component';
-import { KliniListboxComponent }        from './components/listbox/listbox.component';
-import { KliniTreeSelectComponent }     from './components/tree-select/tree-select.component';
-import { KliniCascadeSelectComponent }  from './components/cascade-select/cascade-select.component';
-import { KliniInputGroupComponent }     from './components/input-group/input-group.component';
-import { KliniButtonGroupComponent }    from './components/button-group/button-group.component';
-import { KliniToolbarComponent }        from './components/toolbar/toolbar.component';
-import { KliniPanelComponent }          from './components/panel/panel.component';
-import { KliniFieldsetComponent }       from './components/fieldset/fieldset.component';
-import { KliniSplitterComponent }       from './components/splitter/splitter.component';
-import { KliniScrollPanelComponent }    from './components/scroll-panel/scroll-panel.component';
-import { KliniImageComponent }          from './components/image/image.component';
-import { KliniAvatarGroupComponent }    from './components/avatar-group/avatar-group.component';
-import { KliniMessagesComponent }       from './components/messages/messages.component';
-import { KliniPopoverComponent }        from './components/popover/popover.component';
-import { KliniSpeedDialComponent }      from './components/speed-dial/speed-dial.component';
-import { KliniProgressSpinnerComponent } from './components/progress-spinner/progress-spinner.component';
-import { KliniMenubarComponent }        from './components/menubar/menubar.component';
-import { KliniTabMenuComponent }        from './components/tab-menu/tab-menu.component';
-import { KliniStepsComponent }          from './components/steps/steps.component';
-import { KliniSplitButtonComponent }    from './components/split-button/split-button.component';
-import { KliniTimelineComponent }       from './components/timeline/timeline.component';
-import { KliniDataViewComponent }       from './components/dataview/dataview.component';
-import { KliniCarouselComponent }       from './components/carousel/carousel.component';
-import { KliniTreeComponent }           from './components/tree/tree.component';
-import { KliniOrderListComponent }      from './components/order-list/order-list.component';
-import { KliniVirtualScrollerComponent } from './components/virtual-scroller/virtual-scroller.component';
+import { KlnCheckboxComponent }       from './components/checkbox/checkbox.component';
+import { KlnFloatLabelComponent }     from './components/float-label/float-label.component';
+import { KlnMultiSelectComponent }    from './components/multiselect/multiselect.component';
+import { KlnAutoCompleteComponent }   from './components/autocomplete/autocomplete.component';
+import { KlnInputMaskComponent }      from './components/input-mask/input-mask.component';
+import { KlnRatingComponent }         from './components/rating/rating.component';
+import { KlnSelectButtonComponent }   from './components/select-button/select-button.component';
+import { KlnListboxComponent }        from './components/listbox/listbox.component';
+import { KlnTreeSelectComponent }     from './components/tree-select/tree-select.component';
+import { KlnCascadeSelectComponent }  from './components/cascade-select/cascade-select.component';
+import { KlnInputGroupComponent }     from './components/input-group/input-group.component';
+import { KlnButtonGroupComponent }    from './components/button-group/button-group.component';
+import { KlnToolbarComponent }        from './components/toolbar/toolbar.component';
+import { KlnPanelComponent }          from './components/panel/panel.component';
+import { KlnFieldsetComponent }       from './components/fieldset/fieldset.component';
+import { KlnSplitterComponent }       from './components/splitter/splitter.component';
+import { KlnScrollPanelComponent }    from './components/scroll-panel/scroll-panel.component';
+import { KlnImageComponent }          from './components/image/image.component';
+import { KlnAvatarGroupComponent }    from './components/avatar-group/avatar-group.component';
+import { KlnMessagesComponent }       from './components/messages/messages.component';
+import { KlnPopoverComponent }        from './components/popover/popover.component';
+import { KlnSpeedDialComponent }      from './components/speed-dial/speed-dial.component';
+import { KlnProgressSpinnerComponent } from './components/progress-spinner/progress-spinner.component';
+import { KlnMenubarComponent }        from './components/menubar/menubar.component';
+import { KlnTabMenuComponent }        from './components/tab-menu/tab-menu.component';
+import { KlnStepsComponent }          from './components/steps/steps.component';
+import { KlnSplitButtonComponent }    from './components/split-button/split-button.component';
+import { KlnTimelineComponent }       from './components/timeline/timeline.component';
+import { KlnDataViewComponent }       from './components/dataview/dataview.component';
+import { KlnCarouselComponent }       from './components/carousel/carousel.component';
+import { KlnTreeComponent }           from './components/tree/tree.component';
+import { KlnOrderListComponent }      from './components/order-list/order-list.component';
+import { KlnVirtualScrollerComponent } from './components/virtual-scroller/virtual-scroller.component';
 
 const COMPONENTS = [
   // Core (v0.1)
@@ -119,38 +119,38 @@ const COMPONENTS = [
   KpiCardComponent, ToastComponent, StepperComponent, DrawerComponent,
   InputTextComponent, CalendarComponent, MessageComponent, CardComponent, DividerComponent,
   // New (v0.2)
-  KliniRadioGroupComponent, KliniTabsComponent, KliniMenuComponent, KliniTableComponent,
-  KliniDialogComponent, KliniToggleComponent, KliniAccordionComponent, KliniAvatarComponent,
-  KliniSkeletonComponent, KliniProgressBarComponent, KliniTextareaComponent,
-  KliniPasswordComponent, KliniInputNumberComponent, KliniPaginatorComponent,
-  KliniConfirmDialogComponent, KliniFileUploadComponent, KliniBreadcrumbComponent,
-  KliniEmptyStateComponent,
+  KlnRadioGroupComponent, KlnTabsComponent, KlnMenuComponent, KlnTableComponent,
+  KlnDialogComponent, KlnToggleComponent, KlnAccordionComponent, KlnAvatarComponent,
+  KlnSkeletonComponent, KlnProgressBarComponent, KlnTextareaComponent,
+  KlnPasswordComponent, KlnInputNumberComponent, KlnPaginatorComponent,
+  KlnConfirmDialogComponent, KlnFileUploadComponent, KlnBreadcrumbComponent,
+  KlnEmptyStateComponent,
   // Data Visualization (v0.3)
-  KliniChartComponent, KliniKnobComponent, KliniMeterGroupComponent,
-  KliniSliderComponent, KliniSelectComponent,
+  KlnChartComponent, KlnKnobComponent, KlnMeterGroupComponent,
+  KlnSliderComponent, KlnSelectComponent,
   // v0.4 — Forms, Layout, Feedback & Overlay, Navigation, Data & Content
-  KliniCheckboxComponent, KliniFloatLabelComponent, KliniMultiSelectComponent,
-  KliniAutoCompleteComponent, KliniInputMaskComponent, KliniRatingComponent,
-  KliniSelectButtonComponent, KliniListboxComponent, KliniTreeSelectComponent,
-  KliniCascadeSelectComponent, KliniInputGroupComponent, KliniButtonGroupComponent,
-  KliniToolbarComponent, KliniPanelComponent, KliniFieldsetComponent,
-  KliniSplitterComponent, KliniScrollPanelComponent, KliniImageComponent,
-  KliniAvatarGroupComponent, KliniMessagesComponent, KliniPopoverComponent,
-  KliniSpeedDialComponent, KliniProgressSpinnerComponent, KliniMenubarComponent,
-  KliniTabMenuComponent, KliniStepsComponent, KliniSplitButtonComponent,
-  KliniTimelineComponent, KliniDataViewComponent, KliniCarouselComponent,
-  KliniTreeComponent, KliniOrderListComponent, KliniVirtualScrollerComponent,
+  KlnCheckboxComponent, KlnFloatLabelComponent, KlnMultiSelectComponent,
+  KlnAutoCompleteComponent, KlnInputMaskComponent, KlnRatingComponent,
+  KlnSelectButtonComponent, KlnListboxComponent, KlnTreeSelectComponent,
+  KlnCascadeSelectComponent, KlnInputGroupComponent, KlnButtonGroupComponent,
+  KlnToolbarComponent, KlnPanelComponent, KlnFieldsetComponent,
+  KlnSplitterComponent, KlnScrollPanelComponent, KlnImageComponent,
+  KlnAvatarGroupComponent, KlnMessagesComponent, KlnPopoverComponent,
+  KlnSpeedDialComponent, KlnProgressSpinnerComponent, KlnMenubarComponent,
+  KlnTabMenuComponent, KlnStepsComponent, KlnSplitButtonComponent,
+  KlnTimelineComponent, KlnDataViewComponent, KlnCarouselComponent,
+  KlnTreeComponent, KlnOrderListComponent, KlnVirtualScrollerComponent,
   // v1.0 — Full PrimeNG coverage
-  KliniToggleButtonComponent, KliniIconFieldComponent, KliniInputOtpComponent,
-  KliniColorPickerComponent, KliniEditorComponent, KliniIftaLabelComponent,
-  KliniContextMenuComponent, KliniMegaMenuComponent, KliniTieredMenuComponent,
-  KliniPanelMenuComponent, KliniScrollTopComponent, KliniConfirmPopupComponent,
-  KliniBlockUiComponent, KliniPickListComponent, KliniTreeTableComponent,
-  KliniInplaceComponent, KliniGalleriaComponent, KliniImageCompareComponent,
-  KliniOverlayBadgeComponent,
+  KlnToggleButtonComponent, KlnIconFieldComponent, KlnInputOtpComponent,
+  KlnColorPickerComponent, KlnEditorComponent, KlnIftaLabelComponent,
+  KlnContextMenuComponent, KlnMegaMenuComponent, KlnTieredMenuComponent,
+  KlnPanelMenuComponent, KlnScrollTopComponent, KlnConfirmPopupComponent,
+  KlnBlockUiComponent, KlnPickListComponent, KlnTreeTableComponent,
+  KlnInplaceComponent, KlnGalleriaComponent, KlnImageCompareComponent,
+  KlnOverlayBadgeComponent,
   // v1.1 — Portal Templates
-  KliniPortalHeaderComponent, KliniPortalFooterComponent, KliniPortalShellComponent,
-  KliniPortalLoginComponent, KliniServiceTileComponent,
+  KlnPortalHeaderComponent, KlnPortalFooterComponent, KlnPortalShellComponent,
+  KlnPortalLoginComponent, KlnServiceTileComponent,
 ];
 
 const DIRECTIVE_MODULES = [
@@ -172,4 +172,4 @@ const DIRECTIVE_MODULES = [
   exports:   [...COMPONENTS, ...DIRECTIVE_MODULES],
   providers: [MessageService, ConfirmationService, DialogService],
 })
-export class KliniDsModule {}
+export class KlnDsModule {}

@@ -1,14 +1,14 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { BadgeModule } from 'primeng/badge';
 
-export type KliniBadgeSeverity =
+export type KlnBadgeSeverity =
   | 'primary' | 'secondary' | 'success' | 'warn' | 'danger' | 'info' | 'contrast' | 'help';
 
-export type KliniBadgeSize = 'small' | 'large' | 'xlarge';
+export type KlnBadgeSize = 'small' | 'large' | 'xlarge';
 
 /**
  * Wrapper sobre p-badge do PrimeNG.
- * Estilização 100% via KliniPrime theme preset.
+ * Estilização 100% via KlnPrime theme preset.
  */
 @Component({
   selector: 'kln-badge',
@@ -26,7 +26,7 @@ export type KliniBadgeSize = 'small' | 'large' | 'xlarge';
 })
 export class BadgeComponent {
   @Input({ required: true }) value: string | number = '';
-  @Input() severity: KliniBadgeSeverity = 'primary';
-  @Input() size: KliniBadgeSize         = 'large';
+  @Input() severity: KlnBadgeSeverity = 'primary';
+  @Input() size: KlnBadgeSize         = 'large';
   @Input() styleClass = '';
 }

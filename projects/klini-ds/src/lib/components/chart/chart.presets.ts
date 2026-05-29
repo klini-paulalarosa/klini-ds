@@ -1,5 +1,5 @@
 /**
- * KliniChartPresets
+ * KlnChartPresets
  *
  * Opções Chart.js pré-configuradas por variante, aplicando automaticamente
  * os tokens visuais do DS (cores de texto, grid, legenda).
@@ -8,12 +8,12 @@
  *   <kln-chart type="line" preset="line" [data]="data" />
  *
  * Uso direto para customização:
- *   import { KliniChartPresets } from '@klini-saude/ds';
- *   options = { ...KliniChartPresets.line(), plugins: { legend: { display: false } } };
+ *   import { KlnChartPresets } from '@klini-saude/ds';
+ *   options = { ...KlnChartPresets.line(), plugins: { legend: { display: false } } };
  */
-import { KliniChartTokens as T } from './chart.tokens';
+import { KlnChartTokens as T } from './chart.tokens';
 
-export type KliniChartPreset =
+export type KlnChartPreset =
   | 'bar'
   | 'bar-horizontal'
   | 'bar-stacked'
@@ -93,7 +93,7 @@ function radialAxis(): AnyObj {
 
 // ─── Presets por variante ──────────────────────────────────────────────────────
 
-export const KliniChartPresets: Record<KliniChartPreset, () => AnyObj> = {
+export const KlnChartPresets: Record<KlnChartPreset, () => AnyObj> = {
 
   /** Bar chart vertical */
   'bar': () => ({
@@ -194,7 +194,7 @@ export const KliniChartPresets: Record<KliniChartPreset, () => AnyObj> = {
     scales:   { x: xAxis(true), y: yAxis() },
   }),
 
-  /** Mixed chart — combina bar e line no mesmo gráfico (defina type por dataset via KliniChartData.mixed) */
+  /** Mixed chart — combina bar e line no mesmo gráfico (defina type por dataset via KlnChartData.mixed) */
   'mixed': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     elements: { line: { tension: 0.4, borderWidth: 2 }, point: { radius: 3, hoverRadius: 5 } },
@@ -202,7 +202,7 @@ export const KliniChartPresets: Record<KliniChartPreset, () => AnyObj> = {
     scales:   { x: xAxis(false), y: yAxis() },
   }),
 
-  /** Time Series — eixo X com datas/strings, use KliniChartData.timeSeries para o dataset */
+  /** Time Series — eixo X com datas/strings, use KlnChartData.timeSeries para o dataset */
   'time-series': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     elements: { line: { tension: 0.4, borderWidth: 2 }, point: { radius: 3, hoverRadius: 5 } },
@@ -306,6 +306,6 @@ export const KliniChartPresets: Record<KliniChartPreset, () => AnyObj> = {
 };
 
 /** Retorna as options do preset. Retorna {} se o preset não existir. */
-export function getChartPreset(preset: KliniChartPreset): AnyObj {
-  return KliniChartPresets[preset]?.() ?? {};
+export function getChartPreset(preset: KlnChartPreset): AnyObj {
+  return KlnChartPresets[preset]?.() ?? {};
 }

@@ -20,7 +20,7 @@ import { TreeNode } from 'primeng/api';
   `,
   styles: [`:host { display: block; }`],
 })
-export class KliniTreeComponent {
+export class KlnTreeComponent {
   @Input({ required: true }) nodes: TreeNode[] = [];
   @Input() selectionMode: 'single' | 'multiple' | 'checkbox' | null = null;
   @Input() selection: TreeNode | TreeNode[] | null = null;

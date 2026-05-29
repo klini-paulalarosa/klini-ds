@@ -19,7 +19,7 @@ import { MessageModule } from 'primeng/message';
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => KliniPasswordComponent),
+      useExisting: forwardRef(() => KlnPasswordComponent),
       multi: true,
     },
   ],
@@ -53,27 +53,27 @@ import { MessageModule } from 'primeng/message';
       .klini-password-wrapper {
         display: flex;
         flex-direction: column;
-        gap: var(--klini-space-1);
+        gap: var(--kln-space-1);
       }
       .klini-password-label {
-        font-size: var(--klini-font-size-body-sm);
+        font-size: var(--kln-font-size-body-sm);
         font-weight: 600;
-        color: var(--klini-field-label);
+        color: var(--kln-field-label);
         font-family: 'Objective', system-ui, -apple-system, sans-serif;
       }
       .klini-password-hint {
-        font-size: var(--klini-font-size-caption);
-        color: var(--klini-text-muted);
+        font-size: var(--kln-font-size-caption);
+        color: var(--kln-text-muted);
       }
     `,
   ],
 })
-export class KliniPasswordComponent implements ControlValueAccessor {
+export class KlnPasswordComponent implements ControlValueAccessor {
   private static idCounter = 0;
 
   @Input() label = '';
   @Input() placeholder = '';
-  @Input() inputId = `klini-password-${++KliniPasswordComponent.idCounter}`;
+  @Input() inputId = `klini-password-${++KlnPasswordComponent.idCounter}`;
   @Input() feedback = false;
   @Input() toggleMask = true;
   @Input() errorMessage = '';

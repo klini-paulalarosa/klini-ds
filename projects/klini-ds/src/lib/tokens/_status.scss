@@ -8,40 +8,40 @@
   // ---------------------------------------------------------------------------
   // EM PROCESSO — guia em andamento / auditoria
   // ---------------------------------------------------------------------------
-  --klini-status-em-processo-solid:    var(--klini-color-slate-500);
-  --klini-status-em-processo-bg:       var(--klini-color-slate-100);
-  --klini-status-em-processo-fg:       var(--klini-color-slate-700);
-  --klini-status-em-processo-on-solid: var(--klini-color-white);
+  --kln-status-em-processo-solid:    var(--kln-color-slate-500);
+  --kln-status-em-processo-bg:       var(--kln-color-slate-100);
+  --kln-status-em-processo-fg:       var(--kln-color-slate-700);
+  --kln-status-em-processo-on-solid: var(--kln-color-white);
 
   // ---------------------------------------------------------------------------
   // AUTORIZADA
   // ---------------------------------------------------------------------------
-  --klini-status-autorizada-solid:    var(--klini-color-teal-100);
-  --klini-status-autorizada-bg:       var(--klini-color-teal-wash);
-  --klini-status-autorizada-fg:       var(--klini-color-teal-700);
-  --klini-status-autorizada-on-solid: var(--klini-color-white);
+  --kln-status-autorizada-solid:    var(--kln-color-teal-100);
+  --kln-status-autorizada-bg:       var(--kln-color-teal-wash);
+  --kln-status-autorizada-fg:       var(--kln-color-teal-700);
+  --kln-status-autorizada-on-solid: var(--kln-color-white);
 
   // ---------------------------------------------------------------------------
   // PARCIALMENTE — autorização parcial
   // ---------------------------------------------------------------------------
-  --klini-status-parcialmente-solid:    var(--klini-color-sea-100);
-  --klini-status-parcialmente-bg:       var(--klini-color-sea-wash);
-  --klini-status-parcialmente-fg:       var(--klini-color-sea-700);
-  --klini-status-parcialmente-on-solid: var(--klini-color-white);
+  --kln-status-parcialmente-solid:    var(--kln-color-sea-100);
+  --kln-status-parcialmente-bg:       var(--kln-color-sea-wash);
+  --kln-status-parcialmente-fg:       var(--kln-color-sea-700);
+  --kln-status-parcialmente-on-solid: var(--kln-color-white);
 
   // ---------------------------------------------------------------------------
   // NEGADO
   // ---------------------------------------------------------------------------
-  --klini-status-negado-solid:    var(--klini-color-coral-100);
-  --klini-status-negado-bg:       var(--klini-color-coral-wash);
-  --klini-status-negado-fg:       var(--klini-color-coral-700);
-  --klini-status-negado-on-solid: var(--klini-color-white);
+  --kln-status-negado-solid:    var(--kln-color-coral-100);
+  --kln-status-negado-bg:       var(--kln-color-coral-wash);
+  --kln-status-negado-fg:       var(--kln-color-coral-700);
+  --kln-status-negado-on-solid: var(--kln-color-white);
 
   // ---------------------------------------------------------------------------
   // INATIVA
   // ---------------------------------------------------------------------------
-  --klini-status-inativa-solid:    var(--klini-color-orange-100);
-  --klini-status-inativa-bg:       var(--klini-color-orange-wash);
-  --klini-status-inativa-fg:       var(--klini-color-orange-700);
-  --klini-status-inativa-on-solid: var(--klini-color-white);
+  --kln-status-inativa-solid:    var(--kln-color-orange-100);
+  --kln-status-inativa-bg:       var(--kln-color-orange-wash);
+  --kln-status-inativa-fg:       var(--kln-color-orange-700);
+  --kln-status-inativa-on-solid: var(--kln-color-white);
 }

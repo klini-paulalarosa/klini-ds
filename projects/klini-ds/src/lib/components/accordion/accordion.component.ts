@@ -8,7 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { AccordionModule } from 'primeng/accordion';
 
-export interface KliniAccordionItem {
+export interface KlnAccordionItem {
   header: string;
   content?: string;
   value: string;
@@ -31,7 +31,7 @@ export interface KliniAccordionItem {
     </p-accordion>
   `,
 })
-export class KliniAccordionComponent {
+export class KlnAccordionComponent {
   @Input() multiple = false;
   @Input() activeValue: string | number | string[] | number[] = '';
   @Input() styleClass = '';

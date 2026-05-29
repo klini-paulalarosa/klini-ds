@@ -4,9 +4,9 @@ import Aura from '@primeng/themes/aura';
 // =============================================================================
 // Klini Prime — PrimeNG theme preset
 // Mapeia os tokens do Klini DS para o sistema de tokens do PrimeNG
-// Uso: providePrimeNG({ theme: { preset: KliniPrime } })
+// Uso: providePrimeNG({ theme: { preset: KlnPrime } })
 // =============================================================================
-export const KliniPrime = definePreset(Aura, {
+export const KlnPrime = definePreset(Aura, {
   semantic: {
     primary: {
       50:  '{teal.50}',
@@ -24,83 +24,83 @@ export const KliniPrime = definePreset(Aura, {
     colorScheme: {
       light: {
         primary: {
-          color:          'var(--klini-action-primary)',
-          inverseColor:   'var(--klini-color-white)',
-          hoverColor:     'var(--klini-action-primary-hover)',
-          activeColor:    'var(--klini-action-primary-active)',
+          color:          'var(--kln-action-primary)',
+          inverseColor:   'var(--kln-color-white)',
+          hoverColor:     'var(--kln-action-primary-hover)',
+          activeColor:    'var(--kln-action-primary-active)',
         },
         surface: {
-          0:   'var(--klini-color-white)',
-          50:  'var(--klini-surface-page)',
-          100: 'var(--klini-surface-sunken)',
-          900: 'var(--klini-surface-inverse)',
-          950: 'var(--klini-color-ink-900)',
+          0:   'var(--kln-color-white)',
+          50:  'var(--kln-surface-page)',
+          100: 'var(--kln-surface-sunken)',
+          900: 'var(--kln-surface-inverse)',
+          950: 'var(--kln-color-ink-900)',
         },
       },
     },
   },
   components: {
     button: {
-      borderRadius:       'var(--klini-radius-lg)',
-      sm: { fontSize:     'var(--klini-font-size-body-sm)', padding: '0 var(--klini-space-3)', height: 'var(--klini-size-button-sm)' },
-      md: { fontSize:     'var(--klini-font-size-body)',    padding: '0 var(--klini-space-4)', height: 'var(--klini-size-button-md)' },
-      lg: { fontSize:     'var(--klini-font-size-body-lg)', padding: '0 var(--klini-space-5)', height: 'var(--klini-size-button-lg)' },
+      borderRadius:       'var(--kln-radius-lg)',
+      sm: { fontSize:     'var(--kln-font-size-body-sm)', padding: '0 var(--kln-space-3)', height: 'var(--kln-size-button-sm)' },
+      md: { fontSize:     'var(--kln-font-size-body)',    padding: '0 var(--kln-space-4)', height: 'var(--kln-size-button-md)' },
+      lg: { fontSize:     'var(--kln-font-size-body-lg)', padding: '0 var(--kln-space-5)', height: 'var(--kln-size-button-lg)' },
     },
     inputtext: {
-      borderRadius:  'var(--klini-radius-lg)',
-      sm: { fontSize: 'var(--klini-font-size-body-sm)', height: 'var(--klini-size-input-sm)' },
-      md: { fontSize: 'var(--klini-font-size-body)',    height: 'var(--klini-size-input-md)' },
-      lg: { fontSize: 'var(--klini-font-size-body-lg)', height: 'var(--klini-size-input-lg)' },
-      background:    'var(--klini-field-bg)',
-      borderColor:   'var(--klini-field-border)',
-      hoverBorderColor: 'var(--klini-field-border-hover)',
-      focusBorderColor: 'var(--klini-field-border-focus)',
-      color:         'var(--klini-field-value)',
-      placeholderColor: 'var(--klini-field-placeholder)',
+      borderRadius:  'var(--kln-radius-lg)',
+      sm: { fontSize: 'var(--kln-font-size-body-sm)', height: 'var(--kln-size-input-sm)' },
+      md: { fontSize: 'var(--kln-font-size-body)',    height: 'var(--kln-size-input-md)' },
+      lg: { fontSize: 'var(--kln-font-size-body-lg)', height: 'var(--kln-size-input-lg)' },
+      background:    'var(--kln-field-bg)',
+      borderColor:   'var(--kln-field-border)',
+      hoverBorderColor: 'var(--kln-field-border-hover)',
+      focusBorderColor: 'var(--kln-field-border-focus)',
+      color:         'var(--kln-field-value)',
+      placeholderColor: 'var(--kln-field-placeholder)',
     },
     select: {
-      borderRadius:  'var(--klini-radius-lg)',
-      background:    'var(--klini-field-bg)',
-      borderColor:   'var(--klini-field-border)',
-      hoverBorderColor: 'var(--klini-field-border-hover)',
-      focusBorderColor: 'var(--klini-field-border-focus)',
-      color:         'var(--klini-field-value)',
+      borderRadius:  'var(--kln-radius-lg)',
+      background:    'var(--kln-field-bg)',
+      borderColor:   'var(--kln-field-border)',
+      hoverBorderColor: 'var(--kln-field-border-hover)',
+      focusBorderColor: 'var(--kln-field-border-focus)',
+      color:         'var(--kln-field-value)',
     },
     card: {
-      borderRadius:  'var(--klini-radius-xl)',
-      background:    'var(--klini-surface-raised)',
+      borderRadius:  'var(--kln-radius-xl)',
+      background:    'var(--kln-surface-raised)',
       shadow:        '0 1px 3px 0 rgb(0 0 0 / 0.08), 0 1px 2px -1px rgb(0 0 0 / 0.06)',
     },
     dialog: {
-      borderRadius:  'var(--klini-radius-2xl)',
-      background:    'var(--klini-overlay-modal)',
+      borderRadius:  'var(--kln-radius-2xl)',
+      background:    'var(--kln-overlay-modal)',
     },
     tooltip: {
-      background:    'var(--klini-overlay-tooltip)',
-      color:         'var(--klini-color-white)',
-      borderRadius:  'var(--klini-radius-md)',
+      background:    'var(--kln-overlay-tooltip)',
+      color:         'var(--kln-color-white)',
+      borderRadius:  'var(--kln-radius-md)',
     },
     badge: {
-      borderRadius:  'var(--klini-radius-pill)',
+      borderRadius:  'var(--kln-radius-pill)',
     },
     tag: {
-      borderRadius:  'var(--klini-radius-sm)',
+      borderRadius:  'var(--kln-radius-sm)',
     },
     tabs: {
-      tabBorderColor: 'var(--klini-border-default)',
-      activeTabBorderColor: 'var(--klini-action-primary)',
-      activeTabColor: 'var(--klini-action-primary)',
+      tabBorderColor: 'var(--kln-border-default)',
+      activeTabBorderColor: 'var(--kln-action-primary)',
+      activeTabColor: 'var(--kln-action-primary)',
     },
     accordion: {
-      borderColor:   'var(--klini-border-default)',
-      borderRadius:  'var(--klini-radius-lg)',
+      borderColor:   'var(--kln-border-default)',
+      borderRadius:  'var(--kln-radius-lg)',
     },
     message: {
-      borderRadius:  'var(--klini-radius-lg)',
+      borderRadius:  'var(--kln-radius-lg)',
     },
     skeleton: {
-      background:    'var(--klini-color-ink-100)',
-      animationBackground: 'var(--klini-color-ink-200)',
+      background:    'var(--kln-color-ink-100)',
+      animationBackground: 'var(--kln-color-ink-200)',
     },
   },
 });

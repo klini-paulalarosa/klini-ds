@@ -40,13 +40,13 @@ No `app.config.ts`:
 
 ```typescript
 import { providePrimeNG } from 'primeng/config';
-import { KliniPrime } from '@klini-saude/ds';
+import { KlnPrime } from '@klini-saude/ds';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     providePrimeNG({
       theme: {
-        preset: KliniPrime,
+        preset: KlnPrime,
         options: { darkModeSelector: '.dark' },
       },
     }),
@@ -59,10 +59,10 @@ export const appConfig: ApplicationConfig = {
 **Standalone (recomendado):**
 
 ```typescript
-import { KliniButtonComponent, KliniChartComponent } from '@klini-saude/ds';
+import { KlnButtonComponent, KlnChartComponent } from '@klini-saude/ds';
 
 @Component({
-  imports: [KliniButtonComponent, KliniChartComponent],
+  imports: [KlnButtonComponent, KlnChartComponent],
   template: `
     <kln-button label="Salvar" severity="primary" />
     <kln-chart type="bar" [data]="chartData" />
@@ -74,9 +74,9 @@ export class MinhaPage {}
 **NgModule:**
 
 ```typescript
-import { KliniDsModule } from '@klini-saude/ds';
+import { KlnDsModule } from '@klini-saude/ds';
 
-@NgModule({ imports: [KliniDsModule] })
+@NgModule({ imports: [KlnDsModule] })
 export class AppModule {}
 ```
 
@@ -103,10 +103,10 @@ export class AppModule {}
 
 | Componente | Selector | Inputs principais |
 |---|---|---|
-| Toast | `kln-toast` | service `KliniToastService` — `show({ severity, summary, detail })` |
+| Toast | `kln-toast` | service `KlnToastService` — `show({ severity, summary, detail })` |
 | Message | `kln-message` | `text`, `severity`, `closable` |
 | Messages | `kln-messages` | `value[]` (ToastMessageOptions), `closable` |
-| Confirm Dialog | `kln-confirm-dialog` | service `KliniConfirmService` — `confirm({ message, accept })` |
+| Confirm Dialog | `kln-confirm-dialog` | service `KlnConfirmService` — `confirm({ message, accept })` |
 | Popover | `kln-popover` | `appendTo`, slot padrão para conteúdo |
 | Speed Dial | `kln-speed-dial` | `items[]`, `direction`, `transitionDelay`, `type` |
 | Progress Spinner | `kln-progress-spinner` | `strokeWidth`, `fill`, `animationDuration` |
@@ -185,7 +185,7 @@ export class AppModule {}
 
 | Componente | Selector | Inputs principais |
 |---|---|---|
-| Timeline | `kln-timeline` | `value[]` (KliniTimelineEvent), `layout`, `align` |
+| Timeline | `kln-timeline` | `value[]` (KlnTimelineEvent), `layout`, `align` |
 | DataView | `kln-dataview` | `value[]`, `layout` (list \| grid), `paginator`, `rows` |
 | Carousel | `kln-carousel` | `value[]`, `numVisible`, `numScroll`, `circular`, `autoplayInterval` |
 | Tree | `kln-tree` | `value[]` (TreeNode), `selectionMode`, `loading`, `filter` |
@@ -237,37 +237,37 @@ automaticamente as opções de grid, legenda, tooltip e cores de texto do DS —
 <kln-chart type="bubble"  preset="bubble"  [data]="data" />
 ```
 
-### Cores do DS em datasets — `KliniChartTokens`
+### Cores do DS em datasets — `KlnChartTokens`
 
 Chart.js renderiza em `<canvas>` — CSS variables não chegam automaticamente.
-Use `KliniChartTokens` para resolver os tokens do DS em runtime:
+Use `KlnChartTokens` para resolver os tokens do DS em runtime:
 
 ```typescript
-import { KliniChartTokens } from '@klini-saude/ds';
+import { KlnChartTokens } from '@klini-saude/ds';
 
 // Categorical (4 séries da marca)
-backgroundColor: KliniChartTokens.categorical
+backgroundColor: KlnChartTokens.categorical
 // → ['#259591', '#6aa7ae', '#cd7925', '#e05759']
 
 // Status semânticos
 backgroundColor: [
-  KliniChartTokens.status.success,   // aprovado
-  KliniChartTokens.status.danger,    // negado
-  KliniChartTokens.status.secondary, // em processo
+  KlnChartTokens.status.success,   // aprovado
+  KlnChartTokens.status.danger,    // negado
+  KlnChartTokens.status.secondary, // em processo
 ]
 
 // Sequential teal (intensidade / heatmap)
-backgroundColor: KliniChartTokens.sequential
+backgroundColor: KlnChartTokens.sequential
 // → 5 cores: WASH → 33 → 100 → DEEP → INK
 ```
 
-### `KliniChartData` — construtor de dados sem conhecer Chart.js
+### `KlnChartData` — construtor de dados sem conhecer Chart.js
 
 ```typescript
-import { KliniChartData } from '@klini-saude/ds';
+import { KlnChartData } from '@klini-saude/ds';
 
 // Bar / Line / Area — múltiplas séries (cores aplicadas automaticamente)
-data = KliniChartData.cartesian(
+data = KlnChartData.cartesian(
   ['Jan', 'Fev', 'Mar', 'Abr'],
   [
     { label: 'Cardio',   data: [40, 55, 48, 62] },
@@ -277,19 +277,19 @@ data = KliniChartData.cartesian(
 );
 
 // Pie / Doughnut / Polar — cores de status automáticas
-data = KliniChartData.status(
+data = KlnChartData.status(
   ['Autorizado', 'Negado', 'Em processo', 'Parcial', 'Inativo'],
   [60, 15, 10, 8, 7],
 );
 
 // Pie com paleta categorical
-data = KliniChartData.radial(
+data = KlnChartData.radial(
   ['Região Norte', 'Sul', 'Leste', 'Oeste'],
   [35, 28, 22, 15],
 );
 
 // Mixed (bar + line)
-data = KliniChartData.mixed(
+data = KlnChartData.mixed(
   ['Jan', 'Fev', 'Mar'],
   [
     { label: 'Consultas', data: [120, 145, 130], type: 'bar' },
@@ -298,7 +298,7 @@ data = KliniChartData.mixed(
 );
 
 // Time Series
-data = KliniChartData.timeSeries([
+data = KlnChartData.timeSeries([
   { label: 'Adesão %', points: [
     { x: '2024-01', y: 82 },
     { x: '2024-02', y: 78 },
@@ -307,12 +307,12 @@ data = KliniChartData.timeSeries([
 ]);
 
 // Scatter
-data = KliniChartData.scatter([
+data = KlnChartData.scatter([
   { label: 'Grupo A', points: [{ x: 10, y: 20 }, { x: 15, y: 32 }] },
 ]);
 
 // Radar
-data = KliniChartData.radar(
+data = KlnChartData.radar(
   ['Adesão', 'Satisfação', 'Retorno', 'NPS', 'Cobertura'],
   [
     { label: 'Klini',     data: [82, 74, 90, 68, 85] },
@@ -334,16 +334,16 @@ data = KliniChartData.radar(
 ### Exemplo completo — Doughnut com tokens de status
 
 ```typescript
-import { KliniChartTokens } from '@klini-saude/ds';
+import { KlnChartTokens } from '@klini-saude/ds';
 
 chartData = {
   labels: ['Autorizado', 'Negado', 'Em processo'],
   datasets: [{
     data: [60, 15, 25],
     backgroundColor: [
-      KliniChartTokens.status.success,
-      KliniChartTokens.status.danger,
-      KliniChartTokens.status.secondary,
+      KlnChartTokens.status.success,
+      KlnChartTokens.status.danger,
+      KlnChartTokens.status.secondary,
     ],
     borderWidth: 0,
   }],
@@ -370,7 +370,7 @@ O `[options]` é mesclado **por cima** do preset — só sobrescreva o que preci
 ### Padrão Adherence Heatmap
 
 ```typescript
-import { KliniChartTokens } from '@klini-saude/ds';
+import { KlnChartTokens } from '@klini-saude/ds';
 
 adherenceData = {
   labels: ['S1','S2','S3','S4','S5','S6','S7','S8','S9','S10','S11','S12'],
@@ -378,7 +378,7 @@ adherenceData = {
     label: 'Adesão',
     data: [85, 60, 95, 70, 80, 40, 90, 75, 55, 88, 65, 92],
     backgroundColor: (ctx: { raw: number }) => {
-      const seq = KliniChartTokens.sequential;
+      const seq = KlnChartTokens.sequential;
       if (ctx.raw >= 80) return seq[2]; // seq-100
       if (ctx.raw >= 60) return seq[1]; // seq-33
       return seq[0];                    // seq-wash
@@ -403,12 +403,12 @@ adherenceData = {
 
 ```typescript
 import { MeterItem } from 'primeng/metergroup';
-import { KliniChartTokens } from '@klini-saude/ds';
+import { KlnChartTokens } from '@klini-saude/ds';
 
 zones: MeterItem[] = [
-  { label: 'Normal',  value: 40, color: KliniChartTokens.status.success },
-  { label: 'Atenção', value: 35, color: KliniChartTokens.status.warn    },
-  { label: 'Alta',    value: 25, color: KliniChartTokens.status.danger  },
+  { label: 'Normal',  value: 40, color: KlnChartTokens.status.success },
+  { label: 'Atenção', value: 35, color: KlnChartTokens.status.warn    },
+  { label: 'Alta',    value: 25, color: KlnChartTokens.status.danger  },
 ];
 ```
 
@@ -426,21 +426,21 @@ zones: MeterItem[] = [
 
 ```css
 /* Cores primitivas */
---klini-color-teal-500     /* #259591 — cor principal */
---klini-space-4            /* 16px */
---klini-radius-lg          /* 8px */
+--kln-color-teal-500     /* #259591 — cor principal */
+--kln-space-4            /* 16px */
+--kln-radius-lg          /* 8px */
 
 /* Semânticos */
---klini-action-primary
---klini-text-primary
---klini-surface-page
+--kln-action-primary
+--kln-text-primary
+--kln-surface-page
 
 /* Elevação */
---klini-elevation-sm
---klini-elevation-md
---klini-elevation-lg
---klini-focus-default
---klini-focus-error
+--kln-elevation-sm
+--kln-elevation-md
+--kln-elevation-lg
+--kln-focus-default
+--kln-focus-error
 
 /* Paleta para gráficos — Categorical (4 séries da marca) */
 --kln-chart-cat-teal       /* #259591 — teal principal */
@@ -500,8 +500,8 @@ Todas importadas diretamente de `@klini-saude/ds` (re-exports do PrimeNG).
 import { KeyFilter, AutoFocus, Ripple, AnimateOnScroll } from '@klini-saude/ds';
 import { DialogService, DynamicDialogRef }               from '@klini-saude/ds';
 
-// NgModule — KliniDsModule já inclui tudo (KeyFilter, AutoFocus, Ripple, StyleClass, AnimateOnScroll)
-import { KliniDsModule } from '@klini-saude/ds';
+// NgModule — KlnDsModule já inclui tudo (KeyFilter, AutoFocus, Ripple, StyleClass, AnimateOnScroll)
+import { KlnDsModule } from '@klini-saude/ds';
 ```
 
 ```html
@@ -568,7 +568,7 @@ git push origin main --tags
 
 | Versão | Destaques |
 |---|---|
-| **0.5.0** | Sistema de charts completo: `KliniChartData` (fábricas cartesian/radial/status/mixed/timeSeries/scatter/bubble/radar) · `KliniChartTokens` (resolve CSS vars para canvas) · `KliniChartPresets` (14 variantes: bar/bar-horizontal/bar-stacked/bar-stacked-horizontal/line/area/mixed/time-series/pie/doughnut/polar-area/radar/scatter/bubble) · `[preset]` e `[autoColors]` no `kln-chart` · paleta semântica (success/info/warn/danger/secondary) · `kln-meter-group` WithIndicator · fix CI publish path |
+| **0.5.0** | Sistema de charts completo: `KlnChartData` (fábricas cartesian/radial/status/mixed/timeSeries/scatter/bubble/radar) · `KlnChartTokens` (resolve CSS vars para canvas) · `KlnChartPresets` (14 variantes: bar/bar-horizontal/bar-stacked/bar-stacked-horizontal/line/area/mixed/time-series/pie/doughnut/polar-area/radar/scatter/bubble) · `[preset]` e `[autoColors]` no `kln-chart` · paleta semântica (success/info/warn/danger/secondary) · `kln-meter-group` WithIndicator · fix CI publish path |
 | **0.4.0** | 32 novos componentes: Checkbox, MultiSelect, Autocomplete, InputMask, Rating, SelectButton, Listbox, TreeSelect, CascadeSelect, FloatLabel, InputGroup, ButtonGroup, Toolbar, Panel, Fieldset, Splitter, ScrollPanel, Image, AvatarGroup, Messages, Popover, SpeedDial, ProgressSpinner, Menubar, TabMenu, Steps, SplitButton, Timeline, DataView, Carousel, Tree, OrderList, VirtualScroller |
 | **0.3.0** | Seletores renomeados para `kln-*` · Data Visualization (Chart, Knob, MeterGroup, Slider, Select) · Paleta de cores para gráficos |
 | **0.2.1** | Corrige CI de publish + ESLint |

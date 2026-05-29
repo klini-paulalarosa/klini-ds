@@ -2,15 +2,15 @@ import { Component, Input, ChangeDetectionStrategy, inject } from '@angular/core
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 
-export type KliniToastSeverity = 'success' | 'warn' | 'error' | 'info' | 'secondary' | 'contrast';
+export type KlnToastSeverity = 'success' | 'warn' | 'error' | 'info' | 'secondary' | 'contrast';
 
-export type KliniToastPosition =
+export type KlnToastPosition =
   | 'top-right' | 'top-left' | 'top-center'
   | 'bottom-right' | 'bottom-left' | 'bottom-center'
   | 'center';
 
-export interface KliniToastMessage {
-  severity?: KliniToastSeverity;
+export interface KlnToastMessage {
+  severity?: KlnToastSeverity;
   summary?: string;
   detail:   string;
   life?:    number;
@@ -23,9 +23,9 @@ export interface KliniToastMessage {
  *
  * Uso:
  *   1. Adicione <klini-toast /> (ou <klini-toast key="main" />) no template do componente raiz.
- *   2. Injete KliniToastService e chame .show({ ... }) para exibir mensagens.
+ *   2. Injete KlnToastService e chame .show({ ... }) para exibir mensagens.
  *
- * Estilização 100% via KliniPrime theme preset.
+ * Estilização 100% via KlnPrime theme preset.
  */
 @Component({
   selector: 'kln-toast',
@@ -45,7 +45,7 @@ export interface KliniToastMessage {
 })
 export class ToastComponent {
   @Input() key         = '';
-  @Input() position: KliniToastPosition = 'top-right';
+  @Input() position: KlnToastPosition = 'top-right';
   @Input() life        = 4000;
   @Input() baseZIndex  = 500;
   @Input() styleClass  = '';
@@ -55,10 +55,10 @@ export class ToastComponent {
  * Serviço auxiliar — injete nos componentes que precisam disparar toasts.
  * Provê tipagem Klini sobre o MessageService do PrimeNG.
  */
-export class KliniToastService {
+export class KlnToastService {
   private readonly ms = inject(MessageService);
 
-  show(msg: KliniToastMessage): void {
+  show(msg: KlnToastMessage): void {
     this.ms.add({
       severity: msg.severity ?? 'info',
       summary:  msg.summary,

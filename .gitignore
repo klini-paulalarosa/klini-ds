@@ -37,3 +37,7 @@ yarn-error.log*
 
 # Testing
 coverage/
+
+# Arquivos locais grandes
+*.zip
+*.pdf

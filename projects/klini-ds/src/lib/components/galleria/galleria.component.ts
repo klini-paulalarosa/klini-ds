@@ -27,7 +27,7 @@ import { GalleriaModule } from 'primeng/galleria';
     </p-galleria>
   `,
 })
-export class KliniGalleriaComponent {
+export class KlnGalleriaComponent {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Input() value: any[] = [];
   @Input() numVisible = 5;

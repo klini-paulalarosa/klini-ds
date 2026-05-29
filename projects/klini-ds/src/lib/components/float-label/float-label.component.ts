@@ -9,6 +9,6 @@ import { FloatLabelModule } from 'primeng/floatlabel';
   template: `<p-floatlabel [variant]="variant"><ng-content /></p-floatlabel>`,
   styles: [`:host { display: block; }`],
 })
-export class KliniFloatLabelComponent {
+export class KlnFloatLabelComponent {
   @Input() variant: 'over' | 'in' | 'on' = 'over';
 }

@@ -8,89 +8,89 @@
   // ---------------------------------------------------------------------------
   // SURFACE — fundos de página, cards e camadas
   // ---------------------------------------------------------------------------
-  --klini-surface-page:         var(--klini-color-ink-50);
-  --klini-surface-raised:       var(--klini-color-white);
-  --klini-surface-sunken:       var(--klini-color-ink-100);
-  --klini-surface-inverse:      var(--klini-color-ink-900);
-  --klini-surface-brand-soft:   var(--klini-color-teal-wash);
-  --klini-surface-danger-soft:  var(--klini-color-coral-wash);
-  --klini-surface-warning-soft: var(--klini-color-orange-wash);
-  --klini-surface-info-soft:    var(--klini-color-sea-wash);
+  --kln-surface-page:         var(--kln-color-ink-50);
+  --kln-surface-raised:       var(--kln-color-white);
+  --kln-surface-sunken:       var(--kln-color-ink-100);
+  --kln-surface-inverse:      var(--kln-color-ink-900);
+  --kln-surface-brand-soft:   var(--kln-color-teal-wash);
+  --kln-surface-danger-soft:  var(--kln-color-coral-wash);
+  --kln-surface-warning-soft: var(--kln-color-orange-wash);
+  --kln-surface-info-soft:    var(--kln-color-sea-wash);
 
   // ---------------------------------------------------------------------------
   // TEXT — hierarquia tipográfica
   // ---------------------------------------------------------------------------
-  --klini-text-primary:    var(--klini-color-ink-900);
-  --klini-text-secondary:  var(--klini-color-ink-700);
-  --klini-text-muted:      var(--klini-color-ink-500);
-  --klini-text-disabled:   var(--klini-color-ink-400);
-  --klini-text-on-brand:   var(--klini-color-white);
-  --klini-text-on-inverse: var(--klini-color-ink-50);
-  --klini-text-brand:      var(--klini-color-teal-100);
-  --klini-text-accent:     var(--klini-color-orange-100);
-  --klini-text-danger:     var(--klini-color-coral-100);
+  --kln-text-primary:    var(--kln-color-ink-900);
+  --kln-text-secondary:  var(--kln-color-ink-700);
+  --kln-text-muted:      var(--kln-color-ink-500);
+  --kln-text-disabled:   var(--kln-color-ink-400);
+  --kln-text-on-brand:   var(--kln-color-white);
+  --kln-text-on-inverse: var(--kln-color-ink-50);
+  --kln-text-brand:      var(--kln-color-teal-100);
+  --kln-text-accent:     var(--kln-color-orange-100);
+  --kln-text-danger:     var(--kln-color-coral-100);
 
   // ---------------------------------------------------------------------------
   // BORDER
   // ---------------------------------------------------------------------------
-  --klini-border-default: var(--klini-color-ink-200);
-  --klini-border-strong:  var(--klini-color-ink-300);
-  --klini-border-brand:   var(--klini-color-teal-100);
-  --klini-border-accent:  var(--klini-color-orange-100);
-  --klini-border-danger:  var(--klini-color-coral-100);
-  --klini-border-inverse: var(--klini-color-ink-900);
+  --kln-border-default: var(--kln-color-ink-200);
+  --kln-border-strong:  var(--kln-color-ink-300);
+  --kln-border-brand:   var(--kln-color-teal-100);
+  --kln-border-accent:  var(--kln-color-orange-100);
+  --kln-border-danger:  var(--kln-color-coral-100);
+  --kln-border-inverse: var(--kln-color-ink-900);
 
   // ---------------------------------------------------------------------------
   // ACTION — estados interativos
   // ---------------------------------------------------------------------------
-  --klini-action-primary:       var(--klini-color-teal-100);
-  --klini-action-primary-hover: var(--klini-color-teal-600);
-  --klini-action-primary-active: var(--klini-color-teal-700);
-  --klini-action-accent:        var(--klini-color-orange-100);
-  --klini-action-accent-hover:  var(--klini-color-orange-600);
-  --klini-action-danger:        var(--klini-color-coral-100);
-  --klini-action-danger-hover:  var(--klini-color-coral-600);
-  --klini-action-disabled:      var(--klini-color-ink-300);
+  --kln-action-primary:       var(--kln-color-teal-100);
+  --kln-action-primary-hover: var(--kln-color-teal-600);
+  --kln-action-primary-active: var(--kln-color-teal-700);
+  --kln-action-accent:        var(--kln-color-orange-100);
+  --kln-action-accent-hover:  var(--kln-color-orange-600);
+  --kln-action-danger:        var(--kln-color-coral-100);
+  --kln-action-danger-hover:  var(--kln-color-coral-600);
+  --kln-action-disabled:      var(--kln-color-ink-300);
 
   // ---------------------------------------------------------------------------
   // FEEDBACK — success / warning / danger / info
   // ---------------------------------------------------------------------------
-  --klini-feedback-success-fg:     var(--klini-color-teal-700);
-  --klini-feedback-success-bg:     var(--klini-color-teal-50);
-  --klini-feedback-success-border: var(--klini-color-teal-100);
+  --kln-feedback-success-fg:     var(--kln-color-teal-700);
+  --kln-feedback-success-bg:     var(--kln-color-teal-50);
+  --kln-feedback-success-border: var(--kln-color-teal-100);
 
-  --klini-feedback-warning-fg:     var(--klini-color-orange-700);
-  --klini-feedback-warning-bg:     var(--klini-color-orange-wash);
-  --klini-feedback-warning-border: var(--klini-color-orange-100);
+  --kln-feedback-warning-fg:     var(--kln-color-orange-700);
+  --kln-feedback-warning-bg:     var(--kln-color-orange-wash);
+  --kln-feedback-warning-border: var(--kln-color-orange-100);
 
-  --klini-feedback-danger-fg:      var(--klini-color-coral-700);
-  --klini-feedback-danger-bg:      var(--klini-color-coral-wash);
-  --klini-feedback-danger-border:  var(--klini-color-coral-100);
+  --kln-feedback-danger-fg:      var(--kln-color-coral-700);
+  --kln-feedback-danger-bg:      var(--kln-color-coral-wash);
+  --kln-feedback-danger-border:  var(--kln-color-coral-100);
 
-  --klini-feedback-info-fg:        var(--klini-color-sea-700);
-  --klini-feedback-info-bg:        var(--klini-color-sea-wash);
-  --klini-feedback-info-border:    var(--klini-color-sea-100);
+  --kln-feedback-info-fg:        var(--kln-color-sea-700);
+  --kln-feedback-info-bg:        var(--kln-color-sea-wash);
+  --kln-feedback-info-border:    var(--kln-color-sea-100);
 
   // ---------------------------------------------------------------------------
   // FIELD — inputs e formulários
   // ---------------------------------------------------------------------------
-  --klini-field-bg:             var(--klini-color-white);
-  --klini-field-bg-disabled:    var(--klini-color-ink-50);
-  --klini-field-bg-filled:      var(--klini-color-ink-50);
-  --klini-field-border:         var(--klini-color-ink-200);
-  --klini-field-border-hover:   var(--klini-color-ink-300);
-  --klini-field-border-focus:   var(--klini-color-teal-100);
-  --klini-field-border-error:   var(--klini-color-coral-100);
-  --klini-field-border-disabled: var(--klini-color-ink-200);
-  --klini-field-label:          var(--klini-color-ink-700);
-  --klini-field-placeholder:    var(--klini-color-ink-400);
-  --klini-field-value:          var(--klini-color-ink-900);
+  --kln-field-bg:             var(--kln-color-white);
+  --kln-field-bg-disabled:    var(--kln-color-ink-50);
+  --kln-field-bg-filled:      var(--kln-color-ink-50);
+  --kln-field-border:         var(--kln-color-ink-200);
+  --kln-field-border-hover:   var(--kln-color-ink-300);
+  --kln-field-border-focus:   var(--kln-color-teal-100);
+  --kln-field-border-error:   var(--kln-color-coral-100);
+  --kln-field-border-disabled: var(--kln-color-ink-200);
+  --kln-field-label:          var(--kln-color-ink-700);
+  --kln-field-placeholder:    var(--kln-color-ink-400);
+  --kln-field-value:          var(--kln-color-ink-900);
 
   // ---------------------------------------------------------------------------
   // OVERLAY — modais, popovers, tooltips
   // ---------------------------------------------------------------------------
-  --klini-overlay-modal:   var(--klini-color-white);
-  --klini-overlay-popover: var(--klini-color-white);
-  --klini-overlay-tooltip: var(--klini-color-ink-900);
-  --klini-overlay-scrim:   var(--klini-color-ink-900);
+  --kln-overlay-modal:   var(--kln-color-white);
+  --kln-overlay-popover: var(--kln-color-white);
+  --kln-overlay-tooltip: var(--kln-color-ink-900);
+  --kln-overlay-scrim:   var(--kln-color-ink-900);
 }

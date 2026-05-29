@@ -14,6 +14,6 @@ import { ConfirmPopup } from 'primeng/confirmpopup';
     <p-confirmpopup [styleClass]="styleClass" />
   `,
 })
-export class KliniConfirmPopupComponent {
+export class KlnConfirmPopupComponent {
   @Input() styleClass = '';
 }

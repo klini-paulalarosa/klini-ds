@@ -14,7 +14,7 @@ import { MenuItem } from 'primeng/api';
   `,
   styles: [`:host { display: block; }`],
 })
-export class KliniMenubarComponent {
+export class KlnMenubarComponent {
   @Input({ required: true }) items: MenuItem[] = [];
   @Input() styleClass = '';
 }

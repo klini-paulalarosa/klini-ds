@@ -18,7 +18,7 @@ import { FieldsetModule } from 'primeng/fieldset';
   `,
   styles: [`:host { display: block; }`],
 })
-export class KliniFieldsetComponent {
+export class KlnFieldsetComponent {
   @Input() legend = '';
   @Input() toggleable = false;
   @Input() collapsed = false;

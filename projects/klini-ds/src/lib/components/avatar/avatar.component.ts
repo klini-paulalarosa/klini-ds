@@ -22,7 +22,7 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
     />
   `,
 })
-export class KliniAvatarComponent {
+export class KlnAvatarComponent {
   @Input() label = '';
   @Input() icon = '';
   @Input() image = '';

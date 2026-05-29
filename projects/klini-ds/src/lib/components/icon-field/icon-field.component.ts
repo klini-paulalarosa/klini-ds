@@ -17,6 +17,6 @@ import { InputIcon } from 'primeng/inputicon';
     </p-iconfield>
   `,
 })
-export class KliniIconFieldComponent {
+export class KlnIconFieldComponent {
   @Input() iconPosition: 'left' | 'right' = 'left';
 }

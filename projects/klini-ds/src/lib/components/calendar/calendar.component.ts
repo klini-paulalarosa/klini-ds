@@ -6,7 +6,7 @@ import { FloatLabelModule } from 'primeng/floatlabel';
 /**
  * Wrapper sobre p-datepicker do PrimeNG 18 (ex p-calendar).
  * Implementa ControlValueAccessor para Reactive/Template Forms.
- * Estilização 100% via KliniPrime theme preset.
+ * Estilização 100% via KlnPrime theme preset.
  */
 @Component({
   selector: 'kln-calendar',
@@ -66,10 +66,10 @@ import { FloatLabelModule } from 'primeng/floatlabel';
     </div>
   `,
   styles: [`
-    .klini-calendar-wrapper { display: flex; flex-direction: column; gap: var(--klini-space-1); }
+    .klini-calendar-wrapper { display: flex; flex-direction: column; gap: var(--kln-space-1); }
     .klini-calendar__label {
-      font-size: var(--klini-font-size-body-sm); font-weight: 600;
-      color: var(--klini-field-label); font-family: 'Objective', system-ui, -apple-system, sans-serif;
+      font-size: var(--kln-font-size-body-sm); font-weight: 600;
+      color: var(--kln-field-label); font-family: 'Objective', system-ui, -apple-system, sans-serif;
     }
     :host ::ng-deep .klini-datepicker { width: 100%; }
   `],

@@ -25,7 +25,7 @@ import { Inplace } from 'primeng/inplace';
     </p-inplace>
   `,
 })
-export class KliniInplaceComponent {
+export class KlnInplaceComponent {
   @Input() active = false;
   @Input() disabled = false;
   @Input() closable = false;

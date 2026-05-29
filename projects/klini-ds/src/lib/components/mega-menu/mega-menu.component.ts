@@ -18,7 +18,7 @@ import { MegaMenu } from 'primeng/megamenu';
     />
   `,
 })
-export class KliniMegaMenuComponent {
+export class KlnMegaMenuComponent {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Input() model: any[] = [];
   @Input() orientation: 'horizontal' | 'vertical' = 'horizontal';

@@ -56,13 +56,13 @@ import { MeterGroupModule, MeterItem } from 'primeng/metergroup';
     .kln-meter-group-wrap__indicator {
       position: absolute;
       transform: translateX(-50%);
-      color: var(--klini-text-primary, #374151);
+      color: var(--kln-text-primary, #374151);
       transition: left 0.3s ease;
       line-height: 0;
     }
   `],
 })
-export class KliniMeterGroupComponent implements OnChanges {
+export class KlnMeterGroupComponent implements OnChanges {
   /** Segmentos da barra — cada item tem label, value, color */
   @Input({ required: true }) value: MeterItem[] = [];
   /** Valor máximo total da barra */

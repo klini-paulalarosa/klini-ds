@@ -31,7 +31,7 @@ import { PickList } from 'primeng/picklist';
     </p-picklist>
   `,
 })
-export class KliniPickListComponent {
+export class KlnPickListComponent {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Input() source: any[] = [];
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

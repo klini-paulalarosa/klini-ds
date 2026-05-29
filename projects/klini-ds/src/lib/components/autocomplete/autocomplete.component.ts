@@ -9,7 +9,7 @@ import { MessageModule } from 'primeng/message';
   standalone: true,
   imports: [FormsModule, AutoCompleteModule, MessageModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => KliniAutoCompleteComponent), multi: true }],
+  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => KlnAutoCompleteComponent), multi: true }],
   template: `
     <div class="kln-autocomplete-wrapper">
       @if (label) {
@@ -37,12 +37,12 @@ import { MessageModule } from 'primeng/message';
     </div>
   `,
   styles: [`
-    .kln-autocomplete-wrapper { display: flex; flex-direction: column; gap: var(--klini-space-1); }
-    .kln-autocomplete-label { font-size: var(--klini-font-size-body-sm); font-weight: 600; color: var(--klini-field-label); font-family: 'Objective', system-ui, -apple-system, sans-serif; }
-    .kln-autocomplete-hint { font-size: var(--klini-font-size-caption); color: var(--klini-text-muted); }
+    .kln-autocomplete-wrapper { display: flex; flex-direction: column; gap: var(--kln-space-1); }
+    .kln-autocomplete-label { font-size: var(--kln-font-size-body-sm); font-weight: 600; color: var(--kln-field-label); font-family: 'Objective', system-ui, -apple-system, sans-serif; }
+    .kln-autocomplete-hint { font-size: var(--kln-font-size-caption); color: var(--kln-text-muted); }
   `],
 })
-export class KliniAutoCompleteComponent implements ControlValueAccessor {
+export class KlnAutoCompleteComponent implements ControlValueAccessor {
   private static idCounter = 0;
 
   @Input() label = '';
@@ -54,7 +54,7 @@ export class KliniAutoCompleteComponent implements ControlValueAccessor {
   @Input() errorMessage = '';
   @Input() hint = '';
   @Input() styleClass = '';
-  @Input() inputId = `kln-autocomplete-${++KliniAutoCompleteComponent.idCounter}`;
+  @Input() inputId = `kln-autocomplete-${++KlnAutoCompleteComponent.idCounter}`;
 
   @Output() valueChange = new EventEmitter<unknown>();
   @Output() completeMethod = new EventEmitter<string>();

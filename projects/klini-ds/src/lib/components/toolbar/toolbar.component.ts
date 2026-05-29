@@ -15,6 +15,6 @@ import { ToolbarModule } from 'primeng/toolbar';
   `,
   styles: [`:host { display: block; }`],
 })
-export class KliniToolbarComponent {
+export class KlnToolbarComponent {
   @Input() styleClass = '';
 }

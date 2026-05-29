@@ -9,4 +9,4 @@ import { AvatarGroupModule } from 'primeng/avatargroup';
   template: `<p-avatargroup><ng-content /></p-avatargroup>`,
   styles: [`:host { display: inline-flex; }`],
 })
-export class KliniAvatarGroupComponent {}
+export class KlnAvatarGroupComponent {}

@@ -23,12 +23,12 @@ import { MenuItem } from 'primeng/api';
         background: transparent;
         border: none;
         font-family: 'Objective', system-ui, -apple-system, sans-serif;
-        font-size: var(--klini-font-size-body-sm);
+        font-size: var(--kln-font-size-body-sm);
       }
     `,
   ],
 })
-export class KliniBreadcrumbComponent {
+export class KlnBreadcrumbComponent {
   @Input() items: MenuItem[] = [];
   @Input() home: MenuItem = { icon: 'pi pi-home', routerLink: '/' };
   @Input() styleClass = '';

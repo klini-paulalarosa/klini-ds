@@ -61,14 +61,14 @@ import { DialogModule } from 'primeng/dialog';
   styles: [
     `
       :host ::ng-deep .klini-dialog {
-        border-radius: var(--klini-radius-xl);
-        box-shadow: var(--klini-elevation-xl);
+        border-radius: var(--kln-radius-xl);
+        box-shadow: var(--kln-elevation-xl);
         font-family: 'Objective', system-ui, -apple-system, sans-serif;
       }
     `,
   ],
 })
-export class KliniDialogComponent {
+export class KlnDialogComponent {
   @Input() visible = false;
   @Input() header = '';
   @Input() modal = true;

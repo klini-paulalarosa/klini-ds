@@ -3,9 +3,9 @@
  *
  * ─── Uso mínimo (sem nenhum conhecimento de Chart.js) ───────────────────────
  *
- *   import { KliniChartData } from '@klini-saude/ds';
+ *   import { KlnChartData } from '@klini-saude/ds';
  *
- *   data = KliniChartData.cartesian(['Jan','Fev','Mar'], [
+ *   data = KlnChartData.cartesian(['Jan','Fev','Mar'], [
  *     { label: 'Cardio',  data: [40, 55, 48] },
  *     { label: 'Ortoped', data: [30, 42, 38] },
  *   ]);
@@ -21,9 +21,9 @@
  *   <kln-chart type="bar" preset="bar" [data]="rawData" [autoColors]="true" />
  *   Datasets sem cor recebem a paleta categorical do DS automaticamente.
  *
- * ─── Cores manuais via KliniChartTokens ────────────────────────────────────
- *   backgroundColor: KliniChartTokens.categorical
- *   backgroundColor: KliniChartTokens.status.success
+ * ─── Cores manuais via KlnChartTokens ────────────────────────────────────
+ *   backgroundColor: KlnChartTokens.categorical
+ *   backgroundColor: KlnChartTokens.status.success
  *
  * ─── Plugin externo (ex: matrix) ───────────────────────────────────────────
  *   Chart.register(MatrixController, MatrixElement);
@@ -36,10 +36,10 @@ import {
   OnChanges,
 } from '@angular/core';
 import { ChartModule } from 'primeng/chart';
-import { KliniChartPreset, getChartPreset } from './chart.presets';
-import { KliniChartTokens } from './chart.tokens';
+import { KlnChartPreset, getChartPreset } from './chart.presets';
+import { KlnChartTokens } from './chart.tokens';
 
-export type KliniChartType =
+export type KlnChartType =
   | 'bar'
   | 'line'
   | 'pie'
@@ -72,19 +72,19 @@ const RADIAL_TYPES: string[] = ['pie', 'doughnut', 'polarArea'];
   `,
   styles: [`:host { display: block; }`],
 })
-export class KliniChartComponent implements OnChanges {
+export class KlnChartComponent implements OnChanges {
 
   /** Tipo Chart.js. Para plugins externos, use [type]="$any('matrix')" no template consumidor. */
-  @Input({ required: true }) type: KliniChartType = 'bar';
+  @Input({ required: true }) type: KlnChartType = 'bar';
 
-  /** Dataset Chart.js. Use KliniChartData.cartesian/radial/timeSeries/etc. para construir. */
+  /** Dataset Chart.js. Use KlnChartData.cartesian/radial/timeSeries/etc. para construir. */
   @Input({ required: true }) data: AnyObj = {};
 
   /**
    * Preset de opções do DS — aplica grid, legenda, tooltip e eixos automaticamente.
    * [options] passadas pelo dev são mescladas por cima (prioridade do dev).
    */
-  @Input() preset: KliniChartPreset | null = null;
+  @Input() preset: KlnChartPreset | null = null;
 
   /** Opções Chart.js customizadas. Mescladas por cima do preset quando [preset] está ativo. */
   @Input() options: AnyObj = {};
@@ -119,7 +119,7 @@ export class KliniChartComponent implements OnChanges {
   // ─── Options ──────────────────────────────────────────────────────────────
 
   private buildOptions(): AnyObj {
-    const effectivePreset: KliniChartPreset | null =
+    const effectivePreset: KlnChartPreset | null =
       this.preset ?? (this.stacked ? 'bar-stacked' : null);
     const base = effectivePreset ? getChartPreset(effectivePreset) : {};
     return { ...base, ...this.options };
@@ -132,7 +132,7 @@ export class KliniChartComponent implements OnChanges {
     const datasets: AnyObj[] = this.data['datasets'] ?? [];
     if (!datasets.length)   return this.data;
 
-    const palette = KliniChartTokens.categorical;
+    const palette = KlnChartTokens.categorical;
     const isRadial = RADIAL_TYPES.includes(this.type);
 
     const colored = datasets.map((ds: AnyObj, i: number) => {

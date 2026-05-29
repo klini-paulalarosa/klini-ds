@@ -11,7 +11,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { MessageModule } from 'primeng/message';
 
-export interface KliniRadioOption {
+export interface KlnRadioOption {
   label: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   value: any;
@@ -26,7 +26,7 @@ export interface KliniRadioOption {
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => KliniRadioGroupComponent),
+      useExisting: forwardRef(() => KlnRadioGroupComponent),
       multi: true,
     },
   ],
@@ -61,30 +61,30 @@ export interface KliniRadioOption {
       .klini-radio-group {
         display: flex;
         flex-direction: column;
-        gap: var(--klini-space-2);
+        gap: var(--kln-space-2);
       }
       .klini-radio-group--row {
         flex-direction: row;
         flex-wrap: wrap;
-        gap: var(--klini-space-4);
+        gap: var(--kln-space-4);
       }
       .klini-radio-option {
         display: flex;
         align-items: center;
-        gap: var(--klini-space-2);
+        gap: var(--kln-space-2);
       }
       .klini-radio-label {
-        font-size: var(--klini-font-size-body-sm);
-        color: var(--klini-text-primary);
+        font-size: var(--kln-font-size-body-sm);
+        color: var(--kln-text-primary);
         font-family: 'Objective', system-ui, -apple-system, sans-serif;
         cursor: pointer;
       }
     `,
   ],
 })
-export class KliniRadioGroupComponent implements ControlValueAccessor {
+export class KlnRadioGroupComponent implements ControlValueAccessor {
   @Input({ required: true }) name!: string;
-  @Input({ required: true }) options: KliniRadioOption[] = [];
+  @Input({ required: true }) options: KlnRadioOption[] = [];
   @Input() layout: 'column' | 'row' = 'column';
   @Input() errorMessage = '';
   @Input() disabled = false;

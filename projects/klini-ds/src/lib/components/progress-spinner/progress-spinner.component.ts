@@ -17,7 +17,7 @@ import { ProgressSpinnerModule } from 'primeng/progressspinner';
   `,
   styles: [`:host { display: inline-block; }`],
 })
-export class KliniProgressSpinnerComponent {
+export class KlnProgressSpinnerComponent {
   @Input() size = 50;
   @Input() strokeWidth = '8';
   @Input() fill = 'transparent';

@@ -10,4 +10,4 @@ import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
   template: `<p-inputgroup><ng-content /></p-inputgroup>`,
   styles: [`:host { display: block; }`],
 })
-export class KliniInputGroupComponent {}
+export class KlnInputGroupComponent {}

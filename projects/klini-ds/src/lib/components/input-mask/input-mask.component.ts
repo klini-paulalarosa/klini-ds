@@ -9,7 +9,7 @@ import { MessageModule } from 'primeng/message';
   standalone: true,
   imports: [FormsModule, InputMaskModule, MessageModule],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => KliniInputMaskComponent), multi: true }],
+  providers: [{ provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => KlnInputMaskComponent), multi: true }],
   template: `
     <div class="kln-input-mask-wrapper">
       @if (label) {
@@ -36,12 +36,12 @@ import { MessageModule } from 'primeng/message';
     </div>
   `,
   styles: [`
-    .kln-input-mask-wrapper { display: flex; flex-direction: column; gap: var(--klini-space-1); }
-    .kln-input-mask-label { font-size: var(--klini-font-size-body-sm); font-weight: 600; color: var(--klini-field-label); font-family: 'Objective', system-ui, -apple-system, sans-serif; }
-    .kln-input-mask-hint { font-size: var(--klini-font-size-caption); color: var(--klini-text-muted); }
+    .kln-input-mask-wrapper { display: flex; flex-direction: column; gap: var(--kln-space-1); }
+    .kln-input-mask-label { font-size: var(--kln-font-size-body-sm); font-weight: 600; color: var(--kln-field-label); font-family: 'Objective', system-ui, -apple-system, sans-serif; }
+    .kln-input-mask-hint { font-size: var(--kln-font-size-caption); color: var(--kln-text-muted); }
   `],
 })
-export class KliniInputMaskComponent implements ControlValueAccessor {
+export class KlnInputMaskComponent implements ControlValueAccessor {
   private static idCounter = 0;
 
   @Input() label = '';
@@ -53,7 +53,7 @@ export class KliniInputMaskComponent implements ControlValueAccessor {
   @Input() errorMessage = '';
   @Input() hint = '';
   @Input() styleClass = '';
-  @Input() inputId = `kln-input-mask-${++KliniInputMaskComponent.idCounter}`;
+  @Input() inputId = `kln-input-mask-${++KlnInputMaskComponent.idCounter}`;
 
   @Output() valueChange = new EventEmitter<string>();
 

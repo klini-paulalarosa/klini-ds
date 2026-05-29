@@ -1,14 +1,14 @@
 import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { DividerModule } from 'primeng/divider';
 
-export type KliniDividerType   = 'solid' | 'dashed' | 'dotted';
-export type KliniDividerLayout = 'horizontal' | 'vertical';
-export type KliniDividerAlign  = 'left' | 'center' | 'right' | 'top' | 'bottom';
+export type KlnDividerType   = 'solid' | 'dashed' | 'dotted';
+export type KlnDividerLayout = 'horizontal' | 'vertical';
+export type KlnDividerAlign  = 'left' | 'center' | 'right' | 'top' | 'bottom';
 
 /**
  * Wrapper sobre p-divider do PrimeNG.
  * Separadores — solid / dashed / dotted — horizontais ou verticais.
- * Estilização 100% via KliniPrime theme preset.
+ * Estilização 100% via KlnPrime theme preset.
  *
  * Uso básico:
  *   <klini-divider />
@@ -34,18 +34,18 @@ export type KliniDividerAlign  = 'left' | 'center' | 'right' | 'top' | 'bottom';
   styles: [`
     :host { display: block; }
     :host ::ng-deep .p-divider .p-divider-content {
-      font-size: var(--klini-font-size-body-sm);
-      color: var(--klini-text-muted);
+      font-size: var(--kln-font-size-body-sm);
+      color: var(--kln-text-muted);
       font-family: 'Objective', system-ui, -apple-system, sans-serif;
-      background: var(--klini-surface-base);
-      padding: 0 var(--klini-space-3);
+      background: var(--kln-surface-base);
+      padding: 0 var(--kln-space-3);
     }
   `],
 })
 export class DividerComponent {
-  @Input() layout: KliniDividerLayout = 'horizontal';
-  @Input() type: KliniDividerType     = 'solid';
-  @Input() align: KliniDividerAlign   = 'center';
+  @Input() layout: KlnDividerLayout = 'horizontal';
+  @Input() type: KlnDividerType     = 'solid';
+  @Input() align: KlnDividerAlign   = 'center';
   @Input() styleClass = '';
 
   /** @internal — detecta se há conteúdo projetado para habilitar o align */

@@ -19,7 +19,7 @@ import { OrderListModule } from 'primeng/orderlist';
   `,
   styles: [`:host { display: block; }`],
 })
-export class KliniOrderListComponent {
+export class KlnOrderListComponent {
   @Input({ required: true }) value: unknown[] = [];
   @Input() header = '';
   @Input() filterBy = '';

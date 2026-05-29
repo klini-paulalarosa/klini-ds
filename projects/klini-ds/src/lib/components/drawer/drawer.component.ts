@@ -4,11 +4,11 @@ import {
 } from '@angular/core';
 import { DrawerModule } from 'primeng/drawer';
 
-export type KliniDrawerPosition = 'left' | 'right' | 'top' | 'bottom' | 'full';
+export type KlnDrawerPosition = 'left' | 'right' | 'top' | 'bottom' | 'full';
 
 /**
  * Wrapper sobre p-drawer do PrimeNG (ex p-sidebar).
- * Estilização 100% via KliniPrime theme preset.
+ * Estilização 100% via KlnPrime theme preset.
  */
 @Component({
   selector: 'kln-drawer',
@@ -35,7 +35,7 @@ export type KliniDrawerPosition = 'left' | 'right' | 'top' | 'bottom' | 'full';
 })
 export class DrawerComponent {
   @Input() header   = '';
-  @Input() position: KliniDrawerPosition = 'right';
+  @Input() position: KlnDrawerPosition = 'right';
   @Input() styleClass = '';
   @Input({ transform: booleanAttribute }) visible       = false;
   @Input({ transform: booleanAttribute }) modal         = true;

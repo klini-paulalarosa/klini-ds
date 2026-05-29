@@ -22,12 +22,12 @@ import { InputTextModule } from 'primeng/inputtext';
 import { FloatLabelModule } from 'primeng/floatlabel';
 import { MessageModule } from 'primeng/message';
 
-export type KliniInputSize = 'small' | 'large' | undefined;
+export type KlnInputSize = 'small' | 'large' | undefined;
 
 /**
  * Wrapper sobre pInputText + p-floatlabel do PrimeNG.
  * Implementa ControlValueAccessor para integração com Reactive/Template Forms.
- * Estilização 100% via KliniPrime theme preset.
+ * Estilização 100% via KlnPrime theme preset.
  */
 @Component({
   selector: 'kln-input-text',
@@ -84,12 +84,12 @@ export type KliniInputSize = 'small' | 'large' | undefined;
     </div>
   `,
   styles: [`
-    .klini-input-wrapper { display: flex; flex-direction: column; gap: var(--klini-space-1); }
+    .klini-input-wrapper { display: flex; flex-direction: column; gap: var(--kln-space-1); }
     .klini-input-label {
-      font-size: var(--klini-font-size-body-sm); font-weight: 600;
-      color: var(--klini-field-label); font-family: 'Objective', system-ui, -apple-system, sans-serif;
+      font-size: var(--kln-font-size-body-sm); font-weight: 600;
+      color: var(--kln-field-label); font-family: 'Objective', system-ui, -apple-system, sans-serif;
     }
-    .klini-input-hint { font-size: var(--klini-font-size-caption); color: var(--klini-text-muted); }
+    .klini-input-hint { font-size: var(--kln-font-size-caption); color: var(--kln-text-muted); }
     :host ::ng-deep .klini-input-error { margin-top: 0; }
   `],
 })
@@ -99,7 +99,7 @@ export class InputTextComponent implements ControlValueAccessor {
   @Input() label       = '';
   @Input() placeholder = '';
   @Input() type        = 'text';
-  @Input() size: KliniInputSize = undefined;
+  @Input() size: KlnInputSize = undefined;
   @Input() hint         = '';
   @Input() errorMessage = '';
   @Input() maxLength: number | null = null;

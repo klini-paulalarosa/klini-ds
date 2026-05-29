@@ -19,7 +19,7 @@ import { MenuItem } from 'primeng/api';
   `,
   styles: [`:host { display: inline-block; }`],
 })
-export class KliniSplitButtonComponent {
+export class KlnSplitButtonComponent {
   @Input({ required: true }) label = '';
   @Input({ required: true }) items: MenuItem[] = [];
   @Input() severity: 'primary' | 'secondary' | 'success' | 'info' | 'warn' | 'danger' | 'contrast' = 'primary';

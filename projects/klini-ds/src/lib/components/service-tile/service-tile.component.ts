@@ -61,7 +61,7 @@ import { ButtonModule } from 'primeng/button';
         height: 100%;
         min-height: 96px;
         background: #ffffff !important;
-        border: 1px solid var(--klini-border-subtle, #E5E7EB) !important;
+        border: 1px solid var(--kln-border-subtle, #E5E7EB) !important;
         border-radius: 8px !important;
         box-shadow: 0px 2px 8px 0px rgba(15, 27, 26, 0.06);
         padding: 1rem 0.75rem !important;
@@ -69,12 +69,12 @@ import { ButtonModule } from 'primeng/button';
         transition: box-shadow 0.15s ease, border-color 0.15s ease;
 
         &:hover:not(.kln-service-tile--disabled) {
-          border-color: var(--klini-color-teal-500, #259591) !important;
+          border-color: var(--kln-color-teal-500, #259591) !important;
           box-shadow: 0px 4px 12px 0px rgba(37, 149, 145, 0.12) !important;
         }
 
         &:focus-visible {
-          outline: 2px solid var(--klini-color-teal-500, #259591);
+          outline: 2px solid var(--kln-color-teal-500, #259591);
           outline-offset: 2px;
         }
 
@@ -99,20 +99,20 @@ import { ButtonModule } from 'primeng/button';
 
     .kln-service-tile__icon {
       font-size: 1.5rem;
-      color: var(--klini-color-teal-500, #259591);
+      color: var(--kln-color-teal-500, #259591);
     }
 
     .kln-service-tile__label {
       font-family: 'Objective', system-ui, -apple-system, sans-serif;
       font-size: 0.8125rem;
       font-weight: 400;
-      color: var(--klini-text-primary, #111827);
+      color: var(--kln-text-primary, #111827);
       text-align: center;
       line-height: 1.3;
     }
   `],
 })
-export class KliniServiceTileComponent {
+export class KlnServiceTileComponent {
   /** Classe do ícone PrimeIcons (ex: "pi-shield", "pi-calendar", "pi-file-text") */
   @Input({ required: true }) icon = '';
 

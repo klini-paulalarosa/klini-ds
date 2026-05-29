@@ -13,7 +13,7 @@ import { ScrollPanelModule } from 'primeng/scrollpanel';
   `,
   styles: [`:host { display: block; }`],
 })
-export class KliniScrollPanelComponent {
+export class KlnScrollPanelComponent {
   @Input() style: Record<string, string> = {};
   @Input() styleClass = '';
 }

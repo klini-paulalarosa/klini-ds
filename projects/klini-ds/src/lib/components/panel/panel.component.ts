@@ -18,7 +18,7 @@ import { PanelModule } from 'primeng/panel';
   `,
   styles: [`:host { display: block; }`],
 })
-export class KliniPanelComponent {
+export class KlnPanelComponent {
   @Input() header = '';
   @Input() toggleable = false;
   @Input() collapsed = false;

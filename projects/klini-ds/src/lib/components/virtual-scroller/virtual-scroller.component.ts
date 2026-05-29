@@ -19,7 +19,7 @@ import { ScrollerModule } from 'primeng/scroller';
   `,
   styles: [`:host { display: block; }`],
 })
-export class KliniVirtualScrollerComponent {
+export class KlnVirtualScrollerComponent {
   @Input({ required: true }) items: unknown[] = [];
   @Input() itemSize = 50;
   @Input() scrollHeight = '400px';

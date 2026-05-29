@@ -26,7 +26,7 @@ import { ToggleButton } from 'primeng/togglebutton';
     />
   `,
 })
-export class KliniToggleButtonComponent {
+export class KlnToggleButtonComponent {
   @Input() value = false;
   @Input() onLabel = 'Sim';
   @Input() offLabel = 'Não';
