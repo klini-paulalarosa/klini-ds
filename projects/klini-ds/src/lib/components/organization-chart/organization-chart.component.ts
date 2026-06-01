@@ -15,10 +15,10 @@ import { TreeNode } from 'primeng/api';
       [collapsible]="collapsible"
       [styleClass]="styleClass"
       (selectionChange)="selectionChange.emit($event)"
-      (onNodeSelect)="onNodeSelect.emit($event)"
-      (onNodeUnselect)="onNodeUnselect.emit($event)"
-      (onNodeExpand)="onNodeExpand.emit($event)"
-      (onNodeCollapse)="onNodeCollapse.emit($event)"
+      (onNodeSelect)="nodeSelect.emit($event)"
+      (onNodeUnselect)="nodeUnselect.emit($event)"
+      (onNodeExpand)="nodeExpand.emit($event)"
+      (onNodeCollapse)="nodeCollapse.emit($event)"
     />
   `,
 })
@@ -45,17 +45,17 @@ export class KlnOrganizationChartComponent {
 
   /** Emite quando um no e selecionado */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  @Output() onNodeSelect = new EventEmitter<any>();
+  @Output() nodeSelect = new EventEmitter<any>();
 
   /** Emite quando um no e desselecionado */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  @Output() onNodeUnselect = new EventEmitter<any>();
+  @Output() nodeUnselect = new EventEmitter<any>();
 
   /** Emite quando um no e expandido */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  @Output() onNodeExpand = new EventEmitter<any>();
+  @Output() nodeExpand = new EventEmitter<any>();
 
   /** Emite quando um no e colapsado */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  @Output() onNodeCollapse = new EventEmitter<any>();
+  @Output() nodeCollapse = new EventEmitter<any>();
 }
