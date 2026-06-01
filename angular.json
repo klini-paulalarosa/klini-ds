@@ -3,6 +3,52 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
+    "klini-ds-docs": {
+      "projectType": "application",
+      "root": "projects/klini-ds-docs",
+      "sourceRoot": "projects/klini-ds-docs/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:application",
+          "options": {
+            "outputPath": "dist/klini-ds-docs",
+            "index": "projects/klini-ds-docs/src/index.html",
+            "browser": "projects/klini-ds-docs/src/main.ts",
+            "polyfills": ["zone.js"],
+            "tsConfig": "projects/klini-ds-docs/tsconfig.app.json",
+            "assets": [
+              { "glob": "**/*", "input": "projects/klini-ds-docs/public" }
+            ],
+            "styles": ["projects/klini-ds-docs/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                { "type": "initial", "maximumWarning": "2mb", "maximumError": "5mb" },
+                { "type": "anyComponentStyle", "maximumWarning": "8kb", "maximumError": "16kb" }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "optimization": false,
+              "extractLicenses": false,
+              "sourceMap": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": { "buildTarget": "klini-ds-docs:build:production" },
+            "development": { "buildTarget": "klini-ds-docs:build:development" }
+          },
+          "defaultConfiguration": "development"
+        }
+      }
+    },
     "klini-ds": {
       "projectType": "library",
       "root": "projects/klini-ds",
