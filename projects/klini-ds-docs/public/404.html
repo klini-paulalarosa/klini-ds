@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>Klini DS</title>
+  <script>
+    // GitHub Pages SPA redirect: redireciona qualquer rota direta para o hash equivalente.
+    // Ex: /klini-ds/components/button → /klini-ds/#/components/button
+    var base = '/klini-ds/';
+    var path = window.location.pathname.replace(base, '');
+    var search = window.location.search;
+    var hash = path ? '#/' + path.replace(/^\//, '') + search : '';
+    window.location.replace(base + hash);
+  </script>
+</head>
+<body></body>
+</html>
