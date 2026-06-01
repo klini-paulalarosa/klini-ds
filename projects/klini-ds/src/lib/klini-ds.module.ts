@@ -113,6 +113,11 @@ import { KlnTreeComponent }           from './components/tree/tree.component';
 import { KlnOrderListComponent }      from './components/order-list/order-list.component';
 import { KlnVirtualScrollerComponent } from './components/virtual-scroller/virtual-scroller.component';
 
+// v2.1 — PrimeNG complete coverage
+import { KlnDockComponent }              from './components/dock/dock.component';
+import { KlnOrganizationChartComponent } from './components/organization-chart/organization-chart.component';
+import { KlnTerminalComponent }          from './components/terminal/terminal.component';
+
 const COMPONENTS = [
   // Core (v0.1)
   ButtonComponent, StatusPillComponent, TagComponent, BadgeComponent, ChipComponent,
@@ -151,6 +156,8 @@ const COMPONENTS = [
   // v1.1 — Portal Templates
   KlnPortalHeaderComponent, KlnPortalFooterComponent, KlnPortalShellComponent,
   KlnPortalLoginComponent, KlnServiceTileComponent,
+  // v2.1 — PrimeNG complete coverage
+  KlnDockComponent, KlnOrganizationChartComponent, KlnTerminalComponent,
 ];
 
 const DIRECTIVE_MODULES = [

@@ -163,11 +163,19 @@ export const KlnChartPresets: Record<KlnChartPreset, () => AnyObj> = {
     plugins: { ...basePlugins(), legend: { ...legendBlock(), position: 'right' } },
   }),
 
-  /** Polar Area */
+  /** Polar Area — mantém proporção quadrada para evitar distorção visual */
   'polar-area': () => ({
-    responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
-    plugins: basePlugins(),
-    scales:  { r: { grid: { color: T.surfaceBorder }, ticks: { color: T.textSecondary, backdropColor: 'transparent' } } },
+    responsive: true, maintainAspectRatio: true, animation: { duration: 300 },
+    plugins: { ...basePlugins(), legend: { ...legendBlock(), position: 'right' } },
+    scales:  {
+      r: {
+        beginAtZero:  true,
+        grid:         { color: T.surfaceBorder },
+        ticks:        { color: T.textSecondary, backdropColor: 'transparent', font: { size: 10 } },
+        pointLabels:  { display: true, color: T.textSecondary, font: { size: 11 } },
+        angleLines:   { color: T.surfaceBorder },
+      },
+    },
   }),
 
   /** Radar */

@@ -261,3 +261,11 @@ export type { KlnPortalLoginPayload }
 
 export { KlnServiceTileComponent }
   from './lib/components/service-tile/service-tile.component';
+
+// ── Components v2.1 — PrimeNG complete coverage ───────────────────────────────
+
+export { KlnDockComponent } from './lib/components/dock/dock.component';
+
+export { KlnOrganizationChartComponent } from './lib/components/organization-chart/organization-chart.component';
+
+export { KlnTerminalComponent } from './lib/components/terminal/terminal.component';

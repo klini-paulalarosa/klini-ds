@@ -147,6 +147,11 @@ export const appRoutes: Routes = [
       import('./pages/components/stub/component-stub-page.component').then(m => m.ComponentStubPageComponent),
   },
   {
+    path: 'icons',
+    loadComponent: () =>
+      import('./pages/icons/icons-page.component').then(m => m.IconsPageComponent),
+  },
+  {
     path: '**',
     redirectTo: '',
   },
