@@ -72,6 +72,76 @@ export const appRoutes: Routes = [
       import('./pages/components/portal-templates/portal-templates-page.component').then(m => m.PortalTemplatesPageComponent),
   },
   {
+    path: 'components/accordion',
+    loadComponent: () =>
+      import('./pages/components/accordion/accordion-page.component').then(m => m.AccordionPageComponent),
+  },
+  {
+    path: 'components/drawer',
+    loadComponent: () =>
+      import('./pages/components/drawer/drawer-page.component').then(m => m.DrawerPageComponent),
+  },
+  {
+    path: 'components/tabs',
+    loadComponent: () =>
+      import('./pages/components/tabs/tabs-page.component').then(m => m.TabsPageComponent),
+  },
+  {
+    path: 'components/avatar',
+    loadComponent: () =>
+      import('./pages/components/avatar/avatar-page.component').then(m => m.AvatarPageComponent),
+  },
+  {
+    path: 'components/badge',
+    loadComponent: () =>
+      import('./pages/components/badge-tag-chip/badge-tag-chip-page.component').then(m => m.BadgeTagChipPageComponent),
+  },
+  {
+    path: 'components/tag',
+    loadComponent: () =>
+      import('./pages/components/badge-tag-chip/badge-tag-chip-page.component').then(m => m.BadgeTagChipPageComponent),
+  },
+  {
+    path: 'components/chip',
+    loadComponent: () =>
+      import('./pages/components/badge-tag-chip/badge-tag-chip-page.component').then(m => m.BadgeTagChipPageComponent),
+  },
+  {
+    path: 'components/stepper',
+    loadComponent: () =>
+      import('./pages/components/stepper/stepper-page.component').then(m => m.StepperPageComponent),
+  },
+  {
+    path: 'components/confirm-dialog',
+    loadComponent: () =>
+      import('./pages/components/confirm-dialog/confirm-dialog-page.component').then(m => m.ConfirmDialogPageComponent),
+  },
+  {
+    path: 'components/skeleton',
+    loadComponent: () =>
+      import('./pages/components/skeleton/skeleton-page.component').then(m => m.SkeletonPageComponent),
+  },
+  {
+    path: 'components/status-pill',
+    loadComponent: () =>
+      import('./pages/components/status-pill/status-pill-page.component').then(m => m.StatusPillPageComponent),
+  },
+  {
+    path: 'components/toggle',
+    loadComponent: () =>
+      import('./pages/components/toggle/toggle-page.component').then(m => m.TogglePageComponent),
+  },
+  {
+    path: 'components/menu',
+    loadComponent: () =>
+      import('./pages/components/menu/menu-page.component').then(m => m.MenuPageComponent),
+  },
+  {
+    path: 'components/breadcrumb',
+    loadComponent: () =>
+      import('./pages/components/breadcrumb/breadcrumb-page.component').then(m => m.BreadcrumbPageComponent),
+  },
+  {
     path: 'components/:slug',
     loadComponent: () =>
       import('./pages/components/stub/component-stub-page.component').then(m => m.ComponentStubPageComponent),
