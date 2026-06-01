@@ -18,6 +18,9 @@ jobs:
   build:
     name: Build docs app
     runs-on: ubuntu-latest
+    # Pages so esta habilitado no repo pessoal (klini-paulalarosa).
+    # No espelho klini-saude/design-system o job e ignorado graciosamente.
+    if: github.repository == 'klini-paulalarosa/klini-ds'
 
     steps:
       - name: Checkout
