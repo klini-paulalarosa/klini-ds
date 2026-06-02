@@ -64,7 +64,7 @@ export const appRoutes: Routes = [
   {
     path: 'components/kpi-card',
     loadComponent: () =>
-      import('./pages/components/card/card-page.component').then(m => m.CardPageComponent),
+      import('./pages/components/stub/component-stub-page.component').then(m => m.ComponentStubPageComponent),
   },
   {
     path: 'components/portal-templates',
