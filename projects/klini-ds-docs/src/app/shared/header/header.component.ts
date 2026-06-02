@@ -123,7 +123,7 @@ const ROUTE_LABELS: Record<string, string> = {
       top: 0;
       z-index: 50;
 
-      // Linha de marca teal no topo
+      /* Linha de marca teal no topo */
       &::before {
         content: '';
         position: absolute;
