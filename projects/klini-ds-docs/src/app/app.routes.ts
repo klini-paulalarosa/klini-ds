@@ -17,6 +17,11 @@ export const appRoutes: Routes = [
       import('./pages/tokens/tokens.component').then(m => m.TokensComponent),
   },
   {
+    path: 'architecture',
+    loadComponent: () =>
+      import('./pages/architecture/architecture.component').then(m => m.ArchitectureComponent),
+  },
+  {
     path: 'charts',
     loadComponent: () =>
       import('./pages/charts/charts.component').then(m => m.ChartsComponent),

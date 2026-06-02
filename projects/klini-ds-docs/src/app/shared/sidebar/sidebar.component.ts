@@ -217,6 +217,11 @@ interface NavItem { label: string; route: string; }
              class="sidebar__link sidebar__link--top">Instalacao</a>
           <a routerLink="/tokens" routerLinkActive="active"
              class="sidebar__link sidebar__link--top">Design Tokens</a>
+          <a routerLink="/architecture" routerLinkActive="active"
+             class="sidebar__link sidebar__link--top">
+            <i class="pi pi-sitemap" style="margin-right:6px;font-size:11px" aria-hidden="true"></i>
+            Arquitetura
+          </a>
           <a routerLink="/icons" routerLinkActive="active"
              class="sidebar__link sidebar__link--top">
             <i class="pi pi-star" style="margin-right:6px;font-size:11px" aria-hidden="true"></i>
@@ -332,6 +337,7 @@ export class SidebarComponent {
     { label: 'Visao Geral',      route: '/' },
     { label: 'Instalacao',       route: '/getting-started' },
     { label: 'Design Tokens',    route: '/tokens' },
+    { label: 'Arquitetura',      route: '/architecture' },
     { label: 'PrimeIcons',       route: '/icons' },
     { label: 'Chart Presets',    route: '/charts' },
     { label: 'kln-chart API',    route: '/components/chart' },
