@@ -25,15 +25,39 @@ interface NavItem { label: string; route: string; }
       text-decoration: none; margin-bottom: 6px;
     }
 
+    /* Wordmark logo — mesma estrutura do portal-footer do DS */
     .sidebar__logo-mark {
-      width: 34px; height: 34px; flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      line-height: 1;
+      gap: 1px;
+    }
+
+    .sidebar__logo-klini {
+      font-family: 'Objective', system-ui, sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--docs-accent);
+      letter-spacing: -0.03em;
+      line-height: 1;
+    }
+
+    .sidebar__logo-saude {
+      font-family: 'Objective', system-ui, sans-serif;
+      font-size: 8px;
+      font-weight: 700;
+      color: var(--docs-accent);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      line-height: 1;
+      opacity: 0.75;
     }
 
     .sidebar__logo-text {
       display: flex; flex-direction: column; line-height: 1;
     }
-    .sidebar__logo-name { font-weight: 800; font-size: 15px; color: var(--docs-text); }
-    .sidebar__logo-sub  { font-size: 10px; font-weight: 500; color: var(--docs-text-muted); letter-spacing: 0.04em; }
+    .sidebar__logo-name { font-weight: 700; font-size: 12px; color: var(--docs-text-muted); letter-spacing: 0.01em; }
+    .sidebar__logo-sub  { font-size: 10px; font-weight: 500; color: var(--docs-text-subtle); letter-spacing: 0.02em; }
 
     .sidebar__version {
       font-size: 11px; padding: 2px 6px; border-radius: 4px;
@@ -127,22 +151,16 @@ interface NavItem { label: string; route: string; }
       <!-- Brand -->
       <div class="sidebar__brand">
         <a routerLink="/" class="sidebar__logo" aria-label="Klini DS — inicio">
-          <!-- Klini logomark SVG -->
-          <svg class="sidebar__logo-mark" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-            <rect width="34" height="34" rx="9" fill="#259591"/>
-            <!-- K mark: vertical bar + two diagonals -->
-            <line x1="10" y1="8"  x2="10" y2="26" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
-            <line x1="10" y1="17" x2="21" y2="8"  stroke="white" stroke-width="2.4" stroke-linecap="round"/>
-            <line x1="10" y1="17" x2="21" y2="26" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
-            <!-- Dot (saúde / health cross accent) -->
-            <circle cx="24" cy="10" r="2" fill="#D3EAE9"/>
-          </svg>
+          <!-- Wordmark idêntico ao portal-footer do DS -->
+          <div class="sidebar__logo-mark" aria-hidden="true">
+            <span class="sidebar__logo-klini">klini</span>
+            <span class="sidebar__logo-saude">saúde</span>
+          </div>
           <span class="sidebar__logo-text">
-            <span class="sidebar__logo-name">Klini DS</span>
-            <span class="sidebar__logo-sub">Design System</span>
+            <span class="sidebar__logo-name">Design System</span>
+            <span class="sidebar__logo-sub">v{{ version }}</span>
           </span>
         </a>
-        <span class="sidebar__version">{{ version }}</span>
       </div>
 
       <!-- Search -->

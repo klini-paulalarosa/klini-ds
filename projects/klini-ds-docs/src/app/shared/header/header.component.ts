@@ -202,7 +202,7 @@ const ROUTE_LABELS: Record<string, string> = {
     <header class="header docs-header" role="banner">
       <!-- Breadcrumb dinamico -->
       <nav class="header__left" aria-label="Breadcrumb">
-        <a routerLink="/" class="header__crumb" aria-label="Klini DS — inicio">Klini DS</a>
+        <a routerLink="/" class="header__crumb" aria-label="Klini DS — inicio" style="font-weight:700;color:var(--docs-accent)">klini ds</a>
         @for (crumb of breadcrumbs(); track crumb.label; let last = $last) {
           <span class="header__sep" aria-hidden="true">/</span>
           @if (last) {
