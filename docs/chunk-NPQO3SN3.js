@@ -1,0 +1,14 @@
+import{a as d}from"./chunk-KR4SXHLK.js";import{a as u}from"./chunk-6RXJHZRI.js";import{_a as s}from"./chunk-ZMPL4K3C.js";import"./chunk-4IL3UCKX.js";import"./chunk-W4FWUOBX.js";import"./chunk-NMGI7OHJ.js";import"./chunk-BTGLL7MP.js";import"./chunk-4LWZMJDI.js";import"./chunk-BCJF3KZG.js";import{Bb as i,Cb as e,Db as l,Xb as t,Ya as a,ec as m,fa as c,rb as r}from"./chunk-WNNFWGPB.js";var h=(()=>{class o{constructor(){this.menuPortal=[{label:"Meu Plano",icon:"pi pi-id-card",items:[{label:"Dados do plano",icon:"pi pi-info-circle"},{label:"Carteirinha",icon:"pi pi-credit-card"},{label:"Dependentes",icon:"pi pi-users"}]},{label:"Autoriza\xE7\xF5es",icon:"pi pi-check-circle",items:[{label:"Nova solicita\xE7\xE3o",icon:"pi pi-plus"},{label:"Acompanhar",icon:"pi pi-list"},{separator:!0},{label:"Hist\xF3rico",icon:"pi pi-history"}]},{label:"Rede Credenciada",icon:"pi pi-map-marker"},{label:"Financeiro",icon:"pi pi-wallet",items:[{label:"Boletos",icon:"pi pi-file"},{label:"Coparticipa\xE7\xE3o",icon:"pi pi-calculator"},{label:"Reembolsos",icon:"pi pi-arrow-circle-left"}]}],this.codePortal=`<kln-menubar [items]="menuPortal" />
+
+// No componente:
+menuPortal: MenuItem[] = [
+  {
+    label: 'Meu Plano',
+    icon: 'pi pi-id-card',
+    items: [
+      { label: 'Dados do plano', icon: 'pi pi-info-circle' },
+      { label: 'Carteirinha', icon: 'pi pi-credit-card' },
+    ],
+  },
+  { label: 'Rede Credenciada', icon: 'pi pi-map-marker' },
+];`,this.props=[{name:"items",type:"MenuItem[]",default:"[]",description:"Array de itens do menu.",required:!0},{name:"styleClass",type:"string",default:"''",description:"Classes CSS adicionais."}]}static{this.\u0275fac=function(n){return new(n||o)}}static{this.\u0275cmp=c({type:o,selectors:[["app-menubar-page"]],standalone:!0,features:[m],decls:21,vars:3,consts:[[2,"display","flex","align-items","center","gap","12px","margin-bottom","8px"],[1,"docs-page-title",2,"margin-bottom","0"],[1,"badge","badge--version"],[1,"docs-page-description"],[1,"font-mono"],[1,"docs-section"],[3,"code"],["preview",""],[3,"items"],[3,"props"]],template:function(n,p){n&1&&(i(0,"div")(1,"div",0)(2,"h1",1),t(3,"Menubar"),e(),i(4,"span",2),t(5,"kln-menubar"),e()(),i(6,"p",3),t(7," Barra de menu horizontal com suporte a submenus. Wrapper sobre "),i(8,"code",4),t(9,"p-menubar"),e(),t(10," do PrimeNG. Usado como navega\xE7\xE3o principal do portal do benefici\xE1rio ou do portal m\xE9dico. "),e(),i(11,"div",5)(12,"h2"),t(13,"Portal do Benefici\xE1rio"),e(),i(14,"app-component-preview",6)(15,"div",7),l(16,"kln-menubar",8),e()()(),i(17,"div",5)(18,"h2"),t(19,"Props"),e(),l(20,"app-props-table",9),e()()),n&2&&(a(14),r("code",p.codePortal),a(2),r("items",p.menuPortal),a(4),r("props",p.props))},dependencies:[s,d,u],encapsulation:2,changeDetection:0})}}return o})();export{h as MenubarPageComponent};

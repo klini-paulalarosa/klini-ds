@@ -1,0 +1,20 @@
+import{a as w}from"./chunk-KR4SXHLK.js";import{a as C}from"./chunk-6RXJHZRI.js";import{m as f,n as h,o as x,za as v}from"./chunk-ZMPL4K3C.js";import"./chunk-4IL3UCKX.js";import{pa as T}from"./chunk-W4FWUOBX.js";import"./chunk-NMGI7OHJ.js";import"./chunk-BTGLL7MP.js";import"./chunk-4LWZMJDI.js";import"./chunk-BCJF3KZG.js";import{Bb as t,Cb as e,Db as d,Xb as a,Ya as i,Yb as s,Zb as u,ec as g,fa as c,ob as b,rb as n}from"./chunk-WNNFWGPB.js";function y(o,p){o&1&&(t(0,"tr")(1,"th",12),a(2,"Procedimento"),e(),t(3,"th",12),a(4,"Cobertura"),e(),t(5,"th",12),a(6,"Limite"),e()())}function S(o,p){if(o&1&&(t(0,"tr",13)(1,"td",14),d(2,"p-treeTableToggler",15),a(3),e(),t(4,"td",14),a(5),e(),t(6,"td",14),a(7),e()()),o&2){let l=p.$implicit,r=p.rowData;n("ttRow",l),i(2),n("rowNode",l),i(),u(" ",r.nome," "),i(2),s(r.cobertura),i(2),s(r.limite)}}var M=(()=>{class o{constructor(){this.coberturas=[{data:{nome:"Consultas (Grupo 1)",cobertura:"100%",limite:"Ilimitado"},children:[{data:{nome:"1.01.01.01 \u2014 Consult\xF3rio",cobertura:"100%",limite:"Ilimitado"}},{data:{nome:"1.01.01.02 \u2014 Telemedicina",cobertura:"100%",limite:"6/m\xEAs"}}]},{data:{nome:"Diagn\xF3stico (Grupo 4)",cobertura:"80%",limite:"R$ 5.000/ano"},children:[{data:{nome:"4.01 \u2014 Radiologia",cobertura:"80%",limite:"12/ano"}},{data:{nome:"4.03 \u2014 Resson\xE2ncia",cobertura:"80%",limite:"4/ano"}}]}],this.codeCoberturas=`<!-- Importe TreeTableModule de primeng/treetable -->
+<kln-tree-table [value]="coberturas">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Procedimento</th>
+      <th>Cobertura</th>
+      <th>Limite</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-rowNode let-rowData="rowData">
+    <tr [ttRow]="rowNode">
+      <td>
+        <p-treeTableToggler [rowNode]="rowNode" />
+        {{ rowData.nome }}
+      </td>
+      <td>{{ rowData.cobertura }}</td>
+      <td>{{ rowData.limite }}</td>
+    </tr>
+  </ng-template>
+</kln-tree-table>`,this.props=[{name:"value",type:"any[]",default:"[]",description:"Array de n\xF3s da tabela hier\xE1rquica."},{name:"rows",type:"number",default:"10",description:"Linhas por p\xE1gina (quando paginator ativo)."},{name:"paginator",type:"boolean",default:"false",description:"Habilita pagina\xE7\xE3o."},{name:"scrollable",type:"boolean",default:"false",description:"Habilita scroll horizontal."},{name:"scrollHeight",type:"string",default:"''",description:"Altura m\xE1xima com scroll vertical."},{name:"styleClass",type:"string",default:"''",description:"Classes CSS adicionais."}]}static{this.\u0275fac=function(r){return new(r||o)}}static{this.\u0275cmp=c({type:o,selectors:[["app-tree-table-page"]],standalone:!0,features:[g],decls:23,vars:3,consts:[[2,"display","flex","align-items","center","gap","12px","margin-bottom","8px"],[1,"docs-page-title",2,"margin-bottom","0"],[1,"badge","badge--version"],[1,"docs-page-description"],[1,"font-mono"],[1,"docs-section"],[3,"code"],["preview",""],[3,"value"],["pTemplate","header"],["pTemplate","body"],[3,"props"],[2,"padding","10px","text-align","left","font-size","13px","border-bottom","1px solid var(--docs-border)"],[2,"border-bottom","1px solid var(--docs-border)",3,"ttRow"],[2,"padding","8px 10px","font-size","13px"],[3,"rowNode"]],template:function(r,m){r&1&&(t(0,"div")(1,"div",0)(2,"h1",1),a(3,"TreeTable"),e(),t(4,"span",2),a(5,"kln-tree-table"),e()(),t(6,"p",3),a(7," Tabela hier\xE1rquica com expans\xE3o de linhas. Wrapper sobre "),t(8,"code",4),a(9,"p-treetable"),e(),a(10," do PrimeNG. Usado para exibir coberturas por grupo de procedimentos e custo por categoria. "),e(),t(11,"div",5)(12,"h2"),a(13,"Coberturas por grupo CBHPM"),e(),t(14,"app-component-preview",6)(15,"div",7)(16,"kln-tree-table",8),b(17,y,7,0,"ng-template",9)(18,S,8,5,"ng-template",10),e()()()(),t(19,"div",5)(20,"h2"),a(21,"Props"),e(),d(22,"app-props-table",11),e()()),r&2&&(i(14),n("code",m.codeCoberturas),i(2),n("value",m.coberturas),i(6),n("props",m.props))},dependencies:[v,x,T,h,f,w,C],encapsulation:2,changeDetection:0})}}return o})();export{M as TreeTablePageComponent};

@@ -1,0 +1,17 @@
+import{a as m}from"./chunk-KR4SXHLK.js";import{a as u}from"./chunk-6RXJHZRI.js";import{fb as c}from"./chunk-ZMPL4K3C.js";import"./chunk-4IL3UCKX.js";import"./chunk-W4FWUOBX.js";import"./chunk-NMGI7OHJ.js";import"./chunk-BTGLL7MP.js";import"./chunk-4LWZMJDI.js";import"./chunk-BCJF3KZG.js";import{Bb as i,Cb as e,Db as d,Xb as t,Ya as n,ec as s,fa as p,rb as o}from"./chunk-WNNFWGPB.js";var v=(()=>{class r{constructor(){this.redePrestadores=[{label:"S\xE3o Paulo",icon:"pi pi-map-marker",expanded:!0,children:[{label:"Zona Sul",icon:"pi pi-building",children:[{label:"Cl\xEDnica Klini Sul",icon:"pi pi-heart",type:"clinica"},{label:"Lab Klini Sul",icon:"pi pi-flask",type:"lab"}]},{label:"Zona Centro",icon:"pi pi-building",children:[{label:"Cl\xEDnica Klini Centro",icon:"pi pi-heart",type:"clinica"},{label:"Hospital S\xE3o Camilo",icon:"pi pi-home",type:"hospital"}]}]},{label:"Santo Andr\xE9",icon:"pi pi-map-marker",children:[{label:"Cl\xEDnica Ortop\xE9dica ABC",icon:"pi pi-heart",type:"clinica"},{label:"Lab ABC",icon:"pi pi-flask",type:"lab"}]}],this.codeRede=`<kln-tree [nodes]="redePrestadores" selectionMode="single" />
+
+// No componente:
+redePrestadores: TreeNode[] = [
+  {
+    label: 'S\xE3o Paulo',
+    icon: 'pi pi-map-marker',
+    children: [
+      {
+        label: 'Zona Sul',
+        children: [
+          { label: 'Cl\xEDnica Klini Sul', icon: 'pi pi-heart' },
+        ],
+      },
+    ],
+  },
+];`,this.codeFiltro='<kln-tree [nodes]="redePrestadores" [filter]="true" selectionMode="single" />',this.props=[{name:"nodes",type:"TreeNode[]",default:"[]",description:"Array de n\xF3s da \xE1rvore.",required:!0},{name:"selectionMode",type:"'single' | 'multiple' | 'checkbox' | null",default:"null",description:"Modo de sele\xE7\xE3o."},{name:"selection",type:"TreeNode | TreeNode[] | null",default:"null",description:"N\xF3(s) selecionado(s)."},{name:"filter",type:"boolean",default:"false",description:"Exibe campo de busca."},{name:"loading",type:"boolean",default:"false",description:"Estado de carregamento."},{name:"styleClass",type:"string",default:"''",description:"Classes CSS adicionais."}]}static{this.\u0275fac=function(l){return new(l||r)}}static{this.\u0275cmp=p({type:r,selectors:[["app-tree-page"]],standalone:!0,features:[s],decls:27,vars:6,consts:[[2,"display","flex","align-items","center","gap","12px","margin-bottom","8px"],[1,"docs-page-title",2,"margin-bottom","0"],[1,"badge","badge--version"],[1,"docs-page-description"],[1,"font-mono"],[1,"docs-section"],[3,"code"],["preview",""],["selectionMode","single",3,"nodes"],["selectionMode","single",3,"nodes","filter"],[3,"props"]],template:function(l,a){l&1&&(i(0,"div")(1,"div",0)(2,"h1",1),t(3,"Tree"),e(),i(4,"span",2),t(5,"kln-tree"),e()(),i(6,"p",3),t(7," \xC1rvore hier\xE1rquica com expans\xE3o e sele\xE7\xE3o. Wrapper sobre "),i(8,"code",4),t(9,"p-tree"),e(),t(10," do PrimeNG. Usado para navega\xE7\xE3o da rede de prestadores (Estado > Cidade > Cl\xEDnica). "),e(),i(11,"div",5)(12,"h2"),t(13,"Rede credenciada"),e(),i(14,"app-component-preview",6)(15,"div",7),d(16,"kln-tree",8),e()()(),i(17,"div",5)(18,"h2"),t(19,"Com filtro"),e(),i(20,"app-component-preview",6)(21,"div",7),d(22,"kln-tree",9),e()()(),i(23,"div",5)(24,"h2"),t(25,"Props"),e(),d(26,"app-props-table",10),e()()),l&2&&(n(14),o("code",a.codeRede),n(2),o("nodes",a.redePrestadores),n(4),o("code",a.codeFiltro),n(2),o("nodes",a.redePrestadores)("filter",!0),n(4),o("props",a.props))},dependencies:[c,m,u],encapsulation:2,changeDetection:0})}}return r})();export{v as TreePageComponent};

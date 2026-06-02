@@ -1,0 +1,15 @@
+import{a as c}from"./chunk-KR4SXHLK.js";import{a as u}from"./chunk-6RXJHZRI.js";import{ua as m}from"./chunk-ZMPL4K3C.js";import"./chunk-4IL3UCKX.js";import"./chunk-W4FWUOBX.js";import"./chunk-NMGI7OHJ.js";import"./chunk-BTGLL7MP.js";import"./chunk-4LWZMJDI.js";import"./chunk-BCJF3KZG.js";import{Bb as i,Cb as e,Db as r,Xb as n,Ya as o,ec as s,fa as d,rb as l}from"./chunk-WNNFWGPB.js";var h=(()=>{class t{constructor(){this.menuSidebar=[{label:"Meu Plano",icon:"pi pi-id-card",expanded:!0,items:[{label:"Dados do plano",icon:"pi pi-info-circle"},{label:"Carteirinha",icon:"pi pi-credit-card"},{label:"Dependentes",icon:"pi pi-users"}]},{label:"Autoriza\xE7\xF5es",icon:"pi pi-check-circle",items:[{label:"Nova solicita\xE7\xE3o",icon:"pi pi-plus"},{label:"Acompanhar",icon:"pi pi-list"},{label:"Hist\xF3rico",icon:"pi pi-history"}]},{label:"Financeiro",icon:"pi pi-wallet",items:[{label:"Boletos",icon:"pi pi-file"},{label:"Coparticipa\xE7\xE3o",icon:"pi pi-calculator"},{label:"Reembolsos",icon:"pi pi-arrow-circle-left"}]},{label:"Rede Credenciada",icon:"pi pi-map-marker"}],this.codeSidebar=`<kln-panel-menu [model]="menuSidebar" />
+
+// No componente:
+menuSidebar: MenuItem[] = [
+  {
+    label: 'Meu Plano',
+    icon: 'pi pi-id-card',
+    expanded: true,
+    items: [
+      { label: 'Dados do plano' },
+      { label: 'Carteirinha' },
+    ],
+  },
+  { label: 'Autoriza\xE7\xF5es', items: [...] },
+];`,this.props=[{name:"model",type:"MenuItem[]",default:"[]",description:"Array de se\xE7\xF5es e itens do menu."},{name:"multiple",type:"boolean",default:"true",description:"Permite m\xFAltiplos pain\xE9is expandidos."},{name:"styleClass",type:"string",default:"''",description:"Classes CSS adicionais."}]}static{this.\u0275fac=function(a){return new(a||t)}}static{this.\u0275cmp=d({type:t,selectors:[["app-panel-menu-page"]],standalone:!0,features:[s],decls:23,vars:3,consts:[[2,"display","flex","align-items","center","gap","12px","margin-bottom","8px"],[1,"docs-page-title",2,"margin-bottom","0"],[1,"badge","badge--version"],[1,"docs-page-description"],[1,"font-mono"],[1,"docs-section"],[3,"code"],["preview","",2,"max-width","280px","background","var(--docs-sidebar-bg)","border-radius","8px","overflow","hidden"],[3,"model"],[3,"props"]],template:function(a,p){a&1&&(i(0,"div")(1,"div",0)(2,"h1",1),n(3,"PanelMenu"),e(),i(4,"span",2),n(5,"kln-panel-menu"),e()(),i(6,"p",3),n(7," Menu de painel colaps\xE1vel com hierarquia. Wrapper sobre "),i(8,"code",4),n(9,"p-panelmenu"),e(),n(10," do PrimeNG. Usado na sidebar de navega\xE7\xE3o do portal administrativo. "),e(),i(11,"div",5)(12,"h2"),n(13,"Sidebar do portal"),e(),i(14,"p"),n(15,"Menu colaps\xE1vel da barra lateral com se\xE7\xF5es do portal."),e(),i(16,"app-component-preview",6)(17,"div",7),r(18,"kln-panel-menu",8),e()()(),i(19,"div",5)(20,"h2"),n(21,"Props"),e(),r(22,"app-props-table",9),e()()),a&2&&(o(16),l("code",p.codeSidebar),o(2),l("model",p.menuSidebar),o(4),l("props",p.props))},dependencies:[m,c,u],encapsulation:2,changeDetection:0})}}return t})();export{h as PanelMenuPageComponent};

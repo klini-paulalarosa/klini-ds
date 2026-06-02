@@ -1,0 +1,33 @@
+import{a as _}from"./chunk-KR4SXHLK.js";import{a as h}from"./chunk-6RXJHZRI.js";import{D as k,K as f}from"./chunk-ZMPL4K3C.js";import"./chunk-4IL3UCKX.js";import"./chunk-W4FWUOBX.js";import"./chunk-NMGI7OHJ.js";import"./chunk-BTGLL7MP.js";import"./chunk-4LWZMJDI.js";import"./chunk-BCJF3KZG.js";import{Bb as i,Cb as e,Db as v,Lb as s,Xb as t,Ya as a,Yb as E,ac as m,bc as c,cc as b,ec as g,fa as w,rb as l}from"./chunk-WNNFWGPB.js";var x=(()=>{class d{constructor(){this.basicVisible=!1,this.positionVisible=!1,this.noModalVisible=!1,this.position="right",this.basicCode=`<kln-button label="Abrir Drawer" (clicked)="visible = true" />
+
+<kln-drawer header="Detalhes da Consulta" [(visible)]="visible">
+  <p><strong>Benefici\xE1rio:</strong> Paula Rosa</p>
+  <p><strong>Especialidade:</strong> Cardiologia</p>
+  <p><strong>Data:</strong> 20/06/2025 \xE0s 14h30</p>
+</kln-drawer>
+
+// Classe
+visible = false;`,this.positionsCode=`<kln-button label="Esquerda" (clicked)="openDrawer('left')" />
+<kln-button label="Direita"  (clicked)="openDrawer('right')" />
+<kln-button label="Topo"     (clicked)="openDrawer('top')" />
+<kln-button label="Baixo"    (clicked)="openDrawer('bottom')" />
+
+<kln-drawer
+  [header]="'Drawer \u2014 ' + position"
+  [position]="position"
+  [(visible)]="positionVisible">
+  <p>Drawer aberto pela posi\xE7\xE3o: {{ position }}</p>
+</kln-drawer>
+
+// Classe
+position: KlnDrawerPosition = 'right';
+positionVisible = false;
+
+openDrawer(pos: KlnDrawerPosition): void {
+  this.position = pos;
+  this.positionVisible = true;
+}`,this.noModalCode=`<kln-button label="Abrir sem modal" (clicked)="visible = true" />
+
+<kln-drawer header="Filtros de Busca" [modal]="false" [(visible)]="visible">
+  <p>Especialidade, cidade, conv\xEAnio.</p>
+</kln-drawer>`,this.props=[{name:"header",type:"string",default:"''",description:"T\xEDtulo exibido na barra superior do drawer."},{name:"position",type:"'left' | 'right' | 'top' | 'bottom'",default:"'right'",description:"Lado da tela a partir do qual o drawer desliza."},{name:"visible",type:"boolean",default:"false",description:"Controla a visibilidade. Suporta two-way binding com [(visible)]."},{name:"modal",type:"boolean",default:"true",description:"Exibe sobreposi\xE7\xE3o escurecida sobre o conte\xFAdo ao fundo."},{name:"closeOnEscape",type:"boolean",default:"true",description:"Fecha o drawer ao pressionar a tecla Escape."},{name:"(visibleChange)",type:"EventEmitter<boolean>",default:"\u2014",description:"Emite o novo valor de visibilidade (parte do two-way binding)."},{name:"(closed)",type:"EventEmitter<void>",default:"\u2014",description:"Emite quando o drawer \xE9 fechado."}]}openDrawer(u){this.position=u,this.positionVisible=!0}static{this.\u0275fac=function(p){return new(p||d)}}static{this.\u0275cmp=w({type:d,selectors:[["app-drawer-page"]],standalone:!0,features:[g],decls:83,vars:11,consts:[[2,"display","flex","align-items","center","gap","12px","margin-bottom","8px"],[1,"docs-page-title",2,"margin-bottom","0"],[1,"badge","badge--version"],[1,"docs-page-description"],[1,"font-mono"],[1,"docs-section"],[3,"code"],["preview",""],["label","Abrir Drawer",3,"clicked"],["header","Detalhes da Consulta",3,"visibleChange","visible"],[2,"padding","8px 0"],["preview","",2,"display","flex","gap","8px","flex-wrap","wrap"],["label","Esquerda","size","small",3,"clicked"],["label","Direita","size","small",3,"clicked"],["label","Topo","size","small",3,"clicked"],["label","Baixo","size","small",3,"clicked"],[3,"visibleChange","header","position","visible"],["label","Abrir sem modal","severity","secondary",3,"clicked"],["header","Filtros de Busca",3,"visibleChange","modal","visible"],[3,"props"]],template:function(p,n){p&1&&(i(0,"div")(1,"div",0)(2,"h1",1),t(3,"Drawer"),e(),i(4,"span",2),t(5,"kln-drawer"),e()(),i(6,"p",3),t(7," Painel lateral deslizante para exibir conte\xFAdo adicional sem sair do contexto atual. \xDAtil para filtros, formul\xE1rios e detalhes de consultas ou benefici\xE1rios. Wrapper sobre "),i(8,"code",4),t(9,"p-drawer"),e(),t(10," do PrimeNG. "),e(),i(11,"div",5)(12,"h2"),t(13,"B\xE1sico (direita)"),e(),i(14,"p"),t(15,"Drawer padr\xE3o que abre pela direita. Use "),i(16,"code",4),t(17,"[(visible)]"),e(),t(18," para controlar a visibilidade."),e(),i(19,"app-component-preview",6)(20,"div",7)(21,"kln-button",8),s("clicked",function(){return n.basicVisible=!0}),e(),i(22,"kln-drawer",9),b("visibleChange",function(o){return c(n.basicVisible,o)||(n.basicVisible=o),o}),i(23,"div",10)(24,"p")(25,"strong"),t(26,"Benefici\xE1rio:"),e(),t(27," Paula Rosa"),e(),i(28,"p")(29,"strong"),t(30,"Especialidade:"),e(),t(31," Cardiologia"),e(),i(32,"p")(33,"strong"),t(34,"Data:"),e(),t(35," 20/06/2025 \xE0s 14h30"),e(),i(36,"p")(37,"strong"),t(38,"M\xE9dico:"),e(),t(39," Dr. Marcos Oliveira"),e(),i(40,"p")(41,"strong"),t(42,"Unidade:"),e(),t(43," Hospital S\xE3o Lucas \u2014 Bloco B"),e()()()()()(),i(44,"div",5)(45,"h2"),t(46,"Posi\xE7\xF5es"),e(),i(47,"p"),t(48,"O drawer pode abrir pelos quatro lados da tela via "),i(49,"code",4),t(50,"[position]"),e(),t(51,"."),e(),i(52,"app-component-preview",6)(53,"div",11)(54,"kln-button",12),s("clicked",function(){return n.openDrawer("left")}),e(),i(55,"kln-button",13),s("clicked",function(){return n.openDrawer("right")}),e(),i(56,"kln-button",14),s("clicked",function(){return n.openDrawer("top")}),e(),i(57,"kln-button",15),s("clicked",function(){return n.openDrawer("bottom")}),e()(),i(58,"kln-drawer",16),b("visibleChange",function(o){return c(n.positionVisible,o)||(n.positionVisible=o),o}),i(59,"p"),t(60,"Drawer aberto pela posi\xE7\xE3o: "),i(61,"strong"),t(62),e()(),i(63,"p"),t(64,"Use para filtros, formul\xE1rios ou detalhes contextuais."),e()()()(),i(65,"div",5)(66,"h2"),t(67,"Sem sobreposi\xE7\xE3o (modal)"),e(),i(68,"p"),t(69,"Com "),i(70,"code",4),t(71,'[modal]="false"'),e(),t(72,", o conte\xFAdo por tr\xE1s permanece interativo."),e(),i(73,"app-component-preview",6)(74,"div",7)(75,"kln-button",17),s("clicked",function(){return n.noModalVisible=!0}),e(),i(76,"kln-drawer",18),b("visibleChange",function(o){return c(n.noModalVisible,o)||(n.noModalVisible=o),o}),i(77,"p"),t(78,"Especialidade, cidade, conv\xEAnio \u2014 sem bloquear o conte\xFAdo principal."),e()()()()(),i(79,"div",5)(80,"h2"),t(81,"Props"),e(),v(82,"app-props-table",19),e()()),p&2&&(a(19),l("code",n.basicCode),a(3),m("visible",n.basicVisible),a(30),l("code",n.positionsCode),a(6),l("header","Drawer \u2014 "+n.position)("position",n.position),m("visible",n.positionVisible),a(4),E(n.position),a(11),l("code",n.noModalCode),a(3),l("modal",!1),m("visible",n.noModalVisible),a(6),l("props",n.props))},dependencies:[f,k,_,h],encapsulation:2,changeDetection:0})}}return d})();export{x as DrawerPageComponent};
