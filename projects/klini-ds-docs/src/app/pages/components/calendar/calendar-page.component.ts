@@ -60,7 +60,7 @@ import { PropsTableComponent, PropDef } from '../../../shared/props-table/props-
               placeholder="Início — Fim"
               [showIcon]="true"
             />
-            @if (periodoRelatorio?.[0] && periodoRelatorio?.[1]) {
+            @if (periodoRelatorio[0] && periodoRelatorio[1]) {
               <p style="margin-top:4px;font-size:12px;color:var(--docs-text-muted)">
                 De {{ periodoRelatorio[0] | date:'dd/MM/yyyy' }}
                 até {{ periodoRelatorio[1] | date:'dd/MM/yyyy' }}
