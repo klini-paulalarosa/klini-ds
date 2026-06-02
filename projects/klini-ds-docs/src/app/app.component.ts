@@ -2,12 +2,13 @@ import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './shared/sidebar/sidebar.component';
 import { HeaderComponent } from './shared/header/header.component';
+import { PrevNextNavComponent } from './shared/prev-next-nav/prev-next-nav.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [RouterOutlet, SidebarComponent, HeaderComponent],
+  imports: [RouterOutlet, SidebarComponent, HeaderComponent, PrevNextNavComponent],
   styles: [`
     .skip-link {
       position: absolute;
@@ -78,6 +79,7 @@ import { HeaderComponent } from './shared/header/header.component';
         <app-header />
         <main id="main-content" class="docs-content" tabindex="-1">
           <router-outlet />
+          <app-prev-next-nav />
         </main>
       </div>
     </div>
