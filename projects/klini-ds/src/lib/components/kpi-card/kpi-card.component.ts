@@ -4,8 +4,23 @@ import { CardModule } from 'primeng/card';
 export type KpiTrend = 'up' | 'down' | 'neutral';
 
 /**
- * Card de indicador (KPI) — usa p-card como base estrutural.
- * Layout e tipografia são definidos pelos tokens Klini via tema.
+ * Card de indicador de performance (KPI) para dashboards do Klini App.
+ * Compõe internamente: ícone (PrimeIcons), valor principal, badge de tendência
+ * (up/down/neutral com cores semânticas) e descrição auxiliar opcionais.
+ *
+ * @atomicLevel organism
+ * @selector kln-kpi-card
+ * @primeng p-card
+ * @composedOf Ícone PrimeIcons, Valor tipográfico, Tendência com cores semânticas, Slot de footer
+ * @example
+ * <kln-kpi-card
+ *   label="Consultas realizadas"
+ *   value="1.248"
+ *   icon="pi-calendar"
+ *   trend="up"
+ *   trendLabel="+12% vs mês anterior"
+ *   description="Últimos 30 dias"
+ * />
  */
 @Component({
   selector: 'kln-kpi-card',

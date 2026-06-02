@@ -26,8 +26,18 @@ const STATUS_MAP: Record<StatusPillValue, StatusConfig> = {
 };
 
 /**
- * Componente de domínio Klini — mapeia os status de guias/autorizações para p-tag.
- * Usa CSS custom properties dos tokens de status para sobrescrever as cores do tema.
+ * Pílula de status de domínio Klini Saúde. Mapeia os cinco status de
+ * guias e autorizações médicas para um p-tag com cores semânticas via
+ * tokens de status (`--kln-status-*-bg/fg`). Cada status tem label e
+ * cor padronizados, mas ambos podem ser sobrescritos via inputs.
+ *
+ * @atomicLevel atom
+ * @selector kln-status-pill
+ * @primeng p-tag
+ * @example
+ * <kln-status-pill status="autorizada" />
+ * <kln-status-pill status="negado" />
+ * <kln-status-pill status="em-processo" label="Em análise" />
  */
 @Component({
   selector: 'kln-status-pill',

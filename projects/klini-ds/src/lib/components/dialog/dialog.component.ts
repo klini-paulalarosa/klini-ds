@@ -34,6 +34,25 @@ import {
 import { CommonModule } from '@angular/common';
 import { DialogModule } from 'primeng/dialog';
 
+/**
+ * Modal de diálogo do Klini DS. Overlay com header, conteúdo projetado e
+ * footer slot (`[kliniDialogFooter]`). Suporta uso declarativo via `[(visible)]`
+ * ou programático via `DialogService` do PrimeNG (re-exportado pelo DS).
+ * Aplica `--kln-elevation-xl` e `--kln-radius-xl` via tema.
+ *
+ * @atomicLevel organism
+ * @selector kln-dialog
+ * @primeng p-dialog
+ * @composedOf Overlay, Header com título, Conteúdo projetado, Footer slot
+ * @example
+ * <kln-dialog [(visible)]="showDialog" header="Confirmar ação">
+ *   <p>Deseja realmente prosseguir?</p>
+ *   <div kliniDialogFooter>
+ *     <kln-button label="Cancelar" severity="secondary" (clicked)="showDialog=false" />
+ *     <kln-button label="Confirmar" (clicked)="onConfirm()" />
+ *   </div>
+ * </kln-dialog>
+ */
 @Component({
   selector: 'kln-dialog',
   standalone: true,

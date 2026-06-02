@@ -7,8 +7,16 @@ export type KlnBadgeSeverity =
 export type KlnBadgeSize = 'small' | 'large' | 'xlarge';
 
 /**
- * Wrapper sobre p-badge do PrimeNG.
+ * Badge de contagem ou notificação. Exibe um valor numérico ou string
+ * em destaque com suporte a severidades semânticas do DS.
  * Estilização 100% via KlnPrime theme preset.
+ *
+ * @atomicLevel atom
+ * @selector kln-badge
+ * @primeng p-badge
+ * @example
+ * <kln-badge value="5" severity="danger" />
+ * <kln-badge value="Novo" severity="success" size="small" />
  */
 @Component({
   selector: 'kln-badge',

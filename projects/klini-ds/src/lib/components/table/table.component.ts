@@ -12,6 +12,23 @@ export interface KlnTableColumn {
   width?: string;
 }
 
+/**
+ * Tabela de dados completa com suporte a colunas tipadas, ordenação por coluna,
+ * paginação integrada e estado vazio. Gera header e rows automaticamente
+ * a partir do array `columns` via `@for`, dispensando templates manuais.
+ *
+ * @atomicLevel organism
+ * @selector kln-table
+ * @primeng p-table
+ * @composedOf Header de colunas, Linhas de dados, Empty message, Paginator
+ * @example
+ * <kln-table
+ *   [value]="pacientes"
+ *   [columns]="[{ field: 'nome', header: 'Nome', sortable: true }, { field: 'cpf', header: 'CPF' }]"
+ *   [paginator]="true"
+ *   [pageSize]="10"
+ * />
+ */
 @Component({
   selector: 'kln-table',
   standalone: true,

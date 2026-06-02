@@ -9,37 +9,22 @@ import { KlnPortalHeaderComponent } from '../portal-header/portal-header.compone
 import { KlnPortalFooterComponent } from '../portal-footer/portal-footer.component';
 
 /**
- * kln-portal-shell
+ * Template de layout completo para os portais Klini. Monta a estrutura
+ * full-page com flexbox vertical: KlnPortalHeader no topo, `<ng-content>`
+ * no centro (projeção livre do conteúdo da página) e KlnPortalFooter
+ * no rodapé. Ocupa `min-height: 100vh` com fundo `--kln-surface-page`.
  *
- * Layout completo dos portais Klini: Header + Conteúdo + Footer.
- *
- * Combina kln-portal-header e kln-portal-footer em torno de um slot
- * de conteúdo livre via ng-content.
- *
- * Uso:
- * ```html
+ * @atomicLevel template
+ * @selector kln-portal-shell
+ * @composedOf KlnPortalHeader, ng-content (projeção da página), KlnPortalFooter
+ * @example
  * <kln-portal-shell
  *   userName="PAULA ROSA"
  *   planLabel="plano klini start pj"
  *   (avatarClick)="openMenu($event)"
  * >
- *   <!-- conteúdo da página -->
- *   <section class="p-4">...</section>
+ *   <section class="p-4">Conteúdo da página</section>
  * </kln-portal-shell>
- * ```
- *
- * Layout gerado:
- * ```
- * ┌─ gradient bar ─────────────────────────────────────────────────┐
- * │ Toolbar: "Olá, NOME" ··············· [avatar]                  │
- * ├─────────────────────────────────────────────────────────────────┤
- * │                                                                  │
- * │                   <ng-content />                                │
- * │                                                                  │
- * ├─────────────────────────────────────────────────────────────────┤
- * │ klini saúde                                      ANS - nº ...   │
- * └──────────────────────────────────────────────────────────────────┘
- * ```
  */
 @Component({
   selector: 'kln-portal-shell',

@@ -1,6 +1,21 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ToolbarModule } from 'primeng/toolbar';
 
+/**
+ * Barra de ferramentas com três zonas de conteúdo (start, center, end)
+ * via slots de projeção com atributos de conteúdo nomeado.
+ * Usada em cabeçalhos de seção, toolbars de tabela e portais.
+ *
+ * @atomicLevel molecule
+ * @selector kln-toolbar
+ * @primeng p-toolbar
+ * @example
+ * <kln-toolbar>
+ *   <kln-button klnStart label="Novo" icon="pi-plus" />
+ *   <span klnCenter>Pacientes</span>
+ *   <kln-input-text klnEnd placeholder="Buscar..." />
+ * </kln-toolbar>
+ */
 @Component({
   selector: 'kln-toolbar',
   standalone: true,

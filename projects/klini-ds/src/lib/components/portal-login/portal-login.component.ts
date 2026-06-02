@@ -17,31 +17,27 @@ export interface KlnPortalLoginPayload {
 }
 
 /**
- * kln-portal-login
+ * Tela de login padrão para todos os portais Klini (Beneficiário, Médico,
+ * Corretor). Inclui logotipo Klini Saúde, campo de identificação com máscara
+ * configurável (CPF ou matrícula), campo de senha com toggle de visibilidade,
+ * link "Esqueci minha senha" e botão "Primeiro acesso" (opcional).
  *
- * Tela de login padrão para todos os portais Klini.
- * Suporta os dois perfis:
- *   - CPF (máscara 000.000.000-00) — Portal Beneficiário e Médico
- *   - Matrícula (máscara opcional)  — Portal Corretor
- *
- * Uso:
- * ```html
+ * @atomicLevel template
+ * @selector kln-portal-login
+ * @composedOf Logotipo, p-card, InputMask (CPF/matrícula), p-password, p-button
+ * @example
  * <kln-portal-login
  *   (loginSubmit)="onLogin($event)"
  *   (firstAccessClick)="goToFirstAccess()"
  *   (forgotPasswordClick)="goToForgot()"
  * />
- * ```
- *
- * Exemplo com campo customizado:
- * ```html
+ * <!-- Portal Corretor (matrícula) -->
  * <kln-portal-login
  *   loginLabel="Matrícula"
  *   loginMask="99999999"
- *   loginPlaceholder="00000000"
+ *   [showFirstAccess]="false"
  *   (loginSubmit)="onLogin($event)"
  * />
- * ```
  */
 @Component({
   selector: 'kln-portal-login',

@@ -6,6 +6,17 @@ import {
 import { AvatarModule } from 'primeng/avatar';
 import { AvatarGroupModule } from 'primeng/avatargroup';
 
+/**
+ * Avatar de usuário com suporte a imagem, label inicial e ícone.
+ * Disponível em três tamanhos e dois formatos (circle/square).
+ *
+ * @atomicLevel atom
+ * @selector kln-avatar
+ * @primeng p-avatar
+ * @example
+ * <kln-avatar image="/assets/user.jpg" size="large" shape="circle" />
+ * <kln-avatar label="PL" size="normal" />
+ */
 @Component({
   selector: 'kln-avatar',
   standalone: true,

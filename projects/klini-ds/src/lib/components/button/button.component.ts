@@ -21,9 +21,17 @@ export type KlnButtonSize     = 'small' | 'large' | undefined;
 export type KlnButtonVariant  = 'outlined' | 'text' | undefined;
 
 /**
- * Wrapper sobre p-button do PrimeNG.
+ * Botão de ação principal do Klini DS. Wrapper tipado sobre p-button do PrimeNG
+ * com defaults da marca (severity, size, variant) e suporte a loading state.
  * O visual é 100% controlado pelo KlnPrime theme preset.
- * Este componente apenas pré-configura defaults Klini e expõe a API tipada.
+ *
+ * @atomicLevel atom
+ * @selector kln-button
+ * @primeng p-button
+ * @example
+ * <kln-button label="Salvar" severity="primary" />
+ * <kln-button label="Cancelar" severity="secondary" variant="outlined" />
+ * <kln-button label="Aguarde" [loading]="true" />
  */
 @Component({
   selector: 'kln-button',

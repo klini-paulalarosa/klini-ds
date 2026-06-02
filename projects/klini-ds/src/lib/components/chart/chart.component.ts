@@ -54,6 +54,21 @@ type AnyObj = Record<string, any>;
 
 const RADIAL_TYPES: string[] = ['pie', 'doughnut', 'polarArea'];
 
+/**
+ * Componente de gráficos do Klini DS. Wrapper sobre p-chart (Chart.js) que
+ * integra automaticamente tokens de design via `KlnChartPresets` (21 presets
+ * de configuração) e `KlnChartTokens` (resolução de CSS vars para canvas).
+ * Suporta `autoColors` para aplicar a paleta categórica do DS sem código.
+ *
+ * @atomicLevel organism
+ * @selector kln-chart
+ * @primeng p-chart
+ * @composedOf Canvas Chart.js, Legenda, KlnChartTokens (cores), KlnChartPresets (opções)
+ * @example
+ * <kln-chart type="bar" preset="bar" [data]="chartData" />
+ * <kln-chart type="doughnut" preset="doughnut" [data]="statusData" [autoColors]="true" />
+ * <kln-chart type="line" preset="area" [data]="timeData" width="100%" height="400px" />
+ */
 @Component({
   selector: 'kln-chart',
   standalone: true,

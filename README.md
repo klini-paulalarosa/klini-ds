@@ -114,6 +114,29 @@ export class AppModule {}
 
 ---
 
+## Arquitetura
+
+O Klini DS segue a metodologia **Atomic Design**: os 94 componentes são organizados em quatro níveis — Átomos (building blocks básicos como botões, badges e inputs), Moléculas (composições coesas como toolbars e input groups), Organismos (seções autônomas como tabelas, dialogs e charts) e Templates (layouts completos de portal). O sistema de tokens segue uma hierarquia de cinco camadas — Primitive → Semantic → Status → Elevation → Scale — inspirada no Fluent Design System para o sistema de elevação e sombras.
+
+Para a documentação completa da arquitetura, incluindo classificação de todos os componentes e guia de extensão, consulte [ARCHITECTURE.md](./ARCHITECTURE.md).
+
+```
+Hierarquia de Tokens:
+┌─────────────────┐
+│  _primitive     │  Valores brutos: #259591, 16px
+├─────────────────┤
+│  _semantic      │  Papéis: --kln-text-primary, --kln-surface-page
+├─────────────────┤
+│  _status        │  Domínio Klini: autorizada, negado, em-processo
+├─────────────────┤
+│  _elevation     │  Profundidade: sm → xl (Fluent-inspired)
+├─────────────────┤
+│  _scale         │  Espaçamento, tipografia, z-index, breakpoints
+└─────────────────┘
+```
+
+---
+
 ## Componentes
 
 > **Prefixo padrão: `kln-`** · Ex: `<kln-button>`, `<kln-chart>`

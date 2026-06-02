@@ -20,23 +20,20 @@ import { CardModule } from 'primeng/card';
 import { CommonModule } from '@angular/common';
 
 /**
- * Wrapper genérico sobre p-card do PrimeNG.
- * Usos no Klini App: Base · Guia-Info · Nav-Row.
+ * Card genérico do Klini DS — container elevado com header, conteúdo e footer
+ * projetáveis. Base estrutural para Guia-Info, Nav-Row e demais cards de produto.
+ * Usa tokens de elevação (`--kln-elevation-sm/md`) para comunicar interatividade.
+ * Para cards de métricas (KPI), use `kln-kpi-card`.
  *
- * Para cards de métricas use klini-kpi-card.
- * Estilização 100% via KlnPrime theme preset + tokens de elevação.
- *
- * Uso básico:
- *   <klini-card header="Título" subheader="Subtítulo">
- *     Conteúdo
- *   </klini-card>
- *
- * Com slots:
- *   <klini-card>
- *     <ng-template kliniCardHeader>Header customizado</ng-template>
- *     Conteúdo
- *     <ng-template kliniCardFooter>Footer customizado</ng-template>
- *   </klini-card>
+ * @atomicLevel organism
+ * @selector kln-card
+ * @primeng p-card
+ * @example
+ * <kln-card header="Detalhes da Guia" subheader="Nº 00123456">
+ *   <ng-template kliniCardHeader>Header customizado</ng-template>
+ *   Conteúdo do card
+ *   <ng-template kliniCardFooter>Ações do footer</ng-template>
+ * </kln-card>
  */
 @Component({
   selector: 'kln-card',
