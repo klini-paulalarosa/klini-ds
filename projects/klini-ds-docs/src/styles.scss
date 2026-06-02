@@ -6,15 +6,30 @@
 }
 
 // ── Docs CSS Variables ────────────────────────────────────────────────────────
+// Alinhados 100% com os tokens primitivos do Klini DS (_primitive.scss / _semantic.scss)
 :root {
-  --docs-bg: #ffffff;
-  --docs-sidebar-bg: #fafafa;
-  --docs-border: #e4e4e7;
-  --docs-text: #09090b;
-  --docs-text-muted: #71717a;
-  --docs-accent: #259591;
-  --docs-accent-hover: #1d7a77;
-  --docs-code-bg: #f4f4f5;
+  // Fundos — usa paleta Ink do DS (não zinc do Tailwind)
+  --docs-bg:          #FFFFFF;    // --kln-color-white
+  --docs-sidebar-bg:  #F7F8F8;   // --kln-color-ink-50
+  --docs-code-bg:     #EEEFF0;   // --kln-color-ink-100
+
+  // Bordas — ink-200
+  --docs-border:      #E2E4E4;   // --kln-color-ink-200
+  --docs-border-strong: #C4C8C7; // --kln-color-ink-300
+
+  // Textos — paleta Ink
+  --docs-text:        #0F1B1A;   // --kln-color-ink-900
+  --docs-text-muted:  #6B7370;   // --kln-color-ink-500
+  --docs-text-subtle: #9BA3A2;   // --kln-color-ink-400
+
+  // Brand — Teal (valores exatos do Figma, PANTONE 2461C)
+  --docs-accent:        #259591; // --kln-color-teal-500
+  --docs-accent-hover:  #1F7E7B; // --kln-color-teal-600
+  --docs-accent-active: #196766; // --kln-color-teal-700
+  --docs-brand-soft:    #E8F4F3; // --kln-color-teal-50
+  --docs-brand-surface: #D3EAE9; // --kln-color-teal-wash
+
+  // Layout
   --docs-sidebar-width: 260px;
   --docs-header-height: 56px;
   --docs-content-max: 860px;
@@ -217,8 +232,8 @@ a {
       }
 
       &--copied {
-        color: #4ade80;
-        border-color: #4ade80;
+        color: var(--docs-accent);          // teal-500 — alinhado com brand
+        border-color: var(--docs-accent);
       }
     }
   }
@@ -359,13 +374,15 @@ a {
   letter-spacing: 0.03em;
 
   &--new {
-    background: #dcfce7;
-    color: #166534;
+    // success = teal no DS (autorizada)
+    background: var(--docs-brand-soft);    // teal-50 #E8F4F3
+    color: var(--docs-accent-active);      // teal-700 #196766
   }
 
   &--breaking {
-    background: #fee2e2;
-    color: #991b1b;
+    // danger = coral no DS (negado)
+    background: #F9DDDE;   // --kln-color-coral-wash
+    color: #A33638;        // --kln-color-coral-700
   }
 
   &--version {
@@ -375,8 +392,21 @@ a {
   }
 
   &--accent {
-    background: #ccfbf1;
-    color: #0f766e;
+    background: var(--docs-brand-surface);  // teal-wash #D3EAE9
+    color: var(--docs-accent);              // teal-500 #259591
+    font-weight: 600;
+  }
+
+  &--warning {
+    // orange = inativa no DS
+    background: #F5E4D3;   // --kln-color-orange-wash
+    color: #834D17;        // --kln-color-orange-700
+  }
+
+  &--info {
+    // sea = parcialmente no DS
+    background: #E1EDEF;   // --kln-color-sea-wash
+    color: #406E74;        // --kln-color-sea-700
   }
 }
 
@@ -432,7 +462,7 @@ a {
 
   &:hover {
     border-color: var(--docs-accent);
-    background: #f0fdfa;
+    background: var(--docs-brand-soft);   // teal-50 #E8F4F3
     text-decoration: none;
   }
 
@@ -520,7 +550,7 @@ a {
   border: 1px solid var(--docs-border);
   border-radius: 12px;
   padding: 32px;
-  background: linear-gradient(135deg, #f0fdfa 0%, #ffffff 100%);
+  background: linear-gradient(135deg, var(--docs-brand-soft) 0%, #ffffff 100%);
   margin-top: 48px;
 
   h2 {

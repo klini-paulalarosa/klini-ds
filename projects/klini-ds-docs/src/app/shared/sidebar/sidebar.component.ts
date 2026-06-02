@@ -95,14 +95,14 @@ interface NavItem { label: string; route: string; }
       text-decoration: none; border-radius: 4px; margin: 0 8px;
       transition: all 0.1s; line-height: 1.4;
       &:hover { color: var(--docs-text); background: var(--docs-border); text-decoration: none; }
-      &.active { color: var(--docs-accent); background: #f0fdfa; font-weight: 600; }
+      &.active { color: var(--docs-accent); background: var(--docs-brand-soft); font-weight: 600; }
     }
 
     .sidebar__link--top { padding-left: 16px; }
 
     .sidebar__link--highlight {
       color: var(--docs-accent); font-weight: 600;
-      &:hover { background: #f0fdfa; }
+      &:hover { background: var(--docs-brand-soft); }
     }
 
     .sidebar__divider { height: 1px; background: var(--docs-border); margin: 8px 16px; }

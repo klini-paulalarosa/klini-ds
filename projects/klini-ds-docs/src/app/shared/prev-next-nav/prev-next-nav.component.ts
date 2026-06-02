@@ -36,7 +36,7 @@ export type { NavEntry };
 
       &:hover {
         border-color: var(--docs-accent);
-        background: #f0fdfa;
+        background: var(--docs-brand-soft);
         text-decoration: none;
       }
     }

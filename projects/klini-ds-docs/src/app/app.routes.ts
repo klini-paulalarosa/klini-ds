@@ -82,6 +82,26 @@ export const appRoutes: Routes = [
       import('./pages/components/timeline/timeline-page.component').then(m => m.TimelinePageComponent),
   },
   {
+    path: 'components/input-mask',
+    loadComponent: () =>
+      import('./pages/components/input-mask/input-mask-page.component').then(m => m.InputMaskPageComponent),
+  },
+  {
+    path: 'components/password',
+    loadComponent: () =>
+      import('./pages/components/password/password-page.component').then(m => m.PasswordPageComponent),
+  },
+  {
+    path: 'components/checkbox',
+    loadComponent: () =>
+      import('./pages/components/checkbox/checkbox-page.component').then(m => m.CheckboxPageComponent),
+  },
+  {
+    path: 'components/calendar',
+    loadComponent: () =>
+      import('./pages/components/calendar/calendar-page.component').then(m => m.CalendarPageComponent),
+  },
+  {
     path: 'components/portal-templates',
     loadComponent: () =>
       import('./pages/components/portal-templates/portal-templates-page.component').then(m => m.PortalTemplatesPageComponent),

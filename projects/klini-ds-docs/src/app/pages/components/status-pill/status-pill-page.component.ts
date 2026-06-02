@@ -56,7 +56,7 @@ import { PropsTableComponent, PropDef } from '../../../shared/props-table/props-
           <div preview>
             <table style="width:100%;border-collapse:collapse;font-size:0.9rem">
               <thead>
-                <tr style="background:#f8f9fa;border-bottom:2px solid #e9ecef">
+                <tr style="background:var(--docs-sidebar-bg);border-bottom:2px solid var(--docs-border)">
                   <th style="text-align:left;padding:10px 12px">Procedimento</th>
                   <th style="text-align:left;padding:10px 12px">Médico</th>
                   <th style="text-align:left;padding:10px 12px">Data</th>
@@ -65,7 +65,7 @@ import { PropsTableComponent, PropDef } from '../../../shared/props-table/props-
               </thead>
               <tbody>
                 @for (row of tableRows; track row.procedimento) {
-                  <tr style="border-bottom:1px solid #f0f0f0">
+                  <tr style="border-bottom:1px solid var(--docs-border)">
                     <td style="padding:10px 12px">{{ row.procedimento }}</td>
                     <td style="padding:10px 12px">{{ row.medico }}</td>
                     <td style="padding:10px 12px">{{ row.data }}</td>
@@ -145,11 +145,12 @@ statuses: { status: StatusPillValue; label: string }[] = [
     { name: 'label', type: 'string', default: 'undefined', description: 'Sobrescreve o texto padrão do status. Opcional.' },
   ];
 
+  // Familia de cor conforme _status.scss — valores exatos do DS
   statusReference: PropDef[] = [
-    { name: "'autorizada'", type: 'verde', default: '—', description: 'Procedimento ou consulta autorizada pelo plano.' },
-    { name: "'negado'", type: 'vermelho', default: '—', description: 'Procedimento negado pela operadora.' },
-    { name: "'em-processo'", type: 'amarelo', default: '—', description: 'Em análise ou aguardando documentação.' },
-    { name: "'parcialmente'", type: 'laranja', default: '—', description: 'Autorização parcial — cobertura limitada.' },
-    { name: "'inativa'", type: 'cinza', default: '—', description: 'Registro inativo ou contrato encerrado.' },
+    { name: "'autorizada'",   type: 'Teal — #259591',    default: '--kln-status-autorizada-*',   description: 'Procedimento ou consulta autorizada pelo plano.' },
+    { name: "'negado'",       type: 'Coral — #E05759',   default: '--kln-status-negado-*',       description: 'Procedimento negado pela operadora.' },
+    { name: "'em-processo'",  type: 'Slate — #90A4AE',   default: '--kln-status-em-processo-*',  description: 'Em análise, auditoria ou aguardando documentação.' },
+    { name: "'parcialmente'", type: 'Sea — #6AA7AE',     default: '--kln-status-parcialmente-*', description: 'Autorização parcial — cobertura limitada pelo plano.' },
+    { name: "'inativa'",      type: 'Orange — #CD7925',  default: '--kln-status-inativa-*',      description: 'Registro inativo, contrato encerrado ou carência não cumprida.' },
   ];
 }
