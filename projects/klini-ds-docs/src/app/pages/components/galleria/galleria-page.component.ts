@@ -45,12 +45,13 @@ import { PropsTableComponent, PropDef } from '../../../shared/props-table/props-
   `,
 })
 export class GalleriaPageComponent {
+  // Placeholders de contexto clínico — fundo teal-soft do DS com label descritivo
   exames = [
-    { url: 'https://primefaces.org/cdn/primeng/images/demo/nature/nature1.jpg', descricao: 'Raio-X Tórax — AP' },
-    { url: 'https://primefaces.org/cdn/primeng/images/demo/nature/nature2.jpg', descricao: 'Raio-X Tórax — PA' },
-    { url: 'https://primefaces.org/cdn/primeng/images/demo/nature/nature3.jpg', descricao: 'Ultrassom Abdominal' },
-    { url: 'https://primefaces.org/cdn/primeng/images/demo/nature/nature4.jpg', descricao: 'Ressonância L5-S1' },
-    { url: 'https://primefaces.org/cdn/primeng/images/demo/nature/nature5.jpg', descricao: 'TC Crânio' },
+    { url: 'https://placehold.co/800x450/e8f4f3/259591?text=Raio-X+T%C3%B3rax+%E2%80%94+AP',  descricao: 'Raio-X Tórax — AP' },
+    { url: 'https://placehold.co/800x450/e8f4f3/259591?text=Raio-X+T%C3%B3rax+%E2%80%94+PA',  descricao: 'Raio-X Tórax — PA' },
+    { url: 'https://placehold.co/800x450/e8f4f3/259591?text=Ultrassom+Abdominal',               descricao: 'Ultrassom Abdominal' },
+    { url: 'https://placehold.co/800x450/e8f4f3/259591?text=Resson%C3%A2ncia+L5-S1',           descricao: 'Ressonância L5-S1' },
+    { url: 'https://placehold.co/800x450/e8f4f3/259591?text=TC+Cr%C3%A2nio',                   descricao: 'TC Crânio' },
   ];
 
   codeExames = `<kln-galleria [value]="exames" [numVisible]="5" [showThumbnails]="true">

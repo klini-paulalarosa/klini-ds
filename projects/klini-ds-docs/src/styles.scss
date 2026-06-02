@@ -302,11 +302,40 @@ code {
     code {
       color: #d4d4d8;
       white-space: pre;
-      /* highlight inline para bash/shell */
-      .token-comment  { color: #6b7280; font-style: italic; }
-      .token-keyword  { color: #7dd3fc; }
-      .token-string   { color: #86efac; }
-      .token-operator { color: var(--docs-accent); }
+      background: transparent;
+      border: none;
+      padding: 0;
+      font-size: inherit;
+
+      // ── highlight.js theme (dark — Klini DS) ──────────────────────────────
+      .hljs-keyword,
+      .hljs-built_in          { color: #7dd3fc; }
+
+      .hljs-string,
+      .hljs-attr              { color: #86efac; }
+
+      .hljs-comment           { color: #6b7280; font-style: italic; }
+
+      .hljs-number,
+      .hljs-literal           { color: #fbbf24; }
+
+      .hljs-title,
+      .hljs-class .hljs-title { color: #c4b5fd; }
+
+      .hljs-variable,
+      .hljs-params            { color: #fb923c; }
+
+      .hljs-function          { color: #38bdf8; }
+
+      .hljs-type              { color: #259591; }
+
+      .hljs-tag,
+      .hljs-name              { color: #f87171; }
+
+      .hljs-attribute         { color: #fbbf24; }
+
+      .hljs-selector-class,
+      .hljs-selector-id       { color: #c4b5fd; }
     }
   }
 }

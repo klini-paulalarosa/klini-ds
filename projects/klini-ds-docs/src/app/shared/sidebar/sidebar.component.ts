@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, computed, inject, signal } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, DestroyRef, EventEmitter, Output, computed, inject, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
@@ -178,12 +178,13 @@ interface NavItem { label: string; route: string; }
 
       <!-- Search results -->
       @if (searchQuery()) {
-        <div class="sidebar__results" role="listbox" aria-label="Resultados da busca">
+        <div class="sidebar__results" role="list" aria-label="Resultados da busca">
           @if (searchResults().length === 0) {
             <p class="sidebar__results-empty">Nenhum componente encontrado</p>
           } @else {
             @for (item of searchResults(); track item.route) {
               <a [routerLink]="item.route" routerLinkActive="active"
+                 role="listitem"
                  class="sidebar__link sidebar__link--top"
                  (click)="searchQuery.set('')">
                 {{ item.label }}
@@ -290,6 +291,9 @@ interface NavItem { label: string; route: string; }
 export class SidebarComponent {
   readonly version = DS_VERSION;
 
+  /** Emitido em cada NavigationEnd — AppComponent usa para fechar sidebar no mobile */
+  @Output() closeRequest = new EventEmitter<void>();
+
   searchQuery = signal('');
 
   // Garante que o routerLinkActive atualize a classe "active" em OnPush
@@ -303,7 +307,10 @@ export class SidebarComponent {
         filter(e => e instanceof NavigationEnd),
         takeUntilDestroyed(this.destroyRef),
       )
-      .subscribe(() => this.cdr.markForCheck());
+      .subscribe(() => {
+        this.cdr.markForCheck();
+        this.closeRequest.emit(); // fecha sidebar no mobile após navegação
+      });
   }
 
   onSearch(event: Event): void {

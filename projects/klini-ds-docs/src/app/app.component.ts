@@ -73,7 +73,7 @@ import { PrevNextNavComponent } from './shared/prev-next-nav/prev-next-nav.compo
         aria-hidden="true"
       ></div>
 
-      <app-sidebar [class.open]="sidebarOpen()" />
+      <app-sidebar [class.open]="sidebarOpen()" (closeRequest)="sidebarOpen.set(false)" />
 
       <div class="docs-main">
         <app-header />

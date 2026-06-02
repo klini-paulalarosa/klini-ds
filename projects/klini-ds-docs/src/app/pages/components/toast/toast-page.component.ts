@@ -1,13 +1,18 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
 import { PropsTableComponent, PropDef } from '../../../shared/props-table/props-table.component';
 import { CodeBlockComponent } from '../../../shared/code-block/code-block.component';
+import { ToastComponent, KlnToastService } from '@klini-saude/ds';
 
 @Component({
   selector: 'app-toast-page',
   standalone: true,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  imports: [PropsTableComponent, CodeBlockComponent],
+  imports: [PropsTableComponent, CodeBlockComponent, ToastComponent],
+  providers: [KlnToastService],
   template: `
+    <!-- Container do toast para esta página de documentação -->
+    <kln-toast position="top-right" key="docs-toast" />
+
     <div>
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:8px">
         <h1 class="docs-page-title" style="margin-bottom:0">Toast</h1>
@@ -19,6 +24,29 @@ import { CodeBlockComponent } from '../../../shared/code-block/code-block.compon
         para disparar toasts programaticamente a partir de qualquer componente.
         Requer <code class="font-mono">MessageService</code> no providers do app (já incluído via appConfig do DS).
       </p>
+
+      <!-- Preview interativo -->
+      <div class="docs-section">
+        <h2>Demo interativo</h2>
+        <p>Clique nos botões para ver os toasts em ação nesta própria página.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;padding:24px;border:1px solid var(--docs-border);border-radius:8px;background:#fff">
+          <button class="toast-demo-btn toast-demo-btn--success" (click)="showSuccess()">
+            <i class="pi pi-check-circle"></i> Success
+          </button>
+          <button class="toast-demo-btn toast-demo-btn--info" (click)="showInfo()">
+            <i class="pi pi-info-circle"></i> Info
+          </button>
+          <button class="toast-demo-btn toast-demo-btn--warn" (click)="showWarn()">
+            <i class="pi pi-exclamation-triangle"></i> Warning
+          </button>
+          <button class="toast-demo-btn toast-demo-btn--error" (click)="showError()">
+            <i class="pi pi-times-circle"></i> Error
+          </button>
+          <button class="toast-demo-btn toast-demo-btn--sticky" (click)="showSticky()">
+            <i class="pi pi-lock"></i> Sticky
+          </button>
+        </div>
+      </div>
 
       <!-- Severidades -->
       <div class="docs-section">
@@ -59,8 +87,28 @@ import { CodeBlockComponent } from '../../../shared/code-block/code-block.compon
       </div>
     </div>
   `,
+  styles: [`
+    .toast-demo-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border-radius: 6px; border: none;
+      font-size: 13px; font-weight: 600; font-family: inherit;
+      cursor: pointer; transition: all 0.15s; outline: none;
+    }
+    .toast-demo-btn:focus-visible { box-shadow: 0 0 0 2px var(--docs-accent); }
+    .toast-demo-btn--success { background: #dcfce7; color: #15803d; }
+    .toast-demo-btn--success:hover { background: #bbf7d0; }
+    .toast-demo-btn--info    { background: #dbeafe; color: #1d4ed8; }
+    .toast-demo-btn--info:hover { background: #bfdbfe; }
+    .toast-demo-btn--warn    { background: #fef9c3; color: #a16207; }
+    .toast-demo-btn--warn:hover { background: #fef08a; }
+    .toast-demo-btn--error   { background: #fee2e2; color: #b91c1c; }
+    .toast-demo-btn--error:hover { background: #fecaca; }
+    .toast-demo-btn--sticky  { background: var(--docs-brand-soft); color: var(--docs-accent); }
+    .toast-demo-btn--sticky:hover { background: var(--docs-brand-surface); }
+  `],
 })
 export class ToastPageComponent {
+  private readonly toast = inject(KlnToastService);
 
   severitiesCode = `import { KlnToastService } from '@klini-saude/ds';
 
@@ -121,6 +169,22 @@ class KlnToastService {
   show(msg: KlnToastMessage): void;
   clear(key?: string): void;     // Limpa todos ou por key
 }`;
+
+  showSuccess(): void {
+    this.toast.show({ severity: 'success', summary: 'Consulta confirmada', detail: 'Agendamento para 15/06/2026 às 14h30 confirmado.', key: 'docs-toast' });
+  }
+  showInfo(): void {
+    this.toast.show({ severity: 'info', summary: 'Processando autorização', detail: 'Seu pedido está sendo analisado pela operadora.', key: 'docs-toast' });
+  }
+  showWarn(): void {
+    this.toast.show({ severity: 'warn', summary: 'Carência ativa', detail: 'Procedimento coberto após 30 dias.', key: 'docs-toast' });
+  }
+  showError(): void {
+    this.toast.show({ severity: 'error', summary: 'Erro ao salvar', detail: 'Não foi possível salvar os dados do beneficiário.', key: 'docs-toast' });
+  }
+  showSticky(): void {
+    this.toast.show({ severity: 'warn', summary: 'Ação necessária', detail: 'Documentos pendentes para regularização do plano.', sticky: true, key: 'docs-toast' });
+  }
 
   props: PropDef[] = [
     { name: 'position', type: 'KlnToastPosition', default: "'top-right'", description: "Posição na tela: 'top-right' | 'top-left' | 'top-center' | 'bottom-right' | 'bottom-left' | 'bottom-center'." },

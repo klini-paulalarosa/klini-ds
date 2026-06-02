@@ -54,6 +54,18 @@ import { CodeBlockComponent } from '../../shared/code-block/code-block.component
           O tema aplica automaticamente as cores e tokens do Klini DS.
         </p>
         <app-code-block language="typescript" [code]="appConfigCode" />
+        <div style="margin-top:16px;padding:14px 16px;background:var(--docs-brand-soft);border:1px solid var(--docs-accent);border-radius:8px;font-size:13px;color:var(--docs-text-muted)">
+          <strong style="color:var(--docs-accent)">
+            <i class="pi pi-info-circle" style="margin-right:6px"></i>Providers de serviço
+          </strong>
+          <p style="margin:8px 0 0">
+            Componentes que dependem de serviços globais precisam de providers adicionais:
+            <code class="font-mono">Toast</code> e <code class="font-mono">ConfirmDialog</code> usam
+            <code class="font-mono">MessageService</code> e <code class="font-mono">ConfirmationService</code>
+            respectivamente.
+          </p>
+        </div>
+        <app-code-block language="typescript" [code]="providersCode" />
       </div>
 
       <!-- Step 5 -->
@@ -140,6 +152,27 @@ export class MeuComponent {
   icon="pi pi-calendar"
   (clicked)="handleClick()"
 />`;
+
+  providersCode = `// app.config.ts — providers de serviço globais
+import { MessageService, ConfirmationService } from 'primeng/api';
+
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideRouter(appRoutes),
+    provideAnimationsAsync(),
+    providePrimeNG({ theme: { preset: KlnPrime } }),
+
+    // ⚠️ Necessário para kln-toast e KlnToastService
+    MessageService,
+
+    // ⚠️ Necessário para kln-confirm-dialog e ConfirmPopup
+    ConfirmationService,
+  ],
+};
+
+// No template do app.component (uma vez por app):
+// <kln-toast position="top-right" />
+// <kln-confirm-dialog />`;
 
   migrateCode = `<!-- Antes (v1.x) -->
 <klini-button label="Salvar" />
