@@ -27,39 +27,26 @@ interface NavItem { label: string; route: string; }
       text-decoration: none; margin-bottom: 6px;
     }
 
-    /* Wordmark logo — mesma estrutura do portal-footer do DS */
-    .sidebar__logo-mark {
-      display: flex;
-      flex-direction: column;
-      line-height: 1;
-      gap: 1px;
+    /* Logo real extraído do Figma — PNG 147x80 RGBA */
+    .sidebar__logo-img {
+      height: 36px;
+      width: auto;
+      display: block;
+      flex-shrink: 0;
     }
 
-    .sidebar__logo-klini {
-      font-family: 'Objective', system-ui, sans-serif;
-      font-size: 20px;
-      font-weight: 800;
-      color: var(--docs-accent);
-      letter-spacing: -0.03em;
-      line-height: 1;
-    }
-
-    .sidebar__logo-saude {
-      font-family: 'Objective', system-ui, sans-serif;
-      font-size: 8px;
-      font-weight: 700;
-      color: var(--docs-accent);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      line-height: 1;
-      opacity: 0.75;
+    .sidebar__logo-sep {
+      width: 1px;
+      height: 28px;
+      background: var(--docs-border);
+      flex-shrink: 0;
     }
 
     .sidebar__logo-text {
-      display: flex; flex-direction: column; line-height: 1;
+      display: flex; flex-direction: column; line-height: 1; gap: 3px;
     }
-    .sidebar__logo-name { font-weight: 700; font-size: 12px; color: var(--docs-text-muted); letter-spacing: 0.01em; }
-    .sidebar__logo-sub  { font-size: 10px; font-weight: 500; color: var(--docs-text-subtle); letter-spacing: 0.02em; }
+    .sidebar__logo-name { font-weight: 700; font-size: 11px; color: var(--docs-text-muted); letter-spacing: 0.02em; text-transform: uppercase; }
+    .sidebar__logo-sub  { font-size: 10px; font-weight: 500; color: var(--docs-text-subtle); font-family: 'Fira Code', monospace; }
 
     .sidebar__version {
       font-size: 11px; padding: 2px 6px; border-radius: 4px;
@@ -153,14 +140,18 @@ interface NavItem { label: string; route: string; }
       <!-- Brand -->
       <div class="sidebar__brand">
         <a routerLink="/" class="sidebar__logo" aria-label="Klini DS — inicio">
-          <!-- Wordmark idêntico ao portal-footer do DS -->
-          <div class="sidebar__logo-mark" aria-hidden="true">
-            <span class="sidebar__logo-klini">klini</span>
-            <span class="sidebar__logo-saude">saúde</span>
-          </div>
+          <!-- Logo real do Figma — PNG extraído de gOsRuHIPm6Xo5zGEWDmnRW -->
+          <img
+            src="logo-klini.png"
+            alt="klini saúde"
+            class="sidebar__logo-img"
+            width="147"
+            height="80"
+          />
+          <span class="sidebar__logo-sep" aria-hidden="true"></span>
           <span class="sidebar__logo-text">
             <span class="sidebar__logo-name">Design System</span>
-            <span class="sidebar__logo-sub">v{{ version }}</span>
+            <span class="sidebar__logo-sub">{{ version }}</span>
           </span>
         </a>
       </div>
