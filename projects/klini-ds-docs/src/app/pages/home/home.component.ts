@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, signal } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { CodeBlockComponent } from '../../shared/code-block/code-block.component';
 
@@ -370,13 +370,7 @@ interface CategoryGroup {
     .cat-section { margin-bottom: 44px; }
   `],
   template: `
-    <!-- Skip link -->
-    <a href="#main-content" style="position:absolute;left:-9999px;top:0"
-       style="&:focus{left:0;z-index:999;padding:8px 16px;background:var(--docs-accent);color:#fff}">
-      Pular para conteudo principal
-    </a>
-
-    <div id="main-content">
+    <div>
 
       <!-- ── Hero ───────────────────────────────────────── -->
       <div class="hero">
@@ -422,10 +416,10 @@ interface CategoryGroup {
           <button
             class="install-strip__copy"
             (click)="copyInstall()"
-            [attr.aria-label]="copied ? 'Copiado!' : 'Copiar comando'"
+            [attr.aria-label]="copied() ? 'Copiado!' : 'Copiar comando'"
           >
-            <i [class]="copied ? 'pi pi-check' : 'pi pi-copy'" style="font-size:10px" aria-hidden="true"></i>
-            {{ copied ? 'Copiado!' : 'Copiar' }}
+            <i [class]="copied() ? 'pi pi-check' : 'pi pi-copy'" style="font-size:10px" aria-hidden="true"></i>
+            {{ copied() ? 'Copiado!' : 'Copiar' }}
           </button>
         </div>
       </div>
@@ -523,12 +517,13 @@ interface CategoryGroup {
   `,
 })
 export class HomeComponent {
-  copied = false;
+  // signal para OnPush — plain boolean nao re-renderiza apos setTimeout
+  copied = signal(false);
 
   copyInstall(): void {
     navigator.clipboard?.writeText('npm install @klini-saude/ds').then(() => {
-      this.copied = true;
-      setTimeout(() => { this.copied = false; }, 2000);
+      this.copied.set(true);
+      setTimeout(() => this.copied.set(false), 2000);
     });
   }
 
