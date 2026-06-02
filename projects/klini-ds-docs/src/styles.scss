@@ -37,7 +37,7 @@
 
 // ── Typography ────────────────────────────────────────────────────────────────
 html, body {
-  font-family: 'Objective', 'Merriweather', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Objective', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 14px;
   line-height: 1.6;
   color: var(--docs-text);
@@ -126,34 +126,35 @@ a {
 // ── Page Elements ─────────────────────────────────────────────────────────────
 .docs-page-title {
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--docs-text);
   margin-bottom: 8px;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
 }
 
 .docs-page-description {
-  font-size: 1rem;
+  font-size: 0.9375rem;
   color: var(--docs-text-muted);
   margin-bottom: 32px;
   max-width: 640px;
-  line-height: 1.7;
+  line-height: 1.75;
 }
 
 .docs-section {
   margin-bottom: 48px;
 
   h2 {
-    font-size: 1.2rem;
-    font-weight: 600;
+    font-size: 1.125rem;
+    font-weight: 700;
     margin-bottom: 16px;
-    padding-bottom: 8px;
+    padding-bottom: 10px;
     border-bottom: 1px solid var(--docs-border);
     color: var(--docs-text);
+    letter-spacing: -0.01em;
   }
 
   h3 {
-    font-size: 1rem;
+    font-size: 0.9375rem;
     font-weight: 600;
     margin-bottom: 12px;
     color: var(--docs-text);
@@ -163,8 +164,25 @@ a {
     color: var(--docs-text-muted);
     margin-bottom: 16px;
     line-height: 1.7;
+    font-size: 0.875rem;
   }
 }
+
+// Inline code melhorado
+code {
+  font-family: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  font-size: 0.8125em;
+  padding: 2px 5px;
+  border-radius: 4px;
+  background: var(--docs-code-bg);
+  color: var(--docs-accent);
+  border: 1px solid var(--docs-border);
+}
+
+// Scrollbar customizada no conteúdo principal
+.docs-main::-webkit-scrollbar { width: 5px; }
+.docs-main::-webkit-scrollbar-track { background: transparent; }
+.docs-main::-webkit-scrollbar-thumb { background: var(--docs-border); border-radius: 3px; }
 
 // ── Preview Box ───────────────────────────────────────────────────────────────
 .preview-box {
@@ -410,16 +428,14 @@ a {
   }
 }
 
-// ── Stats Row ─────────────────────────────────────────────────────────────────
+// ── Stats Row (legacy — mantido para backward compat) ─────────────────────────
 .stats-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   margin-bottom: 48px;
 
-  @media (max-width: 768px) {
-    grid-template-columns: repeat(2, 1fr);
-  }
+  @media (max-width: 768px) { grid-template-columns: repeat(2, 1fr); }
 }
 
 .stat-card {
@@ -427,12 +443,16 @@ a {
   border-radius: 8px;
   padding: 20px;
   text-align: center;
+  transition: border-color 0.15s, box-shadow 0.15s;
+
+  &:hover { border-color: var(--docs-accent); }
 
   .stat-card__value {
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 800;
     color: var(--docs-accent);
     margin-bottom: 4px;
+    letter-spacing: -0.03em;
   }
 
   .stat-card__label {

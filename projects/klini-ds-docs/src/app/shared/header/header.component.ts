@@ -116,10 +116,21 @@ const ROUTE_LABELS: Record<string, string> = {
       height: var(--docs-header-height);
       padding: 0 24px;
       border-bottom: 1px solid var(--docs-border);
-      background: var(--docs-bg);
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
       position: sticky;
       top: 0;
       z-index: 50;
+
+      // Linha de marca teal no topo
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 2px;
+        background: linear-gradient(90deg, var(--docs-accent) 0%, #6AA7AE 60%, transparent 100%);
+      }
     }
 
     .header__left {

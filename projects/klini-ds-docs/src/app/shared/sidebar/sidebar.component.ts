@@ -26,12 +26,14 @@ interface NavItem { label: string; route: string; }
     }
 
     .sidebar__logo-mark {
-      width: 32px; height: 32px; background: var(--docs-accent);
-      border-radius: 8px; display: flex; align-items: center; justify-content: center;
-      color: white; font-weight: 800; font-size: 14px; flex-shrink: 0;
+      width: 34px; height: 34px; flex-shrink: 0;
     }
 
-    .sidebar__logo-text { font-weight: 700; font-size: 15px; color: var(--docs-text); }
+    .sidebar__logo-text {
+      display: flex; flex-direction: column; line-height: 1;
+    }
+    .sidebar__logo-name { font-weight: 800; font-size: 15px; color: var(--docs-text); }
+    .sidebar__logo-sub  { font-size: 10px; font-weight: 500; color: var(--docs-text-muted); letter-spacing: 0.04em; }
 
     .sidebar__version {
       font-size: 11px; padding: 2px 6px; border-radius: 4px;
@@ -92,10 +94,22 @@ interface NavItem { label: string; route: string; }
     .sidebar__link {
       display: flex; align-items: center;
       padding: 5px 16px 5px 28px; font-size: 13px; color: var(--docs-text-muted);
-      text-decoration: none; border-radius: 4px; margin: 0 8px;
-      transition: all 0.1s; line-height: 1.4;
-      &:hover { color: var(--docs-text); background: var(--docs-border); text-decoration: none; }
-      &.active { color: var(--docs-accent); background: var(--docs-brand-soft); font-weight: 600; }
+      text-decoration: none; border-radius: 5px; margin: 0 8px;
+      transition: all 0.1s; line-height: 1.4; position: relative;
+      &:hover { color: var(--docs-text); background: var(--docs-code-bg); text-decoration: none; }
+      &.active {
+        color: var(--docs-accent);
+        background: var(--docs-brand-soft);
+        font-weight: 600;
+        &::before {
+          content: '';
+          position: absolute;
+          left: 0; top: 20%; bottom: 20%;
+          width: 2.5px;
+          border-radius: 9999px;
+          background: var(--docs-accent);
+        }
+      }
     }
 
     .sidebar__link--top { padding-left: 16px; }
@@ -113,8 +127,20 @@ interface NavItem { label: string; route: string; }
       <!-- Brand -->
       <div class="sidebar__brand">
         <a routerLink="/" class="sidebar__logo" aria-label="Klini DS — inicio">
-          <div class="sidebar__logo-mark" aria-hidden="true">K</div>
-          <span class="sidebar__logo-text">Klini DS</span>
+          <!-- Klini logomark SVG -->
+          <svg class="sidebar__logo-mark" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect width="34" height="34" rx="9" fill="#259591"/>
+            <!-- K mark: vertical bar + two diagonals -->
+            <line x1="10" y1="8"  x2="10" y2="26" stroke="white" stroke-width="2.8" stroke-linecap="round"/>
+            <line x1="10" y1="17" x2="21" y2="8"  stroke="white" stroke-width="2.4" stroke-linecap="round"/>
+            <line x1="10" y1="17" x2="21" y2="26" stroke="white" stroke-width="2.4" stroke-linecap="round"/>
+            <!-- Dot (saúde / health cross accent) -->
+            <circle cx="24" cy="10" r="2" fill="#D3EAE9"/>
+          </svg>
+          <span class="sidebar__logo-text">
+            <span class="sidebar__logo-name">Klini DS</span>
+            <span class="sidebar__logo-sub">Design System</span>
+          </span>
         </a>
         <span class="sidebar__version">{{ version }}</span>
       </div>
