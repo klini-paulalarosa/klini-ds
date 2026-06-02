@@ -211,46 +211,76 @@ code {
 // ── Code Block ────────────────────────────────────────────────────────────────
 .code-block {
   position: relative;
-  background: #18181b;
-  border-radius: 8px;
+  background: #0d0d0f;
+  border-radius: 10px;
+  border: 1px solid #2a2a2e;
   overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.3);
 
   .code-block__header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 8px 16px;
-    background: #27272a;
-    border-bottom: 1px solid #3f3f46;
+    gap: 10px;
+    padding: 8px 14px;
+    background: #1a1a1f;
+    border-bottom: 1px solid #2a2a2e;
+
+    /* Dots decorativos — estilo terminal macOS
+       box-shadow não ocupa layout, por isso reservamos width: 44px
+       para conter vermelho(8px) + amarelo(8px @14px) + verde(8px @28px) */
+    &::before {
+      content: '';
+      display: block;
+      width: 44px;
+      height: 8px;
+      border-radius: 50%;
+      background: #ff5f57;
+      box-shadow: 14px 0 0 #febc2e, 28px 0 0 #28c840;
+      flex-shrink: 0;
+    }
 
     .code-block__lang {
+      flex: 1;
       font-size: 11px;
       font-weight: 600;
-      color: #a1a1aa;
+      color: #52525b;
       text-transform: uppercase;
-      letter-spacing: 0.05em;
+      letter-spacing: 0.06em;
     }
 
     .code-block__copy {
       display: flex;
       align-items: center;
-      gap: 4px;
-      font-size: 12px;
-      color: #a1a1aa;
+      gap: 5px;
+      font-size: 11px;
+      font-weight: 500;
+      color: #71717a;
+      /* reset total — evita white default do browser/PrimeNG */
       background: transparent;
       border: 1px solid #3f3f46;
-      border-radius: 4px;
-      padding: 4px 8px;
+      border-radius: 5px;
+      padding: 3px 9px;
       cursor: pointer;
-      transition: all 0.15s;
+      font-family: inherit;
+      line-height: 1.6;
+      transition: color 0.15s, border-color 0.15s, background 0.15s;
+      outline: none;
 
+      /* ✅ background explícito no hover — impede o branco do browser */
       &:hover {
-        color: #ffffff;
-        border-color: #71717a;
+        color: #e4e4e7;
+        background: #2a2a2e;
+        border-color: #52525b;
+      }
+
+      &:focus-visible {
+        box-shadow: 0 0 0 2px var(--docs-accent);
+        border-color: var(--docs-accent);
       }
 
       &--copied {
-        color: var(--docs-accent);          // teal-500 — alinhado com brand
+        color: var(--docs-accent);
+        background: rgba(37, 149, 145, 0.12);
         border-color: var(--docs-accent);
       }
     }
@@ -258,15 +288,25 @@ code {
 
   pre {
     margin: 0;
-    padding: 20px;
+    padding: 18px 20px;
     overflow-x: auto;
     font-family: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', 'Courier New', monospace;
     font-size: 13px;
-    line-height: 1.7;
+    line-height: 1.75;
+
+    /* scrollbar discreta no código */
+    &::-webkit-scrollbar       { height: 4px; }
+    &::-webkit-scrollbar-track { background: transparent; }
+    &::-webkit-scrollbar-thumb { background: #3f3f46; border-radius: 2px; }
 
     code {
-      color: #e4e4e7;
+      color: #d4d4d8;
       white-space: pre;
+      /* highlight inline para bash/shell */
+      .token-comment  { color: #6b7280; font-style: italic; }
+      .token-keyword  { color: #7dd3fc; }
+      .token-string   { color: #86efac; }
+      .token-operator { color: var(--docs-accent); }
     }
   }
 }
