@@ -191,13 +191,27 @@ interface CategoryGroup {
       background: var(--docs-bg);
       text-align: center;
       gap: 4px;
+      transition: background 0.18s, box-shadow 0.18s;
+      cursor: default;
+
+      &:hover {
+        background: var(--docs-brand-soft);
+        .stat__icon-wrap { background: var(--docs-accent); color: #fff; }
+      }
     }
 
-    .stat__icon {
-      font-size: 20px;
+    .stat__icon-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--docs-brand-surface);
       color: var(--docs-accent);
-      margin-bottom: 6px;
-      opacity: 0.9;
+      margin-bottom: 10px;
+      transition: background 0.18s, color 0.18s;
+      font-size: 20px;
     }
 
     .stat__value {
@@ -427,22 +441,22 @@ interface CategoryGroup {
       <!-- ── Stats ──────────────────────────────────────── -->
       <div class="stats" aria-label="Estatísticas do design system">
         <div class="stat">
-          <i class="pi pi-box stat__icon" aria-hidden="true"></i>
+          <div class="stat__icon-wrap"><i class="pi pi-box" aria-hidden="true"></i></div>
           <div class="stat__value">94</div>
           <div class="stat__label">Componentes</div>
         </div>
         <div class="stat">
-          <i class="pi pi-chart-bar stat__icon" aria-hidden="true"></i>
+          <div class="stat__icon-wrap"><i class="pi pi-chart-bar" aria-hidden="true"></i></div>
           <div class="stat__value">21</div>
           <div class="stat__label">Chart Presets</div>
         </div>
         <div class="stat">
-          <i class="pi pi-palette stat__icon" aria-hidden="true"></i>
+          <div class="stat__icon-wrap"><i class="pi pi-palette" aria-hidden="true"></i></div>
           <div class="stat__value">7</div>
           <div class="stat__label">Token Files</div>
         </div>
         <div class="stat">
-          <i class="pi pi-code stat__icon" aria-hidden="true"></i>
+          <div class="stat__icon-wrap"><i class="pi pi-code" aria-hidden="true"></i></div>
           <div class="stat__value">Angular 18</div>
           <div class="stat__label">+ PrimeNG 18</div>
         </div>

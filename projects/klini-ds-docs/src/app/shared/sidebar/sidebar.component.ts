@@ -89,19 +89,30 @@ interface NavItem { label: string; route: string; }
       padding: 12px 16px; font-size: 12px; color: var(--docs-text-muted); text-align: center;
     }
 
-    .sidebar__section { margin-bottom: 8px; }
+    .sidebar__section {
+      margin-bottom: 4px;
+      /* Separador visual entre grupos maiores */
+      border-top: 1px solid var(--docs-border);
+      padding-top: 8px;
+      margin-top: 4px;
 
-    .sidebar__section-label {
-      padding: 8px 16px 4px; font-size: 11px; font-weight: 700;
-      color: var(--docs-text-muted); text-transform: uppercase; letter-spacing: 0.08em;
+      &:first-of-type { border-top: none; padding-top: 0; margin-top: 0; }
     }
 
-    .sidebar__section-label--highlight { color: var(--docs-accent); }
+    .sidebar__section-label {
+      padding: 6px 16px 4px; font-size: 10px; font-weight: 700;
+      color: var(--docs-text-subtle); text-transform: uppercase; letter-spacing: 0.1em;
+    }
+
+    .sidebar__section-label--highlight {
+      color: var(--docs-accent);
+      opacity: 1;
+    }
 
     .sidebar__group-label {
-      padding: 6px 16px 2px 28px; font-size: 11px; font-weight: 600;
-      color: var(--docs-text-muted); text-transform: uppercase;
-      letter-spacing: 0.05em; opacity: 0.7;
+      padding: 8px 16px 2px 28px; font-size: 10px; font-weight: 700;
+      color: var(--docs-text-subtle); text-transform: uppercase;
+      letter-spacing: 0.08em;
     }
 
     .sidebar__link {

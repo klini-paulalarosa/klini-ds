@@ -148,9 +148,23 @@ a {
     font-weight: 700;
     margin-bottom: 16px;
     padding-bottom: 10px;
+    padding-left: 12px;
     border-bottom: 1px solid var(--docs-border);
     color: var(--docs-text);
     letter-spacing: -0.01em;
+    position: relative;
+
+    // Acento teal à esquerda — marca visual de seção
+    &::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 2px;
+      bottom: 12px; // alinha com o baseline, acima do border-bottom padding
+      width: 3px;
+      border-radius: 2px;
+      background: var(--docs-accent);
+    }
   }
 
   h3 {
@@ -190,6 +204,8 @@ code {
   border-radius: 8px;
   padding: 32px;
   background: #ffffff;
+  background-image: radial-gradient(circle, #e2e8e7 1px, transparent 1px);
+  background-size: 20px 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -380,6 +396,9 @@ code {
   .component-preview__content {
     padding: 32px;
     background: #ffffff;
+    // Canvas com dot-grid sutil — indica área de preview, não conteúdo de página
+    background-image: radial-gradient(circle, #dde8e7 1px, transparent 1px);
+    background-size: 20px 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -544,15 +563,17 @@ code {
   border-radius: 8px;
   padding: 16px;
   cursor: pointer;
-  transition: all 0.15s;
+  transition: all 0.18s cubic-bezier(0.2, 0, 0, 1);
   text-decoration: none;
   color: inherit;
   display: block;
 
   &:hover {
     border-color: var(--docs-accent);
-    background: var(--docs-brand-soft);   // teal-50 #E8F4F3
+    background: var(--docs-brand-soft);
     text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(37, 149, 145, 0.12);
   }
 
   .component-card__name {
