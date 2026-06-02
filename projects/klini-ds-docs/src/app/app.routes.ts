@@ -64,7 +64,22 @@ export const appRoutes: Routes = [
   {
     path: 'components/kpi-card',
     loadComponent: () =>
-      import('./pages/components/stub/component-stub-page.component').then(m => m.ComponentStubPageComponent),
+      import('./pages/components/kpi-card/kpi-card-page.component').then(m => m.KpiCardPageComponent),
+  },
+  {
+    path: 'components/textarea',
+    loadComponent: () =>
+      import('./pages/components/textarea/textarea-page.component').then(m => m.TextareaPageComponent),
+  },
+  {
+    path: 'components/radio-group',
+    loadComponent: () =>
+      import('./pages/components/radio-group/radio-group-page.component').then(m => m.RadioGroupPageComponent),
+  },
+  {
+    path: 'components/timeline',
+    loadComponent: () =>
+      import('./pages/components/timeline/timeline-page.component').then(m => m.TimelinePageComponent),
   },
   {
     path: 'components/portal-templates',
