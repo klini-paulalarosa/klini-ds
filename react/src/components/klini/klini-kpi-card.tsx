@@ -18,7 +18,7 @@ export interface KliniKpiCardProps {
   icon?: React.ReactNode
   format?: 'number' | 'currency' | 'percent' | 'compact'
   className?: string
-  /** Whether an increase is good (default true — green = up) */
+  /** Whether an increase is good (default true — teal = up, coral = down) */
   positiveIsGood?: boolean
 }
 
@@ -59,8 +59,8 @@ export function KliniKpiCard({
               variant="outline"
               className={cn(
                 'gap-1 text-xs font-medium',
-                isPositive && 'border-emerald-200 bg-emerald-50 text-emerald-700',
-                isNegative && 'border-red-200 bg-red-50 text-red-700',
+                isPositive && 'border-klini-teal-200 bg-klini-teal-50 text-klini-teal-700',
+                isNegative && 'border-destructive/30 bg-destructive/10 text-destructive',
                 !isPositive && !isNegative && 'border-muted-foreground/20 text-muted-foreground',
               )}
             >
@@ -77,7 +77,7 @@ export function KliniKpiCard({
           <div className="mt-3">
             <KliniSparkline
               data={sparklineData}
-              color={isNegative ? KLINI_COLORS.orange : KLINI_COLORS.teal}
+              color={isNegative ? KLINI_COLORS.coral : KLINI_COLORS.teal}
               height={36}
             />
           </div>
