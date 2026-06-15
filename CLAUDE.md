@@ -4,7 +4,32 @@
 
 ## O que é este projeto
 
-Biblioteca Angular de componentes para o **Klini App** (saúde).
+Este repositório contém **duas gerações** do Klini Design System:
+
+| Caminho | Pacote | Stack | Status |
+|---|---|---|---|
+| `projects/klini-ds/` | `@klini-saude/ds` v2.x | Angular 18 + PrimeNG 18 | **Legado** — portais existentes |
+| `react/` | `@klini-saude/ds-react` v1.x | React 18 + Shadcn/UI + Tailwind | **Atual** — novos projetos |
+
+### React DS — `react/`
+Pacote publicado como `@klini-saude/ds-react`. Usa Shadcn/UI (Radix UI + Tailwind CSS) com tokens da marca Klini
+aplicados via CSS custom properties. 48 componentes + 2 hooks. Build com Vite em modo library.
+
+```bash
+# Trabalhar com o React DS
+cd react
+npm install
+npm run build     # gera dist/klini-ds-react.{es,cjs}.js + index.d.ts
+npm run typecheck # só tsc --noEmit
+```
+
+Uso nos projetos consumidores:
+```tsx
+import { Button, Card, Badge } from '@klini-saude/ds-react'
+import '@klini-saude/ds-react/styles'
+```
+
+### Angular DS — `projects/klini-ds/` (legado)
 Wrappers 100% PrimeNG v18 sobre o tema `KlnPrime` (preset Aura).
 Pacote npm: `@klini-saude/ds` · Versão atual: **2.0.0**
 

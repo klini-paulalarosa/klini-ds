@@ -1,6 +1,12 @@
 # Klini DS — Arquitetura de Design
 
-Este documento descreve a arquitetura do Klini Design System (`@klini-saude/ds`), cobrindo a filosofia de design, hierarquia de tokens, classificação Atomic Design dos componentes e guias de extensão.
+> **Versões do DS**
+> | Pacote | Stack | Status |
+> |---|---|---|
+> | `@klini-saude/ds` v2.x | Angular 18 + PrimeNG 18 | Legado — portais existentes |
+> | `@klini-saude/ds-react` v1.x | React 18 + Shadcn/UI + Tailwind | Atual — novos projetos |
+
+Este documento descreve a arquitetura do Klini Design System, cobrindo a filosofia de design, hierarquia de tokens, classificação Atomic Design dos componentes e guias de extensão.
 
 ---
 
