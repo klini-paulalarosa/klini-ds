@@ -1,14 +1,21 @@
 /* ─────────────────────────────────────────────────────────────────────────────
-   @klini-saude/ds-react
-   React + Shadcn/UI design system with Klini brand tokens.
+   @klini-saude/ds-react  v1.x
+   React 18 + Shadcn/UI + Tailwind CSS — Klini Design System
+
+   Two layers:
+     1. Shadcn/UI primitives  (accordion → tooltip) — low-level building blocks
+     2. Klini components      (KliniBarChart, KliniKpiCard, KliniDataTable…)
 
    Usage:
-     import { Button, Card, Badge } from '@klini-saude/ds-react'
+     import { Button, Card, KliniBarChart, KliniKpiCard } from '@klini-saude/ds-react'
      import '@klini-saude/ds-react/styles'
    ───────────────────────────────────────────────────────────────────────────── */
 
 /* Utilities */
 export { cn } from './lib/utils'
+
+/* ── Klini brand components ───────────────────────────────────────────────── */
+export * from './components/klini'
 
 /* Components */
 export * from './components/ui/accordion'
