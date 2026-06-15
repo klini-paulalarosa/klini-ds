@@ -17,6 +17,9 @@ export { cn } from './lib/utils'
 /* ── Klini brand components ───────────────────────────────────────────────── */
 export * from './components/klini'
 
+/* ── Klini blocks (layout shells + page templates) ───────────────────────── */
+export * from './blocks'
+
 /* Components */
 export * from './components/ui/accordion'
 export * from './components/ui/alert'

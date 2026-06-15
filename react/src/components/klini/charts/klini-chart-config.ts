@@ -13,22 +13,22 @@ import type { ChartConfig } from '@/components/ui/chart'
  *   #708090 Slate  —
  */
 export const KLINI_CHART_PALETTE = [
-  'hsl(var(--chart-1))', // Teal   #259591
-  'hsl(var(--chart-2))', // Sea    #6AA7AE
-  'hsl(var(--chart-3))', // Orange #CD7925
-  'hsl(var(--chart-4))', // Coral  #E05759
-  'hsl(var(--chart-5))', // Slate  #708090
+  'var(--chart-1)', // Teal   #259591
+  'var(--chart-2)', // Sea    #6AA7AE
+  'var(--chart-3)', // Orange #CD7925
+  'var(--chart-4)', // Coral  #E05759
+  'var(--chart-5)', // Slate  #708090
 ] as const
 
 /** Cores nomeadas da marca Klini — acesso direto por semântica */
 export const KLINI_COLORS = {
-  teal:    'hsl(var(--chart-1))', // #259591 — primary / brand / sucesso
-  sea:     'hsl(var(--chart-2))', // #6AA7AE — info / complementar
-  orange:  'hsl(var(--chart-3))', // #CD7925 — warning / acento quente
-  coral:   'hsl(var(--chart-4))', // #E05759 — danger / negado
-  slate:   'hsl(var(--chart-5))', // #708090 — em processo / neutro
-  primary: 'hsl(var(--primary))',
-  muted:   'hsl(var(--muted-foreground))',
+  teal:    'var(--chart-1)', // #259591 — primary / brand / sucesso
+  sea:     'var(--chart-2)', // #6AA7AE — info / complementar
+  orange:  'var(--chart-3)', // #CD7925 — warning / acento quente
+  coral:   'var(--chart-4)', // #E05759 — danger / negado
+  slate:   'var(--chart-5)', // #708090 — em processo / neutro
+  primary: 'var(--primary)',
+  muted:   'var(--muted-foreground)',
 } as const
 
 /**
@@ -37,8 +37,8 @@ export const KLINI_COLORS = {
  *
  * @example
  * const cfg = makeChartConfig(['receita', 'custo'], { receita: 'Receita', custo: 'Custo' })
- * // cfg.receita.color = 'hsl(var(--chart-1))' (Teal)
- * // cfg.custo.color   = 'hsl(var(--chart-2))' (Sea)
+ * // cfg.receita.color = 'var(--chart-1)' (Teal)
+ * // cfg.custo.color   = 'var(--chart-2)' (Sea)
  */
 export function makeChartConfig(
   keys: string[],

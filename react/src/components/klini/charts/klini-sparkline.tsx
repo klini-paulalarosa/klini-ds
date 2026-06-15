@@ -1,4 +1,3 @@
-import * as React from 'react'
 import { Area, AreaChart, Line, LineChart, ResponsiveContainer } from 'recharts'
 import { KLINI_COLORS } from './klini-chart-config'
 

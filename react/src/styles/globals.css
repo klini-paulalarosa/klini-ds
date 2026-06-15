@@ -1,9 +1,10 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+@custom-variant dark (&:is(.dark *));
 
 /*
-  Klini Design System — React DS
+  Klini Design System — React DS (Tailwind v4 + new-york)
   Paleta de marca mapeada para CSS custom properties do Shadcn/UI.
 
   Cores da marca (EXATAS — não alterar sem aprovação do time de marca):
@@ -15,106 +16,159 @@
     Ink    #374151  —              texto principal
 */
 
+@theme inline {
+  /* Mapeamento Tailwind v4: utilitários → CSS vars do :root */
+  --color-background:              var(--background);
+  --color-foreground:              var(--foreground);
+  --color-card:                    var(--card);
+  --color-card-foreground:         var(--card-foreground);
+  --color-popover:                 var(--popover);
+  --color-popover-foreground:      var(--popover-foreground);
+  --color-primary:                 var(--primary);
+  --color-primary-foreground:      var(--primary-foreground);
+  --color-secondary:               var(--secondary);
+  --color-secondary-foreground:    var(--secondary-foreground);
+  --color-muted:                   var(--muted);
+  --color-muted-foreground:        var(--muted-foreground);
+  --color-accent:                  var(--accent);
+  --color-accent-foreground:       var(--accent-foreground);
+  --color-destructive:             var(--destructive);
+  --color-destructive-foreground:  var(--destructive-foreground);
+  --color-border:                  var(--border);
+  --color-input:                   var(--input);
+  --color-ring:                    var(--ring);
+  --color-chart-1:                 var(--chart-1);
+  --color-chart-2:                 var(--chart-2);
+  --color-chart-3:                 var(--chart-3);
+  --color-chart-4:                 var(--chart-4);
+  --color-chart-5:                 var(--chart-5);
+  --color-sidebar:                 var(--sidebar-background);
+  --color-sidebar-foreground:      var(--sidebar-foreground);
+  --color-sidebar-primary:         var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent:          var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border:          var(--sidebar-border);
+  --color-sidebar-ring:            var(--sidebar-ring);
+
+  /* Paleta Klini — valores exatos da marca (hex = PANTONE verificado) */
+  --color-klini-teal-50:  #f0fafa;
+  --color-klini-teal-100: #ccefef;
+  --color-klini-teal-200: #99dfde;
+  --color-klini-teal-300: #66cfce;
+  --color-klini-teal-400: #33bfbe;
+  --color-klini-teal-500: #259591;  /* PANTONE 2461C — primary */
+  --color-klini-teal-600: #1e7b77;
+  --color-klini-teal-700: #17605e;
+  --color-klini-teal-800: #0f4644;
+  --color-klini-teal-900: #082d2b;
+  --color-klini-sea-500:    #6AA7AE;  /* PANTONE 549C  — info */
+  --color-klini-orange-500: #CD7925;  /* PANTONE 7565C — warning */
+  --color-klini-coral-500:  #E05759;  /* PANTONE 7625C — danger */
+  --color-klini-slate-500:  #708090;  /* em processo / neutro */
+  --color-klini-ink-500:    #374151;  /* texto principal */
+
+  /* Radius helpers */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
+    /* Tailwind v4: variáveis precisam ser valores de cor completos (não triplas HSL) */
+    --background: hsl(0 0% 100%);
+    --foreground: hsl(222 47% 11%);
 
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card: hsl(0 0% 100%);
+    --card-foreground: hsl(222 47% 11%);
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover: hsl(0 0% 100%);
+    --popover-foreground: hsl(222 47% 11%);
 
-    /* Teal #259591 → hsl(178, 61%, 37%) */
-    --primary: 178 61% 37%;
-    --primary-foreground: 0 0% 100%;
+    --primary: hsl(178 61% 37%);          /* Teal #259591 PANTONE 2461C */
+    --primary-foreground: hsl(0 0% 100%);
 
-    /* Fundo suave teal para ações ghost/outline */
-    --secondary: 178 40% 94%;
-    --secondary-foreground: 178 61% 28%;
+    --secondary: hsl(178 40% 94%);        /* fundo suave teal */
+    --secondary-foreground: hsl(178 61% 28%);
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: hsl(210 40% 96%);
+    --muted-foreground: hsl(215 16% 47%);
 
-    --accent: 178 40% 94%;
-    --accent-foreground: 178 61% 28%;
+    --accent: hsl(178 40% 94%);
+    --accent-foreground: hsl(178 61% 28%);
 
-    /* Coral #E05759 → hsl(359, 69%, 61%) */
-    --destructive: 359 69% 61%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: hsl(359 69% 61%);      /* Coral #E05759 PANTONE 7625C */
+    --destructive-foreground: hsl(0 0% 100%);
 
-    --border: 214 32% 91%;
-    --input: 214 32% 91%;
+    --border: hsl(214 32% 91%);
+    --input: hsl(214 32% 91%);
+    --ring: hsl(178 61% 37%);             /* foco = teal */
 
-    /* Focus ring = teal */
-    --ring: 178 61% 37%;
+    --radius: 0.625rem;                   /* new-york-v4 */
 
-    --radius: 0.5rem;
+    /* ── Sidebar ─────────────────────────────────────────────────────── */
+    --sidebar-background: hsl(178 25% 97%);
+    --sidebar-foreground: hsl(222 47% 11%);
+    --sidebar-primary: hsl(178 61% 37%);
+    --sidebar-primary-foreground: hsl(0 0% 100%);
+    --sidebar-accent: hsl(178 40% 92%);
+    --sidebar-accent-foreground: hsl(178 61% 28%);
+    --sidebar-border: hsl(178 20% 90%);
+    --sidebar-ring: hsl(178 61% 37%);
 
-    /* ── Sidebar (portais) ──────────────────────────────────────────── */
-    --sidebar-background: 178 25% 97%;
-    --sidebar-foreground: 222 47% 11%;
-    --sidebar-primary: 178 61% 37%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 178 40% 92%;
-    --sidebar-accent-foreground: 178 61% 28%;
-    --sidebar-border: 178 20% 90%;
-    --sidebar-ring: 178 61% 37%;
-
-    /* ── Chart palette — cores EXATAS da marca Klini ────────────────── */
-    --chart-1: 178 61% 37%;  /* Teal   #259591  PANTONE 2461C */
-    --chart-2: 186 30% 55%;  /* Sea    #6AA7AE  PANTONE 549C  */
-    --chart-3: 30 69% 47%;   /* Orange #CD7925  PANTONE 7565C */
-    --chart-4: 359 69% 61%;  /* Coral  #E05759  PANTONE 7625C */
-    --chart-5: 210 13% 50%;  /* Slate  #708090  —             */
+    /* ── Charts — cores EXATAS da marca Klini ────────────────────────── */
+    --chart-1: hsl(178 61% 37%);  /* Teal   #259591 PANTONE 2461C */
+    --chart-2: hsl(186 30% 55%);  /* Sea    #6AA7AE PANTONE 549C  */
+    --chart-3: hsl(30 69% 47%);   /* Orange #CD7925 PANTONE 7565C */
+    --chart-4: hsl(359 69% 61%);  /* Coral  #E05759 PANTONE 7625C */
+    --chart-5: hsl(210 13% 50%);  /* Slate  #708090               */
   }
 
   .dark {
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
+    --background: hsl(222 47% 6%);
+    --foreground: hsl(210 40% 98%);
 
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 98%;
+    --card: hsl(222 47% 8%);
+    --card-foreground: hsl(210 40% 98%);
 
-    --popover: 222 47% 9%;
-    --popover-foreground: 210 40% 98%;
+    --popover: hsl(222 47% 9%);
+    --popover-foreground: hsl(210 40% 98%);
 
-    --primary: 178 55% 50%;
-    --primary-foreground: 0 0% 100%;
+    --primary: hsl(178 55% 50%);
+    --primary-foreground: hsl(0 0% 100%);
 
-    --secondary: 178 30% 15%;
-    --secondary-foreground: 178 55% 80%;
+    --secondary: hsl(178 30% 15%);
+    --secondary-foreground: hsl(178 55% 80%);
 
-    --muted: 217 33% 17%;
-    --muted-foreground: 215 20% 65%;
+    --muted: hsl(217 33% 17%);
+    --muted-foreground: hsl(215 20% 65%);
 
-    --accent: 178 30% 15%;
-    --accent-foreground: 178 55% 80%;
+    --accent: hsl(178 30% 15%);
+    --accent-foreground: hsl(178 55% 80%);
 
-    /* Coral dark */
-    --destructive: 359 65% 50%;
-    --destructive-foreground: 0 0% 100%;
+    --destructive: hsl(359 65% 50%);
+    --destructive-foreground: hsl(0 0% 100%);
 
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 178 55% 50%;
+    --border: hsl(217 33% 17%);
+    --input: hsl(217 33% 17%);
+    --ring: hsl(178 55% 50%);
 
-    --sidebar-background: 222 47% 8%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 178 55% 50%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 178 30% 15%;
-    --sidebar-accent-foreground: 178 55% 80%;
-    --sidebar-border: 217 33% 17%;
-    --sidebar-ring: 178 55% 50%;
+    --sidebar-background: hsl(222 47% 8%);
+    --sidebar-foreground: hsl(210 40% 98%);
+    --sidebar-primary: hsl(178 55% 50%);
+    --sidebar-primary-foreground: hsl(0 0% 100%);
+    --sidebar-accent: hsl(178 30% 15%);
+    --sidebar-accent-foreground: hsl(178 55% 80%);
+    --sidebar-border: hsl(217 33% 17%);
+    --sidebar-ring: hsl(178 55% 50%);
 
-    /* Chart palette dark — versões mais claras para legibilidade */
-    --chart-1: 178 55% 50%;  /* Teal   lighter */
-    --chart-2: 186 30% 65%;  /* Sea    lighter */
-    --chart-3: 30 65% 58%;   /* Orange lighter */
-    --chart-4: 359 65% 65%;  /* Coral  lighter */
-    --chart-5: 210 13% 62%;  /* Slate  lighter */
+    --chart-1: hsl(178 55% 50%);  /* Teal   lighter */
+    --chart-2: hsl(186 30% 65%);  /* Sea    lighter */
+    --chart-3: hsl(30 65% 58%);   /* Orange lighter */
+    --chart-4: hsl(359 65% 65%);  /* Coral  lighter */
+    --chart-5: hsl(210 13% 62%);  /* Slate  lighter */
   }
 }
 
