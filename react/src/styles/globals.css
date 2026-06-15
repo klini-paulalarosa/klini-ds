@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+/*
+  Klini Design System — React DS
+  Paleta de marca mapeada para CSS custom properties do Shadcn/UI.
+
+  Cores da marca (EXATAS — não alterar sem aprovação do time de marca):
+    Teal   #259591  PANTONE 2461C  primary / brand / sucesso
+    Sea    #6AA7AE  PANTONE 549C   info / complementar
+    Orange #CD7925  PANTONE 7565C  warning / acento quente
+    Coral  #E05759  PANTONE 7625C  danger / negado
+    Slate  #708090  —              em processo / neutro
+    Ink    #374151  —              texto principal
+*/
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -13,11 +26,11 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    /* Klini Teal #259591 → hsl(178, 61%, 37%) */
+    /* Teal #259591 → hsl(178, 61%, 37%) */
     --primary: 178 61% 37%;
     --primary-foreground: 0 0% 100%;
 
-    /* Soft teal for secondary/ghost actions */
+    /* Fundo suave teal para ações ghost/outline */
     --secondary: 178 40% 94%;
     --secondary-foreground: 178 61% 28%;
 
@@ -27,17 +40,19 @@
     --accent: 178 40% 94%;
     --accent-foreground: 178 61% 28%;
 
-    /* Warning orange #f59e0b → hsl(38, 92%, 50%) */
-    --destructive: 0 84% 60%;
+    /* Coral #E05759 → hsl(359, 69%, 61%) */
+    --destructive: 359 69% 61%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 214 32% 91%;
     --input: 214 32% 91%;
+
+    /* Focus ring = teal */
     --ring: 178 61% 37%;
 
     --radius: 0.5rem;
 
-    /* Sidebar tokens — Klini brand */
+    /* ── Sidebar (portais) ──────────────────────────────────────────── */
     --sidebar-background: 178 25% 97%;
     --sidebar-foreground: 222 47% 11%;
     --sidebar-primary: 178 61% 37%;
@@ -47,12 +62,12 @@
     --sidebar-border: 178 20% 90%;
     --sidebar-ring: 178 61% 37%;
 
-    /* Chart palette — Klini brand spectrum */
-    --chart-1: 178 61% 37%;  /* teal */
-    --chart-2: 199 89% 40%;  /* sea */
-    --chart-3: 210 60% 55%;  /* sky */
-    --chart-4: 38 92% 50%;   /* orange */
-    --chart-5: 215 16% 47%;  /* slate */
+    /* ── Chart palette — cores EXATAS da marca Klini ────────────────── */
+    --chart-1: 178 61% 37%;  /* Teal   #259591  PANTONE 2461C */
+    --chart-2: 186 30% 55%;  /* Sea    #6AA7AE  PANTONE 549C  */
+    --chart-3: 30 69% 47%;   /* Orange #CD7925  PANTONE 7565C */
+    --chart-4: 359 69% 61%;  /* Coral  #E05759  PANTONE 7625C */
+    --chart-5: 210 13% 50%;  /* Slate  #708090  —             */
   }
 
   .dark {
@@ -77,8 +92,9 @@
     --accent: 178 30% 15%;
     --accent-foreground: 178 55% 80%;
 
-    --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
+    /* Coral dark */
+    --destructive: 359 65% 50%;
+    --destructive-foreground: 0 0% 100%;
 
     --border: 217 33% 17%;
     --input: 217 33% 17%;
@@ -93,11 +109,12 @@
     --sidebar-border: 217 33% 17%;
     --sidebar-ring: 178 55% 50%;
 
-    --chart-1: 178 55% 50%;
-    --chart-2: 199 89% 55%;
-    --chart-3: 210 60% 65%;
-    --chart-4: 38 92% 60%;
-    --chart-5: 215 20% 65%;
+    /* Chart palette dark — versões mais claras para legibilidade */
+    --chart-1: 178 55% 50%;  /* Teal   lighter */
+    --chart-2: 186 30% 65%;  /* Sea    lighter */
+    --chart-3: 30 65% 58%;   /* Orange lighter */
+    --chart-4: 359 65% 65%;  /* Coral  lighter */
+    --chart-5: 210 13% 62%;  /* Slate  lighter */
   }
 }
 

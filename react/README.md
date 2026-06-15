@@ -276,17 +276,19 @@ Os tokens são CSS custom properties definidas em `globals.css` e consumidas via
 
 ### Cores (HSL)
 
-| Token | Valor | Uso |
-|---|---|---|
-| `--primary` | `178 61% 37%` | Teal #259591 — ações primárias, foco |
-| `--primary-foreground` | `0 0% 100%` | Texto sobre primário |
-| `--secondary` | `178 40% 94%` | Ghost/outline actions |
-| `--destructive` | `0 84% 60%` | Erros, exclusão |
-| `--chart-1` | `178 61% 37%` | Teal — série 1 |
-| `--chart-2` | `199 89% 40%` | Sea — série 2 |
-| `--chart-3` | `210 60% 55%` | Sky — série 3 |
-| `--chart-4` | `38 92% 50%`  | Orange — série 4 / warning |
-| `--chart-5` | `215 16% 47%` | Slate — série 5 / em processo |
+> **Cores de marca — não alterar sem aprovação do time de marca Klini**
+
+| Token | HSL | Hex | Uso |
+|---|---|---|---|
+| `--primary` | `178 61% 37%` | `#259591` PANTONE 2461C | Teal — ações primárias, foco, brand |
+| `--primary-foreground` | `0 0% 100%` | `#ffffff` | Texto sobre primary |
+| `--secondary` | `178 40% 94%` | — | Fundo suave teal (ghost/outline) |
+| `--destructive` | `359 69% 61%` | `#E05759` PANTONE 7625C | Coral — erros, exclusão, negado |
+| `--chart-1` | `178 61% 37%` | `#259591` PANTONE 2461C | Teal — série 1 / brand primary |
+| `--chart-2` | `186 30% 55%` | `#6AA7AE` PANTONE 549C  | Sea — série 2 / info / complementar |
+| `--chart-3` | `30 69% 47%`  | `#CD7925` PANTONE 7565C | Orange — série 3 / warning / acento |
+| `--chart-4` | `359 69% 61%` | `#E05759` PANTONE 7625C | Coral — série 4 / danger / negado |
+| `--chart-5` | `210 13% 50%` | `#708090` — | Slate — série 5 / em processo / neutro |
 
 ### Sidebar tokens
 
@@ -300,15 +302,18 @@ Ativado com a classe `.dark` no elemento raiz. Todos os tokens têm equivalentes
 
 ## Paleta de charts Klini
 
+> **Mesma sequência do Angular DS:** `--kln-chart-cat-teal/sea/orange/coral`
+
 ```
-Série 1  ████  Teal    #259591  (brand primary)
-Série 2  ████  Sea     #2193b0  (info/complementar)
-Série 3  ████  Sky     #3b82f6  (dados terciários)
-Série 4  ████  Orange  #f59e0b  (warning/destaque)
-Série 5  ████  Slate   #708090  (em processo/neutro)
+Série 1  ████  Teal   #259591  PANTONE 2461C  (brand primary)
+Série 2  ████  Sea    #6AA7AE  PANTONE 549C   (info/complementar)
+Série 3  ████  Orange #CD7925  PANTONE 7565C  (warning/acento)
+Série 4  ████  Coral  #E05759  PANTONE 7625C  (danger/negado)
+Série 5  ████  Slate  #708090  —              (em processo/neutro)
 ```
 
 Use `makeChartConfig(keys)` para aplicar automaticamente essa sequência.
+Use `KLINI_COLORS.teal / .sea / .orange / .coral / .slate` para acesso direto.
 
 ---
 

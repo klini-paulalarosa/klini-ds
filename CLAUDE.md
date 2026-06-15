@@ -161,14 +161,16 @@ Definidos em `react/src/styles/globals.css` como CSS custom properties (HSL sem 
 --sidebar-border       178 20% 90%
 ```
 
-**Chart palette:**
+**Chart palette — cores EXATAS da marca (mesma sequência do Angular DS):**
 ```
---chart-1  178 61% 37%   Teal    #259591  série 1 / brand
---chart-2  199 89% 40%   Sea     #2193b0  série 2 / info
---chart-3  210 60% 55%   Sky     #3b82f6  série 3
---chart-4   38 92% 50%   Orange  #f59e0b  série 4 / warning
---chart-5  215 16% 47%   Slate   #708090  série 5 / em processo
+--chart-1  178 61% 37%   Teal   #259591  PANTONE 2461C  série 1 / brand primary
+--chart-2  186 30% 55%   Sea    #6AA7AE  PANTONE 549C   série 2 / info / complementar
+--chart-3   30 69% 47%   Orange #CD7925  PANTONE 7565C  série 3 / warning / acento
+--chart-4  359 69% 61%   Coral  #E05759  PANTONE 7625C  série 4 / danger / negado
+--chart-5  210 13% 50%   Slate  #708090  —              série 5 / em processo / neutro
 ```
+
+`--destructive` = `--chart-4` Coral #E05759 (não vermelho genérico)
 
 **Dark mode:** ativado com classe `.dark` no `<html>`. Todos os tokens têm versão dark.
 
@@ -366,14 +368,20 @@ Após criar: exportar em `public-api.ts` + adicionar em `klini-ds.module.ts`.
 
 ## Marca Klini — referência rápida
 
+> **CRÍTICO:** nunca substituir estas cores por aproximações ou defaults de frameworks.
+> Qualquer uso de cor deve referir às variáveis abaixo.
+
 ```
-Teal   #259591  PANTONE 2461C  primary, brand, sucesso
-Sea    #6AA7AE  PANTONE 549C   info, complementar
-Orange #CD7925  PANTONE 7565C  warning
-Coral  #E05759  PANTONE 7625C  danger, negado
-Slate  #708090  —              em processo, neutro
-Ink    #374151  —              texto principal
+Teal   #259591  hsl(178,61%,37%)  PANTONE 2461C  primary / brand / sucesso
+Sea    #6AA7AE  hsl(186,30%,55%)  PANTONE 549C   info / complementar
+Orange #CD7925  hsl(30,69%,47%)   PANTONE 7565C  warning / acento quente
+Coral  #E05759  hsl(359,69%,61%)  PANTONE 7625C  danger / negado / destructive
+Slate  #708090  hsl(210,13%,50%)  —              em processo / neutro
+Ink    #374151  hsl(220,14%,22%)  —              texto principal
 ```
+
+React DS: usar `KLINI_COLORS.teal / .sea / .orange / .coral / .slate` ou `hsl(var(--chart-1..5))`
+Angular DS: usar `--kln-color-teal-500` / `--kln-chart-cat-teal` etc.
 
 **Fontes:**
 - **Objective** — primária: headings, labels, botões, corpo (ExtraBold 800, SemiBold 600, Regular 400)

@@ -49,6 +49,7 @@ export default {
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
   			},
+  			/* Klini brand colors — EXATAS (não alterar sem aprovação de marca) */
   			klini: {
   				teal: {
   					'50': '#f0fafa',
@@ -56,23 +57,26 @@ export default {
   					'200': '#99dfde',
   					'300': '#66cfce',
   					'400': '#33bfbe',
-  					'500': '#259591',
+  					'500': '#259591', /* PANTONE 2461C — primary */
   					'600': '#1e7b77',
   					'700': '#17605e',
   					'800': '#0f4644',
   					'900': '#082d2b'
   				},
   				sea: {
-  					'500': '#2193b0'
-  				},
-  				slate: {
-  					'500': '#708090'
+  					'500': '#6AA7AE'  /* PANTONE 549C — info/complementar */
   				},
   				orange: {
-  					'500': '#f59e0b'
+  					'500': '#CD7925'  /* PANTONE 7565C — warning/acento */
+  				},
+  				coral: {
+  					'500': '#E05759'  /* PANTONE 7625C — danger/negado */
+  				},
+  				slate: {
+  					'500': '#708090'  /* em processo / neutro */
   				},
   				ink: {
-  					'500': '#374151'
+  					'500': '#374151'  /* texto principal */
   				}
   			}
   		},
