@@ -7,7 +7,9 @@ export type StatusPillValue =
   | 'autorizada'
   | 'parcialmente'
   | 'negado'
-  | 'inativa';
+  | 'inativa'
+  // Códigos ANS — requisições (RN389/RN510)
+  | 'A' | 'P' | 'T' | 'D' | 'N' | 'Z' | 'E' | 'C' | 'O' | 'R';
 
 type PrimeSeverity = 'success' | 'info' | 'warn' | 'danger' | 'secondary' | 'contrast';
 
@@ -18,11 +20,23 @@ interface StatusConfig {
 }
 
 const STATUS_MAP: Record<StatusPillValue, StatusConfig> = {
-  'em-processo':  { label: 'Em Auditoria', severity: 'secondary', cssClass: 'klini-status--em-processo' },
-  'autorizada':   { label: 'Autorizada',   severity: 'success',   cssClass: 'klini-status--autorizada'  },
-  'parcialmente': { label: 'Parcial',      severity: 'info',      cssClass: 'klini-status--parcialmente' },
-  'negado':       { label: 'Negado',       severity: 'danger',    cssClass: 'klini-status--negado'       },
-  'inativa':      { label: 'Inativa',      severity: 'warn',      cssClass: 'klini-status--inativa'      },
+  // Legacy — backward-compat
+  'em-processo':  { label: 'Em Auditoria', severity: 'secondary', cssClass: 'klini-status--em-processo'  },
+  'autorizada':   { label: 'Autorizada',   severity: 'success',   cssClass: 'klini-status--autorizada'   },
+  'parcialmente': { label: 'Parcial',      severity: 'info',      cssClass: 'klini-status--parcialmente'  },
+  'negado':       { label: 'Negado',       severity: 'danger',    cssClass: 'klini-status--negado'        },
+  'inativa':      { label: 'Inativa',      severity: 'warn',      cssClass: 'klini-status--inativa'       },
+  // Códigos ANS
+  A: { label: 'Em auditoria',            severity: 'secondary', cssClass: 'klini-status--em-processo'  },
+  P: { label: 'Parcialmente autorizado', severity: 'info',      cssClass: 'klini-status--parcialmente'  },
+  T: { label: 'Em análise técnica',      severity: 'secondary', cssClass: 'klini-status--em-processo'  },
+  D: { label: 'Aguardando documentação', severity: 'secondary', cssClass: 'klini-status--em-processo'  },
+  N: { label: 'Negada',                  severity: 'danger',    cssClass: 'klini-status--negado'        },
+  Z: { label: 'Autorizada',              severity: 'success',   cssClass: 'klini-status--autorizada'   },
+  E: { label: 'Expirada',                severity: 'warn',      cssClass: 'klini-status--inativa'       },
+  C: { label: 'Cancelada',               severity: 'warn',      cssClass: 'klini-status--inativa'       },
+  O: { label: 'Em cotação de materiais', severity: 'secondary', cssClass: 'klini-status--em-processo'  },
+  R: { label: 'Solicitação recebida',    severity: 'secondary', cssClass: 'klini-status--em-processo'  },
 };
 
 /**
