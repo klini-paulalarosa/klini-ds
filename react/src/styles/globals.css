@@ -62,10 +62,22 @@
   --color-klini-teal-700: #17605e;
   --color-klini-teal-800: #0f4644;
   --color-klini-teal-900: #082d2b;
+  --color-klini-sea-50:     #f2f7f8;
+  --color-klini-sea-200:    #bdd8db;
   --color-klini-sea-500:    #6AA7AE;  /* PANTONE 549C  — info */
-  --color-klini-orange-500: #CD7925;  /* PANTONE 7565C — warning */
+  --color-klini-sea-700:    #3f6f74;
+  --color-klini-coral-50:   #fceeee;
+  --color-klini-coral-200:  #efa9aa;
   --color-klini-coral-500:  #E05759;  /* PANTONE 7625C — danger */
+  --color-klini-coral-700:  #b12023;
+  --color-klini-orange-50:  #fcf5ee;
+  --color-klini-orange-200: #efcca9;
+  --color-klini-orange-500: #CD7925;  /* PANTONE 7565C — warning */
+  --color-klini-orange-700: #744515;
+  --color-klini-slate-50:   #f4f5f6;
+  --color-klini-slate-200:  #c5ccd3;
   --color-klini-slate-500:  #708090;  /* em processo / neutro */
+  --color-klini-slate-700:  #434d56;
   --color-klini-ink-500:    #374151;  /* texto principal */
 
   /* Radius helpers */
