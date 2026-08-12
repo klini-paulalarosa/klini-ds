@@ -121,6 +121,7 @@ export * from './components/ui/tooltip'
 export * from './components/ui/tree'
 export * from './components/ui/tree-select'
 export * from './components/ui/tree-table'
+export * from './components/ui/virtual-scroller'
 
 /* Hooks */
 export { useToast } from './hooks/use-toast'

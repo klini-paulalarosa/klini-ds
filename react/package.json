@@ -72,6 +72,7 @@
     "@radix-ui/react-toggle-group": "^1.1.13",
     "@radix-ui/react-tooltip": "^1.2.10",
     "@tanstack/react-table": "^8.21.3",
+    "@tanstack/react-virtual": "^3.14.9",
     "@tiptap/pm": "^3.30.0",
     "@tiptap/react": "^3.30.0",
     "@tiptap/starter-kit": "^3.30.0",
