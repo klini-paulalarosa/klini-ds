@@ -116,6 +116,7 @@ export * from './components/ui/toggle'
 export * from './components/ui/toggle-group'
 export * from './components/ui/toolbar'
 export * from './components/ui/tooltip'
+export * from './components/ui/tree'
 export * from './components/ui/tree-table'
 
 /* Hooks */
