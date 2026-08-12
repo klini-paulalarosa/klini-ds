@@ -11,6 +11,10 @@ dist/
 build/
 *.tsbuildinfo
 
+# React DS — harness de preview local (nunca publicado)
+react/.preview/
+react/index.html
+
 # Angular
 .angular/
 .angular/cache/
