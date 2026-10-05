@@ -139,42 +139,42 @@
   }
 
   .dark {
-    --background: hsl(222 47% 6%);
-    --foreground: hsl(210 40% 98%);
+    --background: hsl(175 28.6% 8.2%);
+    --foreground: hsl(180 6.7% 97.1%);
 
-    --card: hsl(222 47% 8%);
-    --card-foreground: hsl(210 40% 98%);
+    --card: hsl(178.6 60% 13.7%);
+    --card-foreground: hsl(180 6.7% 97.1%);
 
-    --popover: hsl(222 47% 9%);
-    --popover-foreground: hsl(210 40% 98%);
+    --popover: hsl(178.6 60% 13.7%);
+    --popover-foreground: hsl(180 6.7% 97.1%);
 
-    --primary: hsl(178 55% 50%);
-    --primary-foreground: hsl(0 0% 100%);
+    --primary: hsl(178.2 34.4% 61.8%);
+    --primary-foreground: hsl(175 28.6% 8.2%);
 
-    --secondary: hsl(178 30% 15%);
-    --secondary-foreground: hsl(178 55% 80%);
+    --secondary: hsl(179 61.2% 19.2%);
+    --secondary-foreground: hsl(177.3 34.9% 74.7%);
 
-    --muted: hsl(217 33% 17%);
-    --muted-foreground: hsl(215 20% 65%);
+    --muted: hsl(176 24.6% 12%);
+    --muted-foreground: hsl(172.5 4.2% 62.4%);
 
-    --accent: hsl(178 30% 15%);
-    --accent-foreground: hsl(178 55% 80%);
+    --accent: hsl(179 61.2% 19.2%);
+    --accent-foreground: hsl(177.3 34.9% 74.7%);
 
-    --destructive: hsl(359 65% 50%);
-    --destructive-foreground: hsl(0 0% 100%);
+    --destructive: hsl(359.3 68.3% 76.5%);
+    --destructive-foreground: hsl(175 28.6% 8.2%);
 
-    --border: hsl(217 33% 17%);
-    --input: hsl(217 33% 17%);
-    --ring: hsl(178 55% 50%);
+    --border: hsl(179.2 60.9% 25.1%);
+    --input: hsl(177.7 39.3% 39.4%);
+    --ring: hsl(178.2 34.4% 61.8%);
 
-    --sidebar-background: hsl(222 47% 8%);
-    --sidebar-foreground: hsl(210 40% 98%);
-    --sidebar-primary: hsl(178 55% 50%);
-    --sidebar-primary-foreground: hsl(0 0% 100%);
-    --sidebar-accent: hsl(178 30% 15%);
-    --sidebar-accent-foreground: hsl(178 55% 80%);
-    --sidebar-border: hsl(217 33% 17%);
-    --sidebar-ring: hsl(178 55% 50%);
+    --sidebar-background: hsl(178.6 60% 13.7%);
+    --sidebar-foreground: hsl(180 6.7% 97.1%);
+    --sidebar-primary: hsl(178.2 34.4% 61.8%);
+    --sidebar-primary-foreground: hsl(175 28.6% 8.2%);
+    --sidebar-accent: hsl(179 61.2% 19.2%);
+    --sidebar-accent-foreground: hsl(177.3 34.9% 74.7%);
+    --sidebar-border: hsl(179.2 60.9% 25.1%);
+    --sidebar-ring: hsl(178.2 34.4% 61.8%);
 
     --chart-1: hsl(178 55% 50%);  /* Teal   lighter */
     --chart-2: hsl(186 30% 65%);  /* Sea    lighter */
