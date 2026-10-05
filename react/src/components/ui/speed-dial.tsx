@@ -93,7 +93,7 @@ const SpeedDial = React.forwardRef<HTMLDivElement, SpeedDialProps>(
           type="button"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Fechar" : "Abrir"}
-          className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-transform hover:bg-primary/90"
+          className="relative z-10 flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground shadow-lg transition-transform hover:bg-primary-hover"
         >
           {open ? <X className="h-5 w-5" /> : <Plus className="h-5 w-5" />}
         </button>

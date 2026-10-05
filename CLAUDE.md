@@ -49,7 +49,7 @@ npm run typecheck # tsc --noEmit
 
 ### Regras para o React DS
 
-1. **Componentes Shadcn** ficam em `src/components/ui/` — não editar diretamente; re-gerar com `npx shadcn@latest add <nome> --overwrite`
+1. **Componentes Shadcn** ficam em `src/components/ui/` — não editar diretamente; re-gerar com `npx shadcn@latest add <nome> --overwrite`. **Única exceção:** o hover de fundo preenchido usa `hover:bg-primary-hover` e `hover:bg-destructive-hover`, nunca `/90` ou `/80` (a opacidade clareia o botão e o branco em cima reprova no AA). Depois de re-gerar `button`, `badge`, `speed-dial` ou `scroll-top`, trocar de novo.
 2. **Componentes Klini** ficam em `src/components/klini/` — aqui mora a lógica de brand
 3. **Sempre exportar** novo componente em `src/index.ts` (ou via `klini/index.ts` → `src/index.ts`)
 4. **Build limpo antes de commitar** — `npm run build` sem erros TS
@@ -145,9 +145,11 @@ Definidos em `react/src/styles/globals.css` como CSS custom properties, com o va
 ```
 --primary              hsl(178.1 60.5% 30.8%)  Teal 600 #1F7E7B — botões e ações primárias (branco em cima 4,85)
 --primary-foreground   hsl(0 0% 100%)          Texto sobre primary
+--primary-hover        hsl(179.2 60.9% 25.1%)  Teal 700 #196766 — hover do botão primário (branco em cima 6,62)
 --secondary            hsl(178 40% 94%)        Ghost/outline actions
 --secondary-foreground hsl(178 61% 28%)
 --destructive          hsl(359 50.4% 51.8%)    Coral 600 #C24648 — erros, exclusão (branco em cima 4,93)
+--destructive-hover    hsl(358.9 50.2% 42.5%)  Coral 700 #A33638 — hover do botão destrutivo (branco em cima 6,68)
 --accent               hsl(178 40% 94%)        Hover states
 --muted                hsl(210 40% 96%)        Backgrounds suaves
 --muted-foreground     hsl(157.5 3.8% 40.8%)   #646C69 — texto secundário (4,93 sobre --muted)
@@ -180,12 +182,13 @@ Definidos em `react/src/styles/globals.css` como CSS custom properties, com o va
 --card / --popover     #0E3837   --muted                #172625
 --muted-foreground     #9BA3A2   --border               #196766
 --primary              #7CBFBD   --primary-foreground   #0F1B1A   (texto escuro: serve de botão e de link)
+--primary-hover        #A8D5D3   --destructive-hover    #F3BCBD   (no escuro o hover clareia: o contraste sobe)
 --destructive          #EC9A9B   --destructive-foreground #0F1B1A
 --secondary / --accent #134F4E   texto sobre eles       #A8D5D3
 --input                #3D8C89   --ring                 #7CBFBD
 ```
 
-**Pendente conhecido:** os botões usam `hover:bg-primary/90` e `hover:bg-destructive/90` (componentes em `src/components/ui/`); no modo claro o hover clareia e cai para cerca de 4,0. Corrigir na próxima regeneração dos componentes.
+**Hover dos botões preenchidos:** `--primary-hover` e `--destructive-hover` (utilitários `bg-primary-hover` e `bg-destructive-hover`). No claro o hover escurece para o tom 700; no escuro clareia para o tom 200. Assim o contraste sobe no hover, nos dois modos. O `/90` do shadcn clareava o botão e caía para 4,04 (primário) e 3,37 (badge).
 
 ---
 

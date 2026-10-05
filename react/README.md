@@ -283,8 +283,10 @@ Os tokens são CSS custom properties definidas em `globals.css` e consumidas via
 |---|---|---|---|
 | `--primary` | `178.1 60.5% 30.8%` | `#1F7E7B` teal 600 | Teal — botões e ações primárias (branco em cima 4,85) |
 | `--primary-foreground` | `0 0% 100%` | `#ffffff` | Texto sobre primary |
+| `--primary-hover` | `179.2 60.9% 25.1%` | `#196766` teal 700 | Hover do botão primário (branco em cima 6,62) |
 | `--secondary` | `178 40% 94%` | — | Fundo suave teal (ghost/outline) |
 | `--destructive` | `359 50.4% 51.8%` | `#C24648` coral 600 | Coral — erros, exclusão, negado (branco em cima 4,93) |
+| `--destructive-hover` | `358.9 50.2% 42.5%` | `#A33638` coral 700 | Hover do botão destrutivo (branco em cima 6,68) |
 | `--muted-foreground` | `157.5 3.8% 40.8%` | `#646C69` | Texto secundário (4,93 sobre `--muted`) |
 | `--ring` | `178 61% 37%` | `#259591` PANTONE 2461C | Anel de foco |
 | `--chart-1` | `178 61% 37%` | `#259591` PANTONE 2461C | Teal — série 1 / brand primary |
@@ -299,7 +301,7 @@ Todos os `--sidebar-*` tokens usam o teal Klini como cor primária (`--sidebar-p
 
 ### Dark mode
 
-Ativado com a classe `.dark` no elemento raiz. Todos os tokens têm equivalentes dark, sempre em verde e preto (nunca azul): fundo `#0F1B1A`, cartão `#0E3837`, texto `#F7F8F8`, texto secundário `#9BA3A2`. No escuro, `--primary` (`#7CBFBD`) e `--destructive` (`#EC9A9B`) são claros com texto escuro (`#0F1B1A`), para servirem tanto de botão quanto de link ou texto de erro sobre o fundo.
+Ativado com a classe `.dark` no elemento raiz. Todos os tokens têm equivalentes dark, sempre em verde e preto (nunca azul): fundo `#0F1B1A`, cartão `#0E3837`, texto `#F7F8F8`, texto secundário `#9BA3A2`. No escuro, `--primary` (`#7CBFBD`) e `--destructive` (`#EC9A9B`) são claros com texto escuro (`#0F1B1A`), para servirem tanto de botão quanto de link ou texto de erro sobre o fundo. No escuro o hover clareia: `--primary-hover` `#A8D5D3` e `--destructive-hover` `#F3BCBD`.
 
 ---
 
