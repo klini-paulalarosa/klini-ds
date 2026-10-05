@@ -51,7 +51,7 @@ export interface KlnSelectOption {
   `,
   styles: [`
     .kln-select-wrapper { display: flex; flex-direction: column; gap: var(--kln-space-1); }
-    .kln-select-label { font-size: var(--kln-font-size-body-sm); font-weight: 600; color: var(--kln-field-label); font-family: 'Objective', system-ui, -apple-system, sans-serif; }
+    .kln-select-label { font-size: var(--kln-font-size-body-sm); font-weight: 600; color: var(--kln-field-label); font-family: 'Inter', system-ui, -apple-system, sans-serif; }
     .kln-select-hint { font-size: var(--kln-font-size-caption); color: var(--kln-text-muted); }
   `],
 })

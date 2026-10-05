@@ -73,26 +73,26 @@ export type KpiTrend = 'up' | 'down' | 'neutral';
       }
       .klini-kpi-card__label {
         font-size: var(--kln-font-size-body-sm); font-weight: 500;
-        color: var(--kln-text-secondary); font-family: 'Objective', system-ui, -apple-system, sans-serif;
+        color: var(--kln-text-secondary); font-family: 'Inter', system-ui, -apple-system, sans-serif;
       }
       .klini-kpi-card__icon { font-size: var(--kln-size-icon-md); color: var(--kln-text-muted); }
       .klini-kpi-card__body { display: flex; align-items: baseline; gap: var(--kln-space-3); }
       .klini-kpi-card__value {
         font-size: var(--kln-font-size-h2); font-weight: 700;
         color: var(--kln-text-primary); line-height: 1;
-        font-family: 'Objective', system-ui, -apple-system, sans-serif;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
       }
       .klini-kpi-card__trend {
         display: flex; align-items: center; gap: var(--kln-space-1);
         font-size: var(--kln-font-size-body-sm); font-weight: 600;
-        font-family: 'Objective', system-ui, -apple-system, sans-serif;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
       }
       .klini-kpi-card__trend--up      { color: var(--kln-feedback-success-fg); }
       .klini-kpi-card__trend--down    { color: var(--kln-feedback-danger-fg);  }
       .klini-kpi-card__trend--neutral { color: var(--kln-text-muted); }
       .klini-kpi-card__description {
         font-size: var(--kln-font-size-body-sm); color: var(--kln-text-muted);
-        margin: 0; font-family: 'Objective', system-ui, -apple-system, sans-serif;
+        margin: 0; font-family: 'Inter', system-ui, -apple-system, sans-serif;
       }
     }
   `],

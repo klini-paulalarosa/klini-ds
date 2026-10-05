@@ -76,7 +76,7 @@ export interface KlnRadioOption {
       .klini-radio-label {
         font-size: var(--kln-font-size-body-sm);
         color: var(--kln-text-primary);
-        font-family: 'Objective', system-ui, -apple-system, sans-serif;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
         cursor: pointer;
       }
     `,

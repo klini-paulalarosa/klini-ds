@@ -85,7 +85,7 @@ export interface KlnTableColumn {
         text-align: center;
         color: var(--kln-text-muted);
         padding: var(--kln-space-6) 0;
-        font-family: 'Objective', system-ui, -apple-system, sans-serif;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
       }
     `,
   ],

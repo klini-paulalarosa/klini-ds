@@ -26,7 +26,7 @@ import { TabsModule } from 'primeng/tabs';
   styles: [
     `
       :host { display: block; }
-      .klini-tabs { font-family: 'Objective', system-ui, -apple-system, sans-serif; }
+      .klini-tabs { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
     `,
   ],
 })

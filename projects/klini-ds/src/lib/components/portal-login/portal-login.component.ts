@@ -147,7 +147,7 @@ export interface KlnPortalLoginPayload {
     }
 
     .kln-portal-login__logo-klini {
-      font-family: 'Objective', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 2.25rem;
       font-weight: 700;
       color: var(--kln-color-teal-500, #259591);
@@ -155,7 +155,7 @@ export interface KlnPortalLoginPayload {
     }
 
     .kln-portal-login__logo-saude {
-      font-family: 'Objective', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 0.75rem;
       font-weight: 600;
       color: var(--kln-color-teal-500, #259591);
@@ -192,7 +192,7 @@ export interface KlnPortalLoginPayload {
     }
 
     .kln-portal-login__label {
-      font-family: 'Objective', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 0.875rem;
       font-weight: 600;
       color: var(--kln-text-primary, #111827);
@@ -232,7 +232,7 @@ export interface KlnPortalLoginPayload {
         color: var(--kln-color-teal-500, #259591) !important;
         font-size: 0.8125rem;
         font-weight: 600;
-        font-family: 'Objective', system-ui, -apple-system, sans-serif;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
         padding: 0;
         height: auto;
 

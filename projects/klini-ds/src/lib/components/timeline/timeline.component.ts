@@ -39,7 +39,7 @@ export interface KlnTimelineEvent {
   `,
   styles: [`
     .kln-timeline__marker { display:flex; align-items:center; justify-content:center; width:2rem; height:2rem; border-radius:50%; color:#fff; font-size:.875rem; }
-    .kln-timeline__status { font-weight:600; color:var(--kln-text-primary); font-family:'Objective', system-ui, -apple-system, sans-serif; margin:0; }
+    .kln-timeline__status { font-weight:600; color:var(--kln-text-primary); font-family:'Inter', system-ui, -apple-system, sans-serif; margin:0; }
     .kln-timeline__date { color:var(--kln-text-muted); font-size:var(--kln-font-size-caption); }
     .kln-timeline__text { color:var(--kln-text-secondary); font-size:var(--kln-font-size-body-sm); margin:var(--kln-space-1) 0 0; }
   `],

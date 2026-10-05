@@ -61,7 +61,7 @@ import { ToolbarModule } from 'primeng/toolbar';
     }
 
     .kln-portal-footer__logo-klini {
-      font-family: 'Objective', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 1rem;
       font-weight: 700;
       color: var(--kln-color-teal-500, #259591);
@@ -69,7 +69,7 @@ import { ToolbarModule } from 'primeng/toolbar';
     }
 
     .kln-portal-footer__logo-saude {
-      font-family: 'Objective', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 0.625rem;
       font-weight: 600;
       color: var(--kln-color-teal-500, #259591);
@@ -78,7 +78,7 @@ import { ToolbarModule } from 'primeng/toolbar';
     }
 
     .kln-portal-footer__ans {
-      font-family: 'Objective', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 0.75rem;
       font-weight: 400;
       color: var(--kln-text-muted, #9CA3AF);

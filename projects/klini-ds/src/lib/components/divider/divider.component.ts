@@ -36,7 +36,7 @@ export type KlnDividerAlign  = 'left' | 'center' | 'right' | 'top' | 'bottom';
     :host ::ng-deep .p-divider .p-divider-content {
       font-size: var(--kln-font-size-body-sm);
       color: var(--kln-text-muted);
-      font-family: 'Objective', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       background: var(--kln-surface-base);
       padding: 0 var(--kln-space-3);
     }

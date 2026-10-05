@@ -59,7 +59,7 @@ import { MessageModule } from 'primeng/message';
         font-size: var(--kln-font-size-body-sm);
         font-weight: 600;
         color: var(--kln-field-label);
-        font-family: 'Objective', system-ui, -apple-system, sans-serif;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
       }
       .klini-password-hint {
         font-size: var(--kln-font-size-caption);

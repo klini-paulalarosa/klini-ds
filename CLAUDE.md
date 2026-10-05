@@ -411,7 +411,7 @@ Status sólido           slate 700 #546E7A · teal 600 #1F7E7B · sea 700 #406E7
 **Fontes:**
 - **Inter** — padrão de produto: headings, labels, botões e corpo (decisão de 05/10/2026; é a fonte do Portal do Beneficiário v2 e da biblioteca no Figma). A Objective saiu porque não é instalável.
 - **Merriweather** — editorial/marketing only (nunca em UI de produto)
-- Pendente: os componentes Angular ainda declaram `'Objective', system-ui` no CSS (25 arquivos); hoje caem no fallback do sistema.
+- Os componentes Angular declaram `'Inter', system-ui, -apple-system, sans-serif`; quem consome a lib carrega a Inter (o site de docs carrega pelo Google Fonts).
 
 **Ícones:** PrimeIcons (`pi pi-*`) no Angular DS · Lucide React (`lucide-react`) no React DS
 

@@ -104,7 +104,7 @@ import { AvatarModule } from 'primeng/avatar';
     }
 
     .kln-portal-header__hello {
-      font-family: 'Objective', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 0.875rem;
       font-weight: 400;
       color: var(--kln-text-secondary, #4B5563);
@@ -112,7 +112,7 @@ import { AvatarModule } from 'primeng/avatar';
     }
 
     .kln-portal-header__name {
-      font-family: 'Objective', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 1.25rem;
       font-weight: 700;
       color: var(--kln-text-primary, #111827);
@@ -121,7 +121,7 @@ import { AvatarModule } from 'primeng/avatar';
     }
 
     .kln-portal-header__plan {
-      font-family: 'Objective', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 0.75rem;
       font-weight: 400;
       color: var(--kln-text-muted, #9CA3AF);
@@ -160,7 +160,7 @@ import { AvatarModule } from 'primeng/avatar';
         background: transparent;
         color: var(--kln-text-secondary, #4B5563);
         font-size: 0.875rem;
-        font-family: 'Objective', system-ui, -apple-system, sans-serif;
+        font-family: 'Inter', system-ui, -apple-system, sans-serif;
       }
     }
 

@@ -28,7 +28,7 @@ import { CheckboxModule } from 'primeng/checkbox';
   styles: [`
     :host { display: inline-block; }
     .kln-checkbox-wrapper { display: inline-flex; align-items: center; gap: var(--kln-space-2); }
-    .kln-checkbox-label { font-size: var(--kln-font-size-body-sm); color: var(--kln-text-primary); font-family: 'Objective', system-ui, -apple-system, sans-serif; cursor: pointer; }
+    .kln-checkbox-label { font-size: var(--kln-font-size-body-sm); color: var(--kln-text-primary); font-family: 'Inter', system-ui, -apple-system, sans-serif; cursor: pointer; }
   `],
 })
 export class KlnCheckboxComponent implements ControlValueAccessor {

@@ -103,7 +103,7 @@ import { ButtonModule } from 'primeng/button';
     }
 
     .kln-service-tile__label {
-      font-family: 'Objective', system-ui, -apple-system, sans-serif;
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
       font-size: 0.8125rem;
       font-weight: 400;
       color: var(--kln-text-primary, #111827);
