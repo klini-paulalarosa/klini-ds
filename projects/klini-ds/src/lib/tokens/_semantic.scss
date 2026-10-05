@@ -26,9 +26,9 @@
   --kln-text-disabled:   var(--kln-color-ink-400);
   --kln-text-on-brand:   var(--kln-color-white);
   --kln-text-on-inverse: var(--kln-color-ink-50);
-  --kln-text-brand:      var(--kln-color-teal-100);
-  --kln-text-accent:     var(--kln-color-orange-100);
-  --kln-text-danger:     var(--kln-color-coral-100);
+  --kln-text-brand:      var(--kln-color-teal-700);
+  --kln-text-accent:     var(--kln-color-orange-700);
+  --kln-text-danger:     var(--kln-color-coral-700);
 
   // ---------------------------------------------------------------------------
   // BORDER
@@ -43,13 +43,13 @@
   // ---------------------------------------------------------------------------
   // ACTION — estados interativos
   // ---------------------------------------------------------------------------
-  --kln-action-primary:       var(--kln-color-teal-100);
-  --kln-action-primary-hover: var(--kln-color-teal-600);
-  --kln-action-primary-active: var(--kln-color-teal-700);
-  --kln-action-accent:        var(--kln-color-orange-100);
-  --kln-action-accent-hover:  var(--kln-color-orange-600);
-  --kln-action-danger:        var(--kln-color-coral-100);
-  --kln-action-danger-hover:  var(--kln-color-coral-600);
+  --kln-action-primary:       var(--kln-color-teal-600);
+  --kln-action-primary-hover: var(--kln-color-teal-700);
+  --kln-action-primary-active: var(--kln-color-teal-800);
+  --kln-action-accent:        var(--kln-color-orange-600);
+  --kln-action-accent-hover:  var(--kln-color-orange-700);
+  --kln-action-danger:        var(--kln-color-coral-600);
+  --kln-action-danger-hover:  var(--kln-color-coral-700);
   --kln-action-disabled:      var(--kln-color-ink-300);
 
   // ---------------------------------------------------------------------------
@@ -83,7 +83,7 @@
   --kln-field-border-error:   var(--kln-color-coral-100);
   --kln-field-border-disabled: var(--kln-color-ink-200);
   --kln-field-label:          var(--kln-color-ink-700);
-  --kln-field-placeholder:    var(--kln-color-ink-400);
+  --kln-field-placeholder:    var(--kln-color-ink-500);
   --kln-field-value:          var(--kln-color-ink-900);
 
   // ---------------------------------------------------------------------------

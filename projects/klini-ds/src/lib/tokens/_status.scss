@@ -8,7 +8,7 @@
   // ---------------------------------------------------------------------------
   // EM PROCESSO — guia em andamento / auditoria
   // ---------------------------------------------------------------------------
-  --kln-status-em-processo-solid:    var(--kln-color-slate-500);
+  --kln-status-em-processo-solid:    var(--kln-color-slate-700);
   --kln-status-em-processo-bg:       var(--kln-color-slate-100);
   --kln-status-em-processo-fg:       var(--kln-color-slate-700);
   --kln-status-em-processo-on-solid: var(--kln-color-white);
@@ -16,7 +16,7 @@
   // ---------------------------------------------------------------------------
   // AUTORIZADA
   // ---------------------------------------------------------------------------
-  --kln-status-autorizada-solid:    var(--kln-color-teal-100);
+  --kln-status-autorizada-solid:    var(--kln-color-teal-600);
   --kln-status-autorizada-bg:       var(--kln-color-teal-wash);
   --kln-status-autorizada-fg:       var(--kln-color-teal-700);
   --kln-status-autorizada-on-solid: var(--kln-color-white);
@@ -24,7 +24,7 @@
   // ---------------------------------------------------------------------------
   // PARCIALMENTE — autorização parcial
   // ---------------------------------------------------------------------------
-  --kln-status-parcialmente-solid:    var(--kln-color-sea-100);
+  --kln-status-parcialmente-solid:    var(--kln-color-sea-700);
   --kln-status-parcialmente-bg:       var(--kln-color-sea-wash);
   --kln-status-parcialmente-fg:       var(--kln-color-sea-700);
   --kln-status-parcialmente-on-solid: var(--kln-color-white);
@@ -32,7 +32,7 @@
   // ---------------------------------------------------------------------------
   // NEGADO
   // ---------------------------------------------------------------------------
-  --kln-status-negado-solid:    var(--kln-color-coral-100);
+  --kln-status-negado-solid:    var(--kln-color-coral-600);
   --kln-status-negado-bg:       var(--kln-color-coral-wash);
   --kln-status-negado-fg:       var(--kln-color-coral-700);
   --kln-status-negado-on-solid: var(--kln-color-white);
@@ -40,7 +40,7 @@
   // ---------------------------------------------------------------------------
   // INATIVA
   // ---------------------------------------------------------------------------
-  --kln-status-inativa-solid:    var(--kln-color-orange-100);
+  --kln-status-inativa-solid:    var(--kln-color-orange-600);
   --kln-status-inativa-bg:       var(--kln-color-orange-wash);
   --kln-status-inativa-fg:       var(--kln-color-orange-700);
   --kln-status-inativa-on-solid: var(--kln-color-white);

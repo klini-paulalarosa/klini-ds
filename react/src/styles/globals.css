@@ -99,19 +99,19 @@
     --popover: hsl(0 0% 100%);
     --popover-foreground: hsl(222 47% 11%);
 
-    --primary: hsl(178 61% 37%);          /* Teal #259591 PANTONE 2461C */
+    --primary: hsl(178.1 60.5% 30.8%);    /* Teal 600 #1F7E7B, branco em cima 4,85 (AA) */
     --primary-foreground: hsl(0 0% 100%);
 
     --secondary: hsl(178 40% 94%);        /* fundo suave teal */
     --secondary-foreground: hsl(178 61% 28%);
 
     --muted: hsl(210 40% 96%);
-    --muted-foreground: hsl(215 16% 47%);
+    --muted-foreground: hsl(157.5 3.8% 40.8%);
 
     --accent: hsl(178 40% 94%);
     --accent-foreground: hsl(178 61% 28%);
 
-    --destructive: hsl(359 69% 61%);      /* Coral #E05759 PANTONE 7625C */
+    --destructive: hsl(359 50.4% 51.8%);  /* Coral 600 #C24648, branco em cima 4,93 (AA) */
     --destructive-foreground: hsl(0 0% 100%);
 
     --border: hsl(214 32% 91%);
@@ -123,7 +123,7 @@
     /* ── Sidebar ─────────────────────────────────────────────────────── */
     --sidebar-background: hsl(178 25% 97%);
     --sidebar-foreground: hsl(222 47% 11%);
-    --sidebar-primary: hsl(178 61% 37%);
+    --sidebar-primary: hsl(178.1 60.5% 30.8%);
     --sidebar-primary-foreground: hsl(0 0% 100%);
     --sidebar-accent: hsl(178 40% 92%);
     --sidebar-accent-foreground: hsl(178 61% 28%);
