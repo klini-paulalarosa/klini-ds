@@ -61,7 +61,7 @@ import { ButtonModule } from 'primeng/button';
         height: 100%;
         min-height: 96px;
         background: #ffffff !important;
-        border: 1px solid var(--kln-border-subtle, #E5E7EB) !important;
+        border: 1px solid var(--kln-border-default) !important;
         border-radius: 8px !important;
         box-shadow: 0px 2px 8px 0px rgba(15, 27, 26, 0.06);
         padding: 1rem 0.75rem !important;

@@ -37,7 +37,7 @@ export type KlnDividerAlign  = 'left' | 'center' | 'right' | 'top' | 'bottom';
       font-size: var(--kln-font-size-body-sm);
       color: var(--kln-text-muted);
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background: var(--kln-surface-base);
+      background: var(--kln-surface-raised);
       padding: 0 var(--kln-space-3);
     }
   `],

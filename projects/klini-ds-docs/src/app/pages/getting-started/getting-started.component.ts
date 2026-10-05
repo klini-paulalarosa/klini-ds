@@ -85,7 +85,7 @@ import { CodeBlockComponent } from '../../shared/code-block/code-block.component
         <!-- Step 3 -->
         <div class="docs-section">
           <h2>Importar estilos globais</h2>
-          <p>No seu <code class="font-mono">styles.scss</code> global, adicione os imports necessários:</p>
+          <p>No seu <code class="font-mono">styles.scss</code> global, importe os tokens <code class="font-mono">--kln-*</code>. Sem eles os componentes ficam sem cor, sombra e espaçamento.</p>
           <app-code-block language="scss" [code]="stylesCode" />
         </div>
 
@@ -94,7 +94,7 @@ import { CodeBlockComponent } from '../../shared/code-block/code-block.component
           <h2>Configurar o tema no app.config.ts</h2>
           <p>
             Use <code class="font-mono">KlnPrime</code> como preset do PrimeNG.
-            O tema aplica automaticamente as cores e tokens do Klini DS.
+            O tema aplica as cores do Klini DS nos componentes PrimeNG; os tokens vêm do passo anterior.
           </p>
           <app-code-block language="typescript" [code]="appConfigCode" />
           <div style="margin-top:16px;padding:14px 16px;background:var(--docs-brand-soft);border:1px solid var(--docs-accent);border-radius:8px;font-size:13px;color:var(--docs-text-muted)">
@@ -147,11 +147,8 @@ export class GettingStartedComponent {
   peersCode = `npm install @angular/core@18 @angular/common@18 primeng@18 chart.js@4 zone.js`;
 
   stylesCode = `// styles.scss
-@import 'primeng/resources/primeng.css';
-@import 'primeicons/primeicons.css';
-
-// Tokens SCSS do Klini DS (opcional — para usar as vars CSS diretamente)
-// @import '@klini-saude/ds/tokens';`;
+@use '@klini-saude/ds/styles';
+@import 'primeicons/primeicons.css';`;
 
   appConfigCode = `// app.config.ts
 import { ApplicationConfig } from '@angular/core';

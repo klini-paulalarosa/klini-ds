@@ -66,7 +66,7 @@ interface StatusToken {
       <p class="docs-page-description">
         Tokens de design do Klini DS — paleta cromática, tokens de status clínico,
         espaçamentos, border-radius e tipografia. Expostos como CSS custom properties
-        (<code class="font-mono">--kln-*</code>) carregadas automaticamente pelo tema KlnPrime.
+        (<code class="font-mono">--kln-*</code>), carregadas com <code class="font-mono">&#64;use '&#64;klini-saude/ds/styles'</code> no styles.scss global.
       </p>
 
       <!-- ── Paleta Principal ─────────────────────────────── -->

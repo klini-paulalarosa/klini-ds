@@ -170,7 +170,7 @@ export interface KlnPortalLoginPayload {
         width: 100%;
         max-width: 420px;
         border-radius: 8px;
-        border: 1px solid var(--kln-border-subtle, #E5E7EB);
+        border: 1px solid var(--kln-border-default);
         box-shadow: 0px 2px 8px 0px rgba(15, 27, 26, 0.06);
 
         .p-card-body { padding: 1.75rem; }

@@ -148,7 +148,7 @@ import { AvatarModule } from 'primeng/avatar';
         justify-content: center;
 
         &:hover {
-          background: var(--kln-surface-hover, #F9FAFB) !important;
+          background: var(--kln-surface-page) !important;
         }
 
         .p-button-label { display: none; }
