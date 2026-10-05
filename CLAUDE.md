@@ -137,28 +137,30 @@ toaster           toggle            toggle-group      tooltip
 
 ### Design tokens React DS
 
-Definidos em `react/src/styles/globals.css` como CSS custom properties (HSL sem `hsl()`).
+Definidos em `react/src/styles/globals.css` como CSS custom properties, com o valor de cor completo (`hsl(...)`).
 
-**Cores de UI:**
+**Contraste (WCAG 2.1 AA, desde 05/10/2026):** texto com 4,5:1 ou mais, texto grande e elementos de interface com 3:1. Texto e botão preenchido usam os tons AA (teal 600/700, coral 600/700, orange 600/700, ink 500); a cor PANTONE pura fica para marca, gráficos, foco e áreas grandes. Os valores seguem a biblioteca "Klini Saúde — Design System" no Figma.
+
+**Cores de UI (modo claro):**
 ```
---primary              178 61% 37%   Teal #259591 — ações primárias, foco, botões
---primary-foreground     0  0% 100%  Texto sobre primary
---secondary            178 40% 94%   Ghost/outline actions
---secondary-foreground 178 61% 28%
---destructive            0 84% 60%   Erros, exclusão
---accent               178 40% 94%   Hover states
---muted                210 40% 96%   Backgrounds suaves
---muted-foreground     215 16% 47%   Texto secundário
---border               214 32% 91%
---ring                 178 61% 37%   Focus ring = teal
+--primary              hsl(178.1 60.5% 30.8%)  Teal 600 #1F7E7B — botões e ações primárias (branco em cima 4,85)
+--primary-foreground   hsl(0 0% 100%)          Texto sobre primary
+--secondary            hsl(178 40% 94%)        Ghost/outline actions
+--secondary-foreground hsl(178 61% 28%)
+--destructive          hsl(359 50.4% 51.8%)    Coral 600 #C24648 — erros, exclusão (branco em cima 4,93)
+--accent               hsl(178 40% 94%)        Hover states
+--muted                hsl(210 40% 96%)        Backgrounds suaves
+--muted-foreground     hsl(157.5 3.8% 40.8%)   #646C69 — texto secundário (4,93 sobre --muted)
+--border               hsl(214 32% 91%)
+--ring                 hsl(178 61% 37%)        Focus ring = teal da marca (3,5 sobre branco)
 ```
 
 **Sidebar tokens (portais):**
 ```
---sidebar-background   178 25% 97%   Fundo sidebar — teal muito claro
---sidebar-primary      178 61% 37%   Links ativos = teal
---sidebar-accent       178 40% 92%   Hover items
---sidebar-border       178 20% 90%
+--sidebar-background   hsl(178 25% 97%)        Fundo sidebar — teal muito claro
+--sidebar-primary      hsl(178.1 60.5% 30.8%)  Links ativos = teal 600
+--sidebar-accent       hsl(178 40% 92%)        Hover items
+--sidebar-border       hsl(178 20% 90%)
 ```
 
 **Chart palette — cores EXATAS da marca (mesma sequência do Angular DS):**
@@ -170,9 +172,20 @@ Definidos em `react/src/styles/globals.css` como CSS custom properties (HSL sem 
 --chart-5  210 13% 50%   Slate  #708090  —              série 5 / em processo / neutro
 ```
 
-`--destructive` = `--chart-4` Coral #E05759 (não vermelho genérico)
+`--destructive` é o coral da marca no tom AA (#C24648, coral 600), não um vermelho genérico. O `--chart-4` segue com o coral PANTONE #E05759.
 
-**Dark mode:** ativado com classe `.dark` no `<html>`. Todos os tokens têm versão dark.
+**Dark mode:** ativado com classe `.dark` no `<html>`. Todos os tokens têm versão dark, sempre em verde e preto (nunca azul):
+```
+--background           #0F1B1A   --foreground           #F7F8F8
+--card / --popover     #0E3837   --muted                #172625
+--muted-foreground     #9BA3A2   --border               #196766
+--primary              #7CBFBD   --primary-foreground   #0F1B1A   (texto escuro: serve de botão e de link)
+--destructive          #EC9A9B   --destructive-foreground #0F1B1A
+--secondary / --accent #134F4E   texto sobre eles       #A8D5D3
+--input                #3D8C89   --ring                 #7CBFBD
+```
+
+**Pendente conhecido:** os botões usam `hover:bg-primary/90` e `hover:bg-destructive/90` (componentes em `src/components/ui/`); no modo claro o hover clareia e cai para cerca de 4,0. Corrigir na próxima regeneração dos componentes.
 
 ---
 
@@ -372,10 +385,10 @@ Após criar: exportar em `public-api.ts` + adicionar em `klini-ds.module.ts`.
 > Qualquer uso de cor deve referir às variáveis abaixo.
 
 ```
-Teal   #259591  hsl(178,61%,37%)  PANTONE 2461C  primary / brand / sucesso
+Teal   #259591  hsl(178,61%,37%)  PANTONE 2461C  brand / sucesso (botão usa teal 600, ver abaixo)
 Sea    #6AA7AE  hsl(186,30%,55%)  PANTONE 549C   info / complementar
 Orange #CD7925  hsl(30,69%,47%)   PANTONE 7565C  warning / acento quente
-Coral  #E05759  hsl(359,69%,61%)  PANTONE 7625C  danger / negado / destructive
+Coral  #E05759  hsl(359,69%,61%)  PANTONE 7625C  danger / negado (destructive usa coral 600)
 Slate  #708090  hsl(210,13%,50%)  —              em processo / neutro
 Ink    #374151  hsl(220,14%,22%)  —              texto principal
 ```
@@ -383,9 +396,22 @@ Ink    #374151  hsl(220,14%,22%)  —              texto principal
 React DS: usar `KLINI_COLORS.teal / .sea / .orange / .coral / .slate` ou `hsl(var(--chart-1..5))`
 Angular DS: usar `--kln-color-teal-500` / `--kln-chart-cat-teal` etc.
 
+**Cor da marca × cor de texto e botão:** as cores acima são a marca (logo, gráficos, áreas grandes, foco). Texto e botão preenchido usam os tons AA pelos tokens semânticos, nunca a cor PANTONE direto:
+```
+Texto de marca / link   teal 700   #196766   (--kln-text-brand)
+Botão primário          teal 600   #1F7E7B   (--kln-action-primary, React --primary)
+Texto de acento         orange 700 #834D17   (--kln-text-accent)
+Botão de acento         orange 600 #A8631E   (--kln-action-accent)
+Texto de erro           coral 700  #A33638   (--kln-text-danger)
+Botão de perigo         coral 600  #C24648   (--kln-action-danger, React --destructive)
+Placeholder             ink 500    #6B7370   (--kln-field-placeholder)
+Status sólido           slate 700 #546E7A · teal 600 #1F7E7B · sea 700 #406E74 · coral 600 #C24648 · orange 600 #A8631E
+```
+
 **Fontes:**
-- **Objective** — primária: headings, labels, botões, corpo (ExtraBold 800, SemiBold 600, Regular 400)
+- **Inter** — padrão de produto: headings, labels, botões e corpo (decisão de 05/10/2026; é a fonte do Portal do Beneficiário v2 e da biblioteca no Figma). A Objective saiu porque não é instalável.
 - **Merriweather** — editorial/marketing only (nunca em UI de produto)
+- Pendente: os componentes Angular ainda declaram `'Objective', system-ui` no CSS (25 arquivos); hoje caem no fallback do sistema.
 
 **Ícones:** PrimeIcons (`pi pi-*`) no Angular DS · Lucide React (`lucide-react`) no React DS
 

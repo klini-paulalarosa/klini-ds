@@ -147,10 +147,10 @@ statuses: { status: StatusPillValue; label: string }[] = [
 
   // Familia de cor conforme _status.scss — valores exatos do DS
   statusReference: PropDef[] = [
-    { name: "'autorizada'",   type: 'Teal — #259591',    default: '--kln-status-autorizada-*',   description: 'Procedimento ou consulta autorizada pelo plano.' },
-    { name: "'negado'",       type: 'Coral — #E05759',   default: '--kln-status-negado-*',       description: 'Procedimento negado pela operadora.' },
-    { name: "'em-processo'",  type: 'Slate — #90A4AE',   default: '--kln-status-em-processo-*',  description: 'Em análise, auditoria ou aguardando documentação.' },
-    { name: "'parcialmente'", type: 'Sea — #6AA7AE',     default: '--kln-status-parcialmente-*', description: 'Autorização parcial — cobertura limitada pelo plano.' },
-    { name: "'inativa'",      type: 'Orange — #CD7925',  default: '--kln-status-inativa-*',      description: 'Registro inativo, contrato encerrado ou carência não cumprida.' },
+    { name: "'autorizada'",   type: 'Teal — #1F7E7B',    default: '--kln-status-autorizada-*',   description: 'Procedimento ou consulta autorizada pelo plano.' },
+    { name: "'negado'",       type: 'Coral — #C24648',   default: '--kln-status-negado-*',       description: 'Procedimento negado pela operadora.' },
+    { name: "'em-processo'",  type: 'Slate — #546E7A',   default: '--kln-status-em-processo-*',  description: 'Em análise, auditoria ou aguardando documentação.' },
+    { name: "'parcialmente'", type: 'Sea — #406E74',     default: '--kln-status-parcialmente-*', description: 'Autorização parcial — cobertura limitada pelo plano.' },
+    { name: "'inativa'",      type: 'Orange — #A8631E',  default: '--kln-status-inativa-*',      description: 'Registro inativo, contrato encerrado ou carência não cumprida.' },
   ];
 }

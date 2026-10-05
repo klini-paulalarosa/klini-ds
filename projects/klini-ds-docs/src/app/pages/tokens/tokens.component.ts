@@ -262,7 +262,7 @@ interface StatusToken {
       <div class="docs-section">
         <h2>Tipografia</h2>
         <p>
-          Fonte primária: <strong>Objective</strong> (Klini Brand — ExtraBold 800, SemiBold 600, Regular 400).
+          Fonte primária: <strong>Inter</strong> (padrão de produto desde 05/10/2026, igual ao Portal do Beneficiário v2 e à biblioteca no Figma; a Objective saiu por não ser instalável).
           Fonte editorial: <strong>Merriweather</strong> (apenas marketing, não em UI de produto).
         </p>
         <div style="border:1px solid var(--docs-border);border-radius:8px;overflow:hidden">
@@ -564,7 +564,7 @@ export class TokensComponent {
     {
       status: 'autorizada',
       label: 'Autorizada',
-      solid:   '#259591',  // --kln-color-teal-100 (legado) = teal-500
+      solid:   '#1F7E7B',  // --kln-color-teal-600
       bg:      '#D3EAE9',  // --kln-color-teal-wash
       fg:      '#196766',  // --kln-color-teal-700
       onSolid: '#FFFFFF',
@@ -575,7 +575,7 @@ export class TokensComponent {
     {
       status: 'negado',
       label: 'Negado',
-      solid:   '#E05759',  // --kln-color-coral-100 (legado) = coral-500
+      solid:   '#C24648',  // --kln-color-coral-600
       bg:      '#F9DDDE',  // --kln-color-coral-wash
       fg:      '#A33638',  // --kln-color-coral-700
       onSolid: '#FFFFFF',
@@ -586,7 +586,7 @@ export class TokensComponent {
     {
       status: 'em-processo',
       label: 'Em processo',
-      solid:   '#90A4AE',  // --kln-color-slate-500
+      solid:   '#546E7A',  // --kln-color-slate-700
       bg:      '#ECEFF1',  // --kln-color-slate-100
       fg:      '#546E7A',  // --kln-color-slate-700
       onSolid: '#FFFFFF',
@@ -597,7 +597,7 @@ export class TokensComponent {
     {
       status: 'parcialmente',
       label: 'Parcialmente',
-      solid:   '#6AA7AE',  // --kln-color-sea-100 (legado) = sea-500
+      solid:   '#406E74',  // --kln-color-sea-700
       bg:      '#E1EDEF',  // --kln-color-sea-wash
       fg:      '#406E74',  // --kln-color-sea-700
       onSolid: '#FFFFFF',
@@ -608,7 +608,7 @@ export class TokensComponent {
     {
       status: 'inativa',
       label: 'Inativa',
-      solid:   '#CD7925',  // --kln-color-orange-100 (legado) = orange-500
+      solid:   '#A8631E',  // --kln-color-orange-600
       bg:      '#F5E4D3',  // --kln-color-orange-wash
       fg:      '#834D17',  // --kln-color-orange-700
       onSolid: '#FFFFFF',
@@ -706,9 +706,9 @@ export class TokensComponent {
         { name: 'text-disabled',   cssVar: '--kln-text-disabled',   resolvedValue: '#9BA3A2', primitiveRef: 'var(--kln-color-ink-400)', usage: 'Texto desabilitado' },
         { name: 'text-on-brand',   cssVar: '--kln-text-on-brand',   resolvedValue: '#FFFFFF', primitiveRef: 'var(--kln-color-white)',   usage: 'Texto sobre fundo de marca' },
         { name: 'text-on-inverse', cssVar: '--kln-text-on-inverse', resolvedValue: '#F7F8F8', primitiveRef: 'var(--kln-color-ink-50)',  usage: 'Texto sobre fundo escuro' },
-        { name: 'text-brand',      cssVar: '--kln-text-brand',      resolvedValue: '#259591', primitiveRef: 'var(--kln-color-teal-100)',  usage: 'Links, CTAs, destaque Teal' },
-        { name: 'text-accent',     cssVar: '--kln-text-accent',     resolvedValue: '#CD7925', primitiveRef: 'var(--kln-color-orange-100)', usage: 'Destaque quente, acento' },
-        { name: 'text-danger',     cssVar: '--kln-text-danger',     resolvedValue: '#E05759', primitiveRef: 'var(--kln-color-coral-100)',  usage: 'Erros, mensagens críticas' },
+        { name: 'text-brand',      cssVar: '--kln-text-brand',      resolvedValue: '#196766', primitiveRef: 'var(--kln-color-teal-700)',  usage: 'Links, CTAs, destaque Teal' },
+        { name: 'text-accent',     cssVar: '--kln-text-accent',     resolvedValue: '#834D17', primitiveRef: 'var(--kln-color-orange-700)', usage: 'Destaque quente, acento' },
+        { name: 'text-danger',     cssVar: '--kln-text-danger',     resolvedValue: '#A33638', primitiveRef: 'var(--kln-color-coral-700)',  usage: 'Erros, mensagens críticas' },
       ],
     },
     {
@@ -725,13 +725,13 @@ export class TokensComponent {
     {
       group: 'Action — Estados interativos',
       tokens: [
-        { name: 'action-primary',        cssVar: '--kln-action-primary',        resolvedValue: '#259591', primitiveRef: 'var(--kln-color-teal-100)',   usage: 'Botão primário, estado padrão' },
-        { name: 'action-primary-hover',  cssVar: '--kln-action-primary-hover',  resolvedValue: '#1F7E7B', primitiveRef: 'var(--kln-color-teal-600)',   usage: 'Botão primário, hover' },
-        { name: 'action-primary-active', cssVar: '--kln-action-primary-active', resolvedValue: '#196766', primitiveRef: 'var(--kln-color-teal-700)',   usage: 'Botão primário, pressed' },
-        { name: 'action-accent',         cssVar: '--kln-action-accent',         resolvedValue: '#CD7925', primitiveRef: 'var(--kln-color-orange-100)', usage: 'Ação de acento, estado padrão' },
-        { name: 'action-accent-hover',   cssVar: '--kln-action-accent-hover',   resolvedValue: '#A8631E', primitiveRef: 'var(--kln-color-orange-600)', usage: 'Ação de acento, hover' },
-        { name: 'action-danger',         cssVar: '--kln-action-danger',         resolvedValue: '#E05759', primitiveRef: 'var(--kln-color-coral-100)',  usage: 'Ação destrutiva, estado padrão' },
-        { name: 'action-danger-hover',   cssVar: '--kln-action-danger-hover',   resolvedValue: '#C24648', primitiveRef: 'var(--kln-color-coral-600)',  usage: 'Ação destrutiva, hover' },
+        { name: 'action-primary',        cssVar: '--kln-action-primary',        resolvedValue: '#1F7E7B', primitiveRef: 'var(--kln-color-teal-600)',   usage: 'Botão primário, estado padrão' },
+        { name: 'action-primary-hover',  cssVar: '--kln-action-primary-hover',  resolvedValue: '#196766', primitiveRef: 'var(--kln-color-teal-700)',   usage: 'Botão primário, hover' },
+        { name: 'action-primary-active', cssVar: '--kln-action-primary-active', resolvedValue: '#134F4E', primitiveRef: 'var(--kln-color-teal-800)',   usage: 'Botão primário, pressed' },
+        { name: 'action-accent',         cssVar: '--kln-action-accent',         resolvedValue: '#A8631E', primitiveRef: 'var(--kln-color-orange-600)', usage: 'Ação de acento, estado padrão' },
+        { name: 'action-accent-hover',   cssVar: '--kln-action-accent-hover',   resolvedValue: '#834D17', primitiveRef: 'var(--kln-color-orange-700)', usage: 'Ação de acento, hover' },
+        { name: 'action-danger',         cssVar: '--kln-action-danger',         resolvedValue: '#C24648', primitiveRef: 'var(--kln-color-coral-600)',  usage: 'Ação destrutiva, estado padrão' },
+        { name: 'action-danger-hover',   cssVar: '--kln-action-danger-hover',   resolvedValue: '#A33638', primitiveRef: 'var(--kln-color-coral-700)',  usage: 'Ação destrutiva, hover' },
         { name: 'action-disabled',       cssVar: '--kln-action-disabled',       resolvedValue: '#C4C8C7', primitiveRef: 'var(--kln-color-ink-300)',    usage: 'Estado desabilitado' },
       ],
     },
@@ -741,7 +741,7 @@ export class TokensComponent {
         { name: 'feedback-success-fg',     cssVar: '--kln-feedback-success-fg',     resolvedValue: '#196766', primitiveRef: 'var(--kln-color-teal-700)',    usage: 'Texto de sucesso' },
         { name: 'feedback-success-bg',     cssVar: '--kln-feedback-success-bg',     resolvedValue: '#E8F4F3', primitiveRef: 'var(--kln-color-teal-50)',     usage: 'Fundo de sucesso' },
         { name: 'feedback-success-border', cssVar: '--kln-feedback-success-border', resolvedValue: '#259591', primitiveRef: 'var(--kln-color-teal-100)',    usage: 'Borda de sucesso' },
-        { name: 'feedback-warning-fg',     cssVar: '--kln-feedback-warning-fg',     resolvedValue: '#A8631E', primitiveRef: 'var(--kln-color-orange-700)',  usage: 'Texto de aviso' },
+        { name: 'feedback-warning-fg',     cssVar: '--kln-feedback-warning-fg',     resolvedValue: '#834D17', primitiveRef: 'var(--kln-color-orange-700)',  usage: 'Texto de aviso' },
         { name: 'feedback-warning-bg',     cssVar: '--kln-feedback-warning-bg',     resolvedValue: '#F5E4D3', primitiveRef: 'var(--kln-color-orange-wash)', usage: 'Fundo de aviso' },
         { name: 'feedback-warning-border', cssVar: '--kln-feedback-warning-border', resolvedValue: '#CD7925', primitiveRef: 'var(--kln-color-orange-100)', usage: 'Borda de aviso' },
         { name: 'feedback-danger-fg',      cssVar: '--kln-feedback-danger-fg',      resolvedValue: '#A33638', primitiveRef: 'var(--kln-color-coral-700)',   usage: 'Texto de erro' },
@@ -764,7 +764,7 @@ export class TokensComponent {
         { name: 'field-border-error',    cssVar: '--kln-field-border-error',    resolvedValue: '#E05759', primitiveRef: 'var(--kln-color-coral-100)', usage: 'Borda de input com erro' },
         { name: 'field-border-disabled', cssVar: '--kln-field-border-disabled', resolvedValue: '#E2E4E4', primitiveRef: 'var(--kln-color-ink-200)', usage: 'Borda de input desabilitado' },
         { name: 'field-label',           cssVar: '--kln-field-label',           resolvedValue: '#344140', primitiveRef: 'var(--kln-color-ink-700)', usage: 'Cor do label do campo' },
-        { name: 'field-placeholder',     cssVar: '--kln-field-placeholder',     resolvedValue: '#9BA3A2', primitiveRef: 'var(--kln-color-ink-400)', usage: 'Placeholder text' },
+        { name: 'field-placeholder',     cssVar: '--kln-field-placeholder',     resolvedValue: '#6B7370', primitiveRef: 'var(--kln-color-ink-500)', usage: 'Placeholder text' },
         { name: 'field-value',           cssVar: '--kln-field-value',           resolvedValue: '#0F1B1A', primitiveRef: 'var(--kln-color-ink-900)', usage: 'Valor digitado no campo' },
       ],
     },

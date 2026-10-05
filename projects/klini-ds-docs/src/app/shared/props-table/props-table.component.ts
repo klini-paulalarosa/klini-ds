@@ -29,7 +29,7 @@ export interface PropDef {
               <td>
                 <code style="font-family:'Fira Code',monospace;font-size:12px">{{ prop.name }}</code>
                 @if (prop.required) {
-                  <span style="color:#e05759;margin-left:4px;font-size:11px">*</span>
+                  <span style="color:#A33638;margin-left:4px;font-size:11px">*</span>
                 }
               </td>
               <td>{{ prop.type }}</td>

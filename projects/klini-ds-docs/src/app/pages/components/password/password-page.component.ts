@@ -130,7 +130,7 @@ import { PropsTableComponent, PropDef } from '../../../shared/props-table/props-
               @for (rule of passwordRules; track rule.text) {
                 <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
                   <i [class]="isRuleMet(rule.test, senhaRules) ? 'pi pi-check-circle' : 'pi pi-circle'"
-                     [style.color]="isRuleMet(rule.test, senhaRules) ? '#259591' : '#9BA3A2'"
+                     [style.color]="isRuleMet(rule.test, senhaRules) ? '#1F7E7B' : '#6B7370'"
                      style="font-size:13px;flex-shrink:0"></i>
                   <span style="font-size:12px;color:var(--docs-text-muted)">{{ rule.text }}</span>
                 </div>

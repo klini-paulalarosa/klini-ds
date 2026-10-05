@@ -482,7 +482,7 @@ Importadas diretamente de `@klini-saude/ds` (re-exports PrimeNG).
 --kln-space-4            /* 16px */
 --kln-radius-lg          /* 8px */
 
-/* Semânticos */
+/* Semânticos (tons AA: action-primary = teal-600 #1F7E7B, text-brand = teal-700 #196766) */
 --kln-action-primary
 --kln-text-primary
 --kln-surface-page

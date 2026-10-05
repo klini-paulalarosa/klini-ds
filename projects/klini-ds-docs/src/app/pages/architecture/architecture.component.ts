@@ -34,7 +34,7 @@ import { RouterLink } from '@angular/router';
       }
     }
 
-    .pyramid__level--pages    { width: 100%;    background: #259591; color: #fff; }
+    .pyramid__level--pages    { width: 100%;    background: #1F7E7B; color: #fff; }
     .pyramid__level--templates{ width: 92%;     background: #2eada8; color: #fff; }
     .pyramid__level--organisms{ width: 78%;     background: #3dc4bf; color: #fff; }
     .pyramid__level--molecules{ width: 62%;     background: #7dd3d0; color: #196766; }

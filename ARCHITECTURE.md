@@ -104,16 +104,20 @@ Mapeia os primitivos para papéis de design (coleção "02 · Semantic", modo "L
 - **Feedback**: `--kln-feedback-success-*`, `--kln-feedback-danger-*`, `--kln-feedback-warn-*`, `--kln-feedback-info-*`
 - **Field**: tokens específicos para campos de formulário (background, border, placeholder)
 
+Texto e ação apontam para os tons que passam no contraste WCAG 2.1 AA (desde 05/10/2026, igual à biblioteca no Figma): `text-brand` teal-700, `text-accent` orange-700, `text-danger` coral-700, `action-primary` teal-600 (hover 700, active 800), `action-accent` orange-600 (hover 700), `action-danger` coral-600 (hover 700) e `field-placeholder` ink-500. Bordas e foco seguem na cor da marca (3:1 basta).
+
 #### `_status.scss`
 Tokens de domínio exclusivos do Klini Saúde — mapeiam os status de guias e autorizações médicas. Usados pelo `kln-status-pill`.
 
 | Token | Status | Semântica |
 |---|---|---|
-| `--kln-status-autorizada-bg/fg` | Autorizada | Verde — aprovado |
-| `--kln-status-negado-bg/fg` | Negado | Coral — recusado |
-| `--kln-status-em-processo-bg/fg` | Em Auditoria | Neutro — em andamento |
-| `--kln-status-parcialmente-bg/fg` | Parcial | Azul info — parcialmente aprovado |
-| `--kln-status-inativa-bg/fg` | Inativa | Laranja warn — desativado |
+| `--kln-status-autorizada-bg/fg/solid` | Autorizada | Verde — aprovado (sólido teal-600 #1F7E7B) |
+| `--kln-status-negado-bg/fg/solid` | Negado | Coral — recusado (sólido coral-600 #C24648) |
+| `--kln-status-em-processo-bg/fg/solid` | Em Auditoria | Neutro — em andamento (sólido slate-700 #546E7A) |
+| `--kln-status-parcialmente-bg/fg/solid` | Parcial | Azul info — parcialmente aprovado (sólido sea-700 #406E74) |
+| `--kln-status-inativa-bg/fg/solid` | Inativa | Laranja warn — desativado (sólido orange-600 #A8631E) |
+
+O sólido leva texto branco e passa 4,5:1 em todos; os pares `fg` sobre `bg` também passam.
 
 #### `_elevation.scss`
 Sistema de elevação inspirado no Fluent Design, com quatro níveis de sombra + tokens de foco e easing.

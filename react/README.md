@@ -276,14 +276,17 @@ Os tokens são CSS custom properties definidas em `globals.css` e consumidas via
 
 ### Cores (HSL)
 
-> **Cores de marca — não alterar sem aprovação do time de marca Klini**
+> **Cores de marca — não alterar sem aprovação do time de marca Klini.**
+> Desde 05/10/2026 os tokens de texto e de botão usam os tons AA da marca (WCAG 2.1 AA: 4,5:1 para texto). A cor PANTONE pura fica para gráficos, foco e áreas grandes.
 
 | Token | HSL | Hex | Uso |
 |---|---|---|---|
-| `--primary` | `178 61% 37%` | `#259591` PANTONE 2461C | Teal — ações primárias, foco, brand |
+| `--primary` | `178.1 60.5% 30.8%` | `#1F7E7B` teal 600 | Teal — botões e ações primárias (branco em cima 4,85) |
 | `--primary-foreground` | `0 0% 100%` | `#ffffff` | Texto sobre primary |
 | `--secondary` | `178 40% 94%` | — | Fundo suave teal (ghost/outline) |
-| `--destructive` | `359 69% 61%` | `#E05759` PANTONE 7625C | Coral — erros, exclusão, negado |
+| `--destructive` | `359 50.4% 51.8%` | `#C24648` coral 600 | Coral — erros, exclusão, negado (branco em cima 4,93) |
+| `--muted-foreground` | `157.5 3.8% 40.8%` | `#646C69` | Texto secundário (4,93 sobre `--muted`) |
+| `--ring` | `178 61% 37%` | `#259591` PANTONE 2461C | Anel de foco |
 | `--chart-1` | `178 61% 37%` | `#259591` PANTONE 2461C | Teal — série 1 / brand primary |
 | `--chart-2` | `186 30% 55%` | `#6AA7AE` PANTONE 549C  | Sea — série 2 / info / complementar |
 | `--chart-3` | `30 69% 47%`  | `#CD7925` PANTONE 7565C | Orange — série 3 / warning / acento |
@@ -292,11 +295,11 @@ Os tokens são CSS custom properties definidas em `globals.css` e consumidas via
 
 ### Sidebar tokens
 
-Todos os `--sidebar-*` tokens usam o teal Klini como cor primária, garantindo consistência visual nos layouts de portal.
+Todos os `--sidebar-*` tokens usam o teal Klini como cor primária (`--sidebar-primary` = teal 600 `#1F7E7B`), garantindo consistência visual nos layouts de portal.
 
 ### Dark mode
 
-Ativado com a classe `.dark` no elemento raiz. Todos os tokens têm equivalentes dark.
+Ativado com a classe `.dark` no elemento raiz. Todos os tokens têm equivalentes dark, sempre em verde e preto (nunca azul): fundo `#0F1B1A`, cartão `#0E3837`, texto `#F7F8F8`, texto secundário `#9BA3A2`. No escuro, `--primary` (`#7CBFBD`) e `--destructive` (`#EC9A9B`) são claros com texto escuro (`#0F1B1A`), para servirem tanto de botão quanto de link ou texto de erro sobre o fundo.
 
 ---
 
