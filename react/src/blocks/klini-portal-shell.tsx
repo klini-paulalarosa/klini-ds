@@ -44,7 +44,6 @@ import {
 import { Badge } from '@/components/ui/badge'
 import { cn } from '@/lib/utils'
 
-/* ── Types ──────────────────────────────────────────────────────────────── */
 
 export interface KliniNavSubItem {
   title: string
@@ -59,12 +58,10 @@ export interface KliniNavItem {
   icon?: LucideIcon
   isActive?: boolean
   badge?: string | number
-  /** Sub-itens abrem como accordion colapsável */
   items?: KliniNavSubItem[]
 }
 
 export interface KliniNavGroup {
-  /** Label do grupo (opcional — ex: "Principal", "Relatórios") */
   label?: string
   items: KliniNavItem[]
 }
@@ -72,19 +69,14 @@ export interface KliniNavGroup {
 export interface KliniPortalUser {
   name: string
   email: string
-  /** URL do avatar */
   avatar?: string
   role?: string
 }
 
 export interface KliniPortalLogo {
-  /** Texto principal (nome do portal) */
   text: string
-  /** Sub-texto (ex: versão, empresa) */
   subtext?: string
-  /** URL de imagem da logo */
   src?: string
-  /** Ícone Lucide como alternativa à imagem */
   icon?: LucideIcon
 }
 
@@ -92,9 +84,7 @@ export interface KliniPortalShellProps {
   nav: { groups: KliniNavGroup[] }
   user?: KliniPortalUser
   logo?: KliniPortalLogo
-  /** Breadcrumb do header — último item é a página atual */
   headerBreadcrumb?: Array<{ label: string; href?: string }>
-  /** Ações extras no header (botões, search, etc.) */
   headerActions?: React.ReactNode
   children: React.ReactNode
   defaultOpen?: boolean
@@ -103,26 +93,7 @@ export interface KliniPortalShellProps {
   onSettings?: () => void
 }
 
-/* ── Shell principal ─────────────────────────────────────────────────────── */
 
-/**
- * KliniPortalShell — layout completo de portal com sidebar colapsável.
- *
- * Baseado no padrão sidebar-08 do Shadcn/UI (new-york-v4).
- * Sidebar colapsa para modo ícones. Suporta navegação com grupos, sub-itens
- * accordion, badge de notificação e menu de usuário com dropdown.
- *
- * @example
- * <KliniPortalShell
- *   logo={{ text: 'Portal Beneficiário', subtext: 'Klini Saúde' }}
- *   nav={{ groups: [{ label: 'Principal', items: [...] }] }}
- *   user={{ name: 'Maria Silva', email: 'maria@empresa.com' }}
- *   headerBreadcrumb={[{ label: 'Home', href: '/' }, { label: 'Dashboard' }]}
- *   onLogout={() => signOut()}
- * >
- *   <Dashboard />
- * </KliniPortalShell>
- */
 export function KliniPortalShell({
   nav,
   user,
@@ -179,7 +150,6 @@ export function KliniPortalShell({
   )
 }
 
-/* ── Sidebar interna ─────────────────────────────────────────────────────── */
 
 type AppSidebarProps = Pick<
   KliniPortalShellProps,
@@ -324,7 +294,6 @@ function KliniAppSidebar({ nav, user, logo, onNavItemClick, onLogout, onSettings
   )
 }
 
-/* ── Nav items ───────────────────────────────────────────────────────────── */
 
 function KliniLeafItem({
   item,

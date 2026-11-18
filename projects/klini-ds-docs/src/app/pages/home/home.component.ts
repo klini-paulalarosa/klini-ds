@@ -531,7 +531,6 @@ interface CategoryGroup {
   `,
 })
 export class HomeComponent {
-  // signal para OnPush — plain boolean nao re-renderiza apos setTimeout
   copied = signal(false);
 
   copyInstall(): void {

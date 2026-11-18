@@ -3,7 +3,6 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { RouterLink, RouterLinkActive, Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs';
 
-/** Versao do pacote — fonte unica para sidebar e header */
 export const DS_VERSION = 'v2.0.0';
 
 interface NavItem { label: string; route: string; }
@@ -307,13 +306,10 @@ interface NavItem { label: string; route: string; }
 export class SidebarComponent {
   readonly version = DS_VERSION;
 
-  /** Emitido em cada NavigationEnd — AppComponent usa para fechar sidebar no mobile */
   @Output() closeRequest = new EventEmitter<void>();
 
   searchQuery = signal('');
 
-  // Garante que o routerLinkActive atualize a classe "active" em OnPush
-  // Sem isso, a classe pode não refletir a rota atual após navegação
   private readonly cdr = inject(ChangeDetectorRef);
   private readonly destroyRef = inject(DestroyRef);
 

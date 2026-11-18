@@ -8,10 +8,6 @@ export interface IftaLabelProps {
   className?: string
 }
 
-/**
- * IftaLabel — label pequeno permanentemente fixado no topo interno do campo
- * (sem cortar a borda), sempre visível, independente de foco/preenchimento.
- */
 const IftaLabel = React.forwardRef<HTMLDivElement, IftaLabelProps>(({ label, children, className }, ref) => {
   const child = React.cloneElement(children, {
     className: cn("h-12 pb-1 pt-5", children.props.className),

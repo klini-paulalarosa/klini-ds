@@ -25,23 +25,16 @@ import {
 import { makeChartConfig, formatValue } from './klini-chart-config'
 
 export interface KliniBarChartProps {
-  /** Data array — each object must have the xKey field plus all dataKeys */
   data: Record<string, string | number>[]
-  /** Keys to render as bars */
   dataKeys: string[]
-  /** Field to use as X axis */
   xKey: string
-  /** Human-readable labels for each dataKey */
   labels?: Record<string, string>
   title?: string
   description?: string
   footer?: React.ReactNode
-  /** 'grouped' (default) | 'stacked' | 'horizontal' */
   variant?: 'grouped' | 'stacked' | 'horizontal'
-  /** Show value labels on top of each bar */
   showLabels?: boolean
   format?: 'number' | 'currency' | 'percent' | 'compact'
-  /** Height in px (default 280) */
   height?: number
 }
 

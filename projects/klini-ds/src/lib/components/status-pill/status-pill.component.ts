@@ -8,7 +8,6 @@ export type StatusPillValue =
   | 'parcialmente'
   | 'negado'
   | 'inativa'
-  // Códigos ANS — requisições (RN389/RN510)
   | 'A' | 'P' | 'T' | 'D' | 'N' | 'Z' | 'E' | 'C' | 'O' | 'R';
 
 type PrimeSeverity = 'success' | 'info' | 'warn' | 'danger' | 'secondary' | 'contrast';
@@ -20,13 +19,11 @@ interface StatusConfig {
 }
 
 const STATUS_MAP: Record<StatusPillValue, StatusConfig> = {
-  // Legacy — backward-compat
   'em-processo':  { label: 'Em Auditoria', severity: 'secondary', cssClass: 'klini-status--em-processo'  },
   'autorizada':   { label: 'Autorizada',   severity: 'success',   cssClass: 'klini-status--autorizada'   },
   'parcialmente': { label: 'Parcial',      severity: 'info',      cssClass: 'klini-status--parcialmente'  },
   'negado':       { label: 'Negado',       severity: 'danger',    cssClass: 'klini-status--negado'        },
   'inativa':      { label: 'Inativa',      severity: 'warn',      cssClass: 'klini-status--inativa'       },
-  // Códigos ANS
   A: { label: 'Em auditoria',            severity: 'secondary', cssClass: 'klini-status--em-processo'  },
   P: { label: 'Parcialmente autorizado', severity: 'info',      cssClass: 'klini-status--parcialmente'  },
   T: { label: 'Em análise técnica',      severity: 'secondary', cssClass: 'klini-status--em-processo'  },
@@ -39,20 +36,6 @@ const STATUS_MAP: Record<StatusPillValue, StatusConfig> = {
   R: { label: 'Solicitação recebida',    severity: 'secondary', cssClass: 'klini-status--em-processo'  },
 };
 
-/**
- * Pílula de status de domínio Klini Saúde. Mapeia os cinco status de
- * guias e autorizações médicas para um p-tag com cores semânticas via
- * tokens de status (`--kln-status-*-bg/fg`). Cada status tem label e
- * cor padronizados, mas ambos podem ser sobrescritos via inputs.
- *
- * @atomicLevel atom
- * @selector kln-status-pill
- * @primeng p-tag
- * @example
- * <kln-status-pill status="autorizada" />
- * <kln-status-pill status="negado" />
- * <kln-status-pill status="em-processo" label="Em análise" />
- */
 @Component({
   selector: 'kln-status-pill',
   standalone: true,

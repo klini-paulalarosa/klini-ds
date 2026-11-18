@@ -1,16 +1,3 @@
-/**
- * KlnChartPresets
- *
- * Opções Chart.js pré-configuradas por variante, aplicando automaticamente
- * os tokens visuais do DS (cores de texto, grid, legenda).
- *
- * Uso via input [preset]:
- *   <kln-chart type="line" preset="line" [data]="data" />
- *
- * Uso direto para customização:
- *   import { KlnChartPresets } from '@klini-saude/ds';
- *   options = { ...KlnChartPresets.line(), plugins: { legend: { display: false } } };
- */
 import { KlnChartTokens as T } from './chart.tokens';
 
 export type KlnChartPreset =
@@ -39,7 +26,6 @@ export type KlnChartPreset =
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyObj = Record<string, any>;
 
-// ─── Blocos reutilizáveis ──────────────────────────────────────────────────────
 
 function legendBlock(): AnyObj {
   return {
@@ -91,18 +77,15 @@ function radialAxis(): AnyObj {
   };
 }
 
-// ─── Presets por variante ──────────────────────────────────────────────────────
 
 export const KlnChartPresets: Record<KlnChartPreset, () => AnyObj> = {
 
-  /** Bar chart vertical */
   'bar': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     plugins: basePlugins(),
     scales:  { x: xAxis(false), y: yAxis() },
   }),
 
-  /** Bar chart horizontal (indexAxis: 'y') */
   'bar-horizontal': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     indexAxis: 'y',
@@ -110,7 +93,6 @@ export const KlnChartPresets: Record<KlnChartPreset, () => AnyObj> = {
     scales:    { x: xAxis(true), y: { ...yAxis(), grid: { display: false } } },
   }),
 
-  /** Bar chart empilhado vertical — padrão Adherence Heatmap */
   'bar-stacked': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     plugins: basePlugins(),
@@ -120,7 +102,6 @@ export const KlnChartPresets: Record<KlnChartPreset, () => AnyObj> = {
     },
   }),
 
-  /** Bar chart empilhado horizontal */
   'bar-stacked-horizontal': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     indexAxis: 'y',
@@ -131,7 +112,6 @@ export const KlnChartPresets: Record<KlnChartPreset, () => AnyObj> = {
     },
   }),
 
-  /** Line chart padrão */
   'line': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     elements: { line: { tension: 0.4, borderWidth: 2 }, point: { radius: 3, hoverRadius: 5 } },
@@ -139,7 +119,6 @@ export const KlnChartPresets: Record<KlnChartPreset, () => AnyObj> = {
     scales:   { x: xAxis(false), y: yAxis() },
   }),
 
-  /** Area chart (line com fill: true nos datasets) */
   'area': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     elements: {
@@ -150,20 +129,17 @@ export const KlnChartPresets: Record<KlnChartPreset, () => AnyObj> = {
     scales:  { x: xAxis(false), y: yAxis() },
   }),
 
-  /** Pie chart */
   'pie': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     plugins: { ...basePlugins(), legend: { ...legendBlock(), position: 'right' } },
   }),
 
-  /** Doughnut — Progress Ring (adesão, cobertura) */
   'doughnut': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     cutout:  '70%',
     plugins: { ...basePlugins(), legend: { ...legendBlock(), position: 'right' } },
   }),
 
-  /** Polar Area — mantém proporção quadrada para evitar distorção visual */
   'polar-area': () => ({
     responsive: true, maintainAspectRatio: true, animation: { duration: 300 },
     plugins: { ...basePlugins(), legend: { ...legendBlock(), position: 'right' } },
@@ -178,7 +154,6 @@ export const KlnChartPresets: Record<KlnChartPreset, () => AnyObj> = {
     },
   }),
 
-  /** Radar */
   'radar': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     elements: { line: { borderWidth: 2 }, point: { radius: 3, hoverRadius: 5 } },
@@ -186,7 +161,6 @@ export const KlnChartPresets: Record<KlnChartPreset, () => AnyObj> = {
     scales:   { r: radialAxis() },
   }),
 
-  /** Scatter plot */
   'scatter': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     elements: { point: { radius: 5, hoverRadius: 7 } },
@@ -194,7 +168,6 @@ export const KlnChartPresets: Record<KlnChartPreset, () => AnyObj> = {
     scales:   { x: xAxis(true), y: yAxis() },
   }),
 
-  /** Bubble chart */
   'bubble': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     elements: { point: { hoverRadius: 4 } },
@@ -202,7 +175,6 @@ export const KlnChartPresets: Record<KlnChartPreset, () => AnyObj> = {
     scales:   { x: xAxis(true), y: yAxis() },
   }),
 
-  /** Mixed chart — combina bar e line no mesmo gráfico (defina type por dataset via KlnChartData.mixed) */
   'mixed': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     elements: { line: { tension: 0.4, borderWidth: 2 }, point: { radius: 3, hoverRadius: 5 } },
@@ -210,7 +182,6 @@ export const KlnChartPresets: Record<KlnChartPreset, () => AnyObj> = {
     scales:   { x: xAxis(false), y: yAxis() },
   }),
 
-  /** Time Series — eixo X com datas/strings, use KlnChartData.timeSeries para o dataset */
   'time-series': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     elements: { line: { tension: 0.4, borderWidth: 2 }, point: { radius: 3, hoverRadius: 5 } },
@@ -226,14 +197,12 @@ export const KlnChartPresets: Record<KlnChartPreset, () => AnyObj> = {
     },
   }),
 
-  /** Bar grouped — múltiplas séries lado a lado por categoria (padrão do bar, explícito para clareza) */
   'bar-grouped': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     plugins: basePlugins(),
     scales:  { x: xAxis(false), y: yAxis() },
   }),
 
-  /** Bar 100% stacked — composição proporcional (%) entre categorias */
   'bar-stacked-100': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     plugins: {
@@ -252,7 +221,6 @@ export const KlnChartPresets: Record<KlnChartPreset, () => AnyObj> = {
     },
   }),
 
-  /** Bar com valores negativos — crescimento/variação com baseline em zero */
   'bar-negative': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     plugins: basePlugins(),
@@ -262,7 +230,6 @@ export const KlnChartPresets: Record<KlnChartPreset, () => AnyObj> = {
     },
   }),
 
-  /** Line stepped — valores que mudam em degraus discretos */
   'line-stepped': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     elements: { line: { tension: 0, stepped: true, borderWidth: 2 }, point: { radius: 3, hoverRadius: 5 } },
@@ -270,7 +237,6 @@ export const KlnChartPresets: Record<KlnChartPreset, () => AnyObj> = {
     scales:   { x: xAxis(false), y: yAxis() },
   }),
 
-  /** Line dual Y-axis — duas métricas com escalas diferentes (y e y1) */
   'line-dual-axis': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     elements: { line: { tension: 0.4, borderWidth: 2 }, point: { radius: 3, hoverRadius: 5 } },
@@ -282,7 +248,6 @@ export const KlnChartPresets: Record<KlnChartPreset, () => AnyObj> = {
     },
   }),
 
-  /** Sparkline — mini-line para KPI cards, sem eixos nem legenda */
   'sparkline': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 200 },
     elements: { line: { tension: 0.4, borderWidth: 2 }, point: { radius: 0, hoverRadius: 3 } },
@@ -296,7 +261,6 @@ export const KlnChartPresets: Record<KlnChartPreset, () => AnyObj> = {
     },
   }),
 
-  /** Time Series + Brush — dataset longo com seleção de período visual */
   'time-series-brush': () => ({
     responsive: true, maintainAspectRatio: false, animation: { duration: 300 },
     elements: { line: { tension: 0.4, borderWidth: 2 }, point: { radius: 0, hoverRadius: 4 } },
@@ -313,7 +277,6 @@ export const KlnChartPresets: Record<KlnChartPreset, () => AnyObj> = {
   }),
 };
 
-/** Retorna as options do preset. Retorna {} se o preset não existir. */
 export function getChartPreset(preset: KlnChartPreset): AnyObj {
   return KlnChartPresets[preset]?.() ?? {};
 }

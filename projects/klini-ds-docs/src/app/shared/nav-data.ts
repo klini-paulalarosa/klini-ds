@@ -1,8 +1,3 @@
-/**
- * nav-data.ts — Fonte unica de verdade para todas as paginas da documentacao.
- * Importado por: SidebarComponent, PrevNextNavComponent.
- * Ordem = sequencia da sidebar = sequencia de navegacao anterior/proximo.
- */
 
 export interface NavEntry {
   label: string;
@@ -10,20 +5,16 @@ export interface NavEntry {
 }
 
 export const ALL_PAGES: NavEntry[] = [
-  // Getting Started
   { label: 'Visao Geral',      route: '/' },
   { label: 'Instalacao',       route: '/getting-started' },
   { label: 'Design Tokens',    route: '/tokens' },
   { label: 'PrimeIcons',       route: '/icons' },
-  // Charts
   { label: '21 Chart Presets', route: '/charts' },
   { label: 'kln-chart API',    route: '/components/chart' },
-  // Buttons
   { label: 'Button',           route: '/components/button' },
   { label: 'Split Button',     route: '/components/split-button' },
   { label: 'Button Group',     route: '/components/button-group' },
   { label: 'Speed Dial',       route: '/components/speed-dial' },
-  // Forms
   { label: 'Input Text',       route: '/components/input-text' },
   { label: 'Input Number',     route: '/components/input-number' },
   { label: 'Input Mask',       route: '/components/input-mask' },
@@ -50,7 +41,6 @@ export const ALL_PAGES: NavEntry[] = [
   { label: 'Float Label',      route: '/components/float-label' },
   { label: 'File Upload',      route: '/components/file-upload' },
   { label: 'Editor',           route: '/components/editor' },
-  // Data Display
   { label: 'Table',            route: '/components/table' },
   { label: 'Tree Table',       route: '/components/tree-table' },
   { label: 'DataView',         route: '/components/dataview' },
@@ -62,26 +52,22 @@ export const ALL_PAGES: NavEntry[] = [
   { label: 'Timeline',         route: '/components/timeline' },
   { label: 'Galleria',         route: '/components/galleria' },
   { label: 'Image Compare',    route: '/components/image-compare' },
-  // Charts & Analytics
   { label: 'Knob',             route: '/components/knob' },
   { label: 'Meter Group',      route: '/components/meter-group' },
   { label: 'Progress Bar',     route: '/components/progress-bar' },
   { label: 'Progress Spinner', route: '/components/progress-spinner' },
-  // Feedback
   { label: 'Toast',            route: '/components/toast' },
   { label: 'Message',          route: '/components/message' },
   { label: 'Messages',         route: '/components/messages' },
   { label: 'Confirm Dialog',   route: '/components/confirm-dialog' },
   { label: 'Confirm Popup',    route: '/components/confirm-popup' },
   { label: 'Block UI',         route: '/components/block-ui' },
-  // Overlay
   { label: 'Dialog',           route: '/components/dialog' },
   { label: 'Drawer',           route: '/components/drawer' },
   { label: 'Popover',          route: '/components/popover' },
   { label: 'Context Menu',     route: '/components/context-menu' },
   { label: 'Overlay Badge',    route: '/components/overlay-badge' },
   { label: 'Tooltip',          route: '/components/tooltip' },
-  // Navigation
   { label: 'Tabs',             route: '/components/tabs' },
   { label: 'Tab Menu',         route: '/components/tab-menu' },
   { label: 'Stepper',          route: '/components/stepper' },
@@ -93,7 +79,6 @@ export const ALL_PAGES: NavEntry[] = [
   { label: 'Tiered Menu',      route: '/components/tiered-menu' },
   { label: 'Panel Menu',       route: '/components/panel-menu' },
   { label: 'Accordion',        route: '/components/accordion' },
-  // Layout
   { label: 'Card',             route: '/components/card' },
   { label: 'KPI Card',         route: '/components/kpi-card' },
   { label: 'Avatar',           route: '/components/avatar' },
@@ -110,9 +95,7 @@ export const ALL_PAGES: NavEntry[] = [
   { label: 'Panel',            route: '/components/panel' },
   { label: 'Fieldset',         route: '/components/fieldset' },
   { label: 'Scroll Panel',     route: '/components/scroll-panel' },
-  // Misc
   { label: 'Inplace',          route: '/components/inplace' },
   { label: 'Scroll Top',       route: '/components/scroll-top' },
-  // Portal
   { label: 'Portal Templates', route: '/components/portal-templates' },
 ];

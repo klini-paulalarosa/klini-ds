@@ -3,7 +3,6 @@ import { KLINI_COLORS } from './klini-chart-config'
 
 export interface KliniSparklineProps {
   data: number[]
-  /** 'area' (default) | 'line' */
   variant?: 'area' | 'line'
   color?: string
   width?: number | string

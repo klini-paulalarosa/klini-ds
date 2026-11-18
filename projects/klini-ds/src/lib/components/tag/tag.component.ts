@@ -6,11 +6,6 @@ export type KlnTagSeverity =
 
 type PrimeTagSeverity = 'secondary' | 'success' | 'info' | 'warn' | 'danger' | 'contrast' | undefined;
 
-/**
- * Wrapper sobre p-tag do PrimeNG.
- * Estilização 100% via KlnPrime theme preset.
- * PrimeNG Tag não tem severity 'primary' — undefined usa o estilo padrão (primary visual).
- */
 @Component({
   selector: 'kln-tag',
   standalone: true,

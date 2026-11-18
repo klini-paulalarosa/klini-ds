@@ -37,34 +37,14 @@ import { cn } from '@/lib/utils'
 export interface KliniDataTableProps<TData> {
   columns: ColumnDef<TData>[]
   data: TData[]
-  /** Filter placeholder text (enables global filter input when set) */
   filterPlaceholder?: string
-  /** Column key to filter on (leave undefined for global filter) */
   filterColumn?: string
-  /** Show column visibility toggle (default true) */
   showColumnToggle?: boolean
-  /** Show pagination controls (default true) */
   showPagination?: boolean
-  /** Rows per page options */
   pageSizeOptions?: number[]
   className?: string
 }
 
-/**
- * Full-featured data table built on TanStack Table v8 + Shadcn Table.
- * Supports sorting, filtering, column visibility, and pagination out of the box.
- *
- * @example
- * const columns: ColumnDef<User>[] = [
- *   { accessorKey: 'name', header: 'Nome' },
- *   { accessorKey: 'email', header: 'E-mail' },
- *   {
- *     accessorKey: 'status',
- *     header: ({ column }) => <KliniSortableHeader column={column} label="Status" />,
- *   },
- * ]
- * <KliniDataTable columns={columns} data={users} filterPlaceholder="Buscar usuário…" />
- */
 export function KliniDataTable<TData>({
   columns,
   data,
@@ -223,11 +203,6 @@ export function KliniDataTable<TData>({
   )
 }
 
-/**
- * Helper: sortable column header button.
- * @example
- * { header: ({ column }) => <KliniSortableHeader column={column} label="Nome" /> }
- */
 export function KliniSortableHeader({
   column,
   label,

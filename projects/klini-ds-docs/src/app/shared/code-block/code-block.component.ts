@@ -81,7 +81,6 @@ export class CodeBlockComponent {
       const result = hljs.highlight(raw, { language: lang });
       return this.sanitizer.bypassSecurityTrustHtml(result.value);
     } catch {
-      // fallback: plain text (escaped)
       const escaped = raw
         .replace(/&/g, '&amp;')
         .replace(/</g, '&lt;')

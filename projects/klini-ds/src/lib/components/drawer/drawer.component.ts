@@ -6,10 +6,6 @@ import { DrawerModule } from 'primeng/drawer';
 
 export type KlnDrawerPosition = 'left' | 'right' | 'top' | 'bottom' | 'full';
 
-/**
- * Wrapper sobre p-drawer do PrimeNG (ex p-sidebar).
- * Estilização 100% via KlnPrime theme preset.
- */
 @Component({
   selector: 'kln-drawer',
   standalone: true,

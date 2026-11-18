@@ -3,11 +3,6 @@ import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/f
 import { DatePickerModule } from 'primeng/datepicker';
 import { FloatLabelModule } from 'primeng/floatlabel';
 
-/**
- * Wrapper sobre p-datepicker do PrimeNG 18 (ex p-calendar).
- * Implementa ControlValueAccessor para Reactive/Template Forms.
- * Estilização 100% via KlnPrime theme preset.
- */
 @Component({
   selector: 'kln-calendar',
   standalone: true,

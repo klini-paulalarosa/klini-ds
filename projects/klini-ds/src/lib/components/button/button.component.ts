@@ -1,15 +1,3 @@
-/**
- * kln-button
- *
- * Diretiva companion (import de '@klini-saude/ds'):
- *
- * pRipple — adiciona efeito ripple no click
- *   <kln-button label="Salvar" pRipple />
- *   Requer que RippleModule esteja importado (já incluso em KlnDsModule).
- *
- * pAnimateOnScroll — anima o botão ao entrar no viewport
- *   <kln-button label="CTA" pAnimateOnScroll enterClass="fadein" />
- */
 import {
   Component, Input, Output, EventEmitter,
   ChangeDetectionStrategy, booleanAttribute,
@@ -20,19 +8,6 @@ export type KlnButtonSeverity = 'primary' | 'secondary' | 'success' | 'warn' | '
 export type KlnButtonSize     = 'small' | 'large' | undefined;
 export type KlnButtonVariant  = 'outlined' | 'text' | undefined;
 
-/**
- * Botão de ação principal do Klini DS. Wrapper tipado sobre p-button do PrimeNG
- * com defaults da marca (severity, size, variant) e suporte a loading state.
- * O visual é 100% controlado pelo KlnPrime theme preset.
- *
- * @atomicLevel atom
- * @selector kln-button
- * @primeng p-button
- * @example
- * <kln-button label="Salvar" severity="primary" />
- * <kln-button label="Cancelar" severity="secondary" variant="outlined" />
- * <kln-button label="Aguarde" [loading]="true" />
- */
 @Component({
   selector: 'kln-button',
   standalone: true,

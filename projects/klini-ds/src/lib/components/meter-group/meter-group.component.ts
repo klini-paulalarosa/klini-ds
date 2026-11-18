@@ -1,14 +1,3 @@
-/**
- * kln-meter-group — wrapper PrimeNG p-metergroup
- *
- * Variante padrão:
- *   <kln-meter-group [value]="items" />
- *
- * Variante WithIndicator (Zone Bar — pressão arterial, glicemia, IMC):
- *   Exibe um ponteiro triangular na posição do valor atual sobre a barra.
- *   <kln-meter-group [value]="zones" [indicatorValue]="128" [max]="200" />
- *   O indicador usa os tokens de status do DS (--kln-chart-status-*).
- */
 import { ChangeDetectionStrategy, Component, Input, OnChanges } from '@angular/core';
 import { MeterGroupModule, MeterItem } from 'primeng/metergroup';
 
@@ -63,20 +52,13 @@ import { MeterGroupModule, MeterItem } from 'primeng/metergroup';
   `],
 })
 export class KlnMeterGroupComponent implements OnChanges {
-  /** Segmentos da barra — cada item tem label, value, color */
   @Input({ required: true }) value: MeterItem[] = [];
-  /** Valor máximo total da barra */
   @Input() max = 100;
   @Input() orientation: 'horizontal' | 'vertical' = 'horizontal';
   @Input() labelPosition: 'start' | 'end' = 'end';
   @Input() styleClass = '';
 
-  /**
-   * Variante WithIndicator: valor atual a ser marcado com ponteiro triangular.
-   * null = comportamento padrão sem indicador.
-   */
   @Input() indicatorValue: number | null = null;
-  /** Unidade exibida no aria-label do indicador (ex: 'mmHg', 'bpm') */
   @Input() indicatorUnit = '';
 
   indicatorPercent = 0;

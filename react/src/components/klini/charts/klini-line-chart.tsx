@@ -32,12 +32,9 @@ export interface KliniLineChartProps {
   title?: string
   description?: string
   footer?: React.ReactNode
-  /** 'linear' (default) | 'monotone' | 'step' */
   curveType?: 'linear' | 'monotone' | 'step'
-  /** Show dots on data points */
   showDots?: boolean
   format?: 'number' | 'currency' | 'percent' | 'compact'
-  /** Optional horizontal reference line (e.g., target/goal) */
   referenceLine?: { value: number; label?: string }
   height?: number
 }

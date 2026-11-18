@@ -1,18 +1,3 @@
-/**
- * kln-input-text
- *
- * Diretivas companion (import de '@klini-saude/ds'):
- *
- * pKeyFilter — filtra teclas permitidas no input
- *   <kln-input-text pKeyFilter="num" />          — só números
- *   <kln-input-text pKeyFilter="alpha" />         — só letras
- *   <kln-input-text pKeyFilter="alphanum" />      — alfanumérico
- *   <kln-input-text pKeyFilter="email" />         — formato e-mail
- *   Padrões: 'num' | 'int' | 'alpha' | 'alphanum' | 'hex' | 'email' | 'money'
- *
- * pAutoFocus — coloca foco inicial no campo
- *   <kln-input-text pAutoFocus [autofocus]="true" />
- */
 import {
   Component, Input, Output, EventEmitter, forwardRef,
   ChangeDetectionStrategy, booleanAttribute,
@@ -24,11 +9,6 @@ import { MessageModule } from 'primeng/message';
 
 export type KlnInputSize = 'small' | 'large' | undefined;
 
-/**
- * Wrapper sobre pInputText + p-floatlabel do PrimeNG.
- * Implementa ControlValueAccessor para integração com Reactive/Template Forms.
- * Estilização 100% via KlnPrime theme preset.
- */
 @Component({
   selector: 'kln-input-text',
   standalone: true,

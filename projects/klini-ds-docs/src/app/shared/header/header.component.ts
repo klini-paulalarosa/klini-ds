@@ -5,7 +5,6 @@ import { NavigationEnd, Router } from '@angular/router';
 import { filter, map } from 'rxjs';
 import { DS_VERSION } from '../sidebar/sidebar.component';
 
-/** Mapeia segmentos de URL para labels legíveis */
 const ROUTE_LABELS: Record<string, string> = {
   '':                    'Visao Geral',
   'getting-started':     'Instalacao',
@@ -252,10 +251,8 @@ export class HeaderComponent {
     { initialValue: this.router.url },
   );
 
-  /** Gera trilha de navegacao a partir da URL atual */
   breadcrumbs = computed(() => {
     const raw = this.url$() ?? '';
-    // Remove o hash (#) — withHashLocation coloca o path depois do #
     const path = raw.startsWith('#') ? raw.slice(1) : raw;
     const segments = path.split('/').filter(Boolean);
 

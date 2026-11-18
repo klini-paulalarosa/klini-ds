@@ -9,25 +9,6 @@ import { ToolbarModule } from 'primeng/toolbar';
 import { ButtonModule } from 'primeng/button';
 import { AvatarModule } from 'primeng/avatar';
 
-/**
- * kln-portal-header
- *
- * Cabeçalho padrão dos portais Klini (Beneficiário, Médico, Corretor, TI).
- *
- * Features:
- *   - Barra gradiente superior (orange → teal, identidade da marca)
- *   - Saudação "Olá, [NOME]" com subtítulo opcional (ex: plano do beneficiário)
- *   - Botão avatar top-right com iniciais, emite `avatarClick`
- *
- * Uso:
- * ```html
- * <kln-portal-header
- *   userName="PAULA ROSA"
- *   planLabel="plano klini start pj"
- *   (avatarClick)="openProfileMenu($event)"
- * />
- * ```
- */
 @Component({
   selector: 'kln-portal-header',
   standalone: true,
@@ -171,13 +152,10 @@ import { AvatarModule } from 'primeng/avatar';
   `],
 })
 export class KlnPortalHeaderComponent {
-  /** Nome completo do usuário (exibido em maiúsculas) */
   @Input({ required: true }) userName = '';
 
-  /** Subtítulo opcional — ex: nome do plano (Portal Beneficiário) */
   @Input() planLabel = '';
 
-  /** Clique no botão de avatar — abrir menu/dropdown de perfil */
   @Output() avatarClick = new EventEmitter<MouseEvent>();
 
   get initials(): string {

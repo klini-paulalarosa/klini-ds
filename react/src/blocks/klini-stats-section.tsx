@@ -20,23 +20,6 @@ export interface KliniStatsSectionProps {
   className?: string
 }
 
-/**
- * KliniStatsSection — grid de KPI cards para cabeçalho de dashboard.
- *
- * Responsivo: 1 col (mobile) → 2 (sm) → configurável (lg).
- * Aceita de 2 a 8 métricas.
- *
- * @example
- * <KliniStatsSection
- *   columns={4}
- *   stats={[
- *     { title: 'Vidas ativas', value: 12450, change: 3.2, format: 'compact', sparklineData: [...] },
- *     { title: 'Sinistralidade', value: 68.3, change: 2.1, format: 'percent', positiveIsGood: false },
- *     { title: 'Receita', value: 1850000, change: -1.8, format: 'currency' },
- *     { title: 'NPS', value: 72, change: 5, format: 'number' },
- *   ]}
- * />
- */
 export function KliniStatsSection({ stats, columns = 4, className }: KliniStatsSectionProps) {
   const gridClass = {
     2: 'grid-cols-1 sm:grid-cols-2',

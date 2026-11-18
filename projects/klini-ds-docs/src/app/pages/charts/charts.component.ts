@@ -479,7 +479,6 @@ export class ChartsComponent {
     this.activeCode.update(current => current === key ? null : key);
   }
 
-  // ── Bar data ──────────────────────────────────────────────────────────────
   barData = KlnChartData.cartesian(
     ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
     [{ label: 'Consultas realizadas', data: [342, 298, 421, 387, 456, 412] }],
@@ -512,7 +511,6 @@ export class ChartsComponent {
     [{ label: 'Variação vs mês anterior (%)', data: [4.2, -2.1, 8.7, -3.4, 6.1, -1.8] }],
   );
 
-  // ── Line & Area data ───────────────────────────────────────────────────────
   lineData = KlnChartData.cartesian(
     ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago'],
     [
@@ -539,7 +537,6 @@ export class ChartsComponent {
     [{ label: 'Receita', data: [380, 420, 395, 460, 430, 480, 450, 490, 470, 510, 487, 487] }],
   );
 
-  // ── Time Series data ────────────────────────────────────────────────────────
   timeSeriesData = KlnChartData.timeSeries([
     {
       label: 'Agendamentos',
@@ -561,7 +558,6 @@ export class ChartsComponent {
     },
   ]);
 
-  // ── Radial data ─────────────────────────────────────────────────────────────
   pieData = KlnChartData.status(
     ['Autorizado', 'Em análise', 'Pendente docs', 'Negado', 'Cancelado'],
     [312, 87, 45, 23, 18],
@@ -580,7 +576,6 @@ export class ChartsComponent {
     ],
   );
 
-  // ── Scatter & Bubble data ───────────────────────────────────────────────────
   scatterData = KlnChartData.scatter([
     {
       label: 'Titulares',
@@ -614,7 +609,6 @@ export class ChartsComponent {
     },
   ]);
 
-  // ── Mixed data ──────────────────────────────────────────────────────────────
   mixedData = KlnChartData.mixed(
     ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun'],
     [
@@ -623,7 +617,6 @@ export class ChartsComponent {
     ],
   );
 
-  // ── Code snippets ───────────────────────────────────────────────────────────
   setupCode = `import { KlnChartComponent, KlnChartData } from '@klini-saude/ds';
 
 @Component({

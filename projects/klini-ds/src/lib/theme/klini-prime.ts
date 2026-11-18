@@ -1,11 +1,6 @@
 import { definePreset } from '@primeng/themes';
 import Aura from '@primeng/themes/aura';
 
-// =============================================================================
-// Klini Prime — PrimeNG theme preset
-// Mapeia os tokens do Klini DS para o sistema de tokens do PrimeNG
-// Uso: providePrimeNG({ theme: { preset: KlnPrime } })
-// =============================================================================
 export const KlnPrime = definePreset(Aura, {
   semantic: {
     primary: {

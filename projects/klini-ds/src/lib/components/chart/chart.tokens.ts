@@ -1,19 +1,5 @@
-/**
- * KlnChartTokens
- *
- * Resolve os CSS custom properties do DS em runtime para uso com Chart.js.
- * Chart.js renderiza em <canvas> — CSS variables não funcionam diretamente
- * no canvas, portanto precisam ser lidas via getComputedStyle antes de serem
- * passadas como strings para os datasets e options.
- *
- * Uso em componentes consumidores:
- *   import { KlnChartTokens } from '@klini-saude/ds';
- *   backgroundColor: KlnChartTokens.categorical   // string[]
- *   borderColor: KlnChartTokens.status.success    // string
- */
 export class KlnChartTokens {
 
-  /** Lê um CSS custom property do :root. Retorna fallback se não encontrar. */
   static resolve(token: string, fallback = ''): string {
     if (typeof document === 'undefined') return fallback;
     return (
@@ -22,7 +8,6 @@ export class KlnChartTokens {
     );
   }
 
-  // ─── Categorical (4 séries da marca) ─────────────────────────────────────
 
   static get categorical(): string[] {
     return [
@@ -33,7 +18,6 @@ export class KlnChartTokens {
     ];
   }
 
-  // ─── Sequential (Teal Scale — 5 stops nomeados) ───────────────────────────
 
   static get sequential(): string[] {
     return [
@@ -45,7 +29,6 @@ export class KlnChartTokens {
     ];
   }
 
-  // ─── Diverging ────────────────────────────────────────────────────────────
 
   static get diverging(): { warm: string; neutral: string; cool: string } {
     return {
@@ -55,7 +38,6 @@ export class KlnChartTokens {
     };
   }
 
-  // ─── Status semânticos ────────────────────────────────────────────────────
 
   static get status(): Record<'success' | 'info' | 'warn' | 'danger' | 'secondary', string> {
     return {
@@ -67,7 +49,6 @@ export class KlnChartTokens {
     };
   }
 
-  // ─── Texto e superfície (para eixos e grid do chart) ─────────────────────
 
   static get textPrimary(): string {
     return this.resolve('--kln-text-primary', '#111827');

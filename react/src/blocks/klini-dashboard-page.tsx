@@ -78,23 +78,6 @@ export interface KliniDashboardPageProps {
   className?: string
 }
 
-/**
- * KliniDashboardPage — composição declarativa de seções de dashboard.
- *
- * Cada seção é configurada via um objeto typed. O layout usa um grid de 3
- * colunas com suporte a colSpan. Ideal para portais de operadoras, brokers
- * e beneficiários.
- *
- * @example
- * <KliniDashboardPage
- *   sections={[
- *     { id: 'stats', type: 'stats', stats: kpiData, columns: 4 },
- *     { id: 'trend', type: 'area', title: 'Evolução Mensal', data: trendData,
- *       dataKeys: ['receita', 'sinistros'], xKey: 'mes', colSpan: 2 },
- *     { id: 'mix', type: 'pie', title: 'Mix de Procedimentos', data: mixData, donut: true },
- *   ]}
- * />
- */
 export function KliniDashboardPage({ sections, className }: KliniDashboardPageProps) {
   return (
     <div className={cn('flex flex-col gap-6', className)}>

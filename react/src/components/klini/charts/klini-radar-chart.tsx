@@ -23,11 +23,8 @@ import {
 import { makeChartConfig, formatValue } from './klini-chart-config'
 
 export interface KliniRadarChartProps {
-  /** Each object must have the angleKey field plus all dataKeys */
   data: Record<string, string | number>[]
-  /** Keys to render as radar areas */
   dataKeys: string[]
-  /** Field for the polar axis labels */
   angleKey: string
   labels?: Record<string, string>
   title?: string

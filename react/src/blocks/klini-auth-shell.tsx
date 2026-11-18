@@ -13,29 +13,11 @@ export interface KliniAuthShellProps {
   logo?: KliniAuthShellLogo
   title: string
   description?: string
-  /** Conteúdo do painel lateral esquerdo (marca, benefícios, etc.) */
   sideContent?: React.ReactNode
-  /** Formulário ou conteúdo do lado direito */
   children: React.ReactNode
   className?: string
 }
 
-/**
- * KliniAuthShell — layout de autenticação split-screen.
- *
- * Layout: painel de marca (esquerdo, oculto em mobile) + formulário (direito).
- * Ideal para login, cadastro, recuperação de senha, etc.
- *
- * @example
- * <KliniAuthShell
- *   logo={{ text: 'Klini Saúde', subtext: 'Portal do Beneficiário' }}
- *   title="Entrar"
- *   description="Digite seu CPF e senha para acessar o portal."
- *   sideContent={<KliniAuthBrandPanel />}
- * >
- *   <LoginForm onSubmit={handleLogin} />
- * </KliniAuthShell>
- */
 export function KliniAuthShell({
   logo,
   title,

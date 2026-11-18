@@ -9,10 +9,6 @@ export interface FloatLabelProps {
   className?: string
 }
 
-/**
- * FloatLabel — envolve um input e faz o label flutuar para cima ao focar/preencher.
- * `over` corta a borda (label com fundo), `in` sobe dentro do campo, `on` fica sempre flutuado.
- */
 const FloatLabel = React.forwardRef<HTMLDivElement, FloatLabelProps>(
   ({ label, variant = "over", children, className }, ref) => {
     const child = React.cloneElement(children, {
@@ -49,7 +45,6 @@ const FloatLabel = React.forwardRef<HTMLDivElement, FloatLabelProps>(
       )
     }
 
-    // variant === 'over'
     return (
       <div ref={ref} className={cn("relative", className)}>
         {child}

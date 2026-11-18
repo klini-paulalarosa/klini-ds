@@ -31,9 +31,7 @@ export interface KliniAreaChartProps {
   title?: string
   description?: string
   footer?: React.ReactNode
-  /** Stack areas (default false) */
   stacked?: boolean
-  /** Gradient fill opacity 0–1 (default 0.15, set 0 to disable) */
   fillOpacity?: number
   format?: 'number' | 'currency' | 'percent' | 'compact'
   height?: number

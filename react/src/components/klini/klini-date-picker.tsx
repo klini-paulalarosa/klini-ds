@@ -13,11 +13,8 @@ export interface KliniDatePickerProps {
   placeholder?: string
   disabled?: boolean
   className?: string
-  /** Data mínima selecionável */
   minDate?: Date
-  /** Data máxima selecionável */
   maxDate?: Date
-  /** Formato de exibição (date-fns) — default "dd/MM/yyyy" */
   displayFormat?: string
 }
 

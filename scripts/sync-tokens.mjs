@@ -1,21 +1,4 @@
 #!/usr/bin/env node
-/**
- * sync-tokens.mjs — Klini DS
- * Sincroniza os tokens do Figma com os arquivos SCSS da biblioteca.
- *
- * Uso:
- *   FIGMA_TOKEN=figd_xxxx node scripts/sync-tokens.mjs
- *
- * O script:
- *   1. Chama a Figma Variables REST API
- *   2. Converte as coleções em CSS custom properties
- *   3. Sobrescreve os arquivos _primitive.scss, _semantic.scss, _status.scss e _scale.scss
- *   4. Nunca duplica — cada execução gera o arquivo do zero
- *
- * Variáveis de ambiente:
- *   FIGMA_TOKEN  — Figma Personal Access Token (obrigatório)
- *   FIGMA_FILE   — File key do Figma (opcional, default = DS Klini)
- */
 
 import { writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
@@ -31,20 +14,15 @@ if (!FIGMA_TOKEN) {
   process.exit(1);
 }
 
-// ─── Helpers ─────────────────────────────────────────────────────────────────
 
-/** Converte componente RGB 0-1 para byte 0-255 */
 const toByte = (v) => Math.round(v * 255);
 
-/** Converte objeto { r, g, b } (0-1) para string hex #RRGGBB */
 function toHex({ r, g, b }) {
   return '#' + [r, g, b].map(v => toByte(v).toString(16).padStart(2, '0')).join('').toUpperCase();
 }
 
-/** Converte caminho Figma "color/teal/500" → nome CSS "--klini-color-teal-500" */
 const toCssVar = (name) => '--klini-' + name.replace(/\//g, '-').toLowerCase();
 
-/** Cabeçalho padrão dos arquivos gerados */
 const fileHeader = (title, description) => `// ${'='.repeat(77)}
 // Klini DS — ${title}
 // ${description}
@@ -52,7 +30,6 @@ const fileHeader = (title, description) => `// ${'='.repeat(77)}
 // ${'='.repeat(77)}
 `;
 
-// ─── Figma API ────────────────────────────────────────────────────────────────
 
 async function fetchVariables() {
   const url = `https://api.figma.com/v1/files/${FILE_KEY}/variables/local`;
@@ -66,7 +43,6 @@ async function fetchVariables() {
   return data.meta ?? data; // REST API v1 retorna { meta: { variables, variableCollections } }
 }
 
-// ─── Resolução de aliases ─────────────────────────────────────────────────────
 
 function buildIdMap(variables) {
   const map = {};
@@ -82,19 +58,12 @@ function resolveValue(rawValue, idMap) {
       const refName = idMap[rawValue.id];
       return refName ? `var(${toCssVar(refName)})` : null;
     }
-    // Cor
     if ('r' in rawValue) return toHex(rawValue);
   }
   return rawValue;
 }
 
-// ─── Geradores de SCSS ────────────────────────────────────────────────────────
 
-/**
- * Gera um bloco :root { ... } com as variáveis de uma coleção.
- * Para primitivos: converte valores brutos (hex, px, string).
- * Para semânticos/status: usa var(--klini-...) como referência.
- */
 function generateRootBlock(variables, collectionIds, idMap, unitFn = null) {
   const lines = [];
 
@@ -107,7 +76,6 @@ function generateRootBlock(variables, collectionIds, idMap, unitFn = null) {
 
     if (value === null || value === undefined) continue;
 
-    // Aplica unidade px quando necessário (ex: espaçamentos, tamanhos)
     if (unitFn) value = unitFn(v.name, value);
 
     lines.push(`  ${toCssVar(v.name)}: ${value};`);
@@ -116,10 +84,6 @@ function generateRootBlock(variables, collectionIds, idMap, unitFn = null) {
   return lines.join('\n');
 }
 
-/**
- * Decide se um valor numérico primitivo recebe unidade "px".
- * Strings (easings), opacidades e z-indexes ficam sem unidade.
- */
 function primitiveUnit(name, value) {
   if (typeof value !== 'number') return value;
   const noPx = ['opacity', 'z/', 'duration', 'easing', 'grid/columns', 'grid/max'];
@@ -136,7 +100,6 @@ function scaleUnit(name, value) {
   return `${value}px`;
 }
 
-// ─── Agrupamento por seção para primitivos ────────────────────────────────────
 
 function groupedPrimitiveBlock(variables, collectionIds) {
   const groups = {};
@@ -156,7 +119,6 @@ function groupedPrimitiveBlock(variables, collectionIds) {
       value = rawValue; // string (easing)
     }
 
-    // Grupo = primeira parte do caminho (ex: "color", "space", "radius")
     const group = v.name.split('/')[0];
     if (!groups[group]) groups[group] = [];
     groups[group].push(`  ${toCssVar(v.name)}: ${value};`);
@@ -167,19 +129,16 @@ function groupedPrimitiveBlock(variables, collectionIds) {
     .join('\n\n');
 }
 
-// ─── Main ─────────────────────────────────────────────────────────────────────
 
 async function main() {
   const { variables, variableCollections } = await fetchVariables();
   const idMap = buildIdMap(variables);
 
-  // Mapeia nome da coleção → IDs
   const collectionByName = {};
   for (const col of Object.values(variableCollections)) {
     collectionByName[col.name] = col.id;
   }
 
-  // ── 1. _primitive.scss ──────────────────────────────────────────────────────
   const primId = collectionByName['01 · Primitive'];
   const primitiveBody = groupedPrimitiveBlock(variables, [primId]);
 
@@ -194,7 +153,6 @@ ${primitiveBody}
   writeFileSync(`${TOKEN_DIR}/_primitive.scss`, primitiveFile, 'utf8');
   console.log('✅  _primitive.scss atualizado');
 
-  // ── 2. _semantic.scss ───────────────────────────────────────────────────────
   const semId = collectionByName['02 · Semantic'];
   const semanticBody = generateRootBlock(variables, [semId], idMap);
 
@@ -209,7 +167,6 @@ ${semanticBody}
   writeFileSync(`${TOKEN_DIR}/_semantic.scss`, semanticFile, 'utf8');
   console.log('✅  _semantic.scss atualizado');
 
-  // ── 3. _status.scss ─────────────────────────────────────────────────────────
   const statusId = collectionByName['04 · Klini Status'];
   const statusBody = generateRootBlock(variables, [statusId], idMap);
 
@@ -224,7 +181,6 @@ ${statusBody}
   writeFileSync(`${TOKEN_DIR}/_status.scss`, statusFile, 'utf8');
   console.log('✅  _status.scss atualizado');
 
-  // ── 4. _scale.scss ──────────────────────────────────────────────────────────
   const scaleId = collectionByName['05 · Scale'];
   const scaleBody = generateRootBlock(variables, [scaleId], idMap, scaleUnit);
 

@@ -99,7 +99,6 @@ export class PrevNextNavComponent {
 
   private readonly currentRoute = computed(() => {
     const raw = this.url$() ?? '';
-    // withHashLocation coloca o path apos o #
     return raw.startsWith('#') ? raw.slice(1) : raw.split('#')[1] ?? raw;
   });
 

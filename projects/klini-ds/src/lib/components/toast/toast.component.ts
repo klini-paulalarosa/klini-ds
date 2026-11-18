@@ -18,15 +18,6 @@ export interface KlnToastMessage {
   key?:     string;
 }
 
-/**
- * Wrapper sobre p-toast do PrimeNG.
- *
- * Uso:
- *   1. Adicione <klini-toast /> (ou <klini-toast key="main" />) no template do componente raiz.
- *   2. Injete KlnToastService e chame .show({ ... }) para exibir mensagens.
- *
- * Estilização 100% via KlnPrime theme preset.
- */
 @Component({
   selector: 'kln-toast',
   standalone: true,
@@ -51,10 +42,6 @@ export class ToastComponent {
   @Input() styleClass  = '';
 }
 
-/**
- * Serviço auxiliar — injete nos componentes que precisam disparar toasts.
- * Provê tipagem Klini sobre o MessageService do PrimeNG.
- */
 export class KlnToastService {
   private readonly ms = inject(MessageService);
 

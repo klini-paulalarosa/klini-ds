@@ -45,7 +45,6 @@ import { PropsTableComponent, PropDef } from '../../../shared/props-table/props-
   `,
 })
 export class GalleriaPageComponent {
-  // Placeholders de contexto clínico — fundo teal-soft do DS com label descritivo
   exames = [
     { url: 'https://placehold.co/800x450/e8f4f3/259591?text=Raio-X+T%C3%B3rax+%E2%80%94+AP',  descricao: 'Raio-X Tórax — AP' },
     { url: 'https://placehold.co/800x450/e8f4f3/259591?text=Raio-X+T%C3%B3rax+%E2%80%94+PA',  descricao: 'Raio-X Tórax — PA' },

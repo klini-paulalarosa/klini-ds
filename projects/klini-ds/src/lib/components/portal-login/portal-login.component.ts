@@ -16,29 +16,6 @@ export interface KlnPortalLoginPayload {
   password: string;
 }
 
-/**
- * Tela de login padrão para todos os portais Klini (Beneficiário, Médico,
- * Corretor). Inclui logotipo Klini Saúde, campo de identificação com máscara
- * configurável (CPF ou matrícula), campo de senha com toggle de visibilidade,
- * link "Esqueci minha senha" e botão "Primeiro acesso" (opcional).
- *
- * @atomicLevel template
- * @selector kln-portal-login
- * @composedOf Logotipo, p-card, InputMask (CPF/matrícula), p-password, p-button
- * @example
- * <kln-portal-login
- *   (loginSubmit)="onLogin($event)"
- *   (firstAccessClick)="goToFirstAccess()"
- *   (forgotPasswordClick)="goToForgot()"
- * />
- * <!-- Portal Corretor (matrícula) -->
- * <kln-portal-login
- *   loginLabel="Matrícula"
- *   loginMask="99999999"
- *   [showFirstAccess]="false"
- *   (loginSubmit)="onLogin($event)"
- * />
- */
 @Component({
   selector: 'kln-portal-login',
   standalone: true,
@@ -250,28 +227,20 @@ export interface KlnPortalLoginPayload {
   `],
 })
 export class KlnPortalLoginComponent {
-  /** Texto exibido como logotipo acima do card (apenas para leitores de tela / aria-label) */
   @Input() logoText = 'klini saúde';
 
-  /** Label do campo de identificação (default: CPF) */
   @Input() loginLabel = 'CPF';
 
-  /** Máscara do campo de identificação */
   @Input() loginMask = '999.999.999-99';
 
-  /** Placeholder do campo de identificação */
   @Input() loginPlaceholder = '___.___.___ -__';
 
-  /** Exibe o botão "Primeiro acesso" */
   @Input() showFirstAccess = true;
 
-  /** Clique em "Acessar" com CPF e senha preenchidos */
   @Output() loginSubmit = new EventEmitter<KlnPortalLoginPayload>();
 
-  /** Clique em "Primeiro acesso" */
   @Output() firstAccessClick = new EventEmitter<void>();
 
-  /** Clique em "Esqueci minha senha" */
   @Output() forgotPasswordClick = new EventEmitter<void>();
 
   protected cpfValue = '';

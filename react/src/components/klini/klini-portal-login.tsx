@@ -23,14 +23,6 @@ export interface KliniPortalLoginProps {
   className?: string
 }
 
-/**
- * KliniPortalLogin — tela de login padrão dos portais Klini: logo, campo
- * de identificação (CPF/matrícula, com máscara), senha, "esqueci minha
- * senha" e "primeiro acesso" opcional.
- *
- * @example
- * <KliniPortalLogin onLoginSubmit={(v) => login(v)} onForgotPasswordClick={() => nav('/recuperar')} />
- */
 export function KliniPortalLogin({
   logoText = "klini saúde",
   loginLabel = "CPF",

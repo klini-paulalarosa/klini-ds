@@ -1,14 +1,6 @@
-// =============================================================================
-// @klini-saude/ds — Public API
-// Tudo que os projetos consumidores podem importar
-// =============================================================================
 
-// ── Theme ────────────────────────────────────────────────────────────────────
 export { KlnPrime } from './lib/theme/klini-prime';
 
-// ── Directives & Utilities (re-exports PrimeNG) ───────────────────────────────
-// Diretivas de comportamento — sem visual próprio, modificam componentes existentes.
-// Ver JSDoc em src/lib/directives/index.ts para exemplos completos.
 export {
   KeyFilter, KeyFilterModule,
   AutoFocus, AutoFocusModule,
@@ -18,10 +10,8 @@ export {
   DialogService, DynamicDialogRef, DynamicDialogConfig,
 } from './lib/directives/index';
 
-// ── Module (conveniência para projetos NgModule) ──────────────────────────────
 export { KlnDsModule } from './lib/klini-ds.module';
 
-// ── Components v0.1 ──────────────────────────────────────────────────────────
 
 export { ButtonComponent } from './lib/components/button/button.component';
 export type { KlnButtonSeverity, KlnButtonSize, KlnButtonVariant }
@@ -65,7 +55,6 @@ export { DividerComponent } from './lib/components/divider/divider.component';
 export type { KlnDividerType, KlnDividerLayout, KlnDividerAlign }
   from './lib/components/divider/divider.component';
 
-// ── Components v0.2 ──────────────────────────────────────────────────────────
 
 export { KlnRadioGroupComponent } from './lib/components/radiobutton/radio-group.component';
 export type { KlnRadioOption } from './lib/components/radiobutton/radio-group.component';
@@ -107,7 +96,6 @@ export { KlnBreadcrumbComponent } from './lib/components/breadcrumb/breadcrumb.c
 
 export { KlnEmptyStateComponent } from './lib/components/empty-state/empty-state.component';
 
-// ── Components v0.3 — Data Visualization ─────────────────────────────────────
 
 export { KlnChartComponent } from './lib/components/chart/chart.component';
 export type { KlnChartType } from './lib/components/chart/chart.component';
@@ -128,11 +116,7 @@ export { KlnSliderComponent } from './lib/components/slider/slider.component';
 export { KlnSelectComponent } from './lib/components/select/select.component';
 export type { KlnSelectOption } from './lib/components/select/select.component';
 
-// ── Tooltip (diretiva PrimeNG — use pTooltip diretamente) ────────────────────
-// import { TooltipModule } from 'primeng/tooltip';
-// <button pTooltip="Texto" tooltipPosition="top">...</button>
 
-// ── Components v0.4 ──────────────────────────────────────────────────────────
 
 export { KlnCheckboxComponent } from './lib/components/checkbox/checkbox.component';
 
@@ -201,7 +185,6 @@ export { KlnOrderListComponent } from './lib/components/order-list/order-list.co
 
 export { KlnVirtualScrollerComponent } from './lib/components/virtual-scroller/virtual-scroller.component';
 
-// ── Components v1.0 — Full PrimeNG coverage ──────────────────────────────────
 
 export { KlnToggleButtonComponent } from './lib/components/toggle-button/toggle-button.component';
 
@@ -241,9 +224,6 @@ export { KlnImageCompareComponent } from './lib/components/image-compare/image-c
 
 export { KlnOverlayBadgeComponent } from './lib/components/overlay-badge/overlay-badge.component';
 
-// ── Components v1.1 — Portal Templates ───────────────────────────────────────
-// Componentes de layout e templates para os Portais Klini
-// (Beneficiário · Médico · Corretor · TI)
 
 export { KlnPortalHeaderComponent }
   from './lib/components/portal-header/portal-header.component';
@@ -262,7 +242,6 @@ export type { KlnPortalLoginPayload }
 export { KlnServiceTileComponent }
   from './lib/components/service-tile/service-tile.component';
 
-// ── Components v2.1 — PrimeNG complete coverage ───────────────────────────────
 
 export { KlnDockComponent } from './lib/components/dock/dock.component';
 

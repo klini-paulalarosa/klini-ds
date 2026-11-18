@@ -1,8 +1,5 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 
-// Valores extraídos diretamente de _primitive.scss, _status.scss,
-// _semantic.scss, _elevation.scss e _scale.scss
-// NÃO alterar sem sync com o Figma
 
 interface ColorToken {
   name: string;
@@ -481,9 +478,6 @@ interface StatusToken {
   `,
 })
 export class TokensComponent {
-  // ── Paleta principal ────────────────────────────────────────────────────
-  // Valores extraídos de _primitive.scss (git klini-paulalarosa/klini-ds)
-  // Escala numérica: 50 = mais claro, 900 = mais escuro, 500 = tom de marca
   colorGroups: ColorGroup[] = [
     {
       family: 'Teal',
@@ -558,8 +552,6 @@ export class TokensComponent {
     },
   ];
 
-  // ── Status Tokens — domínio de saúde ───────────────────────────────────
-  // Extraídos de _status.scss — 5 estados clínicos Klini
   statusTokens: StatusToken[] = [
     {
       status: 'autorizada',
@@ -618,7 +610,6 @@ export class TokensComponent {
     },
   ];
 
-  // ── Chart tokens ────────────────────────────────────────────────────────
   chartCategorical = [
     { cssVar: '--kln-chart-cat-teal',   value: '#259591', label: 'Teal' },
     { cssVar: '--kln-chart-cat-sea',    value: '#6AA7AE', label: 'Sea' },
@@ -642,7 +633,6 @@ export class TokensComponent {
     { label: 'Neutral', cssVar: '--kln-chart-status-secondary',  value: '#9BA3A2', note: 'ink-400' },
   ];
 
-  // ── Espaçamento ─────────────────────────────────────────────────────────
   spacing = [
     { token: '--kln-space-1',  px: 4  },
     { token: '--kln-space-2',  px: 8  },
@@ -657,7 +647,6 @@ export class TokensComponent {
     { token: '--kln-space-20', px: 80 },
   ];
 
-  // ── Border Radius ───────────────────────────────────────────────────────
   radii = [
     { token: 'xs',   value: '2px'    },
     { token: 'sm',   value: '4px'    },
@@ -669,7 +658,6 @@ export class TokensComponent {
     { token: 'pill', value: '9999px' },
   ];
 
-  // ── Tipografia ──────────────────────────────────────────────────────────
   typographyScale = [
     { label: 'Display',  size: '2.5rem',   weight: '800', sample: 'Klini Saúde' },
     { label: 'H1',       size: '2rem',     weight: '700', sample: 'Portal do Beneficiário' },
@@ -681,8 +669,6 @@ export class TokensComponent {
     { label: 'Caption',  size: '0.6875rem',weight: '600', sample: 'ÚLTIMA ATUALIZAÇÃO: 01/06/2026' },
   ];
 
-  // ── Tokens Semânticos ────────────────────────────────────────────────────
-  // Extraídos de _semantic.scss — referências aos primitivos, modo Light
   semanticGroups: SemanticGroup[] = [
     {
       group: 'Surface — Fundos de página, cards e camadas',
@@ -779,8 +765,6 @@ export class TokensComponent {
     },
   ];
 
-  // ── Elevação (Sombras) ───────────────────────────────────────────────────
-  // Extraídos de _elevation.scss — 5 níveis + focus rings
   elevationTokens: ElevationToken[] = [
     {
       name: 'xs',
@@ -827,8 +811,6 @@ export class TokensComponent {
     },
   ];
 
-  // ── Escala ───────────────────────────────────────────────────────────────
-  // Extraídos de _scale.scss — componentes, z-index, opacidade, grid
   componentSizeTokens: ScaleToken[] = [
     { name: 'input-sm',     cssVar: '--kln-size-input-sm',     value: '32px' },
     { name: 'input-md',     cssVar: '--kln-size-input-md',     value: '40px' },

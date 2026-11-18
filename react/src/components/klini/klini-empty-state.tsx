@@ -11,12 +11,6 @@ export interface KliniEmptyStateProps {
   className?: string
 }
 
-/**
- * KliniEmptyState — estado vazio padrão Klini: ícone circular + título + descrição.
- *
- * @example
- * <KliniEmptyState title="Nenhuma requisição encontrada" description="Tente ajustar os filtros." />
- */
 export function KliniEmptyState({
   title = "Nenhum resultado encontrado",
   description,

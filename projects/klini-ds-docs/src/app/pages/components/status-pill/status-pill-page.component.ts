@@ -145,7 +145,6 @@ statuses: { status: StatusPillValue; label: string }[] = [
     { name: 'label', type: 'string', default: 'undefined', description: 'Sobrescreve o texto padrão do status. Opcional.' },
   ];
 
-  // Familia de cor conforme _status.scss — valores exatos do DS
   statusReference: PropDef[] = [
     { name: "'autorizada'",   type: 'Teal — #1F7E7B',    default: '--kln-status-autorizada-*',   description: 'Procedimento ou consulta autorizada pelo plano.' },
     { name: "'negado'",       type: 'Coral — #C24648',   default: '--kln-status-negado-*',       description: 'Procedimento negado pela operadora.' },

@@ -7,11 +7,6 @@ export interface KlnStep {
   icon?:        string;
 }
 
-/**
- * Wrapper sobre p-stepper do PrimeNG 18.
- * Aceita um array simples de steps via @Input e renderiza via p-step-list / p-step-panels.
- * Estilização 100% via KlnPrime theme preset.
- */
 @Component({
   selector: 'kln-stepper',
   standalone: true,

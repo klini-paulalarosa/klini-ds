@@ -8,24 +8,6 @@ import {
 import { KlnPortalHeaderComponent } from '../portal-header/portal-header.component';
 import { KlnPortalFooterComponent } from '../portal-footer/portal-footer.component';
 
-/**
- * Template de layout completo para os portais Klini. Monta a estrutura
- * full-page com flexbox vertical: KlnPortalHeader no topo, `<ng-content>`
- * no centro (projeção livre do conteúdo da página) e KlnPortalFooter
- * no rodapé. Ocupa `min-height: 100vh` com fundo `--kln-surface-page`.
- *
- * @atomicLevel template
- * @selector kln-portal-shell
- * @composedOf KlnPortalHeader, ng-content (projeção da página), KlnPortalFooter
- * @example
- * <kln-portal-shell
- *   userName="PAULA ROSA"
- *   planLabel="plano klini start pj"
- *   (avatarClick)="openMenu($event)"
- * >
- *   <section class="p-4">Conteúdo da página</section>
- * </kln-portal-shell>
- */
 @Component({
   selector: 'kln-portal-shell',
   standalone: true,
@@ -71,15 +53,11 @@ import { KlnPortalFooterComponent } from '../portal-footer/portal-footer.compone
   `],
 })
 export class KlnPortalShellComponent {
-  /** Repassado para kln-portal-header */
   @Input({ required: true }) userName = '';
 
-  /** Subtítulo opcional no header (ex: nome do plano) */
   @Input() planLabel = '';
 
-  /** Número de registro ANS no footer */
   @Input() ansNumber = '42.202-9';
 
-  /** Clique no avatar — repassado do header */
   @Output() avatarClick = new EventEmitter<MouseEvent>();
 }

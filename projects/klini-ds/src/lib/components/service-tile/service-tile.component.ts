@@ -7,32 +7,6 @@ import {
 } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 
-/**
- * kln-service-tile
- *
- * Tile de acesso rápido — ícone + label em card clicável.
- * Usado na home do Portal do Beneficiário para os serviços disponíveis.
- *
- * Base PrimeNG: p-button com variant="text" (estilizado como tile).
- *
- * Uso:
- * ```html
- * <div class="klini-services-grid">
- *   <kln-service-tile icon="pi-file-text" label="Consultas" (tileClick)="goTo('consultas')" />
- *   <kln-service-tile icon="pi-shield" label="Carências"   (tileClick)="goTo('carencias')" />
- *   <kln-service-tile icon="pi-clock" label="Atendimentos" (tileClick)="goTo('atendimentos')" />
- * </div>
- * ```
- *
- * Grid recomendado (CSS):
- * ```css
- * .klini-services-grid {
- *   display: grid;
- *   grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
- *   gap: 0.75rem;
- * }
- * ```
- */
 @Component({
   selector: 'kln-service-tile',
   standalone: true,
@@ -113,15 +87,11 @@ import { ButtonModule } from 'primeng/button';
   `],
 })
 export class KlnServiceTileComponent {
-  /** Classe do ícone PrimeIcons (ex: "pi-shield", "pi-calendar", "pi-file-text") */
   @Input({ required: true }) icon = '';
 
-  /** Texto do tile */
   @Input({ required: true }) label = '';
 
-  /** Desabilita o tile (opacity + cursor not-allowed) */
   @Input() disabled = false;
 
-  /** Clique no tile */
   @Output() tileClick = new EventEmitter<MouseEvent>();
 }

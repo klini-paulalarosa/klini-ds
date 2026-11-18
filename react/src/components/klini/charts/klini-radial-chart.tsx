@@ -27,31 +27,23 @@ export interface KliniRadialChartItem {
 }
 
 export interface KliniRadialGauge {
-  /** Valor atual */
   value: number
-  /** Máximo do gauge (default 100) */
   max?: number
-  /** Label centralizado abaixo do valor */
   label?: string
-  /** Thresholds para colorização automática */
   thresholds?: {
-    /** Abaixo = teal (ok); acima = orange; acima de danger = coral */
     warning: number
     danger: number
-    /** Inverte: acima de warning = orange (ex: sinistralidade) */
     higherIsBad?: boolean
   }
 }
 
 export interface KliniRadialChartProps {
-  /** Dados para gráfico radial multi-bar */
   data?: KliniRadialChartItem[]
   title?: string
   description?: string
   footer?: React.ReactNode
   format?: 'number' | 'currency' | 'percent' | 'compact'
   height?: number
-  /** Modo gauge: barra única com valor centralizado */
   gauge?: KliniRadialGauge
 }
 

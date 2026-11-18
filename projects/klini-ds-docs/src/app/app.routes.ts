@@ -181,7 +181,6 @@ export const appRoutes: Routes = [
     loadComponent: () =>
       import('./pages/components/breadcrumb/breadcrumb-page.component').then(m => m.BreadcrumbPageComponent),
   },
-  // ── Grupo 1 — Formulários críticos ──────────────────────────────────────────
   {
     path: 'components/input-number',
     loadComponent: () =>
@@ -212,7 +211,6 @@ export const appRoutes: Routes = [
     loadComponent: () =>
       import('./pages/components/slider/slider-page.component').then(m => m.SliderPageComponent),
   },
-  // ── Grupo 2 — Feedback e status ─────────────────────────────────────────────
   {
     path: 'components/message',
     loadComponent: () =>
@@ -248,7 +246,6 @@ export const appRoutes: Routes = [
     loadComponent: () =>
       import('./pages/components/overlay-badge/overlay-badge-page.component').then(m => m.OverlayBadgePageComponent),
   },
-  // ── Grupo 3 — Overlays ──────────────────────────────────────────────────────
   {
     path: 'components/popover',
     loadComponent: () =>
@@ -264,7 +261,6 @@ export const appRoutes: Routes = [
     loadComponent: () =>
       import('./pages/components/context-menu/context-menu-page.component').then(m => m.ContextMenuPageComponent),
   },
-  // ── Grupo 4 — Navegação ─────────────────────────────────────────────────────
   {
     path: 'components/steps',
     loadComponent: () =>
@@ -300,7 +296,6 @@ export const appRoutes: Routes = [
     loadComponent: () =>
       import('./pages/components/speed-dial/speed-dial-page.component').then(m => m.SpeedDialPageComponent),
   },
-  // ── Grupo 5 — Forms avançados ───────────────────────────────────────────────
   {
     path: 'components/multiselect',
     loadComponent: () =>
@@ -341,7 +336,6 @@ export const appRoutes: Routes = [
     loadComponent: () =>
       import('./pages/components/editor/editor-page.component').then(m => m.EditorPageComponent),
   },
-  // ── Grupo 6 — Layout e containers ───────────────────────────────────────────
   {
     path: 'components/float-label',
     loadComponent: () =>
@@ -417,7 +411,6 @@ export const appRoutes: Routes = [
     loadComponent: () =>
       import('./pages/components/paginator/paginator-page.component').then(m => m.PaginatorPageComponent),
   },
-  // ── Grupo 7 — Data Display avançado ─────────────────────────────────────────
   {
     path: 'components/avatar-group',
     loadComponent: () =>
@@ -478,7 +471,6 @@ export const appRoutes: Routes = [
     loadComponent: () =>
       import('./pages/components/meter-group/meter-group-page.component').then(m => m.MeterGroupPageComponent),
   },
-  // ── Grupo 8 — Overlays avançados e Misc ─────────────────────────────────────
   {
     path: 'components/split-button',
     loadComponent: () =>
@@ -499,7 +491,6 @@ export const appRoutes: Routes = [
     loadComponent: () =>
       import('./pages/components/organization-chart/organization-chart-page.component').then(m => m.OrganizationChartPageComponent),
   },
-  // ── Catch-all ────────────────────────────────────────────────────────────────
   {
     path: 'components/:slug',
     loadComponent: () =>

@@ -1,66 +1,29 @@
-/**
- * KlnChartData — Fábricas de dados para kln-chart
- *
- * Elimina a necessidade do dev conhecer a estrutura interna do Chart.js.
- * Aplica automaticamente as cores do DS quando nenhuma cor é informada.
- *
- * Uso:
- *   import { KlnChartData } from '@klini-saude/ds';
- *
- *   // Bar / Line / Area — múltiplas séries
- *   data = KlnChartData.cartesian(['Jan','Fev','Mar'], [
- *     { label: 'Cardio',  data: [40, 55, 48] },
- *     { label: 'Ortoped', data: [30, 42, 38] },
- *   ]);
- *
- *   // Pie / Doughnut / Polar Area — série única
- *   data = KlnChartData.radial(['Autorizado','Negado','Em processo'], [60, 15, 25]);
- *
- *   // Time Series
- *   data = KlnChartData.timeSeries([
- *     { label: 'Adesão', points: [{ x: '2024-01', y: 82 }, { x: '2024-02', y: 78 }] },
- *   ]);
- *
- *   // Mixed bar + line
- *   data = KlnChartData.mixed(['Jan','Fev','Mar'], [
- *     { label: 'Consultas', data: [40, 55, 48], type: 'bar' },
- *     { label: 'Meta',      data: [50, 50, 50], type: 'line' },
- *   ]);
- */
 import { KlnChartTokens } from './chart.tokens';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 type AnyObj = Record<string, any>;
 
-/** Série para gráficos cartesianos (bar, line, area, mixed) */
 export interface KlnCartesianSeries {
   label: string;
   data: number[];
-  /** Cor da série. Padrão: paleta categorical do DS, auto-distribuída. */
   color?: string;
-  /** Para mixed charts — 'bar' ou 'line'. */
   type?: 'bar' | 'line';
-  /** Se line/area, usar fill. */
   fill?: boolean;
 }
 
-/** Série para scatter e bubble */
 export interface KlnPointSeries {
   label: string;
   points: { x: number; y: number; r?: number }[];
   color?: string;
 }
 
-/** Série para time series (eixo x como data/string) */
 export interface KlnTimeSeries {
   label: string;
   points: { x: string | Date; y: number }[];
   color?: string;
 }
 
-// ─── Utilitários internos ─────────────────────────────────────────────────────
 
-/** Converte hex #RRGGBB em rgba(r,g,b,alpha) */
 function hexAlpha(hex: string, alpha: number): string {
   const h = hex.replace('#', '');
   const r = parseInt(h.substring(0, 2), 16);
@@ -74,14 +37,9 @@ function colorAt(index: number, override?: string): string {
   return override ?? palette[index % palette.length];
 }
 
-// ─── Fábricas ─────────────────────────────────────────────────────────────────
 
 export class KlnChartData {
 
-  /**
-   * Gráficos cartesianos: bar, line, area.
-   * Cores DS aplicadas automaticamente por série.
-   */
   static cartesian(labels: string[], series: KlnCartesianSeries[]): AnyObj {
     return {
       labels,
@@ -102,10 +60,6 @@ export class KlnChartData {
     };
   }
 
-  /**
-   * Gráficos radiais: pie, doughnut, polarArea.
-   * Aplica paleta categorical a cada segmento.
-   */
   static radial(
     labels: string[],
     values: number[],
@@ -125,10 +79,6 @@ export class KlnChartData {
     };
   }
 
-  /**
-   * Gráficos de status: pie/doughnut com os 5 estados Klini.
-   * Atalho para o caso de uso mais comum de healthcare.
-   */
   static status(
     labels: string[],
     values: number[],
@@ -138,18 +88,10 @@ export class KlnChartData {
     return KlnChartData.radial(labels, values, colors.slice(0, values.length));
   }
 
-  /**
-   * Mixed chart: combina bar e line no mesmo gráfico.
-   * Define `type` por série — 'bar' ou 'line'.
-   */
   static mixed(labels: string[], series: KlnCartesianSeries[]): AnyObj {
     return KlnChartData.cartesian(labels, series);
   }
 
-  /**
-   * Time Series: eixo X com datas ou strings ISO.
-   * Retorna datasets compatíveis com scale type: 'time' ou 'category'.
-   */
   static timeSeries(series: KlnTimeSeries[]): AnyObj {
     return {
       datasets: series.map((s, i) => {
@@ -168,9 +110,6 @@ export class KlnChartData {
     };
   }
 
-  /**
-   * Scatter plot: pontos {x, y} por série.
-   */
   static scatter(series: KlnPointSeries[]): AnyObj {
     return {
       datasets: series.map((s, i) => {
@@ -186,9 +125,6 @@ export class KlnChartData {
     };
   }
 
-  /**
-   * Bubble chart: pontos {x, y, r} por série (r = raio da bolha).
-   */
   static bubble(series: KlnPointSeries[]): AnyObj {
     return {
       datasets: series.map((s, i) => {
@@ -204,9 +140,6 @@ export class KlnChartData {
     };
   }
 
-  /**
-   * Radar chart: múltiplas séries sobre os mesmos eixos.
-   */
   static radar(labels: string[], series: KlnCartesianSeries[]): AnyObj {
     return {
       labels,

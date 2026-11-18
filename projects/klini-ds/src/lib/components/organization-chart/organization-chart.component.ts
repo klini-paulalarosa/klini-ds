@@ -23,39 +23,29 @@ import { TreeNode } from 'primeng/api';
   `,
 })
 export class KlnOrganizationChartComponent {
-  /** No raiz da arvore de organizacao */
   @Input() value: TreeNode[] = [];
 
-  /** Modo de selecao de nos */
   @Input() selectionMode: 'single' | 'multiple' | undefined = undefined;
 
-  /** No(s) selecionado(s) — use com [(selection)] para two-way binding */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Input() selection: any = null;
 
-  /** Permite colapsar/expandir nos */
   @Input() collapsible = false;
 
-  /** Classes CSS adicionais no elemento raiz */
   @Input() styleClass = '';
 
-  /** Emite o no selecionado quando a selecao muda */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Output() selectionChange = new EventEmitter<any>();
 
-  /** Emite quando um no e selecionado */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Output() nodeSelect = new EventEmitter<any>();
 
-  /** Emite quando um no e desselecionado */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Output() nodeUnselect = new EventEmitter<any>();
 
-  /** Emite quando um no e expandido */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Output() nodeExpand = new EventEmitter<any>();
 
-  /** Emite quando um no e colapsado */
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   @Output() nodeCollapse = new EventEmitter<any>();
 }

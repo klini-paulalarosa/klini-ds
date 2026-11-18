@@ -1,26 +1,10 @@
-/* ─────────────────────────────────────────────────────────────────────────────
-   @klini-saude/ds-react  v1.x
-   React 18 + Shadcn/UI + Tailwind CSS — Klini Design System
 
-   Two layers:
-     1. Shadcn/UI primitives  (accordion → tooltip) — low-level building blocks
-     2. Klini components      (KliniBarChart, KliniKpiCard, KliniDataTable…)
-
-   Usage:
-     import { Button, Card, KliniBarChart, KliniKpiCard } from '@klini-saude/ds-react'
-     import '@klini-saude/ds-react/styles'
-   ───────────────────────────────────────────────────────────────────────────── */
-
-/* Utilities */
 export { cn } from './lib/utils'
 
-/* ── Klini brand components ───────────────────────────────────────────────── */
 export * from './components/klini'
 
-/* ── Klini blocks (layout shells + page templates) ───────────────────────── */
 export * from './blocks'
 
-/* Components */
 export * from './components/ui/accordion'
 export * from './components/ui/alert'
 export * from './components/ui/alert-dialog'
@@ -124,6 +108,5 @@ export * from './components/ui/tree-select'
 export * from './components/ui/tree-table'
 export * from './components/ui/virtual-scroller'
 
-/* Hooks */
 export { useToast } from './hooks/use-toast'
 export { useIsMobile } from './hooks/use-mobile'

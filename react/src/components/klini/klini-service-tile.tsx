@@ -10,12 +10,6 @@ export interface KliniServiceTileProps {
   className?: string
 }
 
-/**
- * KliniServiceTile — atalho de serviço em grade (usado nas telas iniciais dos portais).
- *
- * @example
- * <KliniServiceTile icon={<Stethoscope />} label="Agendar consulta" onTileClick={() => nav('/agendar')} />
- */
 export function KliniServiceTile({ icon, label, disabled = false, onTileClick, className }: KliniServiceTileProps) {
   return (
     <button

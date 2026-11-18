@@ -3,13 +3,6 @@ import { MessageModule } from 'primeng/message';
 
 export type KlnMessageSeverity = 'success' | 'info' | 'warn' | 'error' | 'secondary' | 'contrast';
 
-/**
- * Wrapper sobre p-message do PrimeNG.
- * Feedbacks contextuais — exibidos inline no conteúdo (não flutuante).
- * Para notificações flutuantes use klini-toast.
- *
- * Estilização 100% via KlnPrime theme preset.
- */
 @Component({
   selector: 'kln-message',
   standalone: true,

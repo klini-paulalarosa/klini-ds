@@ -9,16 +9,13 @@ import { cn } from '@/lib/utils'
 export interface KliniKpiCardProps {
   title: string
   value: number
-  /** Percentage change vs previous period */
   change?: number
   changeLabel?: string
   trend?: 'up' | 'down' | 'neutral'
-  /** Tiny sparkline data points */
   sparklineData?: number[]
   icon?: React.ReactNode
   format?: 'number' | 'currency' | 'percent' | 'compact'
   className?: string
-  /** Whether an increase is good (default true — teal = up, coral = down) */
   positiveIsGood?: boolean
 }
 

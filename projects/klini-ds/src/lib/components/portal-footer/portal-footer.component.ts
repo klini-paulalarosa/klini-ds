@@ -5,20 +5,6 @@ import {
 } from '@angular/core';
 import { ToolbarModule } from 'primeng/toolbar';
 
-/**
- * kln-portal-footer
- *
- * Rodapé padrão dos portais Klini.
- *
- * Exibe:
- *   - Logotipo "klini saúde" (texto estilizado) à esquerda
- *   - Número de registro ANS à direita
- *
- * Uso:
- * ```html
- * <kln-portal-footer ansNumber="42.202-9" />
- * ```
- */
 @Component({
   selector: 'kln-portal-footer',
   standalone: true,
@@ -89,6 +75,5 @@ import { ToolbarModule } from 'primeng/toolbar';
   `],
 })
 export class KlnPortalFooterComponent {
-  /** Número de registro na ANS. Default: 42.202-9 */
   @Input() ansNumber = '42.202-9';
 }

@@ -1,34 +1,3 @@
-/**
- * kln-chart — wrapper PrimeNG p-chart (Chart.js)
- *
- * ─── Uso mínimo (sem nenhum conhecimento de Chart.js) ───────────────────────
- *
- *   import { KlnChartData } from '@klini-saude/ds';
- *
- *   data = KlnChartData.cartesian(['Jan','Fev','Mar'], [
- *     { label: 'Cardio',  data: [40, 55, 48] },
- *     { label: 'Ortoped', data: [30, 42, 38] },
- *   ]);
- *
- *   <kln-chart type="bar" preset="bar" [data]="data" />
- *
- * ─── Presets disponíveis ────────────────────────────────────────────────────
- *   bar | bar-horizontal | bar-stacked | bar-stacked-horizontal
- *   line | area | mixed | time-series
- *   pie | doughnut | polar-area | radar | scatter | bubble
- *
- * ─── Cores automáticas via autoColors ───────────────────────────────────────
- *   <kln-chart type="bar" preset="bar" [data]="rawData" [autoColors]="true" />
- *   Datasets sem cor recebem a paleta categorical do DS automaticamente.
- *
- * ─── Cores manuais via KlnChartTokens ────────────────────────────────────
- *   backgroundColor: KlnChartTokens.categorical
- *   backgroundColor: KlnChartTokens.status.success
- *
- * ─── Plugin externo (ex: matrix) ───────────────────────────────────────────
- *   Chart.register(MatrixController, MatrixElement);
- *   <kln-chart [type]="$any('matrix')" [data]="data" />
- */
 import {
   ChangeDetectionStrategy,
   Component,
@@ -54,21 +23,6 @@ type AnyObj = Record<string, any>;
 
 const RADIAL_TYPES: string[] = ['pie', 'doughnut', 'polarArea'];
 
-/**
- * Componente de gráficos do Klini DS. Wrapper sobre p-chart (Chart.js) que
- * integra automaticamente tokens de design via `KlnChartPresets` (21 presets
- * de configuração) e `KlnChartTokens` (resolução de CSS vars para canvas).
- * Suporta `autoColors` para aplicar a paleta categórica do DS sem código.
- *
- * @atomicLevel organism
- * @selector kln-chart
- * @primeng p-chart
- * @composedOf Canvas Chart.js, Legenda, KlnChartTokens (cores), KlnChartPresets (opções)
- * @example
- * <kln-chart type="bar" preset="bar" [data]="chartData" />
- * <kln-chart type="doughnut" preset="doughnut" [data]="statusData" [autoColors]="true" />
- * <kln-chart type="line" preset="area" [data]="timeData" width="100%" height="400px" />
- */
 @Component({
   selector: 'kln-chart',
   standalone: true,
@@ -89,33 +43,16 @@ const RADIAL_TYPES: string[] = ['pie', 'doughnut', 'polarArea'];
 })
 export class KlnChartComponent implements OnChanges {
 
-  /** Tipo Chart.js. Para plugins externos, use [type]="$any('matrix')" no template consumidor. */
   @Input({ required: true }) type: KlnChartType = 'bar';
 
-  /** Dataset Chart.js. Use KlnChartData.cartesian/radial/timeSeries/etc. para construir. */
   @Input({ required: true }) data: AnyObj = {};
 
-  /**
-   * Preset de opções do DS — aplica grid, legenda, tooltip e eixos automaticamente.
-   * [options] passadas pelo dev são mescladas por cima (prioridade do dev).
-   */
   @Input() preset: KlnChartPreset | null = null;
 
-  /** Opções Chart.js customizadas. Mescladas por cima do preset quando [preset] está ativo. */
   @Input() options: AnyObj = {};
 
-  /**
-   * Quando true, aplica a paleta categorical do DS automaticamente
-   * nos datasets que não tiverem backgroundColor/borderColor definidos.
-   * Para pie/doughnut, aplica as 4 cores a todos os segmentos.
-   * Não muta o objeto original de [data].
-   */
   @Input() autoColors = false;
 
-  /**
-   * Atalho para bar-stacked (compat v0.3+).
-   * Equivalente a [preset]="'bar-stacked'".
-   */
   @Input() stacked = false;
 
   @Input() width = '100%';
@@ -131,7 +68,6 @@ export class KlnChartComponent implements OnChanges {
     this.resolvedData    = this.buildData();
   }
 
-  // ─── Options ──────────────────────────────────────────────────────────────
 
   private buildOptions(): AnyObj {
     const effectivePreset: KlnChartPreset | null =
@@ -140,7 +76,6 @@ export class KlnChartComponent implements OnChanges {
     return { ...base, ...this.options };
   }
 
-  // ─── Data + autoColors ────────────────────────────────────────────────────
 
   private buildData(): AnyObj {
     if (!this.autoColors) return this.data;
@@ -155,7 +90,6 @@ export class KlnChartComponent implements OnChanges {
       if (hasColor) return ds;
 
       if (isRadial) {
-        // pie/doughnut: aplica array de cores a todos os segmentos
         return {
           ...ds,
           backgroundColor: palette,

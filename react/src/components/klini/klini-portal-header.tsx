@@ -14,13 +14,6 @@ function getInitials(userName: string): string {
   return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
 }
 
-/**
- * KliniPortalHeader — cabeçalho padrão dos portais Klini: barra gradiente
- * laranja→teal, saudação "Olá, NOME" + plano opcional, avatar com iniciais.
- *
- * @example
- * <KliniPortalHeader userName="Paula Rosa" planLabel="plano klini start pj" onAvatarClick={openMenu} />
- */
 export function KliniPortalHeader({ userName, planLabel, onAvatarClick, className }: KliniPortalHeaderProps) {
   return (
     <header className={cn("bg-background", className)}>

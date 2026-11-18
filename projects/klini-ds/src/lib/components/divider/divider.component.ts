@@ -5,17 +5,6 @@ export type KlnDividerType   = 'solid' | 'dashed' | 'dotted';
 export type KlnDividerLayout = 'horizontal' | 'vertical';
 export type KlnDividerAlign  = 'left' | 'center' | 'right' | 'top' | 'bottom';
 
-/**
- * Wrapper sobre p-divider do PrimeNG.
- * Separadores — solid / dashed / dotted — horizontais ou verticais.
- * Estilização 100% via KlnPrime theme preset.
- *
- * Uso básico:
- *   <klini-divider />
- *   <klini-divider type="dashed" />
- *   <klini-divider align="center">ou</klini-divider>
- *   <klini-divider layout="vertical" />
- */
 @Component({
   selector: 'kln-divider',
   standalone: true,
@@ -48,6 +37,5 @@ export class DividerComponent {
   @Input() align: KlnDividerAlign   = 'center';
   @Input() styleClass = '';
 
-  /** @internal — detecta se há conteúdo projetado para habilitar o align */
   readonly hasContent = true;
 }

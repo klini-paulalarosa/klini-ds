@@ -29,9 +29,7 @@ export interface KliniPieChartProps {
   title?: string
   description?: string
   footer?: React.ReactNode
-  /** Donut mode with center label */
   donut?: boolean
-  /** Center label when donut=true */
   centerLabel?: React.ReactNode
   format?: 'number' | 'currency' | 'percent' | 'compact'
   showLegend?: boolean
