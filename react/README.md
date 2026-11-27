@@ -318,6 +318,30 @@ Cores das notas de 1 a 5 (as carinhas, de "Muito ruim" a "Muito bom") e das faix
 | `--avaliacao-nps-neutro` | `#A36200` | igual | `bg-avaliacao-nps-neutro` |
 | `--avaliacao-nps-promotor` | `#1A7A42` | igual | `bg-avaliacao-nps-promotor` |
 
+### Escala de texto do App mobile
+
+O App Klini segue o padrão iOS e tem escala própria (app/mobile), separada da escala web. Fonte Inter. Cada utilitário `text-app-*` aplica tamanho, altura de linha, tracking e peso.
+
+| Utilitário | Estilo | Peso | Tamanho/altura | Tracking |
+|---|---|---|---|---|
+| `text-app-titulo-xl` | Título/XL | Bold | 28/34 | -2% |
+| `text-app-titulo-l` | Título/L | Semi Bold | 24/30 | -2% |
+| `text-app-titulo-l-forte` | Título/L · forte | Bold | 24/30 | -2% |
+| `text-app-titulo-m` | Título/M | Semi Bold | 17/22 | -1,2% |
+| `text-app-titulo-s` | Título/S | Semi Bold | 15/20 | -0,8% |
+| `text-app-numero-g` | Número/G | Semi Bold | 28/34 | -2% |
+| `text-app-numero-carteirinha` | Número/carteirinha | Semi Bold | 22/28 | -1,5% |
+| `text-app-corpo-m` | Corpo/M | Regular | 17/24 | -1,2% |
+| `text-app-corpo-s` | Corpo/S | Regular | 15/20 | -0,8% |
+| `text-app-botao` | Botão | Semi Bold | 17/22 | -1,2% |
+| `text-app-rotulo` | Rótulo | Medium | 13/18 | 0 |
+| `text-app-legenda` | Legenda | Regular | 13/18 | 0 |
+| `text-app-micro` | Micro | Medium | 12/16 | +0,4 px |
+
+- Valor em fileira de rótulo e valor usa `text-app-titulo-m`, não `text-app-numero-g`. Número/G fica só para número-herói, como o valor do boleto ou um token.
+- Ícone ao lado de texto de 15 mede 16 (`size-4`).
+- Contagem e contagem regressiva usam algarismos tabulares (`tabular-nums`).
+
 ---
 
 ## Paleta de charts Klini

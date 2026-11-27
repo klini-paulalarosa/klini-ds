@@ -71,6 +71,18 @@ interface AvaliacaoNps {
   value: string;
 }
 
+interface AppTextStyle {
+  estilo: string;
+  slug: string;
+  peso: string;
+  weight: number;
+  size: string;
+  lineHeight: string;
+  tracking: string;
+  trackingLabel: string;
+  sample: string;
+}
+
 @Component({
   selector: 'app-tokens',
   standalone: true,
@@ -371,6 +383,45 @@ interface AvaliacaoNps {
               </div>
             </div>
           }
+        </div>
+      </div>
+
+      <div class="docs-section">
+        <h2>Tipografia do App (mobile)</h2>
+        <p>
+          Escala separada, <strong>app/mobile</strong>, para o App Klini, que segue o padrão iOS. Fonte <strong>Inter</strong>.
+          Não substitui a escala web acima (<code class="font-mono">--kln-font-size-*</code>, de 11 a 44).
+          Cada estilo expõe quatro tokens: <code class="font-mono">--kln-app-font-size-*</code>,
+          <code class="font-mono">--kln-app-line-height-*</code>, <code class="font-mono">--kln-app-font-weight-*</code> e
+          <code class="font-mono">--kln-app-letter-spacing-*</code>.
+        </p>
+        <div style="border:1px solid var(--docs-border);border-radius:8px;overflow:hidden">
+          @for (t of appTextScale; track t.slug) {
+            <div style="display:flex;align-items:baseline;gap:16px;padding:16px 20px;border-bottom:1px solid var(--docs-border)">
+              <div style="width:200px;flex-shrink:0">
+                <div style="font-size:12px;font-weight:600;color:var(--docs-text)">{{ t.estilo }}</div>
+                <div style="font-size:11px;color:var(--docs-text-muted)">{{ t.peso }} · {{ t.size }}/{{ t.lineHeight }} · {{ t.trackingLabel }}</div>
+                <div style="font-family:'Fira Code',monospace;font-size:10px;color:var(--docs-text-subtle)">*-{{ t.slug }}</div>
+              </div>
+              <div [style.font-size]="t.size" [style.line-height]="t.lineHeight" [style.font-weight]="t.weight" [style.letter-spacing]="t.tracking" style="color:var(--docs-text);flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">
+                {{ t.sample }}
+              </div>
+            </div>
+          }
+        </div>
+
+        <div style="margin-top:20px;padding:14px 18px;background:var(--docs-brand-soft);border-radius:8px;border-left:3px solid var(--docs-accent)">
+          <p style="margin:0 0 6px;font-size:13px;color:var(--docs-text)">
+            <strong>Valor em fileira de rótulo e valor</strong> usa Título/M (17), não Número/G.
+            Número/G fica só para número-herói, como o valor do boleto ou um token.
+          </p>
+          <p style="margin:0 0 6px;font-size:13px;color:var(--docs-text)">
+            <strong>Ícone ao lado de texto de 15</strong> mede 16 (<code class="font-mono">--kln-size-icon-sm</code>).
+          </p>
+          <p style="margin:0;font-size:13px;color:var(--docs-text)">
+            <strong>Contagem e contagem regressiva</strong> usam algarismos tabulares
+            (<code class="font-mono">font-variant-numeric: tabular-nums</code>).
+          </p>
         </div>
       </div>
 
@@ -778,6 +829,22 @@ export class TokensComponent {
     { label: 'Body',     size: '0.875rem', weight: '400', sample: 'Carência cumprida em 14/03/2024' },
     { label: 'Small',    size: '0.8125rem',weight: '400', sample: 'Dr. Marcos Oliveira · CRM 12345' },
     { label: 'Caption',  size: '0.6875rem',weight: '600', sample: 'ÚLTIMA ATUALIZAÇÃO: 01/06/2026' },
+  ];
+
+  appTextScale: AppTextStyle[] = [
+    { estilo: 'Título/XL',          slug: 'titulo-xl',          peso: 'Bold',      weight: 700, size: '28px', lineHeight: '34px', tracking: '-0.02em',  trackingLabel: '−2%',    sample: 'Agendamentos' },
+    { estilo: 'Título/L',           slug: 'titulo-l',           peso: 'Semi Bold', weight: 600, size: '24px', lineHeight: '30px', tracking: '-0.02em',  trackingLabel: '−2%',    sample: 'Consulta agendada' },
+    { estilo: 'Título/L · forte',   slug: 'titulo-l-forte',     peso: 'Bold',      weight: 700, size: '24px', lineHeight: '30px', tracking: '-0.02em',  trackingLabel: '−2%',    sample: 'Pagamento confirmado' },
+    { estilo: 'Título/M',           slug: 'titulo-m',           peso: 'Semi Bold', weight: 600, size: '17px', lineHeight: '22px', tracking: '-0.012em', trackingLabel: '−1,2%',  sample: 'Klini Start PJ' },
+    { estilo: 'Título/S',           slug: 'titulo-s',           peso: 'Semi Bold', weight: 600, size: '15px', lineHeight: '20px', tracking: '-0.008em', trackingLabel: '−0,8%',  sample: 'Próximas consultas' },
+    { estilo: 'Número/G',           slug: 'numero-g',           peso: 'Semi Bold', weight: 600, size: '28px', lineHeight: '34px', tracking: '-0.02em',  trackingLabel: '−2%',    sample: 'R$ 389,90' },
+    { estilo: 'Número/carteirinha', slug: 'numero-carteirinha', peso: 'Semi Bold', weight: 600, size: '22px', lineHeight: '28px', tracking: '-0.015em', trackingLabel: '−1,5%',  sample: '0012 3456 7890 0001' },
+    { estilo: 'Corpo/M',            slug: 'corpo-m',            peso: 'Regular',   weight: 400, size: '17px', lineHeight: '24px', tracking: '-0.012em', trackingLabel: '−1,2%',  sample: 'Sua consulta foi confirmada para 02/12/2026.' },
+    { estilo: 'Corpo/S',            slug: 'corpo-s',            peso: 'Regular',   weight: 400, size: '15px', lineHeight: '20px', tracking: '-0.008em', trackingLabel: '−0,8%',  sample: 'Dr. Marcos Oliveira · CRM 12345' },
+    { estilo: 'Botão',              slug: 'botao',              peso: 'Semi Bold', weight: 600, size: '17px', lineHeight: '22px', tracking: '-0.012em', trackingLabel: '−1,2%',  sample: 'Agendar consulta' },
+    { estilo: 'Rótulo',             slug: 'rotulo',             peso: 'Medium',    weight: 500, size: '13px', lineHeight: '18px', tracking: '0',        trackingLabel: '0',      sample: 'Vencimento' },
+    { estilo: 'Legenda',            slug: 'legenda',            peso: 'Regular',   weight: 400, size: '13px', lineHeight: '18px', tracking: '0',        trackingLabel: '0',      sample: 'Atualizado em 27/11/2026' },
+    { estilo: 'Micro',              slug: 'micro',              peso: 'Medium',    weight: 500, size: '12px', lineHeight: '16px', tracking: '0.4px',    trackingLabel: '+0,4 px', sample: 'Válido até 12/2027' },
   ];
 
   semanticGroups: SemanticGroup[] = [

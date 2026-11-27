@@ -154,6 +154,13 @@ Escala de avaliação do App Klini 2026 (decisão T5 de 27/11/2026): notas de 1 
 - Notas: `--kln-avaliacao-nota-1-icon/bg` … `--kln-avaliacao-nota-5-icon/bg` (ícone da carinha e fundo), com valores próprios na classe `.dark`
 - NPS: `--kln-avaliacao-nps-detrator`, `--kln-avaliacao-nps-neutro`, `--kln-avaliacao-nps-promotor` (iguais nos dois modos)
 
+#### `_app-typography.scss`
+Escala de texto do App Klini mobile, que segue o padrão iOS (decisão T6 de 27/11/2026, fonte Inter). É separada da escala web (`--kln-font-size-*` em `_primitive.scss`), que não muda.
+
+- 13 estilos: `titulo-xl`, `titulo-l`, `titulo-l-forte`, `titulo-m`, `titulo-s`, `numero-g`, `numero-carteirinha`, `corpo-m`, `corpo-s`, `botao`, `rotulo`, `legenda`, `micro`
+- Cada estilo tem quatro tokens: `--kln-app-font-size-*`, `--kln-app-line-height-*`, `--kln-app-font-weight-*` e `--kln-app-letter-spacing-*`
+- Valor em fileira de rótulo e valor usa `titulo-m`; `numero-g` fica só para número-herói (valor do boleto, token)
+
 ---
 
 ## Classificação Atomic Design — Todos os 94 Componentes

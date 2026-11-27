@@ -430,6 +430,30 @@ Angular: `--kln-avaliacao-nota-N-icon`, `--kln-avaliacao-nota-N-bg` e `--kln-ava
 - **Merriweather** — editorial/marketing only (nunca em UI de produto)
 - Os componentes Angular declaram `'Inter', system-ui, -apple-system, sans-serif`; quem consome a lib carrega a Inter (o site de docs carrega pelo Google Fonts).
 
+**Escala de texto do App mobile (app/mobile):** o App Klini segue o padrão iOS e tem escala própria, separada da escala web (`--kln-font-size-*`, de 11 a 44), que não muda. Decisão T6 de 27/11/2026, fonte Inter.
+```
+Estilo               Peso       Tamanho/altura  Tracking
+Título/XL            Bold       28/34           -2%
+Título/L             Semi Bold  24/30           -2%
+Título/L · forte     Bold       24/30           -2%
+Título/M             Semi Bold  17/22           -1,2%
+Título/S             Semi Bold  15/20           -0,8%
+Número/G             Semi Bold  28/34           -2%
+Número/carteirinha   Semi Bold  22/28           -1,5%
+Corpo/M              Regular    17/24           -1,2%
+Corpo/S              Regular    15/20           -0,8%
+Botão                Semi Bold  17/22           -1,2%
+Rótulo               Medium     13/18           0
+Legenda              Regular    13/18           0
+Micro                Medium     12/16           +0,4 px
+```
+Angular: `--kln-app-font-size-<estilo>`, `--kln-app-line-height-<estilo>`, `--kln-app-font-weight-<estilo>` e `--kln-app-letter-spacing-<estilo>` em `tokens/_app-typography.scss` (estilo em minúsculas e sem acento: `titulo-xl`, `titulo-l-forte`, `numero-carteirinha`, `botao`, `rotulo`…). React: utilitário `text-app-<estilo>` (`--text-app-*` no `@theme inline` de `globals.css`), que aplica tamanho, altura de linha, tracking e peso.
+
+Regras de uso:
+- valor em fileira de rótulo e valor usa Título/M (17), não Número/G; Número/G fica só para número-herói, como o valor do boleto ou um token
+- ícone ao lado de texto de 15 mede 16 (`--kln-size-icon-sm`)
+- contagem e contagem regressiva usam algarismos tabulares (`font-variant-numeric: tabular-nums`, no React `tabular-nums`)
+
 **Ícones:** PrimeIcons (`pi pi-*`) no Angular DS · Lucide React (`lucide-react`) no React DS
 
 ---
