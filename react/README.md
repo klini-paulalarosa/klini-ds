@@ -303,6 +303,21 @@ Todos os `--sidebar-*` tokens usam o teal Klini como cor primária (`--sidebar-p
 
 Ativado com a classe `.dark` no elemento raiz. Todos os tokens têm equivalentes dark, sempre em verde e preto (nunca azul): fundo `#0F1B1A`, cartão `#0E3837`, texto `#F7F8F8`, texto secundário `#9BA3A2`. No escuro, `--primary` (`#7CBFBD`) e `--destructive` (`#EC9A9B`) são claros com texto escuro (`#0F1B1A`), para servirem tanto de botão quanto de link ou texto de erro sobre o fundo. No escuro o hover clareia: `--primary-hover` `#A8D5D3` e `--destructive-hover` `#F3BCBD`.
 
+### Escala de avaliação (CSAT e NPS)
+
+Cores das notas de 1 a 5 (as carinhas, de "Muito ruim" a "Muito bom") e das faixas do NPS, vindas do Figma do App Klini 2026. Serve **só para avaliação** e não substitui as cores de status: sucesso e aprovado continuam teal, nunca verde.
+
+| Token | Claro | Escuro | Utilitário |
+|---|---|---|---|
+| `--avaliacao-nota-1-icon` / `-bg` | `#D93A2F` / `#FDECEA` | `#FF8074` / `#481C1A` | `text-avaliacao-nota-1-icon`, `bg-avaliacao-nota-1-bg` |
+| `--avaliacao-nota-2-icon` / `-bg` | `#D66E14` / `#FDEFE0` | `#FFA35C` / `#462A12` | `text-avaliacao-nota-2-icon`, `bg-avaliacao-nota-2-bg` |
+| `--avaliacao-nota-3-icon` / `-bg` | `#B08600` / `#FFF7DB` | `#ECC648` / `#3C320E` | `text-avaliacao-nota-3-icon`, `bg-avaliacao-nota-3-bg` |
+| `--avaliacao-nota-4-icon` / `-bg` | `#5E9E2E` / `#ECF6E4` | `#9CD274` / `#223618` | `text-avaliacao-nota-4-icon`, `bg-avaliacao-nota-4-bg` |
+| `--avaliacao-nota-5-icon` / `-bg` | `#1E8A4C` / `#E1F3E8` | `#60CC88` / `#123824` | `text-avaliacao-nota-5-icon`, `bg-avaliacao-nota-5-bg` |
+| `--avaliacao-nps-detrator` | `#C43028` | igual | `bg-avaliacao-nps-detrator` |
+| `--avaliacao-nps-neutro` | `#A36200` | igual | `bg-avaliacao-nps-neutro` |
+| `--avaliacao-nps-promotor` | `#1A7A42` | igual | `bg-avaliacao-nps-promotor` |
+
 ---
 
 ## Paleta de charts Klini

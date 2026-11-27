@@ -148,6 +148,12 @@ Tokens dedicados ao sistema de gráficos (Chart.js renderiza em `<canvas>` — C
 - Sequential Teal (5 stops para heatmaps): `--kln-chart-seq-wash` → `--kln-chart-seq-ink`
 - Status semânticos: `--kln-chart-status-success/info/warn/danger/secondary`
 
+#### `_avaliacao.scss`
+Escala de avaliação do App Klini 2026 (decisão T5 de 27/11/2026): notas de 1 a 5 do CSAT e faixas do NPS. Serve só para avaliação e não substitui `_status.scss` nem os tokens de feedback: sucesso e aprovado continuam teal, nunca verde.
+
+- Notas: `--kln-avaliacao-nota-1-icon/bg` … `--kln-avaliacao-nota-5-icon/bg` (ícone da carinha e fundo), com valores próprios na classe `.dark`
+- NPS: `--kln-avaliacao-nps-detrator`, `--kln-avaliacao-nps-neutro`, `--kln-avaliacao-nps-promotor` (iguais nos dois modos)
+
 ---
 
 ## Classificação Atomic Design — Todos os 94 Componentes
