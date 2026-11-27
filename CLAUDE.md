@@ -411,6 +411,20 @@ Placeholder             ink 500    #6B7370   (--kln-field-placeholder)
 Status sólido           slate 700 #546E7A · teal 600 #1F7E7B · sea 700 #406E74 · coral 600 #C24648 · orange 600 #A8631E
 ```
 
+**Escala de avaliação (CSAT e NPS):** cores das notas de 1 a 5 (as carinhas, de "Muito ruim" a "Muito bom") e das faixas do NPS, vindas do Figma do App Klini 2026 (decisão T5 de 27/11/2026). Serve **só para avaliação** e não substitui as cores de status: sucesso e aprovado continuam teal, nunca verde; aviso continua orange e erro continua coral.
+```
+                 ícone claro / escuro    fundo claro / escuro
+nota-1           #D93A2F / #FF8074       #FDECEA / #481C1A
+nota-2           #D66E14 / #FFA35C       #FDEFE0 / #462A12
+nota-3           #B08600 / #ECC648       #FFF7DB / #3C320E
+nota-4           #5E9E2E / #9CD274       #ECF6E4 / #223618
+nota-5           #1E8A4C / #60CC88       #E1F3E8 / #123824
+nps-detrator     #C43028 (igual nos dois modos)
+nps-neutro       #A36200 (igual nos dois modos)
+nps-promotor     #1A7A42 (igual nos dois modos)
+```
+Angular: `--kln-avaliacao-nota-N-icon`, `--kln-avaliacao-nota-N-bg` e `--kln-avaliacao-nps-*` em `tokens/_avaliacao.scss` (escuro na classe `.dark`). React: `--avaliacao-nota-N-icon`, `--avaliacao-nota-N-bg` e `--avaliacao-nps-*` em `globals.css`, com os utilitários `text-avaliacao-nota-N-icon`, `bg-avaliacao-nota-N-bg` e `bg-avaliacao-nps-*`.
+
 **Fontes:**
 - **Inter** — padrão de produto: headings, labels, botões e corpo (decisão de 05/10/2026; é a fonte do Portal do Beneficiário v2 e da biblioteca no Figma). A Objective saiu porque não é instalável.
 - **Merriweather** — editorial/marketing only (nunca em UI de produto)

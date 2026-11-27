@@ -53,6 +53,24 @@ interface StatusToken {
   fgVar: string;
 }
 
+interface AvaliacaoNota {
+  nota: number;
+  label: string;
+  iconVar: string;
+  bgVar: string;
+  icon: string;
+  bg: string;
+  iconDark: string;
+  bgDark: string;
+}
+
+interface AvaliacaoNps {
+  label: string;
+  faixa: string;
+  cssVar: string;
+  value: string;
+}
+
 @Component({
   selector: 'app-tokens',
   standalone: true,
@@ -178,6 +196,85 @@ interface StatusToken {
             <strong>Uso no código:</strong>
             Os tokens são aplicados automaticamente por <code class="font-mono">kln-status-pill</code>.
             Para estilização manual, referencie <code class="font-mono">--kln-status-autorizada-bg</code> etc.
+          </p>
+        </div>
+      </div>
+
+      <div class="docs-section">
+        <h2>Escala de Avaliação</h2>
+        <p>
+          Cores das notas de 1 a 5 do CSAT (as carinhas, de <em>Muito ruim</em> a <em>Muito bom</em>) e das faixas do NPS,
+          trazidas do Figma do App Klini 2026. Cada nota expõe <strong>icon</strong> (cor da carinha) e
+          <strong>bg</strong> (fundo), com valor próprio no modo escuro (classe <code class="font-mono">.dark</code>).
+          As cores do NPS são as mesmas nos dois modos.
+        </p>
+
+        <div style="border:1px solid var(--docs-border);border-radius:8px;overflow:hidden;margin-bottom:20px">
+          <table style="width:100%;border-collapse:collapse;font-size:12px">
+            <thead>
+              <tr style="background:var(--docs-brand-soft)">
+                <th style="text-align:left;padding:10px 14px;font-weight:600;color:var(--docs-text);border-bottom:1px solid var(--docs-border)">Nota</th>
+                <th style="text-align:left;padding:10px 14px;font-weight:600;color:var(--docs-text);border-bottom:1px solid var(--docs-border)">Token</th>
+                <th style="text-align:left;padding:10px 14px;font-weight:600;color:var(--docs-text);border-bottom:1px solid var(--docs-border)">Claro</th>
+                <th style="text-align:left;padding:10px 14px;font-weight:600;color:var(--docs-text);border-bottom:1px solid var(--docs-border)">Escuro</th>
+              </tr>
+            </thead>
+            <tbody>
+              @for (n of avaliacaoNotas; track n.nota) {
+                <tr style="border-bottom:1px solid var(--docs-border)">
+                  <td style="padding:10px 14px;font-weight:600;color:var(--docs-text);white-space:nowrap">{{ n.nota }} · {{ n.label }}</td>
+                  <td style="padding:10px 14px">
+                    <code style="font-family:'Fira Code',monospace;font-size:11px;color:var(--docs-text);display:block">{{ n.iconVar }}</code>
+                    <code style="font-family:'Fira Code',monospace;font-size:11px;color:var(--docs-text);display:block">{{ n.bgVar }}</code>
+                  </td>
+                  <td style="padding:10px 14px">
+                    <div style="display:flex;align-items:center;gap:10px">
+                      <div [style.background]="n.bg" style="width:32px;height:32px;border-radius:9999px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid rgba(0,0,0,0.08)">
+                        <div [style.background]="n.icon" style="width:14px;height:14px;border-radius:9999px"></div>
+                      </div>
+                      <div style="font-family:'Fira Code',monospace;font-size:10px;color:var(--docs-text-subtle)">
+                        <div>{{ n.icon }}</div>
+                        <div>{{ n.bg }}</div>
+                      </div>
+                    </div>
+                  </td>
+                  <td style="padding:10px 14px">
+                    <div style="display:flex;align-items:center;gap:10px">
+                      <div [style.background]="n.bgDark" style="width:32px;height:32px;border-radius:9999px;display:flex;align-items:center;justify-content:center;flex-shrink:0;border:1px solid rgba(0,0,0,0.08)">
+                        <div [style.background]="n.iconDark" style="width:14px;height:14px;border-radius:9999px"></div>
+                      </div>
+                      <div style="font-family:'Fira Code',monospace;font-size:10px;color:var(--docs-text-subtle)">
+                        <div>{{ n.iconDark }}</div>
+                        <div>{{ n.bgDark }}</div>
+                      </div>
+                    </div>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        </div>
+
+        <h3>NPS</h3>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          @for (c of avaliacaoNps; track c.cssVar) {
+            <div style="display:flex;align-items:center;gap:8px;padding:10px;border:1px solid var(--docs-border);border-radius:8px">
+              <div [style.background]="c.value" style="width:32px;height:32px;border-radius:4px"></div>
+              <div>
+                <div style="font-size:12px;font-weight:600;color:var(--docs-text)">{{ c.label }} · {{ c.faixa }}</div>
+                <div style="font-family:'Fira Code',monospace;font-size:10px;color:var(--docs-text-muted)">{{ c.cssVar }}</div>
+                <div style="font-family:'Fira Code',monospace;font-size:10px;color:var(--docs-text-subtle)">{{ c.value }}</div>
+              </div>
+            </div>
+          }
+        </div>
+
+        <div style="margin-top:20px;padding:14px 18px;background:var(--docs-brand-soft);border-radius:8px;border-left:3px solid var(--docs-accent)">
+          <p style="margin:0;font-size:13px;color:var(--docs-text)">
+            <strong>Só para avaliação.</strong>
+            Esta escala pinta notas de CSAT e faixas de NPS e não substitui as cores de status do DS.
+            Sucesso e aprovado continuam teal (<code class="font-mono">--kln-feedback-success-*</code>,
+            <code class="font-mono">--kln-status-autorizada-*</code>), nunca verde. Aviso continua orange e erro continua coral.
           </p>
         </div>
       </div>
@@ -608,6 +705,20 @@ export class TokensComponent {
       bgVar:    '--kln-status-inativa-bg',
       fgVar:    '--kln-status-inativa-fg',
     },
+  ];
+
+  avaliacaoNotas: AvaliacaoNota[] = [
+    { nota: 1, label: 'Muito ruim', iconVar: '--kln-avaliacao-nota-1-icon', bgVar: '--kln-avaliacao-nota-1-bg', icon: '#D93A2F', bg: '#FDECEA', iconDark: '#FF8074', bgDark: '#481C1A' },
+    { nota: 2, label: 'Ruim',       iconVar: '--kln-avaliacao-nota-2-icon', bgVar: '--kln-avaliacao-nota-2-bg', icon: '#D66E14', bg: '#FDEFE0', iconDark: '#FFA35C', bgDark: '#462A12' },
+    { nota: 3, label: 'Regular',    iconVar: '--kln-avaliacao-nota-3-icon', bgVar: '--kln-avaliacao-nota-3-bg', icon: '#B08600', bg: '#FFF7DB', iconDark: '#ECC648', bgDark: '#3C320E' },
+    { nota: 4, label: 'Bom',        iconVar: '--kln-avaliacao-nota-4-icon', bgVar: '--kln-avaliacao-nota-4-bg', icon: '#5E9E2E', bg: '#ECF6E4', iconDark: '#9CD274', bgDark: '#223618' },
+    { nota: 5, label: 'Muito bom',  iconVar: '--kln-avaliacao-nota-5-icon', bgVar: '--kln-avaliacao-nota-5-bg', icon: '#1E8A4C', bg: '#E1F3E8', iconDark: '#60CC88', bgDark: '#123824' },
+  ];
+
+  avaliacaoNps: AvaliacaoNps[] = [
+    { label: 'Detrator', faixa: '0 a 6',  cssVar: '--kln-avaliacao-nps-detrator', value: '#C43028' },
+    { label: 'Neutro',   faixa: '7 e 8',  cssVar: '--kln-avaliacao-nps-neutro',   value: '#A36200' },
+    { label: 'Promotor', faixa: '9 e 10', cssVar: '--kln-avaliacao-nps-promotor', value: '#1A7A42' },
   ];
 
   chartCategorical = [

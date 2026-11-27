@@ -52,6 +52,19 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border:          var(--sidebar-border);
   --color-sidebar-ring:            var(--sidebar-ring);
+  --color-avaliacao-nota-1-icon:   var(--avaliacao-nota-1-icon);
+  --color-avaliacao-nota-1-bg:     var(--avaliacao-nota-1-bg);
+  --color-avaliacao-nota-2-icon:   var(--avaliacao-nota-2-icon);
+  --color-avaliacao-nota-2-bg:     var(--avaliacao-nota-2-bg);
+  --color-avaliacao-nota-3-icon:   var(--avaliacao-nota-3-icon);
+  --color-avaliacao-nota-3-bg:     var(--avaliacao-nota-3-bg);
+  --color-avaliacao-nota-4-icon:   var(--avaliacao-nota-4-icon);
+  --color-avaliacao-nota-4-bg:     var(--avaliacao-nota-4-bg);
+  --color-avaliacao-nota-5-icon:   var(--avaliacao-nota-5-icon);
+  --color-avaliacao-nota-5-bg:     var(--avaliacao-nota-5-bg);
+  --color-avaliacao-nps-detrator:  var(--avaliacao-nps-detrator);
+  --color-avaliacao-nps-neutro:    var(--avaliacao-nps-neutro);
+  --color-avaliacao-nps-promotor:  var(--avaliacao-nps-promotor);
 
   /* Paleta Klini — valores exatos da marca (hex = PANTONE verificado) */
   --color-klini-teal-50:  #f0fafa;
@@ -140,6 +153,20 @@
     --chart-3: hsl(30 69% 47%);   /* Orange #CD7925 PANTONE 7565C */
     --chart-4: hsl(359 69% 61%);  /* Coral  #E05759 PANTONE 7625C */
     --chart-5: hsl(210 13% 50%);  /* Slate  #708090               */
+
+    --avaliacao-nota-1-icon: hsl(3.9 69.1% 51.8%);
+    --avaliacao-nota-1-bg: hsl(6.3 82.6% 95.5%);
+    --avaliacao-nota-2-icon: hsl(27.8 82.9% 45.9%);
+    --avaliacao-nota-2-bg: hsl(31 87.9% 93.5%);
+    --avaliacao-nota-3-icon: hsl(45.7 100% 34.5%);
+    --avaliacao-nota-3-bg: hsl(46.7 100% 92.9%);
+    --avaliacao-nota-4-icon: hsl(94.3 54.9% 40%);
+    --avaliacao-nota-4-bg: hsl(93.3 50% 92.9%);
+    --avaliacao-nota-5-icon: hsl(145.6 64.3% 32.9%);
+    --avaliacao-nota-5-bg: hsl(143.3 42.9% 91.8%);
+    --avaliacao-nps-detrator: hsl(3.1 66.1% 46.3%);
+    --avaliacao-nps-neutro: hsl(36.1 100% 32%);
+    --avaliacao-nps-promotor: hsl(145 64.9% 29%);
   }
 
   .dark {
@@ -187,6 +214,17 @@
     --chart-3: hsl(30 65% 58%);   /* Orange lighter */
     --chart-4: hsl(359 65% 65%);  /* Coral  lighter */
     --chart-5: hsl(210 13% 62%);  /* Slate  lighter */
+
+    --avaliacao-nota-1-icon: hsl(5.2 100% 72.7%);
+    --avaliacao-nota-1-bg: hsl(2.6 46.9% 19.2%);
+    --avaliacao-nota-2-icon: hsl(26.1 100% 68%);
+    --avaliacao-nota-2-bg: hsl(27.7 59.1% 17.3%);
+    --avaliacao-nota-3-icon: hsl(46.1 81.2% 60.4%);
+    --avaliacao-nota-3-bg: hsl(47 62.2% 14.5%);
+    --avaliacao-nota-4-icon: hsl(94.5 51.1% 63.9%);
+    --avaliacao-nota-4-bg: hsl(100 38.5% 15.3%);
+    --avaliacao-nota-5-icon: hsl(142.2 51.4% 58.8%);
+    --avaliacao-nota-5-bg: hsl(148.4 51.4% 14.5%);
   }
 }
 
